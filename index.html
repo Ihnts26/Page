@@ -1,3 +1,5 @@
+Below is your full updated HTML, with the gallery fixed so all images/video have the same display size while using object-fit: contain, and with Basic Chair correctly inside the gallery grid.
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -649,7 +651,7 @@
 
 
         /* =====================================================
-           EXAMPLES / GALLERY
+           GALLERY
         ===================================================== */
 
         .gallery-grid {
@@ -692,18 +694,25 @@
                 rgba(15,23,42,0.10);
         }
 
-        .gallery-image {
+
+        /* =====================================================
+           SAME-SIZE IMAGES AND VIDEO
+        ===================================================== */
+
+        .gallery-image,
+        .gallery-video {
             width: 100%;
 
-            aspect-ratio: 16 / 10;
+            height: 240px;
 
             display: block;
 
-            object-fit: cover;
+            background: #F1F5F9;
 
-            background:
-                #E2E8F0;
+            object-fit: contain;
+        }
 
+        .gallery-image {
             cursor: zoom-in;
 
             transition:
@@ -715,19 +724,8 @@
                 scale(1.03);
         }
 
-        /* NEW: MP4 VIDEO */
-
         .gallery-video {
-            width: 100%;
-
-            aspect-ratio: 16 / 10;
-
-            display: block;
-
-            object-fit: cover;
-
-            background:
-                #07182D;
+            background: #07182D;
         }
 
         .gallery-caption {
@@ -1456,6 +1454,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-image,
+            .gallery-video {
+                height: 260px;
+            }
+
         }
 
         @media (max-width: 600px) {
@@ -1559,6 +1562,11 @@
                 height: 40px;
 
                 font-size: 26px;
+            }
+
+            .gallery-image,
+            .gallery-video {
+                height: 220px;
             }
 
         }
@@ -1665,7 +1673,7 @@
 
         <li>
             <a href="#gallery">
-                
+                Examples
             </a>
         </li>
 
@@ -2260,10 +2268,11 @@
             </div>
 
             <h2 class="section-title">
+                Examples of Work
             </h2>
 
             <p class="section-intro">
-                Examples
+                A selection of practical project and technical work.
             </p>
 
 
@@ -2286,11 +2295,11 @@
                     <div class="gallery-caption">
 
                         <h3>
-                            Floor1
+                            Floor 1
                         </h3>
 
                         <p>
-                         
+                           
                         </p>
 
                     </div>
@@ -2314,11 +2323,11 @@
                     <div class="gallery-caption">
 
                         <h3>
-                            Floor2
+                            Floor 2
                         </h3>
 
                         <p>
-                    
+                            
                         </p>
 
                     </div>
@@ -2327,7 +2336,7 @@
 
 
                 <!-- =================================================
-                     All
+                     VIDEO
                 ================================================== -->
 
                 <article class="gallery-item">
@@ -2344,6 +2353,8 @@
                             type="video/mp4"
                         >
 
+                        Your browser does not support
+                        HTML5 video.
 
                     </video>
 
@@ -2354,7 +2365,35 @@
                         </h3>
 
                         <p>
-                        
+                            
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================================
+                     BASIC CHAIR
+                ================================================== -->
+
+                <article class="gallery-item">
+
+                    <img
+                        src="Simple Basic Chair.png"
+                        alt="Basic chair project"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Basic Chair
+                        </h3>
+
+                        <p>
+                           
                         </p>
 
                     </div>
@@ -2367,33 +2406,6 @@
         </div>
 
     </section>
-
- <!-- =================================================
-                     BASIC CHAIR
-================================================== -->
-
-                <article class="gallery-item">
-
-                    <img
-                        src="Simple Basic Chair.png"
-                        alt="Floor project"
-                        class="gallery-image"
-                        loading="lazy"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Basic Chair
-                        </h3>
-
-                        <p>
-                    
-                        </p>
-
-                    </div>
-
-                </article>
 
 
     <!-- =====================================================
