@@ -17,7 +17,7 @@
 
     <meta
         name="description"
-        content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electrical, electronics, hardware, construction, clinical, documentation, research and technical work."
+        content="Kaye Eloisa Arnejo | Practical, hands-on freelance, contract and project support across software, electrical, electronics, hardware, construction, documentation, research and technical work."
     >
 
     <title>
@@ -55,6 +55,10 @@
             background: #f5f7fa;
             color: #1f2937;
             line-height: 1.6;
+        }
+
+        body.modal-open {
+            overflow: hidden;
         }
 
         a {
@@ -272,7 +276,8 @@
             font-weight: 650;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a:focus-visible {
             color: var(--blue);
         }
 
@@ -697,11 +702,6 @@
                 rgba(15,23,42,0.10);
         }
 
-
-        /* =====================================================
-           SAME-SIZE GALLERY IMAGES AND VIDEO
-        ===================================================== */
-
         .gallery-image,
         .gallery-video {
             width: 100%;
@@ -763,7 +763,7 @@
 
 
         /* =====================================================
-           IMAGE ZOOM / MAGNIFICATION
+           IMAGE ZOOM MODAL
         ===================================================== */
 
         .image-zoom-modal {
@@ -856,7 +856,8 @@
                 transform 0.2s ease;
         }
 
-        .image-zoom-close:hover {
+        .image-zoom-close:hover,
+        .image-zoom-close:focus-visible {
             background:
                 rgba(255,255,255,0.22);
 
@@ -889,10 +890,6 @@
             text-align: center;
 
             pointer-events: none;
-        }
-
-        body.image-zoom-open {
-            overflow: hidden;
         }
 
 
@@ -1229,7 +1226,8 @@
             cursor: pointer;
         }
 
-        .privacy-close:hover {
+        .privacy-close:hover,
+        .privacy-close:focus-visible {
             background:
                 #E2E8F0;
         }
@@ -1312,6 +1310,12 @@
             cursor: pointer;
         }
 
+        .privacy-button:disabled {
+            opacity: 0.65;
+
+            cursor: wait;
+        }
+
         .privacy-primary {
             background:
                 var(--blue);
@@ -1361,6 +1365,10 @@
             cursor: pointer;
         }
 
+        .privacy-text-button:hover {
+            color: var(--blue-dark);
+        }
+
         .privacy-floating {
             position: fixed;
 
@@ -1396,10 +1404,6 @@
 
         .privacy-floating button:hover {
             color: var(--blue);
-        }
-
-        body.privacy-modal-open {
-            overflow: hidden;
         }
 
 
@@ -1629,8 +1633,8 @@
         <p class="hero-description">
             Practical, hands-on support across software,
             electrical, electronics and hardware, construction and civil
-            projects, clinical and medical-related work, documentation,
-            research and technical tasks.
+            projects, clinical and medical-related project work,
+            documentation, research and technical tasks.
         </p>
 
         <div class="hero-buttons">
@@ -1665,39 +1669,27 @@
     <ul>
 
         <li>
-            <a href="#home">
-                Home
-            </a>
+            <a href="#home">Home</a>
         </li>
 
         <li>
-            <a href="#services">
-                Services
-            </a>
+            <a href="#services">Services</a>
         </li>
 
         <li>
-            <a href="#help">
-                What I Can Help With
-            </a>
+            <a href="#help">What I Can Help With</a>
         </li>
 
         <li>
-            <a href="#gallery">
-                Examples
-            </a>
+            <a href="#gallery">Examples</a>
         </li>
 
         <li>
-            <a href="#process">
-                How It Works
-            </a>
+            <a href="#process">How It Works</a>
         </li>
 
         <li>
-            <a href="#contact">
-                Enquire
-            </a>
+            <a href="#contact">Enquire</a>
         </li>
 
     </ul>
@@ -1752,7 +1744,7 @@
                         My background covers software,
                         electrical, electronics and hardware,
                         construction-related environments,
-                        clinical and medical-related work,
+                        clinical and medical-related project work,
                         research, documentation and technical
                         project support.
                     </p>
@@ -1823,8 +1815,8 @@
             <p class="section-intro">
                 Practical, hands-on support across software,
                 electrical, electronics, hardware, project,
-                clinical, construction, research and documentation
-                requirements.
+                clinical-related, construction, research and
+                documentation requirements.
             </p>
 
 
@@ -1832,13 +1824,9 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        01
-                    </div>
+                    <div class="service-number">01</div>
 
-                    <h3>
-                        Software
-                    </h3>
+                    <h3>Software</h3>
 
                     <p>
                         Hands-on support with software-related tasks,
@@ -1860,9 +1848,7 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        02
-                    </div>
+                    <div class="service-number">02</div>
 
                     <h3>
                         Electrical, Electronics &amp; Hardware
@@ -1889,9 +1875,7 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        03
-                    </div>
+                    <div class="service-number">03</div>
 
                     <h3>
                         Construction &amp; Civil Project Support
@@ -1917,27 +1901,24 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        04
-                    </div>
+                    <div class="service-number">04</div>
 
                     <h3>
-                        Clinical, Medical &amp; Mental Health Support
+                        Clinical &amp; Medical-Related Project Support
                     </h3>
 
                     <p>
-                        Appropriate non-diagnostic support for
-                        clinical, medical-related and mental
-                        health-related environments, documentation,
-                        research and coordination.
+                        Non-diagnostic support for appropriate
+                        clinical and medical-related projects,
+                        documentation, research and coordination.
                     </p>
 
                     <ul>
                         <li>Clinical documentation</li>
                         <li>Research assistance</li>
                         <li>Information organisation</li>
-                        <li>Mental health-related project support</li>
                         <li>Clinical project coordination</li>
+                        <li>Medical-related project support</li>
                     </ul>
 
                 </div>
@@ -1945,18 +1926,16 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        05
-                    </div>
+                    <div class="service-number">05</div>
 
                     <h3>
                         Documentation &amp; Project Support
                     </h3>
 
                     <p>
-                        Practical support with the documentation,
-                        information and project tasks needed to keep
-                        technical or professional work moving.
+                        Practical support with documentation,
+                        information and project tasks needed to
+                        keep technical or professional work moving.
                     </p>
 
                     <ul>
@@ -1973,9 +1952,58 @@
 
                 <div class="service">
 
-                    <div class="service-number">
-                        06
-                    </div>
+                    <div class="service-number">06</div>
+
+                    <h3>
+                        Mental Health-Related Project Support
+                    </h3>
+
+                    <p>
+                        Non-diagnostic support for appropriate
+                        research, documentation, coordination and
+                        project-related work.
+                    </p>
+
+                    <ul>
+                        <li>Research assistance</li>
+                        <li>Documentation support</li>
+                        <li>Information organisation</li>
+                        <li>Project coordination</li>
+                        <li>Non-clinical support tasks</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">07</div>
+
+                    <h3>
+                        Research &amp; Technical Information
+                    </h3>
+
+                    <p>
+                        Practical assistance with finding,
+                        organising and documenting information
+                        needed for a project or technical task.
+                    </p>
+
+                    <ul>
+                        <li>Technical research</li>
+                        <li>Reference gathering</li>
+                        <li>Information comparison</li>
+                        <li>Specification research</li>
+                        <li>Research summaries</li>
+                        <li>Technical information organisation</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="service">
+
+                    <div class="service-number">08</div>
 
                     <h3>
                         Custom Project Support
@@ -1984,8 +2012,7 @@
                     <p>
                         Have a requirement that does not fit neatly
                         into one category? Start with the task and
-                        we can discuss the practical, hands-on
-                        support needed.
+                        discuss the practical support needed.
                     </p>
 
                     <ul>
@@ -2078,10 +2105,10 @@
                 </div>
 
                 <div class="help-item">
-                    <strong>Support mental health-related work</strong>
+                    <strong>Support mental health-related projects</strong>
                     <span>
                         Non-diagnostic research, documentation,
-                        coordination and support-service tasks.
+                        coordination and project-support tasks.
                     </span>
                 </div>
 
@@ -2261,120 +2288,156 @@
     </section>
 
 
+    <!-- =====================================================
+         EXAMPLES
+    ===================================================== -->
 
-<!-- =====================================================
-     EXAMPLES
-===================================================== -->
+    <section
+        class="section"
+        id="gallery"
+    >
 
-<section class="section" id="gallery">
+        <div class="card">
 
-    <div class="card">
+            <div class="label">
+                Examples
+            </div>
 
-        <div class="label">
-            Examples
-        </div>
+            <h2 class="section-title">
+                Practical Work Examples
+            </h2>
 
-        <h2 class="section-title">
-            Examples
-        </h2>
-
-        <p class="section-intro">
-            
-        </p>
-
-        <div class="gallery-grid">
-
-            <!-- =================================================
-                 FLOOR 1
-            ================================================== -->
-
-            <article class="gallery-item">
-
-                <img
-                    src="Floor.jpg"
-                    alt="Floor project work"
-                    class="gallery-image"
-                    loading="lazy"
-                >
-
-                <div class="gallery-caption">
-
-                    <h3>Floor 1</h3>
-
-                    <p>
-                    
-                    </p>
-
-                </div>
-
-            </article>
+            <p class="section-intro">
+                A few examples of practical project and hands-on
+                work. Select an image to view it at a larger size.
+            </p>
 
 
-            <!-- =================================================
-                 FLOOR 2
-            ================================================== -->
-
-            <article class="gallery-item">
-
-                <img
-                    src="ha.png"
-                    alt="Floor project"
-                    class="gallery-image"
-                    loading="lazy"
-                >
-
-                <div class="gallery-caption">
-
-                    <h3>Floor 2</h3>
-
-                    <p>
-                       
-                    </p>
-
-                </div>
-
-            </article>
+            <div class="gallery-grid">
 
 
-            <!-- =================================================
-                 VIDEO
-            ================================================== -->
+                <!-- FLOOR -->
 
-            <article class="gallery-item">
+                <article class="gallery-item">
 
-                <video
-                    class="gallery-video"
-                    controls
-                    preload="metadata"
-                    playsinline
-                >
-                    <source
-                        src="Recording 2026-08-21 134410.mp4"
-                        type="video/mp4"
+                    <img
+                        src="Floor.jpg"
+                        alt="Floor project example"
+                        class="gallery-image"
+                        loading="lazy"
                     >
 
-                    Your browser does not support HTML5 video.
+                    <div class="gallery-caption">
 
-                </video>
+                        <h3>
+                            Floor Project
+                        </h3>
 
-                <div class="gallery-caption">
+                        <p>
+                            Example of practical project and
+                            hands-on work.
+                        </p>
 
-                    <h3>Example Video</h3>
+                    </div>
 
-                    <p>
-                        
-                    </p>
+                </article>
 
-                </div>
 
-            </article>
+                <!-- PROJECT IMAGE -->
 
-        </div><!-- /.gallery-grid -->
+                <article class="gallery-item">
 
-    </div><!-- /.card -->
+                    <img
+                        src="ha.png"
+                        alt="Project work example"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
 
-</section><!-- /#gallery -->
-    
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Project Example
+                        </h3>
+
+                        <p>
+                            Example of practical technical
+                            project work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- VIDEO -->
+
+                <article class="gallery-item">
+
+                    <video
+                        class="gallery-video"
+                        controls
+                        preload="metadata"
+                        playsinline
+                    >
+
+                        <source
+                            src="Recording 2026-08-21 134410.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support HTML5 video.
+
+                    </video>
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Example Video
+                        </h3>
+
+                        <p>
+                            Video example of practical project work.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CHAIR -->
+
+                <article class="gallery-item">
+
+                    <img
+                        src="hm.png"
+                        alt="Chair project example"
+                        class="gallery-image"
+                        loading="lazy"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Chair
+                        </h3>
+
+                        <p>
+                          
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <!-- =====================================================
          PROCESS
     ===================================================== -->
@@ -2483,9 +2546,9 @@
             <p>
                 Whether it is software, electrical work,
                 electronics, hardware, construction,
-                clinical or mental health-related work,
-                documentation, research or a specific task you
-                have not quite figured out yet, send me the details.
+                clinical-related project work, documentation,
+                research or a specific task you have not quite
+                figured out yet, send me the details.
             </p>
 
             <a
@@ -2610,12 +2673,12 @@
                     Construction / Civil Project
                 </option>
 
-                <option value="Clinical / Medical Support">
-                    Clinical / Medical Support
+                <option value="Clinical / Medical-Related Project Support">
+                    Clinical / Medical-Related Project Support
                 </option>
 
-                <option value="Mental Health-Related Support">
-                    Mental Health-Related Support
+                <option value="Mental Health-Related Project Support">
+                    Mental Health-Related Project Support
                 </option>
 
                 <option value="Documentation / Project Support">
@@ -2758,8 +2821,7 @@
 
     <p>
         Software • Electrical • Electronics • Hardware •
-        Construction • Clinical • Mental Health-Related •
-        Technical Support
+        Construction • Clinical-Related • Technical Support
     </p>
 
     <br>
@@ -2780,7 +2842,7 @@
     class="image-zoom-modal"
     role="dialog"
     aria-modal="true"
-    aria-label="Enlarged image"
+    aria-labelledby="image-zoom-caption"
     hidden
 >
 
@@ -2903,9 +2965,8 @@
             </p>
 
             <p>
-                The page may use several fresh location readings
-                during an explicit location request and retain the
-                most accurate reading obtained during that request.
+                The page requests a location reading only when
+                you explicitly choose to allow location access.
             </p>
 
             <p>
@@ -2930,7 +2991,7 @@
             </p>
 
             <p>
-                Information may be stored in the enquiry
+                Information may be stored in the enquiry system
                 and used to manage the enquiry.
             </p>
 
@@ -2946,18 +3007,18 @@
             <p>
                 Technical, electrical, electronics, hardware,
                 construction, clinical, medical and mental
-                health-related support is subject to the actual
-                scope of work, applicable requirements, qualifications,
-                permissions and any professional responsibilities
-                that may apply.
+                health-related project support is subject to the
+                actual scope of work, applicable requirements,
+                qualifications, permissions and any professional
+                responsibilities that may apply.
             </p>
 
             <p>
                 Mental health-related support offered through this
-                page is not a substitute for emergency care,
+                page is non-diagnostic project and support work.
+                It is not a substitute for emergency care,
                 diagnosis, psychotherapy, medical treatment or
-                other regulated professional services unless
-                separately agreed and appropriately qualified.
+                other regulated professional services.
             </p>
 
         </div>
@@ -3037,6 +3098,8 @@
     <button
         type="button"
         id="open-privacy"
+        aria-haspopup="dialog"
+        aria-controls="privacy-modal"
     >
         Privacy &amp; Terms
     </button>
@@ -3076,6 +3139,9 @@ document.addEventListener(
         const emailInput =
             document.getElementById("email");
 
+        const messageInput =
+            document.getElementById("message");
+
         const iframe =
             document.getElementById("form-response-frame");
 
@@ -3091,7 +3157,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           FORM OPTIONAL ELEMENTS
+           LOCATION ELEMENTS
         ===================================================== */
 
         const locationPermission =
@@ -3119,6 +3185,13 @@ document.addEventListener(
             document.getElementById(
                 "privacy-modal"
             );
+
+        const privacyPanel =
+            privacyModal
+                ? privacyModal.querySelector(
+                    ".privacy-panel"
+                )
+                : null;
 
         const privacyClose =
             document.getElementById(
@@ -3180,7 +3253,8 @@ document.addEventListener(
             !button ||
             !iframe ||
             !nameInput ||
-            !emailInput
+            !emailInput ||
+            !messageInput
         ) {
 
             console.error(
@@ -3194,6 +3268,9 @@ document.addEventListener(
 
         let submitting = false;
         let submissionTimer = null;
+
+        let lastPrivacyTrigger = null;
+        let lastImageTrigger = null;
 
 
         /* =====================================================
@@ -3273,10 +3350,450 @@ document.addEventListener(
 
 
         /* =====================================================
+           LOCATION STORAGE
+        ===================================================== */
+
+        function saveLocationConsent(
+            value
+        ) {
+
+            try {
+
+                localStorage.setItem(
+                    "kea_location_consent",
+                    value
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "Local storage unavailable.",
+                    error
+                );
+
+            }
+
+        }
+
+
+        function getLocationConsent() {
+
+            try {
+
+                return localStorage.getItem(
+                    "kea_location_consent"
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "Local storage unavailable.",
+                    error
+                );
+
+                return null;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CLEAR LOCATION
+        ===================================================== */
+
+        function clearLocationFields() {
+
+            if (latitudeInput) {
+                latitudeInput.value = "";
+            }
+
+            if (longitudeInput) {
+                longitudeInput.value = "";
+            }
+
+            if (accuracyInput) {
+                accuracyInput.value = "";
+            }
+
+        }
+
+
+        /* =====================================================
+           PRIVACY MODAL
+        ===================================================== */
+
+        function openPrivacyModal(
+            trigger = null
+        ) {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            lastPrivacyTrigger =
+                trigger ||
+                document.activeElement;
+
+            privacyModal.hidden =
+                false;
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+            setTimeout(
+                function () {
+
+                    if (privacyClose) {
+                        privacyClose.focus();
+                    }
+
+                },
+                50
+            );
+
+        }
+
+
+        function closePrivacyModal() {
+
+            if (!privacyModal) {
+                return;
+            }
+
+            privacyModal.hidden =
+                true;
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+            if (
+                lastPrivacyTrigger &&
+                typeof lastPrivacyTrigger.focus ===
+                    "function"
+            ) {
+
+                try {
+                    lastPrivacyTrigger.focus();
+                } catch (error) {
+                    /* Ignore focus restoration errors. */
+                }
+
+            }
+
+            lastPrivacyTrigger =
+                null;
+
+        }
+
+
+        /* =====================================================
+           DENY / CONTINUE WITHOUT LOCATION
+        ===================================================== */
+
+        function denyLocationAccess() {
+
+            saveLocationConsent("denied");
+
+            if (locationPermission) {
+
+                locationPermission.value =
+                    "denied";
+
+            }
+
+            clearLocationFields();
+
+            closePrivacyModal();
+
+        }
+
+
+        /* =====================================================
+           PRIVACY EVENTS
+        ===================================================== */
+
+        if (openPrivacy) {
+
+            openPrivacy.addEventListener(
+                "click",
+                function () {
+                    openPrivacyModal(
+                        openPrivacy
+                    );
+                }
+            );
+
+        }
+
+
+        if (privacyClose) {
+
+            privacyClose.addEventListener(
+                "click",
+                function () {
+                    closePrivacyModal();
+                }
+            );
+
+        }
+
+
+        if (denyLocation) {
+
+            denyLocation.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+
+        if (privacyUnderstood) {
+
+            privacyUnderstood.addEventListener(
+                "click",
+                denyLocationAccess
+            );
+
+        }
+
+
+        /* =====================================================
+           CLICK OUTSIDE PRIVACY PANEL
+        ===================================================== */
+
+        if (privacyModal) {
+
+            privacyModal.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        event.target ===
+                        privacyModal
+                    ) {
+
+                        closePrivacyModal();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           LOCATION
+        ===================================================== */
+
+        if (allowLocation) {
+
+            allowLocation.addEventListener(
+                "click",
+                function () {
+
+                    if (!navigator.geolocation) {
+
+                        if (locationPermission) {
+
+                            locationPermission.value =
+                                "unavailable";
+
+                        }
+
+                        saveLocationConsent(
+                            "unavailable"
+                        );
+
+                        closePrivacyModal();
+
+                        return;
+
+                    }
+
+
+                    allowLocation.disabled =
+                        true;
+
+                    allowLocation.textContent =
+                        "Requesting Location...";
+
+
+                    navigator.geolocation.getCurrentPosition(
+
+                        function (position) {
+
+                            const coords =
+                                position.coords;
+
+
+                            if (latitudeInput) {
+
+                                latitudeInput.value =
+                                    Number(
+                                        coords.latitude
+                                    ).toFixed(8);
+
+                            }
+
+
+                            if (longitudeInput) {
+
+                                longitudeInput.value =
+                                    Number(
+                                        coords.longitude
+                                    ).toFixed(8);
+
+                            }
+
+
+                            if (accuracyInput) {
+
+                                accuracyInput.value =
+                                    Number(
+                                        coords.accuracy
+                                    ).toFixed(2);
+
+                            }
+
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    "granted";
+
+                            }
+
+
+                            saveLocationConsent(
+                                "granted"
+                            );
+
+
+                            allowLocation.disabled =
+                                false;
+
+                            allowLocation.textContent =
+                                "Allow Location";
+
+
+                            closePrivacyModal();
+
+                        },
+
+
+                        function (error) {
+
+                            console.warn(
+                                "Location error:",
+                                error.code,
+                                error.message
+                            );
+
+
+                            clearLocationFields();
+
+
+                            const permissionState =
+                                error.code === 1
+                                    ? "denied"
+                                    : "unavailable";
+
+
+                            if (locationPermission) {
+
+                                locationPermission.value =
+                                    permissionState;
+
+                            }
+
+
+                            saveLocationConsent(
+                                permissionState
+                            );
+
+
+                            allowLocation.disabled =
+                                false;
+
+                            allowLocation.textContent =
+                                "Allow Location";
+
+
+                            closePrivacyModal();
+
+                        },
+
+
+                        {
+                            enableHighAccuracy: true,
+                            maximumAge: 0,
+                            timeout: 15000
+                        }
+
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           RESTORE LOCATION STATE
+        ===================================================== */
+
+        const savedLocationConsent =
+            getLocationConsent();
+
+
+        if (locationPermission) {
+
+            if (
+                savedLocationConsent ===
+                "granted"
+            ) {
+
+                locationPermission.value =
+                    "previously_granted";
+
+            } else if (
+                savedLocationConsent ===
+                "denied"
+            ) {
+
+                locationPermission.value =
+                    "previously_denied";
+
+            } else if (
+                savedLocationConsent ===
+                "unavailable"
+            ) {
+
+                locationPermission.value =
+                    "unavailable";
+
+            } else {
+
+                locationPermission.value =
+                    "not_requested";
+
+            }
+
+        }
+
+
+        /* =====================================================
            IMAGE ZOOM
         ===================================================== */
 
-        function openImageZoom(image) {
+        function openImageZoom(
+            image
+        ) {
 
             if (
                 !imageZoomModal ||
@@ -3287,28 +3804,38 @@ document.addEventListener(
 
             }
 
+            lastImageTrigger =
+                image;
+
+
             imageZoomDisplay.src =
+                image.currentSrc ||
                 image.src;
+
 
             imageZoomDisplay.alt =
                 image.alt ||
                 "Enlarged image";
 
 
-            const caption =
+            const captionElement =
                 image
                     .closest(".gallery-item")
                     ?.querySelector(
                         ".gallery-caption h3"
-                    )
-                    ?.textContent
-                    .trim();
+                    );
+
+
+            const caption =
+                captionElement
+                    ? captionElement.textContent.trim()
+                    : "";
 
 
             if (imageZoomCaption) {
 
                 imageZoomCaption.textContent =
-                    caption || "";
+                    caption;
 
             }
 
@@ -3317,7 +3844,7 @@ document.addEventListener(
                 false;
 
             document.body.classList.add(
-                "image-zoom-open"
+                "modal-open"
             );
 
 
@@ -3347,7 +3874,7 @@ document.addEventListener(
                 true;
 
             document.body.classList.remove(
-                "image-zoom-open"
+                "modal-open"
             );
 
 
@@ -3369,12 +3896,26 @@ document.addEventListener(
 
             }
 
+
+            if (
+                lastImageTrigger &&
+                typeof lastImageTrigger.focus ===
+                    "function"
+            ) {
+
+                try {
+                    lastImageTrigger.focus();
+                } catch (error) {
+                    /* Ignore focus restoration errors. */
+                }
+
+            }
+
+            lastImageTrigger =
+                null;
+
         }
 
-
-        /* =====================================================
-           ENABLE IMAGE ZOOM
-        ===================================================== */
 
         document
             .querySelectorAll(
@@ -3383,6 +3924,25 @@ document.addEventListener(
             .forEach(
                 function (image) {
 
+                    image.setAttribute(
+                        "tabindex",
+                        "0"
+                    );
+
+                    image.setAttribute(
+                        "role",
+                        "button"
+                    );
+
+                    image.setAttribute(
+                        "aria-label",
+                        (
+                            image.alt ||
+                            "Open enlarged image"
+                        )
+                    );
+
+
                     image.addEventListener(
                         "click",
                         function () {
@@ -3390,6 +3950,29 @@ document.addEventListener(
                             openImageZoom(
                                 image
                             );
+
+                        }
+                    );
+
+
+                    image.addEventListener(
+                        "keydown",
+                        function (event) {
+
+                            if (
+                                event.key ===
+                                    "Enter" ||
+                                event.key ===
+                                    " "
+                            ) {
+
+                                event.preventDefault();
+
+                                openImageZoom(
+                                    image
+                                );
+
+                            }
 
                         }
                     );
@@ -3432,167 +4015,6 @@ document.addEventListener(
 
 
         /* =====================================================
-           PRIVACY MODAL
-        ===================================================== */
-
-        function openPrivacyModal() {
-
-            if (!privacyModal) {
-                return;
-            }
-
-            privacyModal.hidden =
-                false;
-
-            document.body.classList.add(
-                "privacy-modal-open"
-            );
-
-            setTimeout(
-                function () {
-
-                    if (privacyClose) {
-                        privacyClose.focus();
-                    }
-
-                },
-                50
-            );
-
-        }
-
-
-        function closePrivacyModal() {
-
-            if (!privacyModal) {
-                return;
-            }
-
-            privacyModal.hidden =
-                true;
-
-            document.body.classList.remove(
-                "privacy-modal-open"
-            );
-
-        }
-
-
-        /* =====================================================
-           SAVE LOCATION CONSENT
-        ===================================================== */
-
-        function saveLocationConsent(
-            value
-        ) {
-
-            try {
-
-                localStorage.setItem(
-                    "kea_location_consent",
-                    value
-                );
-
-            } catch (error) {
-
-                console.warn(
-                    "Local storage unavailable.",
-                    error
-                );
-
-            }
-
-        }
-
-
-        /* =====================================================
-           CLEAR LOCATION
-        ===================================================== */
-
-        function clearLocationFields() {
-
-            if (latitudeInput) {
-                latitudeInput.value = "";
-            }
-
-            if (longitudeInput) {
-                longitudeInput.value = "";
-            }
-
-            if (accuracyInput) {
-                accuracyInput.value = "";
-            }
-
-        }
-
-
-        /* =====================================================
-           DENY LOCATION
-        ===================================================== */
-
-        function denyLocationAccess() {
-
-            saveLocationConsent("denied");
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "denied";
-
-            }
-
-            clearLocationFields();
-
-            closePrivacyModal();
-
-        }
-
-
-        /* =====================================================
-           PRIVACY EVENTS
-        ===================================================== */
-
-        if (openPrivacy) {
-
-            openPrivacy.addEventListener(
-                "click",
-                openPrivacyModal
-            );
-
-        }
-
-
-        if (privacyClose) {
-
-            privacyClose.addEventListener(
-                "click",
-                denyLocationAccess
-            );
-
-        }
-
-
-        if (denyLocation) {
-
-            denyLocation.addEventListener(
-                "click",
-                denyLocationAccess
-            );
-
-        }
-
-
-        if (privacyUnderstood) {
-
-            privacyUnderstood.addEventListener(
-                "click",
-                denyLocationAccess
-            );
-
-        }
-
-
-        /* =====================================================
            KEYBOARD ESCAPE
         ===================================================== */
 
@@ -3605,6 +4027,8 @@ document.addEventListener(
                     imageZoomModal &&
                     !imageZoomModal.hidden
                 ) {
+
+                    event.preventDefault();
 
                     closeImageZoom();
 
@@ -3619,7 +4043,9 @@ document.addEventListener(
                     !privacyModal.hidden
                 ) {
 
-                    denyLocationAccess();
+                    event.preventDefault();
+
+                    closePrivacyModal();
 
                 }
 
@@ -3628,390 +4054,104 @@ document.addEventListener(
 
 
         /* =====================================================
-           LOCATION
+           SIMPLE FOCUS TRAP
         ===================================================== */
 
-        if (allowLocation) {
+        function trapFocus(
+            modal,
+            event
+        ) {
 
-            allowLocation.addEventListener(
-                "click",
-                function () {
+            if (
+                !modal ||
+                modal.hidden ||
+                event.key !== "Tab"
+            ) {
 
-                    if (!navigator.geolocation) {
+                return;
 
-                        if (locationPermission) {
+            }
 
-                            locationPermission.value =
-                                "unavailable";
 
-                        }
+            const focusable =
+                modal.querySelectorAll(
+                    'button:not([disabled]), ' +
+                    'a[href], ' +
+                    'input:not([disabled]), ' +
+                    'select:not([disabled]), ' +
+                    'textarea:not([disabled]), ' +
+                    '[tabindex]:not([tabindex="-1"])'
+                );
 
-                        saveLocationConsent(
-                            "unavailable"
-                        );
 
-                        closePrivacyModal();
+            if (!focusable.length) {
+                return;
+            }
 
-                        return;
 
-                    }
+            const first =
+                focusable[0];
 
+            const last =
+                focusable[
+                    focusable.length - 1
+                ];
 
-                    allowLocation.disabled =
-                        true;
 
-                    allowLocation.textContent =
-                        "Finding Location...";
+            if (
+                event.shiftKey &&
+                document.activeElement === first
+            ) {
 
+                event.preventDefault();
 
-                    let bestPosition =
-                        null;
+                last.focus();
 
-                    let finished =
-                        false;
+            } else if (
+                !event.shiftKey &&
+                document.activeElement === last
+            ) {
 
-                    let watchId =
-                        null;
+                event.preventDefault();
 
-                    const startTime =
-                        Date.now();
+                first.focus();
 
-                    const MAX_LOCATION_TIME =
-                        25000;
+            }
 
-                    const TARGET_ACCURACY =
-                        10;
+        }
 
 
-                    function finishLocation(
-                        position
-                    ) {
+        document.addEventListener(
+            "keydown",
+            function (event) {
 
-                        if (finished) {
-                            return;
-                        }
+                if (
+                    privacyModal &&
+                    !privacyModal.hidden
+                ) {
 
-                        finished =
-                            true;
-
-
-                        if (
-                            watchId !== null
-                        ) {
-
-                            navigator.geolocation.clearWatch(
-                                watchId
-                            );
-
-                            watchId =
-                                null;
-
-                        }
-
-
-                        const coords =
-                            position.coords;
-
-
-                        if (latitudeInput) {
-
-                            latitudeInput.value =
-                                Number(
-                                    coords.latitude
-                                ).toFixed(8);
-
-                        }
-
-
-                        if (longitudeInput) {
-
-                            longitudeInput.value =
-                                Number(
-                                    coords.longitude
-                                ).toFixed(8);
-
-                        }
-
-
-                        if (accuracyInput) {
-
-                            accuracyInput.value =
-                                Number(
-                                    coords.accuracy
-                                ).toFixed(2);
-
-                        }
-
-
-                        if (locationPermission) {
-
-                            locationPermission.value =
-                                "granted";
-
-                        }
-
-
-                        saveLocationConsent(
-                            "granted"
-                        );
-
-
-                        allowLocation.disabled =
-                            false;
-
-                        allowLocation.textContent =
-                            "Allow Location";
-
-
-                        closePrivacyModal();
-
-                    }
-
-
-                    function handlePosition(
-                        position
-                    ) {
-
-                        if (finished) {
-                            return;
-                        }
-
-
-                        if (
-                            !bestPosition ||
-                            position.coords.accuracy <
-                                bestPosition.coords.accuracy
-                        ) {
-
-                            bestPosition =
-                                position;
-
-                        }
-
-
-                        if (
-                            position.coords.accuracy <=
-                            TARGET_ACCURACY
-                        ) {
-
-                            finishLocation(
-                                position
-                            );
-
-                            return;
-
-                        }
-
-
-                        const elapsed =
-                            Date.now() -
-                            startTime;
-
-
-                        if (
-                            elapsed >= 20000 &&
-                            bestPosition
-                        ) {
-
-                            finishLocation(
-                                bestPosition
-                            );
-
-                        }
-
-                    }
-
-
-                    function handleLocationError(
-                        error
-                    ) {
-
-                        if (finished) {
-                            return;
-                        }
-
-
-                        console.warn(
-                            "Location error:",
-                            error.code,
-                            error.message
-                        );
-
-
-                        if (bestPosition) {
-
-                            finishLocation(
-                                bestPosition
-                            );
-
-                            return;
-
-                        }
-
-
-                        finished =
-                            true;
-
-
-                        if (
-                            watchId !== null
-                        ) {
-
-                            navigator.geolocation.clearWatch(
-                                watchId
-                            );
-
-                            watchId =
-                                null;
-
-                        }
-
-
-                        if (locationPermission) {
-
-                            locationPermission.value =
-                                "denied";
-
-                        }
-
-
-                        clearLocationFields();
-
-
-                        saveLocationConsent(
-                            "denied"
-                        );
-
-
-                        allowLocation.disabled =
-                            false;
-
-                        allowLocation.textContent =
-                            "Allow Location";
-
-
-                        closePrivacyModal();
-
-                    }
-
-
-                    watchId =
-                        navigator.geolocation.watchPosition(
-                            handlePosition,
-                            handleLocationError,
-                            {
-                                enableHighAccuracy: true,
-                                maximumAge: 0,
-                                timeout:
-                                    MAX_LOCATION_TIME
-                            }
-                        );
-
-
-                    window.setTimeout(
-                        function () {
-
-                            if (finished) {
-                                return;
-                            }
-
-
-                            if (bestPosition) {
-
-                                finishLocation(
-                                    bestPosition
-                                );
-
-                                return;
-
-                            }
-
-
-                            handleLocationError({
-                                code: 3,
-                                message:
-                                    "Location request timed out."
-                            });
-
-                        },
-                        MAX_LOCATION_TIME + 1000
+                    trapFocus(
+                        privacyPanel,
+                        event
                     );
 
                 }
-            );
-
-        }
 
 
-        /* =====================================================
-           RESTORE LOCATION STATE
-        ===================================================== */
+                if (
+                    imageZoomModal &&
+                    !imageZoomModal.hidden
+                ) {
 
-        let savedLocationConsent =
-            null;
+                    trapFocus(
+                        imageZoomModal,
+                        event
+                    );
 
-
-        try {
-
-            savedLocationConsent =
-                localStorage.getItem(
-                    "kea_location_consent"
-                );
-
-        } catch (error) {
-
-            console.warn(
-                "Local storage unavailable.",
-                error
-            );
-
-        }
-
-
-        if (
-            savedLocationConsent ===
-            "granted"
-        ) {
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "previously_granted";
+                }
 
             }
-
-        } else if (
-            savedLocationConsent ===
-            "denied"
-        ) {
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "previously_denied";
-
-            }
-
-        } else if (
-            savedLocationConsent ===
-            "unavailable"
-        ) {
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "unavailable";
-
-            }
-
-        }
-
-
-        if (!savedLocationConsent) {
-
-            openPrivacyModal();
-
-        }
+        );
 
 
         /* =====================================================
@@ -4028,6 +4168,7 @@ document.addEventListener(
 
                 if (
                     !data ||
+                    typeof data !== "object" ||
                     data.type !==
                         "KEA_FORM_RESPONSE"
                 ) {
@@ -4061,25 +4202,8 @@ document.addEventListener(
                     setUserAgent();
 
 
-                    let consent =
-                        null;
-
-
-                    try {
-
-                        consent =
-                            localStorage.getItem(
-                                "kea_location_consent"
-                            );
-
-                    } catch (error) {
-
-                        console.warn(
-                            "Local storage unavailable.",
-                            error
-                        );
-
-                    }
+                    const consent =
+                        getLocationConsent();
 
 
                     if (locationPermission) {
@@ -4158,6 +4282,11 @@ document.addEventListener(
                     honeypot.value.trim() !== ""
                 ) {
 
+                    showStatus(
+                        "Unable to submit this request.",
+                        "error"
+                    );
+
                     return;
 
                 }
@@ -4172,15 +4301,8 @@ document.addEventListener(
                 const email =
                     emailInput.value.trim();
 
-                const messageInput =
-                    document.getElementById(
-                        "message"
-                    );
-
                 const message =
-                    messageInput
-                        ? messageInput.value.trim()
-                        : "";
+                    messageInput.value.trim();
 
 
                 if (!name) {
@@ -4234,9 +4356,7 @@ document.addEventListener(
                         "error"
                     );
 
-                    if (messageInput) {
-                        messageInput.focus();
-                    }
+                    messageInput.focus();
 
                     return;
 
@@ -4274,6 +4394,10 @@ document.addEventListener(
                 );
 
 
+                /*
+                 * Submit natively so the form continues to use
+                 * the configured hidden iframe target.
+                 */
                 HTMLFormElement.prototype.submit.call(
                     form
                 );
@@ -4350,21 +4474,55 @@ document.addEventListener(
 
 
                             target.scrollIntoView({
-                                behavior: "smooth",
+                                behavior:
+                                    window.matchMedia(
+                                        "(prefers-reduced-motion: reduce)"
+                                    ).matches
+                                        ? "auto"
+                                        : "smooth",
                                 block: "start"
                             });
+
+
+                            if (
+                                targetID ===
+                                "#contact"
+                            ) {
+
+                                setTimeout(
+                                    function () {
+
+                                        const firstField =
+                                            document.getElementById(
+                                                "name"
+                                            );
+
+                                        if (
+                                            firstField
+                                        ) {
+
+                                            firstField.focus();
+
+                                        }
+
+                                    },
+                                    500
+                                );
+
+                            }
 
                         }
                     );
 
                 }
-            );
+        );
 
     }
 
 );
 
 </script>
+
 
 </body>
 
