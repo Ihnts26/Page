@@ -4153,275 +4153,262 @@ document.addEventListener(
            GOOGLE APPS SCRIPT RESPONSE
         ===================================================== */
 
-        window.addEventListener(
-            "message",
-            function (event) {
+        /* =====================================================
+   GOOGLE APPS SCRIPT RESPONSE
+===================================================== */
 
-                const data =
-                    event.data;
+window.addEventListener(
+    "message",
+    function (event) {
 
+        const data = event.data;
 
-                if (
-                    !data ||
-                    typeof data !== "object" ||
-                    data.type !==
-                        "KEA_FORM_RESPONSE"
-                ) {
+        if (
+            !data ||
+            typeof data !== "object" ||
+            data.type !== "KEA_FORM_RESPONSE"
+        ) {
+            return;
+        }
 
-                    return;
+        if (!submitting) {
+            return;
+        }
 
-                }
+        if (data.success === true) {
 
+            resetButton();
 
-                if (!submitting) {
-                    return;
-                }
+            showStatus(
+                data.message ||
+                "Thank you. Your requirement has been received successfully.",
+                "success"
+            );
 
+            form.reset();
 
-                resetButton();
+            setUserAgent();
 
+            const consent =
+                getLocationConsent();
 
-                if (
-                    data.success === true
-                ) {
+            if (locationPermission) {
 
-                    showStatus(
-                        data.message ||
-                        "Thank you. Your requirement has been received.",
-                        "success"
-                    );
+                if (consent === "granted") {
 
+                    locationPermission.value =
+                        "previously_granted";
 
-                    form.reset();
+                } else if (consent === "denied") {
 
-                    setUserAgent();
+                    locationPermission.value =
+                        "previously_denied";
 
+                } else if (consent === "unavailable") {
 
-                    const consent =
-                        getLocationConsent();
+                    locationPermission.value =
+                        "unavailable";
 
+                } else {
 
-                    if (locationPermission) {
-
-                        if (
-                            consent ===
-                            "granted"
-                        ) {
-
-                            locationPermission.value =
-                                "previously_granted";
-
-                        } else if (
-                            consent ===
-                            "denied"
-                        ) {
-
-                            locationPermission.value =
-                                "previously_denied";
-
-                        } else if (
-                            consent ===
-                            "unavailable"
-                        ) {
-
-                            locationPermission.value =
-                                "unavailable";
-
-                        } else {
-
-                            locationPermission.value =
-                                "not_requested";
-
-                        }
-
-                    }
-
-
-                    clearLocationFields();
-
-                    nameInput.focus();
-
-                    return;
+                    locationPermission.value =
+                        "not_requested";
 
                 }
-
-
-                showStatus(
-                    data.message ||
-                    "Something went wrong. Please try again.",
-                    "error"
-                );
-
             }
+
+            clearLocationFields();
+
+            nameInput.focus();
+
+            return;
+        }
+
+        resetButton();
+
+        showStatus(
+            data.message ||
+            "Your request could not be confirmed. Please try again.",
+            "error"
         );
+    }
+);
 
 
         /* =====================================================
            FORM SUBMISSION
         ===================================================== */
 
-        form.addEventListener(
-            "submit",
-            function (event) {
+        /* =====================================================
+   FORM SUBMISSION
+===================================================== */
 
-                event.preventDefault();
+form.addEventListener(
+    "submit",
+    function (event) {
 
+        event.preventDefault();
 
-                if (submitting) {
-                    return;
-                }
+        if (submitting) {
+            return;
+        }
 
+        /* ---------------------------------------------
+           HONEYPOT
+        --------------------------------------------- */
 
-                if (
-                    honeypot &&
-                    honeypot.value.trim() !== ""
-                ) {
+        if (
+            honeypot &&
+            honeypot.value.trim() !== ""
+        ) {
 
-                    showStatus(
-                        "Unable to submit this request.",
-                        "error"
-                    );
+            showStatus(
+                "Unable to submit this request.",
+                "error"
+            );
 
-                    return;
-
-                }
-
-
-                setUserAgent();
-
-
-                const name =
-                    nameInput.value.trim();
-
-                const email =
-                    emailInput.value.trim();
-
-                const message =
-                    messageInput.value.trim();
+            return;
+        }
 
 
-                if (!name) {
+        /* ---------------------------------------------
+           USER AGENT
+        --------------------------------------------- */
 
-                    showStatus(
-                        "Please enter your name or organisation.",
-                        "error"
-                    );
-
-                    nameInput.focus();
-
-                    return;
-
-                }
+        setUserAgent();
 
 
-                if (!email) {
+        /* ---------------------------------------------
+           VALIDATION
+        --------------------------------------------- */
 
-                    showStatus(
-                        "Please enter your email address.",
-                        "error"
-                    );
+        const name =
+            nameInput.value.trim();
 
-                    emailInput.focus();
+        const email =
+            emailInput.value.trim();
 
-                    return;
-
-                }
-
-
-                if (
-                    !emailInput.checkValidity()
-                ) {
-
-                    showStatus(
-                        "Please enter a valid email address.",
-                        "error"
-                    );
-
-                    emailInput.focus();
-
-                    return;
-
-                }
+        const message =
+            messageInput.value.trim();
 
 
-                if (!message) {
+        if (!name) {
 
-                    showStatus(
-                        "Please tell me about the work you need help with.",
-                        "error"
-                    );
+            showStatus(
+                "Please enter your name or organisation.",
+                "error"
+            );
 
-                    messageInput.focus();
+            nameInput.focus();
 
-                    return;
-
-                }
-
-
-                if (
-                    message.length > 10000
-                ) {
-
-                    showStatus(
-                        "Your message is too long. Please shorten it.",
-                        "error"
-                    );
-
-                    messageInput.focus();
-
-                    return;
-
-                }
+            return;
+        }
 
 
-                submitting =
-                    true;
+        if (!email) {
 
-                button.disabled =
-                    true;
+            showStatus(
+                "Please enter your email address.",
+                "error"
+            );
 
-                button.textContent =
-                    "Sending...";
+            emailInput.focus();
 
-
-                showStatus(
-                    "Sending your requirement..."
-                );
+            return;
+        }
 
 
-                /*
-                 * Submit natively so the form continues to use
-                 * the configured hidden iframe target.
-                 */
-                HTMLFormElement.prototype.submit.call(
-                    form
-                );
+        if (!emailInput.checkValidity()) {
+
+            showStatus(
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            emailInput.focus();
+
+            return;
+        }
 
 
-                submissionTimer =
-                    window.setTimeout(
-                        function () {
+        if (!message) {
 
-                            if (!submitting) {
-                                return;
-                            }
+            showStatus(
+                "Please tell me about the work you need help with.",
+                "error"
+            );
+
+            messageInput.focus();
+
+            return;
+        }
 
 
-                            resetButton();
+        if (message.length > 10000) {
+
+            showStatus(
+                "Your message is too long. Please shorten it.",
+                "error"
+            );
+
+            messageInput.focus();
+
+            return;
+        }
 
 
-                            showStatus(
-                                “Thank you. Your requirements have been sent successfully.”,
-                                "success"
-                            );
+        /* ---------------------------------------------
+           START SUBMISSION
+        --------------------------------------------- */
 
-                        },
-                        30000
-                    );
+        submitting = true;
 
-            }
+        button.disabled = true;
+
+        button.textContent = "Sending...";
+
+        showStatus(
+            "Sending your requirement..."
         );
 
+
+        /* ---------------------------------------------
+           SUBMIT TO GOOGLE APPS SCRIPT
+        --------------------------------------------- */
+
+        HTMLFormElement.prototype.submit.call(form);
+
+
+        /*
+         * Do NOT report success automatically.
+         *
+         * Google Apps Script must send a
+         * KEA_FORM_RESPONSE message back to this page.
+         *
+         * If nothing comes back after 30 seconds,
+         * tell the user that confirmation was not received.
+         */
+
+        submissionTimer =
+            window.setTimeout(
+                function () {
+
+                    if (!submitting) {
+                        return;
+                    }
+
+                    resetButton();
+
+                    showStatus(
+                        "The request may have been submitted, but no confirmation was received. Please check your email or try again.",
+                        "error"
+                    );
+
+                },
+                30000
+            );
+    }
+);
 
         /* =====================================================
            SMOOTH SCROLL
