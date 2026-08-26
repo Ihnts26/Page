@@ -3102,1407 +3102,1185 @@
 </div>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+    "use strict";
 
-        "use strict";
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const form = document.getElementById("contact-form");
+    const button = document.getElementById("submit-button");
+    const status = document.getElementById("form-status");
+    const iframe = document.getElementById("form-response-frame");
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+    const userAgentInput = document.getElementById("user-agent");
+
+    const honeypot = form
+        ? form.querySelector('input[name="website"]')
+        : null;
+
+    /* Location */
+    const locationPermission =
+        document.getElementById("location-permission");
+
+    const latitudeInput =
+        document.getElementById("latitude");
+
+    const longitudeInput =
+        document.getElementById("longitude");
+
+    const accuracyInput =
+        document.getElementById("location-accuracy");
+
+    /* Privacy */
+    const privacyModal =
+        document.getElementById("privacy-modal");
+
+    const privacyPanel =
+        privacyModal
+            ? privacyModal.querySelector(".privacy-panel")
+            : null;
+
+    const privacyClose =
+        document.getElementById("privacy-close");
+
+    const openPrivacy =
+        document.getElementById("open-privacy");
+
+    const allowLocation =
+        document.getElementById("allow-location");
+
+    const denyLocation =
+        document.getElementById("deny-location");
+
+    const privacyUnderstood =
+        document.getElementById("privacy-understood");
+
+    /* Image zoom */
+    const imageZoomModal =
+        document.getElementById("image-zoom-modal");
+
+    const imageZoomDisplay =
+        document.getElementById("image-zoom-display");
+
+    const imageZoomClose =
+        document.getElementById("image-zoom-close");
+
+    const imageZoomCaption =
+        document.getElementById("image-zoom-caption");
 
 
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
+    /* =====================================================
+       SAFETY CHECK
+    ===================================================== */
 
-        const form =
-            document.getElementById("contact-form");
-
-        const button =
-            document.getElementById("submit-button");
-
-        const status =
-            document.getElementById("form-status");
-
-        const nameInput =
-            document.getElementById("name");
-
-        const emailInput =
-            document.getElementById("email");
-
-        const messageInput =
-            document.getElementById("message");
-
-        const iframe =
-            document.getElementById("form-response-frame");
-
-        const userAgentInput =
-            document.getElementById("user-agent");
-
-        const honeypot =
-            form
-                ? form.querySelector(
-                    'input[name="website"]'
-                )
-                : null;
+    if (
+        !form ||
+        !button ||
+        !iframe ||
+        !nameInput ||
+        !emailInput ||
+        !messageInput
+    ) {
+        console.error(
+            "KEA contact form could not be initialised."
+        );
+        return;
+    }
 
 
-        /* =====================================================
-           LOCATION ELEMENTS
-        ===================================================== */
+    let submitting = false;
+    let submissionTimer = null;
 
-        const locationPermission =
-            document.getElementById(
-                "location-permission"
+    let lastPrivacyTrigger = null;
+    let lastImageTrigger = null;
+
+
+    /* =====================================================
+       USER AGENT
+    ===================================================== */
+
+    function setUserAgent() {
+
+        if (userAgentInput) {
+            userAgentInput.value =
+                navigator.userAgent || "";
+        }
+
+    }
+
+    setUserAgent();
+
+
+    /* =====================================================
+       STATUS
+    ===================================================== */
+
+    function showStatus(message, type = "") {
+
+        if (!status) {
+            return;
+        }
+
+        status.textContent = message;
+
+        status.className = "form-status";
+
+        if (type) {
+            status.classList.add(type);
+        }
+
+    }
+
+
+    /* =====================================================
+       RESET SUBMISSION
+    ===================================================== */
+
+    function resetButton() {
+
+        submitting = false;
+
+        button.disabled = false;
+
+        button.textContent = "Send Requirement";
+
+        if (submissionTimer) {
+
+            clearTimeout(submissionTimer);
+
+            submissionTimer = null;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       LOCATION STORAGE
+    ===================================================== */
+
+    function saveLocationConsent(value) {
+
+        try {
+
+            localStorage.setItem(
+                "kea_location_consent",
+                value
             );
 
-        const latitudeInput =
-            document.getElementById("latitude");
+        } catch (error) {
 
-        const longitudeInput =
-            document.getElementById("longitude");
-
-        const accuracyInput =
-            document.getElementById(
-                "location-accuracy"
+            console.warn(
+                "Local storage unavailable.",
+                error
             );
 
+        }
 
-        /* =====================================================
-           PRIVACY ELEMENTS
-        ===================================================== */
+    }
 
-        const privacyModal =
-            document.getElementById(
-                "privacy-modal"
+
+    function getLocationConsent() {
+
+        try {
+
+            return localStorage.getItem(
+                "kea_location_consent"
             );
 
-        const privacyPanel =
-            privacyModal
-                ? privacyModal.querySelector(
-                    ".privacy-panel"
-                )
-                : null;
+        } catch (error) {
 
-        const privacyClose =
-            document.getElementById(
-                "privacy-close"
+            console.warn(
+                "Local storage unavailable.",
+                error
             );
 
-        const openPrivacy =
-            document.getElementById(
-                "open-privacy"
-            );
+            return null;
 
-        const allowLocation =
-            document.getElementById(
-                "allow-location"
-            );
+        }
 
-        const denyLocation =
-            document.getElementById(
-                "deny-location"
-            );
-
-        const privacyUnderstood =
-            document.getElementById(
-                "privacy-understood"
-            );
+    }
 
 
-        /* =====================================================
-           IMAGE ZOOM ELEMENTS
-        ===================================================== */
+    /* =====================================================
+       CLEAR LOCATION
+    ===================================================== */
 
-        const imageZoomModal =
-            document.getElementById(
-                "image-zoom-modal"
-            );
+    function clearLocationFields() {
 
-        const imageZoomDisplay =
-            document.getElementById(
-                "image-zoom-display"
-            );
+        if (latitudeInput) {
+            latitudeInput.value = "";
+        }
 
-        const imageZoomClose =
-            document.getElementById(
-                "image-zoom-close"
-            );
+        if (longitudeInput) {
+            longitudeInput.value = "";
+        }
 
-        const imageZoomCaption =
-            document.getElementById(
-                "image-zoom-caption"
-            );
+        if (accuracyInput) {
+            accuracyInput.value = "";
+        }
+
+    }
 
 
-        /* =====================================================
-           SAFETY CHECK
-        ===================================================== */
+    /* =====================================================
+       PRIVACY MODAL
+    ===================================================== */
+
+    function openPrivacyModal(trigger = null) {
+
+        if (!privacyModal) {
+            return;
+        }
+
+        lastPrivacyTrigger =
+            trigger || document.activeElement;
+
+        privacyModal.hidden = false;
+
+        document.body.classList.add("modal-open");
+
+        setTimeout(function () {
+
+            if (privacyClose) {
+                privacyClose.focus();
+            }
+
+        }, 50);
+
+    }
+
+
+    function closePrivacyModal() {
+
+        if (!privacyModal) {
+            return;
+        }
+
+        privacyModal.hidden = true;
+
+        document.body.classList.remove("modal-open");
 
         if (
-            !form ||
-            !button ||
-            !iframe ||
-            !nameInput ||
-            !emailInput ||
-            !messageInput
-        ) {
-
-            console.error(
-                "KEA contact form could not be initialised."
-            );
-
-            return;
-
-        }
-
-
-        let submitting = false;
-        let submissionTimer = null;
-
-        let lastPrivacyTrigger = null;
-        let lastImageTrigger = null;
-
-
-        /* =====================================================
-           USER AGENT
-        ===================================================== */
-
-        function setUserAgent() {
-
-            if (userAgentInput) {
-
-                userAgentInput.value =
-                    navigator.userAgent || "";
-
-            }
-
-        }
-
-        setUserAgent();
-
-
-        /* =====================================================
-           STATUS
-        ===================================================== */
-
-        function showStatus(
-            message,
-            type = ""
-        ) {
-
-            if (!status) {
-                return;
-            }
-
-            status.textContent =
-                message;
-
-            status.className =
-                "form-status";
-
-            if (type) {
-
-                status.classList.add(
-                    type
-                );
-
-            }
-
-        }
-
-
-        /* =====================================================
-           RESET SUBMISSION
-        ===================================================== */
-
-        function resetButton() {
-
-            submitting = false;
-
-            button.disabled =
-                false;
-
-            button.textContent =
-                "Send Requirement";
-
-            if (submissionTimer) {
-
-                clearTimeout(
-                    submissionTimer
-                );
-
-                submissionTimer =
-                    null;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           LOCATION STORAGE
-        ===================================================== */
-
-        function saveLocationConsent(
-            value
+            lastPrivacyTrigger &&
+            typeof lastPrivacyTrigger.focus === "function"
         ) {
 
             try {
-
-                localStorage.setItem(
-                    "kea_location_consent",
-                    value
-                );
-
+                lastPrivacyTrigger.focus();
             } catch (error) {
-
-                console.warn(
-                    "Local storage unavailable.",
-                    error
-                );
-
+                /* Ignore focus errors. */
             }
 
         }
 
+        lastPrivacyTrigger = null;
 
-        function getLocationConsent() {
+    }
 
-            try {
 
-                return localStorage.getItem(
-                    "kea_location_consent"
-                );
+    /* =====================================================
+       DENY LOCATION
+    ===================================================== */
 
-            } catch (error) {
+    function denyLocationAccess() {
 
-                console.warn(
-                    "Local storage unavailable.",
-                    error
-                );
+        saveLocationConsent("denied");
 
-                return null;
-
-            }
-
+        if (locationPermission) {
+            locationPermission.value = "denied";
         }
 
+        clearLocationFields();
 
-        /* =====================================================
-           CLEAR LOCATION
-        ===================================================== */
+        closePrivacyModal();
 
-        function clearLocationFields() {
+    }
 
-            if (latitudeInput) {
-                latitudeInput.value = "";
+
+    /* =====================================================
+       PRIVACY EVENTS
+    ===================================================== */
+
+    if (openPrivacy) {
+
+        openPrivacy.addEventListener(
+            "click",
+            function () {
+                openPrivacyModal(openPrivacy);
             }
+        );
 
-            if (longitudeInput) {
-                longitudeInput.value = "";
-            }
-
-            if (accuracyInput) {
-                accuracyInput.value = "";
-            }
-
-        }
+    }
 
 
-        /* =====================================================
-           PRIVACY MODAL
-        ===================================================== */
+    if (privacyClose) {
 
-        function openPrivacyModal(
-            trigger = null
-        ) {
+        privacyClose.addEventListener(
+            "click",
+            closePrivacyModal
+        );
 
-            if (!privacyModal) {
-                return;
-            }
-
-            lastPrivacyTrigger =
-                trigger ||
-                document.activeElement;
-
-            privacyModal.hidden =
-                false;
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-            setTimeout(
-                function () {
-
-                    if (privacyClose) {
-                        privacyClose.focus();
-                    }
-
-                },
-                50
-            );
-
-        }
+    }
 
 
-        function closePrivacyModal() {
+    if (denyLocation) {
 
-            if (!privacyModal) {
-                return;
-            }
+        denyLocation.addEventListener(
+            "click",
+            denyLocationAccess
+        );
 
-            privacyModal.hidden =
-                true;
-
-            document.body.classList.remove(
-                "modal-open"
-            );
-
-            if (
-                lastPrivacyTrigger &&
-                typeof lastPrivacyTrigger.focus ===
-                    "function"
-            ) {
-
-                try {
-                    lastPrivacyTrigger.focus();
-                } catch (error) {
-                    /* Ignore focus restoration errors. */
-                }
-
-            }
-
-            lastPrivacyTrigger =
-                null;
-
-        }
+    }
 
 
-        /* =====================================================
-           DENY / CONTINUE WITHOUT LOCATION
-        ===================================================== */
+    if (privacyUnderstood) {
 
-        function denyLocationAccess() {
+        privacyUnderstood.addEventListener(
+            "click",
+            denyLocationAccess
+        );
 
-            saveLocationConsent("denied");
-
-            if (locationPermission) {
-
-                locationPermission.value =
-                    "denied";
-
-            }
-
-            clearLocationFields();
-
-            closePrivacyModal();
-
-        }
+    }
 
 
-        /* =====================================================
-           PRIVACY EVENTS
-        ===================================================== */
+    if (privacyModal) {
 
-        if (openPrivacy) {
+        privacyModal.addEventListener(
+            "click",
+            function (event) {
 
-            openPrivacy.addEventListener(
-                "click",
-                function () {
-                    openPrivacyModal(
-                        openPrivacy
-                    );
-                }
-            );
-
-        }
-
-
-        if (privacyClose) {
-
-            privacyClose.addEventListener(
-                "click",
-                function () {
+                if (event.target === privacyModal) {
                     closePrivacyModal();
                 }
-            );
 
-        }
+            }
+        );
 
-
-        if (denyLocation) {
-
-            denyLocation.addEventListener(
-                "click",
-                denyLocationAccess
-            );
-
-        }
+    }
 
 
-        if (privacyUnderstood) {
+    /* =====================================================
+       LOCATION
+    ===================================================== */
 
-            privacyUnderstood.addEventListener(
-                "click",
-                denyLocationAccess
-            );
+    if (allowLocation) {
 
-        }
+        allowLocation.addEventListener(
+            "click",
+            function () {
 
+                if (!navigator.geolocation) {
 
-        /* =====================================================
-           CLICK OUTSIDE PRIVACY PANEL
-        ===================================================== */
-
-        if (privacyModal) {
-
-            privacyModal.addEventListener(
-                "click",
-                function (event) {
-
-                    if (
-                        event.target ===
-                        privacyModal
-                    ) {
-
-                        closePrivacyModal();
-
+                    if (locationPermission) {
+                        locationPermission.value =
+                            "unavailable";
                     }
 
+                    saveLocationConsent("unavailable");
+
+                    closePrivacyModal();
+
+                    return;
                 }
-            );
-
-        }
 
 
-        /* =====================================================
-           LOCATION
-        ===================================================== */
+                allowLocation.disabled = true;
 
-        if (allowLocation) {
+                allowLocation.textContent =
+                    "Requesting Location...";
 
-            allowLocation.addEventListener(
-                "click",
-                function () {
 
-                    if (!navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+
+                    function (position) {
+
+                        const coords =
+                            position.coords;
+
+
+                        if (latitudeInput) {
+
+                            latitudeInput.value =
+                                Number(
+                                    coords.latitude
+                                ).toFixed(8);
+
+                        }
+
+
+                        if (longitudeInput) {
+
+                            longitudeInput.value =
+                                Number(
+                                    coords.longitude
+                                ).toFixed(8);
+
+                        }
+
+
+                        if (accuracyInput) {
+
+                            accuracyInput.value =
+                                Number(
+                                    coords.accuracy
+                                ).toFixed(2);
+
+                        }
+
 
                         if (locationPermission) {
 
                             locationPermission.value =
-                                "unavailable";
+                                "granted";
 
                         }
 
-                        saveLocationConsent(
-                            "unavailable"
-                        );
+
+                        saveLocationConsent("granted");
+
+
+                        allowLocation.disabled =
+                            false;
+
+                        allowLocation.textContent =
+                            "Allow Location";
+
 
                         closePrivacyModal();
 
-                        return;
-
-                    }
+                    },
 
 
-                    allowLocation.disabled =
-                        true;
+                    function (error) {
 
-                    allowLocation.textContent =
-                        "Requesting Location...";
-
-
-                    navigator.geolocation.getCurrentPosition(
-
-                        function (position) {
-
-                            const coords =
-                                position.coords;
+                        console.warn(
+                            "Location error:",
+                            error.code,
+                            error.message
+                        );
 
 
-                            if (latitudeInput) {
-
-                                latitudeInput.value =
-                                    Number(
-                                        coords.latitude
-                                    ).toFixed(8);
-
-                            }
+                        clearLocationFields();
 
 
-                            if (longitudeInput) {
-
-                                longitudeInput.value =
-                                    Number(
-                                        coords.longitude
-                                    ).toFixed(8);
-
-                            }
+                        const permissionState =
+                            error.code === 1
+                                ? "denied"
+                                : "unavailable";
 
 
-                            if (accuracyInput) {
+                        if (locationPermission) {
 
-                                accuracyInput.value =
-                                    Number(
-                                        coords.accuracy
-                                    ).toFixed(2);
+                            locationPermission.value =
+                                permissionState;
 
-                            }
-
-
-                            if (locationPermission) {
-
-                                locationPermission.value =
-                                    "granted";
-
-                            }
-
-
-                            saveLocationConsent(
-                                "granted"
-                            );
-
-
-                            allowLocation.disabled =
-                                false;
-
-                            allowLocation.textContent =
-                                "Allow Location";
-
-
-                            closePrivacyModal();
-
-                        },
-
-
-                        function (error) {
-
-                            console.warn(
-                                "Location error:",
-                                error.code,
-                                error.message
-                            );
-
-
-                            clearLocationFields();
-
-
-                            const permissionState =
-                                error.code === 1
-                                    ? "denied"
-                                    : "unavailable";
-
-
-                            if (locationPermission) {
-
-                                locationPermission.value =
-                                    permissionState;
-
-                            }
-
-
-                            saveLocationConsent(
-                                permissionState
-                            );
-
-
-                            allowLocation.disabled =
-                                false;
-
-                            allowLocation.textContent =
-                                "Allow Location";
-
-
-                            closePrivacyModal();
-
-                        },
-
-
-                        {
-                            enableHighAccuracy: true,
-                            maximumAge: 0,
-                            timeout: 15000
                         }
 
-                    );
 
-                }
-            );
-
-        }
+                        saveLocationConsent(
+                            permissionState
+                        );
 
 
-        /* =====================================================
-           RESTORE LOCATION STATE
-        ===================================================== */
+                        allowLocation.disabled =
+                            false;
 
-        const savedLocationConsent =
-            getLocationConsent();
-
-
-        if (locationPermission) {
-
-            if (
-                savedLocationConsent ===
-                "granted"
-            ) {
-
-                locationPermission.value =
-                    "previously_granted";
-
-            } else if (
-                savedLocationConsent ===
-                "denied"
-            ) {
-
-                locationPermission.value =
-                    "previously_denied";
-
-            } else if (
-                savedLocationConsent ===
-                "unavailable"
-            ) {
-
-                locationPermission.value =
-                    "unavailable";
-
-            } else {
-
-                locationPermission.value =
-                    "not_requested";
-
-            }
-
-        }
+                        allowLocation.textContent =
+                            "Allow Location";
 
 
-        /* =====================================================
-           IMAGE ZOOM
-        ===================================================== */
+                        closePrivacyModal();
 
-        function openImageZoom(
-            image
-        ) {
-
-            if (
-                !imageZoomModal ||
-                !imageZoomDisplay
-            ) {
-
-                return;
-
-            }
-
-            lastImageTrigger =
-                image;
+                    },
 
 
-            imageZoomDisplay.src =
-                image.currentSrc ||
-                image.src;
-
-
-            imageZoomDisplay.alt =
-                image.alt ||
-                "Enlarged image";
-
-
-            const captionElement =
-                image
-                    .closest(".gallery-item")
-                    ?.querySelector(
-                        ".gallery-caption h3"
-                    );
-
-
-            const caption =
-                captionElement
-                    ? captionElement.textContent.trim()
-                    : "";
-
-
-            if (imageZoomCaption) {
-
-                imageZoomCaption.textContent =
-                    caption;
-
-            }
-
-
-            imageZoomModal.hidden =
-                false;
-
-            document.body.classList.add(
-                "modal-open"
-            );
-
-
-            setTimeout(
-                function () {
-
-                    if (imageZoomClose) {
-
-                        imageZoomClose.focus();
-
+                    {
+                        enableHighAccuracy: true,
+                        maximumAge: 0,
+                        timeout: 15000
                     }
 
-                },
-                50
-            );
-
-        }
-
-
-        function closeImageZoom() {
-
-            if (!imageZoomModal) {
-                return;
-            }
-
-            imageZoomModal.hidden =
-                true;
-
-            document.body.classList.remove(
-                "modal-open"
-            );
-
-
-            if (imageZoomDisplay) {
-
-                imageZoomDisplay.src =
-                    "";
-
-                imageZoomDisplay.alt =
-                    "";
-
-            }
-
-
-            if (imageZoomCaption) {
-
-                imageZoomCaption.textContent =
-                    "";
-
-            }
-
-
-            if (
-                lastImageTrigger &&
-                typeof lastImageTrigger.focus ===
-                    "function"
-            ) {
-
-                try {
-                    lastImageTrigger.focus();
-                } catch (error) {
-                    /* Ignore focus restoration errors. */
-                }
-
-            }
-
-            lastImageTrigger =
-                null;
-
-        }
-
-
-        document
-            .querySelectorAll(
-                ".gallery-image"
-            )
-            .forEach(
-                function (image) {
-
-                    image.setAttribute(
-                        "tabindex",
-                        "0"
-                    );
-
-                    image.setAttribute(
-                        "role",
-                        "button"
-                    );
-
-                    image.setAttribute(
-                        "aria-label",
-                        (
-                            image.alt ||
-                            "Open enlarged image"
-                        )
-                    );
-
-
-                    image.addEventListener(
-                        "click",
-                        function () {
-
-                            openImageZoom(
-                                image
-                            );
-
-                        }
-                    );
-
-
-                    image.addEventListener(
-                        "keydown",
-                        function (event) {
-
-                            if (
-                                event.key ===
-                                    "Enter" ||
-                                event.key ===
-                                    " "
-                            ) {
-
-                                event.preventDefault();
-
-                                openImageZoom(
-                                    image
-                                );
-
-                            }
-
-                        }
-                    );
-
-                }
-            );
-
-
-        if (imageZoomClose) {
-
-            imageZoomClose.addEventListener(
-                "click",
-                closeImageZoom
-            );
-
-        }
-
-
-        if (imageZoomModal) {
-
-            imageZoomModal.addEventListener(
-                "click",
-                function (event) {
-
-                    if (
-                        event.target ===
-                            imageZoomModal ||
-                        event.target ===
-                            imageZoomDisplay
-                    ) {
-
-                        closeImageZoom();
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           KEYBOARD ESCAPE
-        ===================================================== */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Escape" &&
-                    imageZoomModal &&
-                    !imageZoomModal.hidden
-                ) {
-
-                    event.preventDefault();
-
-                    closeImageZoom();
-
-                    return;
-
-                }
-
-
-                if (
-                    event.key === "Escape" &&
-                    privacyModal &&
-                    !privacyModal.hidden
-                ) {
-
-                    event.preventDefault();
-
-                    closePrivacyModal();
-
-                }
+                );
 
             }
         );
 
+    }
 
-        /* =====================================================
-           SIMPLE FOCUS TRAP
-        ===================================================== */
 
-        function trapFocus(
-            modal,
-            event
+    /* =====================================================
+       RESTORE LOCATION STATE
+    ===================================================== */
+
+    const savedLocationConsent =
+        getLocationConsent();
+
+
+    if (locationPermission) {
+
+        if (savedLocationConsent === "granted") {
+
+            locationPermission.value =
+                "previously_granted";
+
+        } else if (savedLocationConsent === "denied") {
+
+            locationPermission.value =
+                "previously_denied";
+
+        } else if (
+            savedLocationConsent === "unavailable"
         ) {
 
-            if (
-                !modal ||
-                modal.hidden ||
-                event.key !== "Tab"
-            ) {
+            locationPermission.value =
+                "unavailable";
 
-                return;
+        } else {
 
-            }
+            locationPermission.value =
+                "not_requested";
+
+        }
+
+    }
 
 
-            const focusable =
-                modal.querySelectorAll(
-                    'button:not([disabled]), ' +
-                    'a[href], ' +
-                    'input:not([disabled]), ' +
-                    'select:not([disabled]), ' +
-                    'textarea:not([disabled]), ' +
-                    '[tabindex]:not([tabindex="-1"])'
+    /* =====================================================
+       IMAGE ZOOM
+    ===================================================== */
+
+    function openImageZoom(image) {
+
+        if (
+            !imageZoomModal ||
+            !imageZoomDisplay
+        ) {
+            return;
+        }
+
+        lastImageTrigger = image;
+
+        imageZoomDisplay.src =
+            image.currentSrc || image.src;
+
+        imageZoomDisplay.alt =
+            image.alt || "Enlarged image";
+
+
+        const captionElement =
+            image
+                .closest(".gallery-item")
+                ?.querySelector(
+                    ".gallery-caption h3"
                 );
 
 
-            if (!focusable.length) {
+        const caption =
+            captionElement
+                ? captionElement.textContent.trim()
+                : "";
+
+
+        if (imageZoomCaption) {
+            imageZoomCaption.textContent = caption;
+        }
+
+
+        imageZoomModal.hidden = false;
+
+        document.body.classList.add("modal-open");
+
+
+        setTimeout(function () {
+
+            if (imageZoomClose) {
+                imageZoomClose.focus();
+            }
+
+        }, 50);
+
+    }
+
+
+    function closeImageZoom() {
+
+        if (!imageZoomModal) {
+            return;
+        }
+
+        imageZoomModal.hidden = true;
+
+        document.body.classList.remove("modal-open");
+
+
+        if (imageZoomDisplay) {
+
+            imageZoomDisplay.src = "";
+            imageZoomDisplay.alt = "";
+
+        }
+
+
+        if (imageZoomCaption) {
+            imageZoomCaption.textContent = "";
+        }
+
+
+        if (
+            lastImageTrigger &&
+            typeof lastImageTrigger.focus === "function"
+        ) {
+
+            try {
+                lastImageTrigger.focus();
+            } catch (error) {
+                /* Ignore focus errors. */
+            }
+
+        }
+
+        lastImageTrigger = null;
+
+    }
+
+
+    document
+        .querySelectorAll(".gallery-image")
+        .forEach(function (image) {
+
+            image.setAttribute("tabindex", "0");
+            image.setAttribute("role", "button");
+
+            image.setAttribute(
+                "aria-label",
+                image.alt || "Open enlarged image"
+            );
+
+
+            image.addEventListener(
+                "click",
+                function () {
+                    openImageZoom(image);
+                }
+            );
+
+
+            image.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (
+                        event.key === "Enter" ||
+                        event.key === " "
+                    ) {
+
+                        event.preventDefault();
+
+                        openImageZoom(image);
+
+                    }
+
+                }
+            );
+
+        });
+
+
+    if (imageZoomClose) {
+
+        imageZoomClose.addEventListener(
+            "click",
+            closeImageZoom
+        );
+
+    }
+
+
+    if (imageZoomModal) {
+
+        imageZoomModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target === imageZoomModal ||
+                    event.target === imageZoomDisplay
+                ) {
+                    closeImageZoom();
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                imageZoomModal &&
+                !imageZoomModal.hidden
+            ) {
+
+                event.preventDefault();
+
+                closeImageZoom();
+
                 return;
             }
 
 
-            const first =
-                focusable[0];
+            if (
+                event.key === "Escape" &&
+                privacyModal &&
+                !privacyModal.hidden
+            ) {
 
-            const last =
-                focusable[
-                    focusable.length - 1
-                ];
+                event.preventDefault();
+
+                closePrivacyModal();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       FOCUS TRAP
+    ===================================================== */
+
+    function trapFocus(modal, event) {
+
+        if (
+            !modal ||
+            modal.hidden ||
+            event.key !== "Tab"
+        ) {
+            return;
+        }
+
+
+        const focusable =
+            modal.querySelectorAll(
+                'button:not([disabled]), ' +
+                'a[href], ' +
+                'input:not([disabled]), ' +
+                'select:not([disabled]), ' +
+                'textarea:not([disabled]), ' +
+                '[tabindex]:not([tabindex="-1"])'
+            );
+
+
+        if (!focusable.length) {
+            return;
+        }
+
+
+        const first = focusable[0];
+
+        const last =
+            focusable[focusable.length - 1];
+
+
+        if (
+            event.shiftKey &&
+            document.activeElement === first
+        ) {
+
+            event.preventDefault();
+
+            last.focus();
+
+        } else if (
+            !event.shiftKey &&
+            document.activeElement === last
+        ) {
+
+            event.preventDefault();
+
+            first.focus();
+
+        }
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                privacyModal &&
+                !privacyModal.hidden
+            ) {
+
+                trapFocus(
+                    privacyPanel,
+                    event
+                );
+
+            }
 
 
             if (
-                event.shiftKey &&
-                document.activeElement === first
+                imageZoomModal &&
+                !imageZoomModal.hidden
             ) {
 
-                event.preventDefault();
-
-                last.focus();
-
-            } else if (
-                !event.shiftKey &&
-                document.activeElement === last
-            ) {
-
-                event.preventDefault();
-
-                first.focus();
+                trapFocus(
+                    imageZoomModal,
+                    event
+                );
 
             }
 
         }
+    );
 
 
-        document.addEventListener(
-            "keydown",
-            function (event) {
+    /* =====================================================
+       GOOGLE APPS SCRIPT RESPONSE
+    ===================================================== */
 
-                if (
-                    privacyModal &&
-                    !privacyModal.hidden
-                ) {
+    window.addEventListener(
+        "message",
+        function (event) {
 
-                    trapFocus(
-                        privacyPanel,
-                        event
-                    );
-
-                }
+            const data = event.data;
 
 
-                if (
-                    imageZoomModal &&
-                    !imageZoomModal.hidden
-                ) {
-
-                    trapFocus(
-                        imageZoomModal,
-                        event
-                    );
-
-                }
-
+            if (
+                !data ||
+                typeof data !== "object" ||
+                data.type !== "KEA_FORM_RESPONSE"
+            ) {
+                return;
             }
-        );
 
 
-        /* =====================================================
-           GOOGLE APPS SCRIPT RESPONSE
-        ===================================================== */
+            if (!submitting) {
+                return;
+            }
 
-        /* =====================================================
-   GOOGLE APPS SCRIPT RESPONSE
-===================================================== */
 
-window.addEventListener(
-    "message",
-    function (event) {
+            /* SUCCESS */
 
-        const data = event.data;
+            if (data.success === true) {
 
-        if (
-            !data ||
-            typeof data !== "object" ||
-            data.type !== "KEA_FORM_RESPONSE"
-        ) {
-            return;
-        }
+                resetButton();
 
-        if (!submitting) {
-            return;
-        }
 
-        if (data.success === true) {
+                showStatus(
+                    data.message ||
+                    "Thank you. Your requirement has been received successfully.",
+                    "success"
+                );
+
+
+                form.reset();
+
+                setUserAgent();
+
+
+                const consent =
+                    getLocationConsent();
+
+
+                if (locationPermission) {
+
+                    if (consent === "granted") {
+
+                        locationPermission.value =
+                            "previously_granted";
+
+                    } else if (consent === "denied") {
+
+                        locationPermission.value =
+                            "previously_denied";
+
+                    } else if (
+                        consent === "unavailable"
+                    ) {
+
+                        locationPermission.value =
+                            "unavailable";
+
+                    } else {
+
+                        locationPermission.value =
+                            "not_requested";
+
+                    }
+
+                }
+
+
+                clearLocationFields();
+
+                nameInput.focus();
+
+                return;
+            }
+
+
+            /* FAILURE */
 
             resetButton();
 
+
             showStatus(
                 data.message ||
-                "Thank you. Your requirement has been received successfully.",
-                "success"
+                "Your request could not be confirmed. Please try again.",
+                "error"
             );
 
-            form.reset();
+        }
+    );
+
+
+    /* =====================================================
+       FORM SUBMISSION
+    ===================================================== */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            if (submitting) {
+                return;
+            }
+
+
+            /* HONEYPOT */
+
+            if (
+                honeypot &&
+                honeypot.value.trim() !== ""
+            ) {
+
+                showStatus(
+                    "Unable to submit this request.",
+                    "error"
+                );
+
+                return;
+            }
+
 
             setUserAgent();
 
-            const consent =
-                getLocationConsent();
 
-            if (locationPermission) {
+            /* VALIDATION */
 
-                if (consent === "granted") {
+            const name =
+                nameInput.value.trim();
 
-                    locationPermission.value =
-                        "previously_granted";
+            const email =
+                emailInput.value.trim();
 
-                } else if (consent === "denied") {
+            const message =
+                messageInput.value.trim();
 
-                    locationPermission.value =
-                        "previously_denied";
 
-                } else if (consent === "unavailable") {
+            if (!name) {
 
-                    locationPermission.value =
-                        "unavailable";
+                showStatus(
+                    "Please enter your name or organisation.",
+                    "error"
+                );
 
-                } else {
+                nameInput.focus();
 
-                    locationPermission.value =
-                        "not_requested";
-
-                }
+                return;
             }
 
-            clearLocationFields();
 
-            nameInput.focus();
+            if (!email) {
 
-            return;
-        }
+                showStatus(
+                    "Please enter your email address.",
+                    "error"
+                );
 
-        resetButton();
+                emailInput.focus();
 
-        showStatus(
-            data.message ||
-            "Your request could not be confirmed. Please try again.",
-            "error"
-        );
-    }
-);
+                return;
+            }
 
 
-        /* =====================================================
-           FORM SUBMISSION
-        ===================================================== */
+            if (!emailInput.checkValidity()) {
 
-        /* =====================================================
-   FORM SUBMISSION
-===================================================== */
+                showStatus(
+                    "Please enter a valid email address.",
+                    "error"
+                );
 
-form.addEventListener(
-    "submit",
-    function (event) {
+                emailInput.focus();
 
-        event.preventDefault();
+                return;
+            }
 
-        if (submitting) {
-            return;
-        }
 
-        /* ---------------------------------------------
-           HONEYPOT
-        --------------------------------------------- */
+            if (!message) {
 
-        if (
-            honeypot &&
-            honeypot.value.trim() !== ""
-        ) {
+                showStatus(
+                    "Please tell me about the work you need help with.",
+                    "error"
+                );
+
+                messageInput.focus();
+
+                return;
+            }
+
+
+            /* START SUBMISSION */
+
+            submitting = true;
+
+            button.disabled = true;
+
+            button.textContent = "Sending...";
+
 
             showStatus(
-                "Unable to submit this request.",
-                "error"
+                "Sending your requirement..."
             );
 
-            return;
+
+            /*
+             * Native form submission.
+             * The hidden iframe receives the Apps Script response.
+             */
+
+            HTMLFormElement.prototype.submit.call(form);
+
+
+            /*
+             * Wait for Apps Script confirmation.
+             * Do NOT show success automatically.
+             */
+
+            submissionTimer =
+                window.setTimeout(
+                    function () {
+
+                        if (!submitting) {
+                            return;
+                        }
+
+
+                        resetButton();
+
+
+                        showStatus(
+                            "The request may have been submitted, but no confirmation was received. Please check your email or try again.",
+                            "error"
+                        );
+
+                    },
+                    30000
+                );
+
         }
+    );
 
 
-        /* ---------------------------------------------
-           USER AGENT
-        --------------------------------------------- */
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
 
-        setUserAgent();
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(function (anchor) {
 
+            anchor.addEventListener(
+                "click",
+                function (event) {
 
-        /* ---------------------------------------------
-           VALIDATION
-        --------------------------------------------- */
-
-        const name =
-            nameInput.value.trim();
-
-        const email =
-            emailInput.value.trim();
-
-        const message =
-            messageInput.value.trim();
+                    const targetID =
+                        this.getAttribute("href");
 
 
-        if (!name) {
-
-            showStatus(
-                "Please enter your name or organisation.",
-                "error"
-            );
-
-            nameInput.focus();
-
-            return;
-        }
-
-
-        if (!email) {
-
-            showStatus(
-                "Please enter your email address.",
-                "error"
-            );
-
-            emailInput.focus();
-
-            return;
-        }
-
-
-        if (!emailInput.checkValidity()) {
-
-            showStatus(
-                "Please enter a valid email address.",
-                "error"
-            );
-
-            emailInput.focus();
-
-            return;
-        }
-
-
-        if (!message) {
-
-            showStatus(
-                "Please tell me about the work you need help with.",
-                "error"
-            );
-
-            messageInput.focus();
-
-            return;
-        }
-
-
-        if (message.length > 10000) {
-
-            showStatus(
-                "Your message is too long. Please shorten it.",
-                "error"
-            );
-
-            messageInput.focus();
-
-            return;
-        }
-
-
-        /* ---------------------------------------------
-           START SUBMISSION
-        --------------------------------------------- */
-
-        submitting = true;
-
-        button.disabled = true;
-
-        button.textContent = "Sending...";
-
-        showStatus(
-            "Sending your requirement..."
-        );
-
-
-        /* ---------------------------------------------
-           SUBMIT TO GOOGLE APPS SCRIPT
-        --------------------------------------------- */
-
-        HTMLFormElement.prototype.submit.call(form);
-
-
-        /*
-         * Do NOT report success automatically.
-         *
-         * Google Apps Script must send a
-         * KEA_FORM_RESPONSE message back to this page.
-         *
-         * If nothing comes back after 30 seconds,
-         * tell the user that confirmation was not received.
-         */
-
-        submissionTimer =
-            window.setTimeout(
-                function () {
-
-                    if (!submitting) {
+                    if (
+                        !targetID ||
+                        targetID === "#"
+                    ) {
                         return;
                     }
 
-                    resetButton();
 
-                    showStatus(
-                        "The request may have been submitted, but no confirmation was received. Please check your email or try again.",
-                        "error"
-                    );
-
-                },
-                30000
-            );
-    }
-);
-
-        /* =====================================================
-           SMOOTH SCROLL
-        ===================================================== */
-
-        document
-            .querySelectorAll(
-                'a[href^="#"]'
-            )
-            .forEach(
-                function (anchor) {
-
-                    anchor.addEventListener(
-                        "click",
-                        function (event) {
-
-                            const targetID =
-                                this.getAttribute(
-                                    "href"
-                                );
+                    const target =
+                        document.querySelector(
+                            targetID
+                        );
 
 
-                            if (
-                                !targetID ||
-                                targetID === "#"
-                            ) {
-
-                                return;
-
-                            }
+                    if (!target) {
+                        return;
+                    }
 
 
-                            const target =
-                                document.querySelector(
-                                    targetID
-                                );
+                    event.preventDefault();
 
 
-                            if (!target) {
-                                return;
-                            }
+                    target.scrollIntoView({
+                        behavior:
+                            window.matchMedia(
+                                "(prefers-reduced-motion: reduce)"
+                            ).matches
+                                ? "auto"
+                                : "smooth",
+
+                        block: "start"
+                    });
 
 
-                            event.preventDefault();
+                    if (targetID === "#contact") {
 
+                        setTimeout(
+                            function () {
 
-                            target.scrollIntoView({
-                                behavior:
-                                    window.matchMedia(
-                                        "(prefers-reduced-motion: reduce)"
-                                    ).matches
-                                        ? "auto"
-                                        : "smooth",
-                                block: "start"
-                            });
+                                const firstField =
+                                    document.getElementById(
+                                        "name"
+                                    );
 
+                                if (firstField) {
+                                    firstField.focus();
+                                }
 
-                            if (
-                                targetID ===
-                                "#contact"
-                            ) {
+                            },
+                            500
+                        );
 
-                                setTimeout(
-                                    function () {
-
-                                        const firstField =
-                                            document.getElementById(
-                                                "name"
-                                            );
-
-                                        if (
-                                            firstField
-                                        ) {
-
-                                            firstField.focus();
-
-                                        }
-
-                                    },
-                                    500
-                                );
-
-                            }
-
-                        }
-                    );
+                    }
 
                 }
-        );
+            );
 
-    }
+        });
 
-);
-
+});
 </script>
 
 
