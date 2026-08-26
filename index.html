@@ -4180,26 +4180,25 @@ document.addEventListener("DOMContentLoaded", function () {
              * Do NOT show success automatically.
              */
 
-            submissionTimer =
-                window.setTimeout(
-                    function () {
+submissionTimer =
+    window.setTimeout(
+        function () {
 
-                        if (!submitting) {
-                            return;
-                        }
+            if (!submitting) {
+                return;
+            }
 
+            resetButton();
 
-                        resetButton();
+            showStatus(
+                "The server did not confirm the submission. Please try again.",
+                "error"
+            );
 
+        },
+        30000
+    );
 
-                        showStatus(
-                            "Thank you. Your requirements have been sent successfully",
-                            "success"
-                        );
-
-                    },
-                    30000
-                );
 
         }
     );
