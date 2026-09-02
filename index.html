@@ -282,16 +282,18 @@
     */
 
     .public-notice {
-      position: sticky;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      z-index: 8500;
-      width: auto;
-      margin: 0;
-      padding: 0;
-      pointer-events: none;
-    }
+  position: sticky;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 8500;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  height: auto; /* Add this */
+  overflow: visible; /* Add this */
+}
 
     .public-notice-inner {
       position: relative;
@@ -370,12 +372,16 @@
       outline-offset: 2px;
     }
 
-    .public-notice.is-hidden {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(.995);
-      pointer-events: none;
-    }
+  .public-notice.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(.995);
+  pointer-events: none;
+  display: none; /* Add this - completely remove from flow */
+  height: 0; /* Add this */
+  margin: 0; /* Add this */
+  padding: 0; /* Add this */
+}
 
     @media (prefers-reduced-motion: reduce) {
       .public-notice-inner { transition: none; }
