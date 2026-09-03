@@ -2,21 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="theme-color" content="#0B1F3A">
-
   <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support.">
-
   <title>KEA | Practical Hands-On Support</title>
 
   <style>
-
     /* =========================================================
        RESET
     ========================================================= */
-
     *,
     *::before,
     *::after {
@@ -31,14 +25,12 @@
     body {
       margin: 0;
       overflow-x: hidden;
-
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Arial,
         sans-serif;
-
       background: #f5f7fa;
       color: #1f2937;
       line-height: 1.6;
@@ -64,26 +56,20 @@
       --blue: #2563EB;
       --blue-dark: #1D4ED8;
       --blue-soft: #EFF6FF;
-
       --text: #1F2937;
       --muted: #64748B;
       --border: #E2E8F0;
       --white: #FFFFFF;
-
-      --shadow:
-        0 5px 22px rgba(15, 23, 42, 0.07);
+      --shadow: 0 5px 22px rgba(15, 23, 42, 0.07);
     }
 
     /* =========================================================
        HERO
     ========================================================= */
-
     header {
       padding: 75px 20px 65px;
-
       color: white;
       text-align: center;
-
       background:
         linear-gradient(
           135deg,
@@ -100,81 +86,59 @@
 
     .availability {
       display: inline-block;
-
       padding: 6px 14px;
       margin-bottom: 20px;
-
       border: 1px solid rgba(255,255,255,.15);
       border-radius: 30px;
-
       background: rgba(255,255,255,.08);
-
       color: #BFDBFE;
-
       font-size: 12px;
       font-weight: 700;
     }
 
     header h1 {
       margin: 0 0 18px;
-
       font-size:
         clamp(2.3rem, 6vw, 3.7rem);
-
       line-height: 1.08;
       letter-spacing: -1.2px;
     }
 
     .hero-question {
       margin-bottom: 12px;
-
       font-size:
         clamp(1.25rem, 3vw, 1.7rem);
-
       font-weight: 650;
     }
 
     .hero-description {
       max-width: 720px;
       margin: auto;
-
       color: #CBDCF3;
-
       line-height: 1.75;
     }
 
     .hero-buttons {
       display: flex;
-
       justify-content: center;
       flex-wrap: wrap;
-
       gap: 10px;
-
       margin-top: 28px;
     }
 
     /* =========================================================
        BUTTONS
     ========================================================= */
-
     .button {
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       min-height: 48px;
-
       padding: 11px 23px;
-
       border-radius: 7px;
-
       text-decoration: none;
-
       font-size: 14px;
       font-weight: 750;
-
       transition:
         background .2s ease,
         transform .2s ease;
@@ -192,9 +156,7 @@
 
     .button-secondary {
       color: white;
-
       background: rgba(255,255,255,.08);
-
       border: 1px solid rgba(255,255,255,.2);
     }
 
@@ -205,30 +167,22 @@
     /* =========================================================
        NAVIGATION
     ========================================================= */
-
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-
       background: rgba(255,255,255,.97);
-
       border-bottom: 1px solid var(--border);
-
-      box-shadow:
-        0 2px 9px rgba(15,23,42,.05);
+      box-shadow: 0 2px 9px rgba(15,23,42,.05);
     }
 
     nav ul {
       display: flex;
-
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-
       margin: 0;
       padding: 0;
-
       list-style: none;
     }
 
@@ -238,13 +192,9 @@
 
     nav a {
       display: block;
-
       padding: 14px 0;
-
       color: #334155;
-
       text-decoration: none;
-
       font-size: 13px;
       font-weight: 650;
     }
@@ -257,7 +207,6 @@
        PUBLIC NOTICE (improved Info variant)
        - swap :root variables below for Warning/Neutral if desired
     ========================================================= */
-
     :root {
       /* Info variant (recommended). Swap these values for other themes if needed. */
       --notice-bg: #EAF4FF;        /* light blue */
@@ -377,7 +326,6 @@
     /* =========================================================
        LAYOUT
     ========================================================= */
-
     .container {
       max-width: 1100px;
       margin: 40px auto;
@@ -422,11 +370,9 @@
     /* =========================================================
        INTRO
     ========================================================= */
-
     .intro-grid {
       display: grid;
-      grid-template-columns:
-        1.2fr .8fr;
+      grid-template-columns: 1.2fr .8fr;
       gap: 25px;
     }
 
@@ -457,11 +403,9 @@
     /* =========================================================
        SERVICES
     ========================================================= */
-
     .services-grid {
       display: grid;
-      grid-template-columns:
-        repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-top: 27px;
     }
@@ -471,17 +415,13 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: 10px;
-      transition:
-        border-color .2s ease,
-        transform .2s ease,
-        box-shadow .2s ease;
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
     }
 
     .service:hover {
       border-color: #BFDBFE;
       transform: translateY(-3px);
-      box-shadow:
-        0 9px 25px rgba(37,99,235,.07);
+      box-shadow: 0 9px 25px rgba(37,99,235,.07);
     }
 
     .service-number {
@@ -529,7 +469,6 @@
     /* =========================================================
        HELP / OPTIONS / PROCESS
     ========================================================= */
-
     .help-grid,
     .work-options,
     .process {
@@ -540,13 +479,11 @@
 
     .help-grid,
     .work-options {
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .process {
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .help-item,
@@ -605,7 +542,6 @@
     /* =========================================================
        AREAS
     ========================================================= */
-
     .areas {
       display: flex;
       flex-wrap: wrap;
@@ -626,11 +562,9 @@
     /* =========================================================
        GALLERY
     ========================================================= */
-
     .gallery-grid {
       display: grid;
-      grid-template-columns:
-        repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 27px;
     }
@@ -642,8 +576,7 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: 10px;
-      box-shadow:
-        0 4px 16px rgba(15,23,42,.05);
+      box-shadow: 0 4px 16px rgba(15,23,42,.05);
     }
 
     .gallery-image,
@@ -682,15 +615,9 @@
     /* =========================================================
        CTA
     ========================================================= */
-
     .cta {
       padding: 45px 25px;
-      background:
-        linear-gradient(
-          135deg,
-          #0B1F3A,
-          #163E6D
-        );
+      background: linear-gradient(135deg, #0B1F3A, #163E6D);
       border-radius: 14px;
       color: white;
       text-align: center;
@@ -699,8 +626,7 @@
 
     .cta h2 {
       margin: 0 0 10px;
-      font-size:
-        clamp(1.6rem, 4vw, 2.2rem);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
     }
 
     .cta p {
@@ -712,7 +638,6 @@
     /* =========================================================
        CONTACT
     ========================================================= */
-
     #contact {
       max-width: 850px;
       margin: 45px auto;
@@ -793,8 +718,7 @@
     form textarea:focus,
     form select:focus {
       border-color: var(--blue);
-      box-shadow:
-        0 0 0 3px rgba(37,99,235,.11);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.11);
     }
 
     form button[type="submit"] {
@@ -840,7 +764,6 @@
     /* =========================================================
        MODALS
     ========================================================= */
-
     .image-zoom-modal,
     .privacy-modal {
       position: fixed;
@@ -1001,21 +924,46 @@
       z-index: 900;
     }
 
+    /* Blinking border animation: subtle, accessible */
     .public-notice-floating button {
       padding: 8px 13px;
-      border: 1px solid #CBD5E1;
+      border: 2px solid #CBD5E1;
       border-radius: 20px;
       background: white;
       color: #475569;
       font-size: 11px;
       font-weight: 700;
       cursor: pointer;
+      transform-origin: center;
+      /* Blink animation */
+      animation: kea-border-blink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes kea-border-blink {
+      0%, 100% {
+        border-color: #CBD5E1;
+        box-shadow: none;
+        transform: scale(1);
+      }
+      50% {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 8px rgba(37,99,235,0.10);
+        transform: scale(1.02);
+      }
+    }
+
+    /* Respect user preference to reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      .public-notice-floating button {
+        animation: none;
+        transform: none;
+        box-shadow: none;
+      }
     }
 
     /* =========================================================
        FOOTER
     ========================================================= */
-
     footer {
       margin-top: 45px;
       padding: 30px 20px;
@@ -1032,9 +980,7 @@
     /* =========================================================
        RESPONSIVE
     ========================================================= */
-
     @media (max-width: 850px) {
-
       .intro-grid {
         grid-template-columns: 1fr;
       }
@@ -1048,11 +994,9 @@
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
       }
-
     }
 
     @media (max-width: 650px) {
-
       .services-grid,
       .help-grid,
       .work-options,
@@ -1142,11 +1086,9 @@
         height: 30px;
         font-size: 20px;
       }
-
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       html {
         scroll-behavior: auto;
       }
@@ -1154,33 +1096,23 @@
       * {
         transition: none !important;
       }
-
     }
-
   </style>
 </head>
 
 <body>
-
   <!-- =========================================================
        HERO
   ========================================================= -->
-
   <header id="home">
-
     <div class="hero">
-
       <div class="availability">
         Available for Freelance &amp; Project Work (any sector)
       </div>
 
-      <h1>
-        Kaye Eloisa Arnejo
-      </h1>
+      <h1>Kaye Eloisa Arnejo</h1>
 
-      <div class="hero-question">
-        Have work that needs to be done?
-      </div>
+      <div class="hero-question">Have work that needs to be done?</div>
 
       <p class="hero-description">
         Practical, hands-on support across software,
@@ -1191,65 +1123,25 @@
       </p>
 
       <div class="hero-buttons">
-
-        <a
-          href="#contact"
-          class="button button-primary"
-        >
-          Tell Me What You Need
-        </a>
-
-        <a
-          href="#services"
-          class="button button-secondary"
-        >
-          See What I Can Help With
-        </a>
-
+        <a href="#contact" class="button button-primary">Tell Me What You Need</a>
+        <a href="#services" class="button button-secondary">See What I Can Help With</a>
       </div>
-
     </div>
-
   </header>
 
   <!-- =========================================================
        NAVIGATION
   ========================================================= -->
-
   <nav aria-label="Main navigation">
-
     <ul>
-
-      <li>
-        <a href="#home">Home</a>
-      </li>
-
-      <li>
-        <a href="#services">Services</a>
-      </li>
-
-      <li>
-        <a href="#help">What I Can Help With</a>
-      </li>
-
-      <li>
-        <a href="#gallery">Examples</a>
-      </li>
-
-      <li>
-        <a href="#process">How It Works</a>
-      </li>
-
-      <li>
-        <a href="#blog">Blog</a>
-      </li>
-
-      <li>
-        <a href="#contact">Enquire</a>
-      </li>
-
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#help">What I Can Help With</a></li>
+      <li><a href="#gallery">Examples</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Enquire</a></li>
     </ul>
-
   </nav>
 
   <!-- =========================================================
@@ -1257,7 +1149,6 @@
        FIXED POSITION — DOES NOT PUSH MAIN CONTENT
        (role=region + aria-live added for accessibility)
   ========================================================= -->
-
   <section
     class="public-notice"
     id="public-notice"
@@ -1265,26 +1156,18 @@
     aria-live="polite"
     aria-labelledby="public-notice-title"
   >
-
     <div class="public-notice-inner">
-
       <button
         type="button"
         class="public-notice-close"
         id="public-notice-close"
         aria-label="Close public notice"
         title="Close"
-      >
-        &times;
-      </button>
+      >&times;</button>
 
-      <div class="public-notice-label">
-        PUBLIC NOTICE
-      </div>
+      <div class="public-notice-label">PUBLIC NOTICE</div>
 
-      <h2 id="public-notice-title">
-        No Association With Any Lawyer-Politician
-      </h2>
+      <h2 id="public-notice-title">No Association With Any Lawyer-Politician</h2>
 
       <p>
         <strong>
@@ -1293,179 +1176,82 @@
       </p>
 
       <p>
-        For a long period of time, claims or representations
-        suggesting an association between Kaye Eloisa Arnejo and a
-        lawyer-politician or other political figure have been made
-        or circulated.
+        For a long period of time, claims or representations suggesting an association between Kaye Eloisa Arnejo and a lawyer-politician or other political figure have been made or circulated.
       </p>
 
       <p>
-        <strong>
-          Kaye Eloisa Arnejo does not authorise, recognise, or consent
-          to any such claimed association.
-        </strong>
+        <strong>Kaye Eloisa Arnejo does not authorise, recognise, or consent to any such claimed association.</strong>
       </p>
 
       <p>
-      Her name, identity, services, and activities are
-      personal to her. No affiliation, representation, employment, endorsement,
-      partnership, or other relationship with any individual, organisation,
-      public official, political organisation, political group, lawyer, law
-      firm, or other entity should be presumed or inferred unless it has been
-      personally established and expressly authorised by her.
-     </p>
+        Her name, identity, services, and activities are personal to her. No affiliation, representation, employment, endorsement, partnership, or other relationship with any individual, organisation, public official, political organisation, political group, lawyer, law firm, or other entity should be presumed or inferred unless it has been personally established and expressly authorised by her.
+      </p>
 
-    <p>
-      Any representation that <strong>Kaye Eloisa Arnejo</strong> works for,
-      represents, supports, endorses, or acts on behalf of another person or
-      organisation must not be made without her express permission.
-    </p>
+      <p>
+        Any representation that <strong>Kaye Eloisa Arnejo</strong> works for, represents, supports, endorses, or acts on behalf of another person or organisation must not be made without her express permission.
+      </p>
 
-    <p>
-      No individual or organisation is authorised to speak on behalf of
-      <strong>Kaye Eloisa Arnejo</strong>, issue statements in her name, present
-      themselves as her spokesperson or representative, or otherwise hold
-      themselves out as acting with her authority without her direct and
-      specific authorisation.
-    </p>
+      <p>
+        No individual or organisation is authorised to speak on behalf of <strong>Kaye Eloisa Arnejo</strong>, issue statements in her name, present themselves as her spokesperson or representative, or otherwise hold themselves out as acting with her authority without her direct and specific authorisation.
+      </p>
 
-    <p>
-      Likewise, no person or organisation is authorised to use, associate, or
-      represent her name, identity, or work in connection with
-      any activity, undertaking, or organisation without her permission.
-    </p>
+      <p>
+        Likewise, no person or organisation is authorised to use, associate, or represent her name, identity, or work in connection with any activity, undertaking, or organisation without her permission.
+      </p>
 
-    <p>
-      This page and the services presented through it are
-      operated only by
-      <strong>Kaye Eloisa Arnejo</strong>.
-    </p>
+      <p>This page and the services presented through it are operated only by <strong>Kaye Eloisa Arnejo</strong>.</p>
 
-    <p>
-      This notice is provided to maintain clarity, prevent confusion, mistaken identity,
-      unauthorised representation, or misuse of her name.
-    </p>
-
+      <p>This notice is provided to maintain clarity, prevent confusion, mistaken identity, unauthorised representation, or misuse of her name.</p>
     </div>
-
   </section>
 
   <!-- =========================================================
        MAIN CONTENT
   ========================================================= -->
-
   <main class="container">
     <!-- INTRO -->
     <section class="section">
       <div class="card">
         <div class="intro-grid">
           <div class="intro-text">
-            <div class="label">
-              Practical &amp; Hands-On Support
-            </div>
+            <div class="label">Practical &amp; Hands-On Support</div>
 
-            <h2 class="section-title">
-              Let's Make the Work Easier
-            </h2>
+            <h2 class="section-title">Let's Make the Work Easier</h2>
 
-            <p>
-              Some projects need technical knowledge.
-              Others need someone who can get involved,
-              organise information, prepare documentation,
-              coordinate tasks, follow up requirements
-              or take care of work that is slowing
-              everything else down.
-            </p>
+            <p>Some projects need technical knowledge. Others need someone who can get involved, organise information, prepare documentation, coordinate tasks, follow up requirements or take care of work that is slowing everything else down.</p>
 
-            <p>
-              My approach is practical and hands-on:
-              understand what needs to be done, work through
-              the details and help move the task toward
-              a useful result.
-            </p>
+            <p>My approach is practical and hands-on: understand what needs to be done, work through the details and help move the task toward a useful result.</p>
 
-            <p>
-              My background covers software,
-              electrical, electronics and hardware,
-              construction-related environments,
-              clinical and medical-related project work,
-              research, documentation and technical
-              project support.
-            </p>
+            <p>My background covers software, electrical, electronics and hardware, construction-related environments, clinical and medical-related project work, research, documentation and technical project support.</p>
 
-            <p>
-              Support can be arranged around the actual
-              requirement — whether that means a single
-              task, a defined project, temporary support
-              or ongoing assistance.
-            </p>
-
+            <p>Support can be arranged around the actual requirement — whether that means a single task, a defined project, temporary support or ongoing assistance.</p>
           </div>
 
           <div class="intro-box">
-
-            <strong>
-              You don't need to know exactly what service you need.
-            </strong>
-
-            <p>
-              Tell me what you are trying to accomplish,
-              what needs to be done and when you need it.
-              We can identify the practical tasks involved
-              and discuss the appropriate arrangement.
-            </p>
+            <strong>You don't need to know exactly what service you need.</strong>
+            <p>Tell me what you are trying to accomplish, what needs to be done and when you need it. We can identify the practical tasks involved and discuss the appropriate arrangement.</p>
 
             <br>
 
-            <strong>
-              A hands-on approach means getting involved.
-            </strong>
-
-            <p>
-              Where appropriate, I can work through the
-              details with you rather than simply providing
-              general advice.
-            </p>
-
+            <strong>A hands-on approach means getting involved.</strong>
+            <p>Where appropriate, I can work through the details with you rather than simply providing general advice.</p>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- SERVICES -->
     <section class="section" id="services">
       <div class="card">
-        <div class="label">
-          Services
-        </div>
-
-        <h2 class="section-title">
-          What I Can Help You With
-        </h2>
-
-        <p class="section-intro">
-          Practical, hands-on support across software,
-          electrical, electronics, hardware, project,
-          clinical-related, construction, research and
-          documentation requirements.
-        </p>
+        <div class="label">Services</div>
+        <h2 class="section-title">What I Can Help You With</h2>
+        <p class="section-intro">Practical, hands-on support across software, electrical, electronics, hardware, project, clinical-related, construction, research and documentation requirements.</p>
 
         <div class="services-grid">
-
           <div class="service">
-
             <div class="service-number">01</div>
-
             <h3>Software</h3>
-
-            <p>
-              Hands-on support with software-related tasks
-              and technical projects.
-            </p>
-
+            <p>Hands-on support with software-related tasks and technical projects.</p>
             <ul>
               <li>Software development support</li>
               <li>Application work</li>
@@ -1474,22 +1260,12 @@
               <li>Data and system organisation</li>
               <li>Technology project assistance</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">02</div>
-
-            <h3>
-              Electrical, Electronics &amp; Hardware
-            </h3>
-
-            <p>
-              Practical support for electrical,
-              electronics and hardware project tasks.
-            </p>
-
+            <h3>Electrical, Electronics &amp; Hardware</h3>
+            <p>Practical support for electrical, electronics and hardware project tasks.</p>
             <ul>
               <li>Electrical project support</li>
               <li>Electrical documentation</li>
@@ -1500,22 +1276,12 @@
               <li>Technical records</li>
               <li>Technical research</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">03</div>
-
-            <h3>
-              Construction &amp; Civil Project Support
-            </h3>
-
-            <p>
-              Practical assistance with construction,
-              civil technology and project-related tasks.
-            </p>
-
+            <h3>Construction &amp; Civil Project Support</h3>
+            <p>Practical assistance with construction, civil technology and project-related tasks.</p>
             <ul>
               <li>Project documentation</li>
               <li>Technical records</li>
@@ -1524,22 +1290,12 @@
               <li>Material and document tracking</li>
               <li>Site-related documentation</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">04</div>
-
-            <h3>
-              Clinical &amp; Medical-Related Project Support
-            </h3>
-
-            <p>
-              Non-diagnostic support for appropriate
-              clinical and medical-related projects.
-            </p>
-
+            <h3>Clinical &amp; Medical-Related Project Support</h3>
+            <p>Non-diagnostic support for appropriate clinical and medical-related projects.</p>
             <ul>
               <li>Clinical documentation</li>
               <li>Research assistance</li>
@@ -1547,22 +1303,12 @@
               <li>Clinical project coordination</li>
               <li>Medical-related project support</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">05</div>
-
-            <h3>
-              Documentation &amp; Project Support
-            </h3>
-
-            <p>
-              Practical support with documentation,
-              information and project tasks.
-            </p>
-
+            <h3>Documentation &amp; Project Support</h3>
+            <p>Practical support with documentation, information and project tasks.</p>
             <ul>
               <li>Technical document preparation</li>
               <li>Project documentation</li>
@@ -1571,22 +1317,12 @@
               <li>Technical records</li>
               <li>Specific project tasks</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">06</div>
-
-            <h3>
-              Mental Health-Related Project Support
-            </h3>
-
-            <p>
-              Non-diagnostic support for appropriate
-              research, documentation and coordination.
-            </p>
-
+            <h3>Mental Health-Related Project Support</h3>
+            <p>Non-diagnostic support for appropriate research, documentation and coordination.</p>
             <ul>
               <li>Research assistance</li>
               <li>Documentation support</li>
@@ -1594,22 +1330,12 @@
               <li>Project coordination</li>
               <li>Non-clinical support tasks</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">07</div>
-
-            <h3>
-              Research &amp; Technical Information
-            </h3>
-
-            <p>
-              Assistance with finding, organising and
-              documenting information.
-            </p>
-
+            <h3>Research &amp; Technical Information</h3>
+            <p>Assistance with finding, organising and documenting information.</p>
             <ul>
               <li>Technical research</li>
               <li>Reference gathering</li>
@@ -1618,22 +1344,12 @@
               <li>Research summaries</li>
               <li>Technical information organisation</li>
             </ul>
-
           </div>
 
           <div class="service">
-
             <div class="service-number">08</div>
-
-            <h3>
-              Custom Project Support
-            </h3>
-
-            <p>
-              Have a requirement that does not fit
-              neatly into one category?
-            </p>
-
+            <h3>Custom Project Support</h3>
+            <p>Have a requirement that does not fit neatly into one category?</p>
             <ul>
               <li>Define the task</li>
               <li>Clarify the expected result</li>
@@ -1642,218 +1358,103 @@
               <li>Agree on scope</li>
               <li>Work toward the required result</li>
             </ul>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- HELP -->
     <section class="section" id="help">
       <div class="card">
-        <div class="label">
-          Start With the Task
-        </div>
-
-        <h2 class="section-title">
-          Maybe You Need Someone to...
-        </h2>
-
-        <p class="section-intro">
-          You do not need to figure out the perfect job title
-          first. Start with the actual work that needs to be
-          completed.
-        </p>
+        <div class="label">Start With the Task</div>
+        <h2 class="section-title">Maybe You Need Someone to...</h2>
+        <p class="section-intro">You do not need to figure out the perfect job title first. Start with the actual work that needs to be completed.</p>
 
         <div class="help-grid">
-
           <div class="help-item">
             <strong>Build or improve software</strong>
-            <span>
-              Development, testing, troubleshooting,
-              documentation and technology tasks.
-            </span>
+            <span>Development, testing, troubleshooting, documentation and technology tasks.</span>
           </div>
 
           <div class="help-item">
             <strong>Work on electrical systems</strong>
-            <span>
-              Electrical project tasks, documentation,
-              testing and troubleshooting support.
-            </span>
+            <span>Electrical project tasks, documentation, testing and troubleshooting support.</span>
           </div>
 
           <div class="help-item">
             <strong>Work on electronics and hardware</strong>
-            <span>
-              Components, hardware, electronics,
-              records, testing and technical tasks.
-            </span>
+            <span>Components, hardware, electronics, records, testing and technical tasks.</span>
           </div>
 
           <div class="help-item">
             <strong>Support a construction project</strong>
-            <span>
-              Documentation, coordination and
-              practical project tasks.
-            </span>
+            <span>Documentation, coordination and practical project tasks.</span>
           </div>
 
           <div class="help-item">
             <strong>Support clinical-related work</strong>
-            <span>
-              Documentation, research and appropriate
-              project support.
-            </span>
+            <span>Documentation, research and appropriate project support.</span>
           </div>
 
           <div class="help-item">
             <strong>Support mental health-related projects</strong>
-            <span>
-              Non-diagnostic research, documentation,
-              coordination and project support.
-            </span>
+            <span>Non-diagnostic research, documentation, coordination and project support.</span>
           </div>
 
           <div class="help-item">
             <strong>Organise technical information</strong>
-            <span>
-              Research, references, specifications
-              and project information.
-            </span>
+            <span>Research, references, specifications and project information.</span>
           </div>
 
           <div class="help-item">
             <strong>Prepare technical documents</strong>
-            <span>
-              Project information, references,
-              records and technical documentation.
-            </span>
+            <span>Project information, references, records and technical documentation.</span>
           </div>
 
           <div class="help-item">
             <strong>Research a technical requirement</strong>
-            <span>
-              Gather information, compare references
-              and organise findings.
-            </span>
+            <span>Gather information, compare references and organise findings.</span>
           </div>
 
           <div class="help-item">
             <strong>Catch up on a project task</strong>
-            <span>
-              Take on a defined task when a project
-              needs additional support.
-            </span>
+            <span>Take on a defined task when a project needs additional support.</span>
           </div>
 
           <div class="help-item">
             <strong>Handle something specific</strong>
-            <span>
-              Explain the requirement and discuss
-              the practical support needed.
-            </span>
+            <span>Explain the requirement and discuss the practical support needed.</span>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- WORK OPTIONS -->
     <section class="section">
       <div class="card">
-        <div class="label">
-          Flexible Arrangements
-        </div>
-
-        <h2 class="section-title">
-          Work With Me Based on What You Need
-        </h2>
-
-        <p class="section-intro">
-          Different tasks require different arrangements.
-          The work can be discussed around scope,
-          timeframe and expected result.
-        </p>
+        <div class="label">Flexible Arrangements</div>
+        <h2 class="section-title">Work With Me Based on What You Need</h2>
+        <p class="section-intro">Different tasks require different arrangements. The work can be discussed around scope, timeframe and expected result.</p>
 
         <div class="work-options">
-
-          <div class="option">
-            <h3>One-Time Task</h3>
-            <p>
-              A specific task that simply needs to be completed.
-            </p>
-          </div>
-
-          <div class="option">
-            <h3>Short-Term Help</h3>
-            <p>
-              Additional support during a busy period.
-            </p>
-          </div>
-
-          <div class="option">
-            <h3>Project-Based</h3>
-            <p>
-              Support for a defined project and timeframe.
-            </p>
-          </div>
-
-          <div class="option">
-            <h3>Ongoing Support</h3>
-            <p>
-              Regular help with recurring technical
-              or project tasks.
-            </p>
-          </div>
-
-          <div class="option">
-            <h3>Contract Work</h3>
-            <p>
-              Work based on agreed responsibilities
-              and duration.
-            </p>
-          </div>
-
-          <div class="option">
-            <h3>Custom Arrangement</h3>
-            <p>
-              Tell me about the requirement and
-              we can discuss it.
-            </p>
-          </div>
-
+          <div class="option"><h3>One-Time Task</h3><p>A specific task that simply needs to be completed.</p></div>
+          <div class="option"><h3>Short-Term Help</h3><p>Additional support during a busy period.</p></div>
+          <div class="option"><h3>Project-Based</h3><p>Support for a defined project and timeframe.</p></div>
+          <div class="option"><h3>Ongoing Support</h3><p>Regular help with recurring technical or project tasks.</p></div>
+          <div class="option"><h3>Contract Work</h3><p>Work based on agreed responsibilities and duration.</p></div>
+          <div class="option"><h3>Custom Arrangement</h3><p>Tell me about the requirement and we can discuss it.</p></div>
         </div>
-
       </div>
-
     </section>
 
     <!-- AREAS -->
     <section class="section">
       <div class="card">
-        <div class="label">
-          Areas of Support
-        </div>
-
-        <h2 class="section-title">
-          Different Types of Work, One Practical Approach
-        </h2>
-
-        <p class="section-intro">
-          My approach is hands-on and task-focused,
-          allowing me to work across different technical
-          and professional environments depending on
-          the requirement.
-        </p>
+        <div class="label">Areas of Support</div>
+        <h2 class="section-title">Different Types of Work, One Practical Approach</h2>
+        <p class="section-intro">My approach is hands-on and task-focused, allowing me to work across different technical and professional environments depending on the requirement.</p>
 
         <div class="areas">
-
           <span class="area">Software</span>
           <span class="area">Electrical</span>
           <span class="area">Electronics</span>
@@ -1870,290 +1471,120 @@
           <span class="area">Hands-On Support</span>
           <span class="area">Freelance Work</span>
           <span class="area">Contract Work</span>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- EXAMPLES -->
     <section class="section" id="gallery">
       <div class="card">
-        <div class="label">
-          Examples
-        </div>
-
-        <h2 class="section-title">
-          Project &amp; Work Examples
-        </h2>
-
-        <p class="section-intro">
-          Examples shown here are provided for general
-          illustration of work and are not intended
-          to imply that every image represents a completed project.
-        </p>
+        <div class="label">Examples</div>
+        <h2 class="section-title">Project &amp; Work Examples</h2>
+        <p class="section-intro">Examples shown here are provided for general illustration of work and are not intended to imply that every image represents a completed project.</p>
 
         <div class="gallery-grid">
-
           <article class="gallery-item">
-
-            <img
-              src="Floor.jpg"
-              alt="Floor project example"
-              class="gallery-image"
-              loading="lazy"
-            >
-
+            <img src="Floor.jpg" alt="Floor project example" class="gallery-image" loading="lazy">
             <div class="gallery-caption">
-
               <h3>Floor 1</h3>
-
-              <p>
-                Example image 1
-              </p>
-
+              <p>Example image 1</p>
             </div>
-
           </article>
 
           <article class="gallery-item">
-
-            <img
-              src="ha.png"
-              alt="Floor project example"
-              class="gallery-image"
-              loading="lazy"
-            >
-
+            <img src="ha.png" alt="Floor project example" class="gallery-image" loading="lazy">
             <div class="gallery-caption">
-
               <h3>Floor 2</h3>
-
-              <p>
-                Example image 2
-              </p>
-
+              <p>Example image 2</p>
             </div>
-
           </article>
 
           <article class="gallery-item">
-
-            <img
-              src="hm.png"
-              alt="Chair project example"
-              class="gallery-image"
-              loading="lazy"
-            >
-
+            <img src="hm.png" alt="Chair project example" class="gallery-image" loading="lazy">
             <div class="gallery-caption">
-
               <h3>Chair</h3>
-
-              <p>
-
-              </p>
-
+              <p></p>
             </div>
-
           </article>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- PROCESS -->
     <section class="section" id="process">
       <div class="card">
-        <div class="label">
-          Simple Process
-        </div>
-
-        <h2 class="section-title">
-          Tell Me What Needs to Be Done
-        </h2>
-
-        <p class="section-intro">
-          You do not need to prepare a complicated proposal.
-          A simple description of the task is enough to
-          start the conversation.
-        </p>
+        <div class="label">Simple Process</div>
+        <h2 class="section-title">Tell Me What Needs to Be Done</h2>
+        <p class="section-intro">You do not need to prepare a complicated proposal. A simple description of the task is enough to start the conversation.</p>
 
         <div class="process">
-
           <div class="process-item">
-
-            <div class="process-number">
-              1
-            </div>
-
-            <h3>
-              Tell Me About the Work
-            </h3>
-
-            <p>
-              Explain the task, problem, project,
-              technical requirement or workload.
-            </p>
-
+            <div class="process-number">1</div>
+            <h3>Tell Me About the Work</h3>
+            <p>Explain the task, problem, project, technical requirement or workload.</p>
           </div>
 
           <div class="process-item">
-
-            <div class="process-number">
-              2
-            </div>
-
-            <h3>
-              Discuss the Requirement
-            </h3>
-
-            <p>
-              Clarify scope, timeframe, expected output,
-              resources and relevant details.
-            </p>
-
+            <div class="process-number">2</div>
+            <h3>Discuss the Requirement</h3>
+            <p>Clarify scope, timeframe, expected output, resources and relevant details.</p>
           </div>
 
           <div class="process-item">
-
-            <div class="process-number">
-              3
-            </div>
-
-            <h3>
-              Get Hands-On and Get It Done
-            </h3>
-
-            <p>
-              Agree on responsibilities and work
-              toward the required result.
-            </p>
-
+            <div class="process-number">3</div>
+            <h3>Get Hands-On and Get It Done</h3>
+            <p>Agree on responsibilities and work toward the required result.</p>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
     <!-- CTA -->
     <section class="section">
       <div class="cta">
-
-        <h2>
-          Have Something You Need Help With?
-        </h2>
-
-        <p>
-          Whether it is software, electrical work,
-          electronics, hardware, construction,
-          clinical-related project work, documentation,
-          research or a specific task, send me the details.
-        </p>
-
-        <a
-          href="#contact"
-          class="button button-primary"
-        >
-          Tell Me What You Need
-        </a>
-
+        <h2>Have Something You Need Help With?</h2>
+        <p>Whether it is software, electrical work, electronics, hardware, construction, clinical-related project work, documentation, research or a specific task, send me the details.</p>
+        <a href="#contact" class="button button-primary">Tell Me What You Need</a>
       </div>
-
     </section>
 
     <!-- BLOG -->
     <section class="section" id="blog">
       <div class="card">
-        <div class="label">
-          Blog
-        </div>
-
-        <h2 class="section-title">
-          Latest Articles
-        </h2>
-
-        <p class="section-intro">
-          Insights, ideas, and information from me.
-        </p>
+        <div class="label">Blog</div>
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-intro">Insights, ideas, and information from me.</p>
 
         <div class="services-grid">
-
           <article class="service">
-
-            <div class="service-number">
-              01
-            </div>
-
-            <h3>
-              Articles Publishing Soon
-            </h3>
-
-            <p>
-              New articles and insights
-              will be published here.
-            </p>
-
+            <div class="service-number">01</div>
+            <h3>Articles Publishing Soon</h3>
+            <p>New articles and insights will be published here.</p>
           </article>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
 
   <!-- =========================================================
        CONTACT
   ========================================================= -->
-
   <section id="contact">
-
     <div class="contact-card">
-
       <div class="contact-header">
-
-        <div class="label">
-          Project / Service Enquiry
-        </div>
-
-        <h2>
-          Tell Me What You Need
-        </h2>
-
-        <p>
-          Give me a few details about the work.
-          You do not need to know exactly what service
-          category it belongs to.
-        </p>
-
+        <div class="label">Project / Service Enquiry</div>
+        <h2>Tell Me What You Need</h2>
+        <p>Give me a few details about the work. You do not need to know exactly what service category it belongs to.</p>
       </div>
 
       <div class="contact-note">
-
         <strong>Privacy:</strong>
-
-        The information you submit will be used to
-        respond to your enquiry and discuss the work
-        you are requesting.
-
-        This page uses a Third-Party Service Provider
-        to process form submissions.
-
-        Please do not include passwords, financial
-        information, medical records or other sensitive
-        information unless genuinely necessary.
-
+        The information you submit will be used to respond to your enquiry and discuss the work you are requesting.
+        This page uses a Third-Party Service Provider to process form submissions.
+        Please do not include passwords, financial information, medical records or other sensitive information unless genuinely necessary.
       </div>
 
       <!-- CONTACT FORM -->
-
       <form
         id="contact-form"
         action="https://script.google.com/macros/s/AKfycbxTOZUpq_K-sx5dHh2HMsrtaM34oSsOUBvpNNoCUoj6FmKz8ECNCzWSTL_reHQx2DxE/exec"
@@ -2161,37 +1592,13 @@
         target="form-response-frame"
         novalidate
       >
+        <label for="name">Name / Organisation</label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name or organisation" maxlength="200" required>
 
-        <label for="name">
-          Name / Organisation
-        </label>
-
-        <input
-          type="text"
-          id="name"
-          name="name"
-          autocomplete="name"
-          placeholder="Your name or organisation"
-          maxlength="200"
-          required
-        >
-
-        <label for="email">
-          Email
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          name="email"
-          autocomplete="email"
-          placeholder="your.email@example.com"
-          maxlength="320"
-          required
-        >
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="your.email@example.com" maxlength="320" required>
 
         <label for="service">What kind of help do you need?</label>
-
         <select id="service" name="service">
           <option value="">Choose one if applicable</option>
           <option value="Software Engineering">Software Engineering</option>
@@ -2206,28 +1613,12 @@
         </select>
 
         <label for="timeframe">When do you need help?</label>
-
-        <input
-          type="text"
-          id="timeframe"
-          name="timeframe"
-          maxlength="200"
-          placeholder="ASAP, next week, this month, ongoing..."
-        >
+        <input type="text" id="timeframe" name="timeframe" maxlength="200" placeholder="ASAP, next week, this month, ongoing...">
 
         <label for="message">Tell Me About the Work</label>
-
-        <textarea
-          id="message"
-          name="message"
-          rows="7"
-          maxlength="10000"
-          placeholder="What needs to be done? What would you like help with? What should the final result look like?"
-          required
-        ></textarea>
+        <textarea id="message" name="message" rows="7" maxlength="10000" placeholder="What needs to be done? What would you like help with? What should the final result look like?" required></textarea>
 
         <!-- LOCATION -->
-
         <input type="hidden" id="location-permission" name="location_permission" value="not_requested">
         <input type="hidden" id="latitude" name="latitude" value="">
         <input type="hidden" id="longitude" name="longitude" value="">
@@ -2235,74 +1626,43 @@
         <input type="hidden" id="user-agent" name="user_agent" value="">
 
         <!-- HONEYPOT -->
-
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-hidden">
 
         <button type="submit" id="submit-button">Send Requirement</button>
-
         <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-
       </form>
 
       <!-- Hidden iframe receives Apps Script response -->
-
       <iframe name="form-response-frame" id="form-response-frame" title="Form response" aria-hidden="true" tabindex="-1" class="form-hidden"></iframe>
-
     </div>
-
   </section>
 
   <!-- =========================================================
        FOOTER
   ========================================================= -->
-
   <footer>
-
-    <p>
-      Freelance • Contract • Project Support
-    </p>
-
-    <p>
-      Software • Electrical • Electronics • Hardware •
-      Construction • Clinical-Related • Technical Support
-    </p>
-
-    <p>
-      &copy; 2026 KEA. All rights reserved.
-    </p>
-
+    <p>Freelance • Contract • Project Support</p>
+    <p>Software • Electrical • Electronics • Hardware • Construction • Clinical-Related • Technical Support</p>
+    <p>&copy; 2026 KEA. All rights reserved.</p>
   </footer>
 
   <!-- =========================================================
        IMAGE ZOOM
   ========================================================= -->
-
   <div id="image-zoom-modal" class="image-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="image-zoom-caption" hidden>
-
-    <button type="button" class="image-zoom-close" id="image-zoom-close" aria-label="Close enlarged image">
-      &times;
-    </button>
-
+    <button type="button" class="image-zoom-close" id="image-zoom-close" aria-label="Close enlarged image">&times;</button>
     <img id="image-zoom-display" class="image-zoom-display" src="" alt="">
-
     <div id="image-zoom-caption" class="image-zoom-caption"></div>
-
   </div>
 
   <!-- =========================================================
        PRIVACY MODAL
   ========================================================= -->
-
   <div id="privacy-modal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden>
-
     <div class="privacy-panel">
-
-      <button type="button" class="privacy-close" id="privacy-close" aria-label="Close privacy panel">
-        &times;
-      </button>
+      <button type="button" class="privacy-close" id="privacy-close" aria-label="Close privacy panel">&times;</button>
 
       <div class="label">Privacy &amp; Terms</div>
-
       <h2 id="privacy-title">Your Privacy Matters</h2>
 
       <div class="privacy-section">
@@ -2335,15 +1695,12 @@
       </div>
 
       <button type="button" class="privacy-text-button" id="privacy-understood">Continue Without Location</button>
-
     </div>
-
   </div>
 
   <!-- =========================================================
        PRIVACY BUTTON
   ========================================================= -->
-
   <div class="privacy-floating">
     <button type="button" id="open-privacy">Privacy &amp; Terms</button>
   </div>
@@ -2351,7 +1708,6 @@
   <!-- =========================================================
        PUBLIC NOTICE BUTTON (new)
   ========================================================= -->
-
   <div class="public-notice-floating">
     <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="false" aria-haspopup="dialog">Public Notice</button>
   </div>
@@ -2359,14 +1715,12 @@
   <!-- =========================================================
        JAVASCRIPT
   ========================================================= -->
-
   <script>
     "use strict";
 
     /* =========================================================
        PUBLIC NOTICE (persist closed state) + open button
     ========================================================= */
-
     (function () {
       const publicNotice = document.getElementById("public-notice");
       const publicNoticeClose = document.getElementById("public-notice-close");
@@ -2412,13 +1766,11 @@
           publicNoticeClose.focus();
         });
       }
-
     })();
 
     /* =========================================================
        ELEMENTS
     ========================================================= */
-
     const form = document.getElementById("contact-form");
     const submitButton = document.getElementById("submit-button");
     const formStatus = document.getElementById("form-status");
@@ -2452,20 +1804,17 @@
     /* =========================================================
        STATE
     ========================================================= */
-
     let submitting = false;
     let submissionTimer = null;
 
     /* =========================================================
        USER AGENT
     ========================================================= */
-
     userAgentInput.value = navigator.userAgent || "";
 
     /* =========================================================
        STATUS
     ========================================================= */
-
     function showStatus(message, type = "") {
       formStatus.textContent = message;
       formStatus.className = "form-status";
@@ -2477,7 +1826,6 @@
     /* =========================================================
        SUBMISSION RESET
     ========================================================= */
-
     function resetSubmission() {
       submitting = false;
       submitButton.disabled = false;
@@ -2491,7 +1839,6 @@
     /* =========================================================
        LOCATION STORAGE
     ========================================================= */
-
     function saveLocationConsent(value) {
       try {
         localStorage.setItem("kea_location_consent", value);
@@ -2511,7 +1858,6 @@
     /* =========================================================
        LOCATION CLEAR
     ========================================================= */
-
     function clearLocation() {
       latitudeInput.value = "";
       longitudeInput.value = "";
@@ -2521,7 +1867,6 @@
     /* =========================================================
        PRIVACY MODAL
     ========================================================= */
-
     function openPrivacyModal() {
       privacyModal.hidden = false;
       document.body.classList.add("modal-open");
@@ -2534,7 +1879,6 @@
     }
 
     openPrivacy.addEventListener("click", openPrivacyModal);
-
     privacyClose.addEventListener("click", closePrivacyModal);
 
     privacyModal.addEventListener("click", function (event) {
@@ -2546,7 +1890,6 @@
     /* =========================================================
        LOCATION DENIAL
     ========================================================= */
-
     function denyLocationAccess() {
       clearLocation();
       locationPermission.value = "denied";
@@ -2555,15 +1898,12 @@
     }
 
     denyLocation.addEventListener("click", denyLocationAccess);
-
     privacyUnderstood.addEventListener("click", denyLocationAccess);
 
     /* =========================================================
        LOCATION ALLOW
     ========================================================= */
-
     allowLocation.addEventListener("click", function () {
-
       if (!navigator.geolocation) {
         locationPermission.value = "unavailable";
         saveLocationConsent("unavailable");
@@ -2575,7 +1915,6 @@
       allowLocation.textContent = "Requesting Location...";
 
       navigator.geolocation.getCurrentPosition(
-
         function (position) {
           const coords = position.coords;
           latitudeInput.value = Number(coords.latitude).toFixed(8);
@@ -2603,15 +1942,12 @@
           maximumAge: 0,
           timeout: 15000
         }
-
       );
-
     });
 
     /* =========================================================
        RESTORE LOCATION PREFERENCE
     ========================================================= */
-
     const savedConsent = getLocationConsent();
 
     if (savedConsent === "granted") {
@@ -2625,9 +1961,7 @@
     /* =========================================================
        IMAGE ZOOM
     ========================================================= */
-
     document.querySelectorAll(".gallery-image").forEach(function (image) {
-
       image.tabIndex = 0;
       image.setAttribute("role", "button");
       image.setAttribute("aria-label", "Enlarge image: " + (image.alt || "gallery image"));
@@ -2648,7 +1982,6 @@
           image.click();
         }
       });
-
     });
 
     function closeImageModal() {
@@ -2670,7 +2003,6 @@
     /* =========================================================
        ESCAPE KEY
     ========================================================= */
-
     document.addEventListener("keydown", function (event) {
       if (event.key !== "Escape") {
         return;
@@ -2694,15 +2026,12 @@
         if (openPublicNoticeBtn) openPublicNoticeBtn.setAttribute("aria-expanded", "false");
         try { localStorage.setItem("kea_notice_closed", "1"); } catch (e) { /* ignore */ }
       }
-
     });
 
     /* =========================================================
        GOOGLE APPS SCRIPT RESPONSE
     ========================================================= */
-
     window.addEventListener("message", function (event) {
-
       let data;
 
       try {
@@ -2751,15 +2080,12 @@
     /* =========================================================
        IFRAME RESPONSE FALLBACK
     ========================================================= */
-
     iframe.addEventListener("load", function () {
-
       if (!submitting) {
         return;
       }
 
       window.setTimeout(function () {
-
         if (!submitting) {
           return;
         }
@@ -2770,17 +2096,13 @@
         userAgentInput.value = navigator.userAgent || "";
         clearLocation();
         nameInput.focus();
-
       }, 500);
-
     });
 
     /* =========================================================
        FORM SUBMISSION
     ========================================================= */
-
     form.addEventListener("submit", function (event) {
-
       event.preventDefault();
 
       if (submitting) {
@@ -2849,17 +2171,13 @@
         resetSubmission();
         showStatus("The server did not confirm the submission. Please try again.", "error");
       }, 60000);
-
     });
 
     /* =========================================================
        SMOOTH INTERNAL LINKS
     ========================================================= */
-
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-
       link.addEventListener("click", function (event) {
-
         const id = link.getAttribute("href");
 
         if (!id || id === "#") {
@@ -2884,12 +2202,8 @@
             nameInput.focus();
           }, 500);
         }
-
       });
-
     });
-
   </script>
-
 </body>
 </html>
