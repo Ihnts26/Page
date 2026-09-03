@@ -267,33 +267,19 @@
       --notice-shadow: 0 10px 30px rgba(2,15,42,0.12);
     }
 
-    /* Alternate theme values (comments)
-       Warning:
-         --notice-bg: #FFF7ED;
-         --notice-accent: #F59E0B;
-         --notice-text: #7A421A;
-         --notice-border: #FFE6C8;
-
-       Neutral:
-         --notice-bg: #F8FAFC;
-         --notice-accent: #94A3B8;
-         --notice-text: #213547;
-         --notice-border: #EEF2F6;
-    */
-
     .public-notice {
-  position: sticky;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 8500;
-  width: auto;
-  margin: 0;
-  padding: 0;
-  pointer-events: none;
-  height: auto; /* Add this */
-  overflow: visible; /* Add this */
-}
+      position: sticky;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 8500;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      pointer-events: none;
+      height: auto;
+      overflow: visible;
+    }
 
     .public-notice-inner {
       position: relative;
@@ -372,16 +358,16 @@
       outline-offset: 2px;
     }
 
-  .public-notice.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(.995);
-  pointer-events: none;
-  display: none; /* Add this - completely remove from flow */
-  height: 0; /* Add this */
-  margin: 0; /* Add this */
-  padding: 0; /* Add this */
-}
+    .public-notice.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(.995);
+      pointer-events: none;
+      display: none;
+      height: 0;
+      margin: 0;
+      padding: 0;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .public-notice-inner { transition: none; }
@@ -997,6 +983,25 @@
     }
 
     .privacy-floating button {
+      padding: 8px 13px;
+      border: 1px solid #CBD5E1;
+      border-radius: 20px;
+      background: white;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* New: Public notice floating button (mirrors privacy button) */
+    .public-notice-floating {
+      position: fixed;
+      left: 15px;
+      bottom: 15px;
+      z-index: 900;
+    }
+
+    .public-notice-floating button {
       padding: 8px 13px;
       border: 1px solid #CBD5E1;
       border-radius: 20px;
@@ -2178,60 +2183,22 @@
           required
         >
 
-        <label for="service">
-          What kind of help do you need?
-        </label>
+        <label for="service">What kind of help do you need?</label>
 
-        <select
-          id="service"
-          name="service"
-        >
-
-          <option value="">
-            Choose one if applicable
-          </option>
-
-          <option value="Software Engineering">
-            Software Engineering
-          </option>
-
-          <option value="Electrical / Electronics / Hardware">
-            Electrical / Electronics / Hardware
-          </option>
-
-          <option value="Construction / Civil Project">
-            Construction / Civil Project
-          </option>
-
-          <option value="Clinical / Medical-Related Project Support">
-            Clinical / Medical-Related Project Support
-          </option>
-
-          <option value="Mental Health-Related Project Support">
-            Mental Health-Related Project Support
-          </option>
-
-          <option value="Documentation / Project Support">
-            Documentation / Project Support
-          </option>
-
-          <option value="Research / Information">
-            Research / Information
-          </option>
-
-          <option value="Project / Task Support">
-            Project / Task Support
-          </option>
-
-          <option value="Something Else">
-            Something Else
-          </option>
-
+        <select id="service" name="service">
+          <option value="">Choose one if applicable</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Electrical / Electronics / Hardware">Electrical / Electronics / Hardware</option>
+          <option value="Construction / Civil Project">Construction / Civil Project</option>
+          <option value="Clinical / Medical-Related Project Support">Clinical / Medical-Related Project Support</option>
+          <option value="Mental Health-Related Project Support">Mental Health-Related Project Support</option>
+          <option value="Documentation / Project Support">Documentation / Project Support</option>
+          <option value="Research / Information">Research / Information</option>
+          <option value="Project / Task Support">Project / Task Support</option>
+          <option value="Something Else">Something Else</option>
         </select>
 
-        <label for="timeframe">
-          When do you need help?
-        </label>
+        <label for="timeframe">When do you need help?</label>
 
         <input
           type="text"
@@ -2241,9 +2208,7 @@
           placeholder="ASAP, next week, this month, ongoing..."
         >
 
-        <label for="message">
-          Tell Me About the Work
-        </label>
+        <label for="message">Tell Me About the Work</label>
 
         <textarea
           id="message"
@@ -2256,78 +2221,25 @@
 
         <!-- LOCATION -->
 
-        <input
-          type="hidden"
-          id="location-permission"
-          name="location_permission"
-          value="not_requested"
-        >
-
-        <input
-          type="hidden"
-          id="latitude"
-          name="latitude"
-          value=""
-        >
-
-        <input
-          type="hidden"
-          id="longitude"
-          name="longitude"
-          value=""
-        >
-
-        <input
-          type="hidden"
-          id="location-accuracy"
-          name="location_accuracy"
-          value=""
-        >
-
-        <input
-          type="hidden"
-          id="user-agent"
-          name="user_agent"
-          value=""
-        >
+        <input type="hidden" id="location-permission" name="location_permission" value="not_requested">
+        <input type="hidden" id="latitude" name="latitude" value="">
+        <input type="hidden" id="longitude" name="longitude" value="">
+        <input type="hidden" id="location-accuracy" name="location_accuracy" value="">
+        <input type="hidden" id="user-agent" name="user_agent" value="">
 
         <!-- HONEYPOT -->
 
-        <input
-          type="text"
-          name="website"
-          tabindex="-1"
-          autocomplete="off"
-          aria-hidden="true"
-          class="form-hidden"
-        >
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-hidden">
 
-        <button
-          type="submit"
-          id="submit-button"
-        >
-          Send Requirement
-        </button>
+        <button type="submit" id="submit-button">Send Requirement</button>
 
-        <div
-          id="form-status"
-          class="form-status"
-          role="status"
-          aria-live="polite"
-        ></div>
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
       </form>
 
       <!-- Hidden iframe receives Apps Script response -->
 
-      <iframe
-        name="form-response-frame"
-        id="form-response-frame"
-        title="Form response"
-        aria-hidden="true"
-        tabindex="-1"
-        class="form-hidden"
-      ></iframe>
+      <iframe name="form-response-frame" id="form-response-frame" title="Form response" aria-hidden="true" tabindex="-1" class="form-hidden"></iframe>
 
     </div>
 
@@ -2358,35 +2270,15 @@
        IMAGE ZOOM
   ========================================================= -->
 
-  <div
-    id="image-zoom-modal"
-    class="image-zoom-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="image-zoom-caption"
-    hidden
-  >
+  <div id="image-zoom-modal" class="image-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="image-zoom-caption" hidden>
 
-    <button
-      type="button"
-      class="image-zoom-close"
-      id="image-zoom-close"
-      aria-label="Close enlarged image"
-    >
+    <button type="button" class="image-zoom-close" id="image-zoom-close" aria-label="Close enlarged image">
       &times;
     </button>
 
-    <img
-      id="image-zoom-display"
-      class="image-zoom-display"
-      src=""
-      alt=""
-    >
+    <img id="image-zoom-display" class="image-zoom-display" src="" alt="">
 
-    <div
-      id="image-zoom-caption"
-      class="image-zoom-caption"
-    ></div>
+    <div id="image-zoom-caption" class="image-zoom-caption"></div>
 
   </div>
 
@@ -2394,141 +2286,48 @@
        PRIVACY MODAL
   ========================================================= -->
 
-  <div
-    id="privacy-modal"
-    class="privacy-modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="privacy-title"
-    hidden
-  >
+  <div id="privacy-modal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden>
 
     <div class="privacy-panel">
 
-      <button
-        type="button"
-        class="privacy-close"
-        id="privacy-close"
-        aria-label="Close privacy panel"
-      >
+      <button type="button" class="privacy-close" id="privacy-close" aria-label="Close privacy panel">
         &times;
       </button>
 
-      <div class="label">
-        Privacy &amp; Terms
-      </div>
+      <div class="label">Privacy &amp; Terms</div>
 
-      <h2 id="privacy-title">
-        Your Privacy Matters
-      </h2>
+      <h2 id="privacy-title">Your Privacy Matters</h2>
 
       <div class="privacy-section">
-
-        <h3>
-          Contact Form
-        </h3>
-
-        <p>
-          Information submitted through this form is used
-          to respond to your enquiry and discuss the requested
-          work.
-        </p>
-
-        <p>
-          Submissions are stored in the connected
-          third-party service provider used by this page.
-        </p>
-
+        <h3>Contact Form</h3>
+        <p>Information submitted through this form is used to respond to your enquiry and discuss the requested work.</p>
+        <p>Submissions are stored in the connected third-party service provider used by this page.</p>
       </div>
 
       <div class="privacy-section">
-
-        <h3>
-          Location Information
-        </h3>
-
-        <p>
-          Location access is optional.
-          Your browser will only request location permission
-          when you explicitly choose Allow Location.
-        </p>
-
-        <p>
-          If permitted, latitude, longitude and accuracy
-          may be included with your enquiry.
-        </p>
-
-        <p>
-          Location is not continuously tracked.
-        </p>
-
+        <h3>Location Information</h3>
+        <p>Location access is optional. Your browser will only request location permission when you explicitly choose Allow Location.</p>
+        <p>If permitted, latitude, longitude and accuracy may be included with your enquiry.</p>
+        <p>Location is not continuously tracked.</p>
       </div>
 
       <div class="privacy-section">
-
-        <h3>
-          Sensitive Information
-        </h3>
-
-        <p>
-          Please do not submit passwords, financial information,
-          medical records or other sensitive information unless
-          it is genuinely necessary for the enquiry.
-        </p>
-
+        <h3>Sensitive Information</h3>
+        <p>Please do not submit passwords, financial information, medical records or other sensitive information unless it is genuinely necessary for the enquiry.</p>
       </div>
 
       <div class="privacy-section">
-
-        <h3>
-          Professional Scope
-        </h3>
-
-        <p>
-          Technical, electrical, electronics, hardware,
-          construction, clinical, medical and mental
-          health-related project support is subject to the
-          actual scope of work, applicable requirements,
-          qualifications, permissions and professional
-          responsibilities that may apply.
-        </p>
-
-        <p>
-          Mental health-related support is non-diagnostic
-          project and support work and is not a substitute
-          for emergency care, diagnosis, psychotherapy,
-          medical treatment or regulated professional services.
-        </p>
-
+        <h3>Professional Scope</h3>
+        <p>Technical, electrical, electronics, hardware, construction, clinical, medical and mental health-related project support is subject to the actual scope of work, applicable requirements, qualifications, permissions and professional responsibilities that may apply.</p>
+        <p>Mental health-related support is non-diagnostic project and support work and is not a substitute for emergency care, diagnosis, psychotherapy, medical treatment or regulated professional services.</p>
       </div>
 
       <div class="privacy-actions">
-
-        <button
-          type="button"
-          class="privacy-button privacy-primary"
-          id="allow-location"
-        >
-          Allow Location
-        </button>
-
-        <button
-          type="button"
-          class="privacy-button privacy-secondary"
-          id="deny-location"
-        >
-          Don't Allow
-        </button>
-
+        <button type="button" class="privacy-button privacy-primary" id="allow-location">Allow Location</button>
+        <button type="button" class="privacy-button privacy-secondary" id="deny-location">Don't Allow</button>
       </div>
 
-      <button
-        type="button"
-        class="privacy-text-button"
-        id="privacy-understood"
-      >
-        Continue Without Location
-      </button>
+      <button type="button" class="privacy-text-button" id="privacy-understood">Continue Without Location</button>
 
     </div>
 
@@ -2539,14 +2338,15 @@
   ========================================================= -->
 
   <div class="privacy-floating">
+    <button type="button" id="open-privacy">Privacy &amp; Terms</button>
+  </div>
 
-    <button
-      type="button"
-      id="open-privacy"
-    >
-      Privacy &amp; Terms
-    </button>
+  <!-- =========================================================
+       PUBLIC NOTICE BUTTON (new)
+  ========================================================= -->
 
+  <div class="public-notice-floating">
+    <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="false" aria-haspopup="dialog">Public Notice</button>
   </div>
 
   <!-- =========================================================
@@ -2557,12 +2357,13 @@
     "use strict";
 
     /* =========================================================
-       PUBLIC NOTICE (persist closed state)
+       PUBLIC NOTICE (persist closed state) + open button
     ========================================================= */
 
     (function () {
       const publicNotice = document.getElementById("public-notice");
       const publicNoticeClose = document.getElementById("public-notice-close");
+      const openPublicNotice = document.getElementById("open-public-notice");
 
       if (!publicNotice || !publicNoticeClose) return;
 
@@ -2570,6 +2371,9 @@
       try {
         if (localStorage.getItem("kea_notice_closed") === "1") {
           publicNotice.classList.add("is-hidden");
+          if (openPublicNotice) openPublicNotice.setAttribute("aria-expanded", "false");
+        } else {
+          if (openPublicNotice) openPublicNotice.setAttribute("aria-expanded", "true");
         }
       } catch (e) {
         // ignore storage errors (private mode/etc.)
@@ -2578,6 +2382,7 @@
       // Close and persist
       publicNoticeClose.addEventListener("click", function () {
         publicNotice.classList.add("is-hidden");
+        if (openPublicNotice) openPublicNotice.setAttribute("aria-expanded", "false");
         try { localStorage.setItem("kea_notice_closed", "1"); } catch (e) { /* ignore */ }
       });
 
@@ -2585,9 +2390,21 @@
       document.addEventListener("keydown", function (ev) {
         if (ev.key === "Escape" && !publicNotice.classList.contains("is-hidden")) {
           publicNotice.classList.add("is-hidden");
+          if (openPublicNotice) openPublicNotice.setAttribute("aria-expanded", "false");
           try { localStorage.setItem("kea_notice_closed", "1"); } catch (e) { /* ignore */ }
         }
       });
+
+      // Open via floating button (if present)
+      if (openPublicNotice) {
+        openPublicNotice.addEventListener("click", function () {
+          publicNotice.classList.remove("is-hidden");
+          openPublicNotice.setAttribute("aria-expanded", "true");
+          try { localStorage.removeItem("kea_notice_closed"); } catch (e) { /* ignore */ }
+          // focus the close button so keyboard users can dismiss
+          publicNoticeClose.focus();
+        });
+      }
 
     })();
 
@@ -2864,8 +2681,10 @@
 
       // If public notice is open, close it (and persist)
       const publicNotice = document.getElementById("public-notice");
+      const openPublicNoticeBtn = document.getElementById("open-public-notice");
       if (publicNotice && !publicNotice.classList.contains("is-hidden")) {
         publicNotice.classList.add("is-hidden");
+        if (openPublicNoticeBtn) openPublicNoticeBtn.setAttribute("aria-expanded", "false");
         try { localStorage.setItem("kea_notice_closed", "1"); } catch (e) { /* ignore */ }
       }
 
