@@ -266,16 +266,11 @@ nav a:hover {
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
-  transition:
-    background .15s ease,
-    color .15s ease,
-    transform .12s ease;
 }
 
 .public-notice-close:hover {
   background: var(--notice-accent);
   color: white;
-  transform: scale(1.05);
 }
 
 .public-notice-close:focus-visible {
@@ -568,7 +563,7 @@ nav a:hover {
 }
 
 /* =========================================================
-   BLOG SLIDER
+   BLOG
 ========================================================= */
 .blog-slider {
   position: relative;
@@ -655,7 +650,6 @@ nav a:hover {
   padding-left: 20px;
 }
 
-/* READ MORE */
 .read-more-button {
   display: inline-flex;
   align-items: center;
@@ -669,19 +663,10 @@ nav a:hover {
   font-size: 13px;
   font-weight: 750;
   cursor: pointer;
-  transition:
-    background .2s ease,
-    transform .2s ease;
 }
 
 .read-more-button:hover {
   background: var(--blue-dark);
-  transform: translateY(-1px);
-}
-
-.read-more-button:focus-visible {
-  outline: 3px solid rgba(37,99,235,.2);
-  outline-offset: 2px;
 }
 
 .blog-navigation {
@@ -703,10 +688,6 @@ nav a:hover {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition:
-    background .15s ease,
-    border-color .15s ease,
-    color .15s ease;
 }
 
 .blog-nav-button:hover:not(:disabled) {
@@ -735,13 +716,6 @@ nav a:hover {
   border-radius: 50%;
   background: #CBD5E1;
   cursor: pointer;
-  transition:
-    background .15s ease,
-    transform .15s ease;
-}
-
-.blog-dot:hover {
-  background: #93C5FD;
 }
 
 .blog-dot.active {
@@ -765,13 +739,8 @@ nav a:hover {
 }
 
 @keyframes blogFade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* =========================================================
@@ -1259,9 +1228,6 @@ footer strong {
   }
 }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1272,10 +1238,6 @@ footer strong {
   *::after {
     transition: none !important;
     animation: none !important;
-  }
-
-  .public-notice-floating button {
-    animation: none;
   }
 }
 
@@ -1291,11 +1253,10 @@ footer strong {
   </div>
 
   <p class="hero-description">
-    Practical, hands-on support across software,
-    electrical, electronics and hardware,
-    construction and civil projects,
-    clinical and medical-related project work,
-    documentation, research and technical tasks.
+    Practical, hands-on support across software, electrical,
+    electronics and hardware, construction and civil projects,
+    clinical and medical-related project work, documentation,
+    research and technical tasks.
   </p>
 
   <div class="hero-buttons">
@@ -1331,69 +1292,75 @@ footer strong {
 
   <p>
     <strong>
-      For the avoidance of doubt, Kaye Eloisa Arnejo is not associated with,
-      affiliated with, employed by, represented by, partnered with, endorsed
-      by, or acting on behalf of any lawyer-politician, politician, public
-      official, political organisation, political group, or law firm, unless
-      she has personally contacted or met with such person or entity.
+      For the avoidance of doubt, Kaye Eloisa Arnejo is not
+      associated with, affiliated with, employed by, represented
+      by, partnered with, endorsed by, or acting on behalf of any
+      lawyer-politician, politician, public official, political
+      organisation, political group, or law firm, unless she has
+      personally contacted or met with such person or entity.
     </strong>
   </p>
 
   <p>
     For a period of time, claims or representations suggesting an
-    association between Kaye Eloisa Arnejo and a lawyer-politician or other
-    political figure have been made or circulated.
+    association between Kaye Eloisa Arnejo and a lawyer-politician
+    or other political figure have been made or circulated.
   </p>
 
   <p>
     <strong>
-      Kaye Eloisa Arnejo does not authorise, recognise, or consent to any
-      such claimed association.
+      Kaye Eloisa Arnejo does not authorise, recognise, or consent
+      to any such claimed association.
     </strong>
   </p>
 
   <p>
-    Her name, identity, services, and activities are specific to her.
-    No affiliation, representation, employment, endorsement, partnership,
-    or other relationship with any individual, organisation, public
-    official, political organisation, political group, lawyer, law firm,
-    or other entity should be presumed or inferred unless it has been
-    personally established and expressly authorised by her.
+    Her name, identity, services, and activities are specific to
+    her. No affiliation, representation, employment, endorsement,
+    partnership, or other relationship with any individual,
+    organisation, public official, political organisation,
+    political group, lawyer, law firm, or other entity should be
+    presumed or inferred unless it has been personally established
+    and expressly authorised by her.
   </p>
 
   <p>
-    Any representation that <strong>Kaye Eloisa Arnejo</strong> works for,
-    represents, supports, endorses, or acts on behalf of another person or
+    Any representation that
+    <strong>Kaye Eloisa Arnejo</strong> works for, represents,
+    supports, endorses, or acts on behalf of another person or
     organisation must not be made without her express permission.
   </p>
 
   <p>
-    No individual or organisation is authorised to speak on behalf of
-    <strong>Kaye Eloisa Arnejo</strong>, issue statements in her name,
-    present themselves as her spokesperson or representative, or otherwise
-    hold themselves out as acting with her authority without her direct and
-    specific authorisation.
+    No individual or organisation is authorised to speak on behalf
+    of <strong>Kaye Eloisa Arnejo</strong>, issue statements in
+    her name, present themselves as her spokesperson or
+    representative, or otherwise hold themselves out as acting
+    with her authority without her direct and specific
+    authorisation.
   </p>
 
   <p>
-    Likewise, no person or organisation is authorised to use, associate,
-    or represent her name, identity, or work in connection with any
-    activity, undertaking, or organisation without her permission.
+    Likewise, no person or organisation is authorised to use,
+    associate, or represent her name, identity, or work in
+    connection with any activity, undertaking, or organisation
+    without her permission.
   </p>
 
   <p>
-    This page and the services presented through it are operated only by
-    <strong>Kaye Eloisa Arnejo</strong>.
+    This page and the services presented through it are operated
+    only by <strong>Kaye Eloisa Arnejo</strong>.
   </p>
 
   <p>
     This notice is provided to maintain clarity, prevent confusion,
-    mistaken identity, unauthorised representation, or misuse of her name.
+    mistaken identity, unauthorised representation, or misuse of
+    her name.
   </p>
 
 </div>
 
-</section> <!-- ======================================================= MAIN CONTENT ======================================================== --> <main class="container">
+</section> <!-- ======================================================= MAIN ======================================================== --> <main class="container">
 <!-- INTRO -->
 <section class="section">
   <div class="card">
@@ -1411,29 +1378,30 @@ footer strong {
         </h2>
 
         <p>
-          Some projects need technical knowledge. Others need someone who
-          can get involved, organise information, prepare documentation,
-          coordinate tasks, follow up requirements or take care of work
-          that is slowing everything else down.
+          Some projects need technical knowledge. Others need
+          someone who can get involved, organise information,
+          prepare documentation, coordinate tasks, follow up
+          requirements or take care of work that is slowing
+          everything else down.
         </p>
 
         <p>
-          My approach is practical and hands-on: understand what needs to
-          be done, work through the details and help move the task toward
-          a useful result.
+          My approach is practical and hands-on: understand what
+          needs to be done, work through the details and help move
+          the task toward a useful result.
         </p>
 
         <p>
-          My background covers software, electrical, electronics and
-          hardware, construction-related environments, clinical and
-          medical-related project work, research, documentation and
-          technical project support.
+          My background covers software, electrical, electronics
+          and hardware, construction-related environments,
+          clinical and medical-related project work, research,
+          documentation and technical project support.
         </p>
 
         <p>
-          Support can be arranged around the actual requirement — whether
-          that means a single task, a defined project, temporary support
-          or ongoing assistance.
+          Support can be arranged around the actual requirement —
+          whether that means a single task, a defined project,
+          temporary support or ongoing assistance.
         </p>
 
       </div>
@@ -1445,9 +1413,10 @@ footer strong {
         </strong>
 
         <p>
-          Tell me what you are trying to accomplish, what needs to be done
-          and when you need it. We can identify the practical tasks
-          involved and discuss the appropriate arrangement.
+          Tell me what you are trying to accomplish, what needs
+          to be done and when you need it. We can identify the
+          practical tasks involved and discuss the appropriate
+          arrangement.
         </p>
 
         <br>
@@ -1457,8 +1426,8 @@ footer strong {
         </strong>
 
         <p>
-          Where appropriate, I can work through the details with you
-          rather than simply providing general advice.
+          Where appropriate, I can work through the details with
+          you rather than simply providing general advice.
         </p>
 
       </div>
@@ -1479,9 +1448,9 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      Practical, hands-on support across software, electrical, electronics,
-      hardware, project, clinical-related, construction, research and
-      documentation requirements.
+      Practical, hands-on support across software, electrical,
+      electronics, hardware, project, clinical-related,
+      construction, research and documentation requirements.
     </p>
 
     <div class="services-grid">
@@ -1490,8 +1459,8 @@ footer strong {
         <div class="service-number">01</div>
         <h3>Software</h3>
         <p>
-          Hands-on support with software-related tasks and technical
-          projects.
+          Hands-on support with software-related tasks and
+          technical projects.
         </p>
         <ul>
           <li>Software development support</li>
@@ -1507,8 +1476,8 @@ footer strong {
         <div class="service-number">02</div>
         <h3>Electrical, Electronics &amp; Hardware</h3>
         <p>
-          Practical support for electrical, electronics and hardware
-          project tasks.
+          Practical support for electrical, electronics and
+          hardware project tasks.
         </p>
         <ul>
           <li>Electrical project support</li>
@@ -1526,8 +1495,8 @@ footer strong {
         <div class="service-number">03</div>
         <h3>Construction &amp; Civil Project Support</h3>
         <p>
-          Practical assistance with construction, civil technology and
-          project-related tasks.
+          Practical assistance with construction, civil technology
+          and project-related tasks.
         </p>
         <ul>
           <li>Project documentation</li>
@@ -1559,8 +1528,8 @@ footer strong {
         <div class="service-number">05</div>
         <h3>Documentation &amp; Project Support</h3>
         <p>
-          Practical support with documentation, information and project
-          tasks.
+          Practical support with documentation, information and
+          project tasks.
         </p>
         <ul>
           <li>Technical document preparation</li>
@@ -1576,8 +1545,8 @@ footer strong {
         <div class="service-number">06</div>
         <h3>Mental Health-Related Project Support</h3>
         <p>
-          Non-diagnostic support for appropriate research, documentation
-          and coordination.
+          Non-diagnostic support for appropriate research,
+          documentation and coordination.
         </p>
         <ul>
           <li>Research assistance</li>
@@ -1592,7 +1561,8 @@ footer strong {
         <div class="service-number">07</div>
         <h3>Research &amp; Technical Information</h3>
         <p>
-          Assistance with finding, organising and documenting information.
+          Assistance with finding, organising and documenting
+          information.
         </p>
         <ul>
           <li>Technical research</li>
@@ -1608,7 +1578,8 @@ footer strong {
         <div class="service-number">08</div>
         <h3>Custom Project Support</h3>
         <p>
-          Have a requirement that does not fit neatly into one category?
+          Have a requirement that does not fit neatly into one
+          category?
         </p>
         <ul>
           <li>Define the task</li>
@@ -1644,8 +1615,8 @@ footer strong {
       <div class="help-item">
         <strong>Build or improve software</strong>
         <span>
-          Development, testing, troubleshooting, documentation and
-          technology tasks.
+          Development, testing, troubleshooting, documentation
+          and technology tasks.
         </span>
       </div>
 
@@ -1690,7 +1661,8 @@ footer strong {
       <div class="help-item">
         <strong>Organise technical information</strong>
         <span>
-          Research, references, specifications and project information.
+          Research, references, specifications and project
+          information.
         </span>
       </div>
 
@@ -1705,21 +1677,24 @@ footer strong {
       <div class="help-item">
         <strong>Research a technical requirement</strong>
         <span>
-          Gather information, compare references and organise findings.
+          Gather information, compare references and organise
+          findings.
         </span>
       </div>
 
       <div class="help-item">
         <strong>Catch up on a project task</strong>
         <span>
-          Take on a defined task when a project needs additional support.
+          Take on a defined task when a project needs additional
+          support.
         </span>
       </div>
 
       <div class="help-item">
         <strong>Handle something specific</strong>
         <span>
-          Explain the requirement and discuss the practical support needed.
+          Explain the requirement and discuss the practical
+          support needed.
         </span>
       </div>
 
@@ -1738,8 +1713,8 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      Different tasks require different arrangements. The work can be
-      discussed around scope, timeframe and expected result.
+      Different tasks require different arrangements. The work can
+      be discussed around scope, timeframe and expected result.
     </p>
 
     <div class="work-options">
@@ -1801,9 +1776,9 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      My approach is hands-on and task-focused, allowing me to work across
-      different technical and professional environments depending on the
-      requirement.
+      My approach is hands-on and task-focused, allowing me to
+      work across different technical and professional environments
+      depending on the requirement.
     </p>
 
     <div class="areas">
@@ -1839,9 +1814,9 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      Examples shown here are provided for general illustration of work
-      and are not intended to imply that every image represents a
-      completed project.
+      Examples shown here are provided for general illustration of
+      work and are not intended to imply that every image represents
+      a completed project.
     </p>
 
     <div class="gallery-grid">
@@ -1884,7 +1859,7 @@ footer strong {
 
         <div class="gallery-caption">
           <h3>Chair</h3>
-          <p></p>
+          <p>Example image</p>
         </div>
       </article>
 
@@ -1937,7 +1912,8 @@ footer strong {
         <h3>Get Hands-On and Get It Done</h3>
 
         <p>
-          Agree on responsibilities and work toward the required result.
+          Agree on responsibilities and work toward the required
+          result.
         </p>
       </div>
 
@@ -1945,71 +1921,517 @@ footer strong {
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section">
-  <div class="cta">
+<!-- =====================================================
+     BLOG
+====================================================== -->
+<section class="section" id="blog">
+  <div class="card">
 
-    <h2>
-      Have Something You Need Help With?
+    <div class="label">Blog &amp; Notices</div>
+
+    <h2 class="section-title">
+      Updates &amp; Formal Notices
     </h2>
 
-    <p>
-      Whether it is software, electrical work, electronics, hardware,
-      construction, clinical-related project work, documentation,
-      research or a specific task, send me the details.
+    <p class="section-intro">
+      Formal notices and informational updates published for
+      clarification, transparency and record purposes.
     </p>
 
-    <a href="#contact" class="button button-primary">
-      Tell Me What You Need
-    </a>
+    <div class="blog-slider" id="blog-slider">
 
-  </div>
-</section>
+      <div class="blog-track" id="blog-track">
 
-I’d make the replacement broader and legally safer: it can expressly cover lawyers, attorneys, counsel, law firms, prosecutors, legal representatives, and international practitioners, while stating that **actual violations must be established by the competent authority** rather than declaring that particular lawyers have broken the law. The Philippine Supreme Court’s CPRA expressly addresses propriety, unlawful/dishonest/deceitful conduct, fidelity, accountability, and responsible professional conduct.  Supreme Court of the Philippines+1  The Data Privacy Act also provides a framework for lawful processing and protection of personal information.  National Privacy Commission+1  The ICC, meanwhile, has a specific jurisdictional mandate and is not a general forum for lawyer misconduct or ordinary private disputes.  International Criminal Court
+        <!-- ARTICLE 1 -->
+        <article
+          class="blog-slide active"
+          data-date="2026-09-20"
+          aria-hidden="false"
+        >
+          <div class="blog-post">
 
- Here is a complete replacement for the **article content inside your blog slider**:
+            <div class="blog-date">
+              September 20, 2026
+            </div>
 
- \<!-- ARTICLE 1 --\> \<article class="blog-slide" data-date="2026-09-20" \> \<div class="blog-post"\>
-```
-<div class="blog-date">
-  September 20, 2026
-</div>
-```
+            <h3>
+              Formal Notice Concerning Legal Practitioners,
+              Professional Conduct and Jurisdiction
+            </h3>
 
-```
-<h3>
-  Formal Notice to Lawyers, Attorneys, Counsel, Legal Practitioners, and Other Persons Concerning Alleged Unlawful or Improper Conduct
-</h3>
-```
+            <p class="blog-post-intro">
+              A general notice concerning lawyers, attorneys,
+              counsel, legal practitioners, law firms, prosecutors,
+              representatives and other persons whose conduct may
+              be subject to applicable Philippine law, professional
+              rules, privacy requirements or other lawful
+              jurisdiction.
+            </p>
 
-```
-<p class="blog-post-intro">
-  Formal notice concerning lawyers, attorneys, counsel, law firms,
-  legal practitioners, prosecutors, representatives, and other
-  persons whose conduct may be subject to Philippine law,
-  professional responsibility, privacy and data-protection
-  requirements, court rules, or applicable international
-  jurisdiction.
-</p>
-```
+            <button
+              type="button"
+              class="read-more-button"
+              aria-expanded="false"
+              aria-controls="formal-notice-content"
+            >
+              Read More
+            </button>
 
-```
-<button
-  type="button"
-  class="read-more-button"
-  aria-expanded="false"
-  aria-controls="formal-notice-content"
->
-  Read More
-</button>
-<div
-  class="blog-content"
-  id="formal-notice-content"
-  hidden
+            <div
+              class="blog-content"
+              id="formal-notice-content"
+              hidden
+            >
 
+              <h4>
+                Formal Notice and Reservation of Rights
+              </h4>
 
-      <!-- BLOG NAVIGATION -->
+              <p>
+                This serves as a formal notice to all persons
+                concerned, including lawyers, attorneys, counsel,
+                legal practitioners, law firms, legal organisations,
+                prosecutors, government lawyers, legal
+                representatives, agents, consultants,
+                intermediaries and other persons acting personally,
+                professionally, directly, indirectly, jointly or
+                through another person in connection with any
+                matter concerning me.
+              </p>
+
+              <p>
+                This notice applies to conduct occurring in the
+                Philippines and, where legally applicable, conduct
+                occurring outside the Philippines or having a
+                sufficient connection with another jurisdiction.
+              </p>
+
+              <p>
+                I expressly reserve all rights concerning any act,
+                omission, communication, publication, disclosure,
+                representation, processing of information, legal
+                filing, professional activity or other conduct
+                that I reasonably believe may violate applicable
+                law, court rules, professional obligations,
+                privacy requirements, contractual obligations or
+                other legally protected rights.
+              </p>
+
+              <p>
+                Nothing in this notice is intended to declare any
+                person guilty of an offence, professional violation
+                or other wrongdoing. Any allegation or concern
+                remains subject to evidence, investigation,
+                jurisdiction, due process and determination by the
+                competent authority.
+              </p>
+
+              <h4>
+                Lawyers and Professional Responsibility
+              </h4>
+
+              <p>
+                Lawyers admitted to practise in the Philippines
+                are subject to applicable rules governing
+                professional responsibility and accountability.
+              </p>
+
+              <p>
+                Where a lawyer, attorney, counsel, legal
+                practitioner, prosecutor or other member of the
+                legal profession is alleged to have engaged in
+                unlawful, dishonest, deceitful, misleading,
+                abusive, unauthorised or otherwise improper
+                conduct, I reserve the right to submit relevant
+                evidence to the authority having jurisdiction.
+              </p>
+
+              <p>
+                I further reserve the right to request an
+                independent determination concerning whether the
+                conduct complied with applicable professional
+                obligations, law, court rules and ethical
+                requirements.
+              </p>
+
+              <h4>
+                Alleged Violations of Philippine Law
+              </h4>
+
+              <p>
+                Professional status, legal representation,
+                employment by a law firm, governmental appointment
+                or assertion of legal authority does not by itself
+                establish an exemption from applicable law.
+              </p>
+
+              <p>
+                Where evidence indicates that conduct may have
+                violated Philippine law, I reserve the right to
+                identify the relevant conduct and submit supporting
+                evidence to the appropriate Philippine authority.
+              </p>
+
+              <p>
+                Depending upon the facts and applicable
+                jurisdiction, matters may include alleged unlawful
+                disclosure or processing of personal information,
+                false or misleading representations, unauthorised
+                acts, improper communications, professional
+                misconduct, interference with legal processes or
+                other conduct potentially giving rise to civil,
+                criminal, administrative, regulatory, disciplinary
+                or other lawful proceedings.
+              </p>
+
+              <p>
+                I do not claim that every disputed act constitutes
+                a criminal offence or professional violation. The
+                applicable authority must determine the legal
+                character of the conduct based upon the evidence
+                and governing law.
+              </p>
+
+              <h4>
+                Personal Information and Data Protection
+              </h4>
+
+              <p>
+                I expressly object to any publication, disclosure,
+                dissemination, reproduction, transmission,
+                processing or other use of my personal information
+                that is not authorised or otherwise permitted by
+                applicable law.
+              </p>
+
+              <p>
+                Where applicable, I reserve all rights under
+                Republic Act No. 10173, otherwise known as the
+                Data Privacy Act of 2012, its implementing rules
+                and regulations and applicable issuances of the
+                National Privacy Commission.
+              </p>
+
+              <p>
+                I reserve the right to request an independent
+                determination concerning whether any person or
+                organisation processing information concerning me
+                had an appropriate lawful basis, complied with
+                applicable requirements, used the information for
+                a legitimate purpose and implemented safeguards
+                required by law.
+              </p>
+
+              <h4>
+                False, Misleading or Inaccurate Representations
+              </h4>
+
+              <p>
+                I place all concerned persons on notice regarding
+                any allegedly false, misleading, inaccurate,
+                distorted or materially incomplete representation
+                concerning me.
+              </p>
+
+              <p>
+                This includes representations that falsely
+                attribute statements, conduct, intentions, beliefs,
+                actions, omissions or circumstances to me, or
+                representations presented without material context
+                in a manner that may create a misleading
+                impression.
+              </p>
+
+              <p>
+                Where a representation is disputed, I reserve the
+                right to preserve the original material, identify
+                the person or entity responsible for the
+                representation, document the circumstances in
+                which it was made and present the underlying
+                evidence to the competent authority.
+              </p>
+
+              <h4>
+                Evidence Preservation
+              </h4>
+
+              <p>
+                I reserve the right to preserve relevant evidence
+                concerning alleged unlawful or improper conduct,
+                including correspondence, emails, messages,
+                documents, pleadings, legal submissions,
+                publications, recordings, screenshots, electronic
+                records, metadata, photographs, notices and other
+                materials, to the extent lawfully obtained,
+                retained and used.
+              </p>
+
+              <p>
+                Evidence may be preserved for submission to courts,
+                disciplinary authorities, regulatory agencies,
+                privacy authorities, prosecutors, law-enforcement
+                agencies or other competent bodies.
+              </p>
+
+              <p>
+                Preservation of evidence does not constitute a
+                finding that wrongdoing occurred. Its purpose is
+                to maintain the integrity of potentially relevant
+                evidence so that the competent authority can
+                independently evaluate the facts.
+              </p>
+
+              <h4>
+                Philippine Authorities
+              </h4>
+
+              <p>
+                Where appropriate and legally available, I reserve
+                the right to submit evidence concerning alleged
+                unlawful or professionally improper conduct to the
+                authority possessing jurisdiction over the
+                particular matter.
+              </p>
+
+              <ul>
+                <li>
+                  The Supreme Court of the Philippines;
+                </li>
+                <li>
+                  Appropriate disciplinary authorities of the
+                  Integrated Bar of the Philippines;
+                </li>
+                <li>
+                  The National Privacy Commission, where applicable;
+                </li>
+                <li>
+                  Appropriate Philippine courts and tribunals;
+                </li>
+                <li>
+                  Prosecutorial and law-enforcement authorities
+                  where applicable;
+                </li>
+                <li>
+                  Appropriate government regulatory or
+                  investigative agencies; and
+                </li>
+                <li>
+                  Any other competent Philippine authority having
+                  lawful jurisdiction.
+                </li>
+              </ul>
+
+              <h4>
+                International and Cross-Border Matters
+              </h4>
+
+              <p>
+                Where a lawyer, attorney, counsel, legal
+                representative, law firm, organisation or other
+                person involved in a matter is subject to a foreign
+                jurisdiction, I reserve the right to identify and
+                preserve evidence concerning conduct that may fall
+                within the lawful jurisdiction of a competent
+                foreign authority.
+              </p>
+
+              <p>
+                Where applicable, this may include a foreign court,
+                bar authority, professional disciplinary body,
+                privacy or data protection regulator, prosecutor,
+                law-enforcement authority, international tribunal
+                or other institution having lawful jurisdiction.
+              </p>
+
+              <p>
+                Any referral to an international or foreign
+                authority will be subject to that authority's
+                jurisdiction, admissibility requirements,
+                procedural rules, evidentiary requirements and
+                applicable law.
+              </p>
+
+              <h4>
+                International Criminal Court
+              </h4>
+
+              <p>
+                Where legally appropriate, I reserve the right to
+                consider whether particular facts satisfy the
+                jurisdictional requirements of an applicable
+                international institution, including the
+                International Criminal Court.
+              </p>
+
+              <p>
+                The International Criminal Court has a specific
+                mandate under the Rome Statute. It is not a
+                general forum for ordinary private disputes,
+                lawyer disciplinary complaints, privacy disputes,
+                professional disagreements or every alleged
+                violation of domestic law.
+              </p>
+
+              <p>
+                Accordingly, reference to an international
+                institution in this notice should not be
+                interpreted as an assertion that any particular
+                conduct falls within its jurisdiction.
+              </p>
+
+              <h4>
+                No Automatic Finding of Wrongdoing
+              </h4>
+
+              <p>
+                Nothing in this notice should be interpreted as a
+                declaration that any named or unnamed lawyer,
+                attorney, counsel, legal practitioner, organisation,
+                government official or other person has committed
+                a crime or professional violation.
+              </p>
+
+              <p>
+                The purpose of this notice is to identify disputed
+                conduct, preserve objections and rights, preserve
+                relevant evidence and place concerned persons on
+                notice that independent review may be sought from
+                the appropriate authority.
+              </p>
+
+              <h4>
+                Reservation of Rights and Remedies
+              </h4>
+
+              <p>
+                I reserve all civil, criminal, administrative,
+                disciplinary, regulatory, privacy, professional,
+                constitutional and other lawful remedies that may
+                be available to me.
+              </p>
+
+              <p>
+                Nothing in this notice constitutes a waiver,
+                relinquishment, abandonment, admission or
+                limitation of any right or remedy.
+              </p>
+
+              <p>
+                I further reserve the right to supplement this
+                notice if additional evidence, conduct,
+                publications, communications, representations or
+                other relevant facts subsequently become available.
+              </p>
+
+              <p>
+                <strong>
+                  This notice is intended to place concerned
+                  persons on formal notice that disputed conduct
+                  may be documented and submitted to the competent
+                  Philippine, foreign or international authority
+                  where legally appropriate.
+                </strong>
+              </p>
+
+              <p>
+                <strong>September 20, 2026</strong>
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- ARTICLE 2 -->
+        <article
+          class="blog-slide"
+          data-date="2026-09-03"
+          aria-hidden="true"
+        >
+          <div class="blog-post">
+
+            <div class="blog-date">
+              September 3, 2026
+            </div>
+
+            <h3>
+              Legal and Professional Accountability Notice
+            </h3>
+
+            <p class="blog-post-intro">
+              Notice concerning professional responsibility,
+              lawful conduct, privacy, legal representations,
+              evidence preservation and appropriate authorities.
+            </p>
+
+            <button
+              type="button"
+              class="read-more-button"
+              aria-expanded="false"
+              aria-controls="legal-accountability-content"
+            >
+              Read More
+            </button>
+
+            <div
+              class="blog-content"
+              id="legal-accountability-content"
+              hidden
+            >
+
+              <p>
+                Lawyers and other legal professionals are subject
+                to the laws, professional rules, ethical
+                requirements and jurisdictional procedures
+                applicable to their conduct.
+              </p>
+
+              <p>
+                Where there is evidence of conduct that may
+                violate applicable law or professional obligations,
+                the appropriate course is to preserve relevant
+                evidence and submit it to the competent authority
+                for independent determination.
+              </p>
+
+              <p>
+                In the Philippines, this may include the Supreme
+                Court, appropriate disciplinary authorities, the
+                National Privacy Commission, courts, prosecutors,
+                law-enforcement authorities or other agencies
+                having jurisdiction.
+              </p>
+
+              <p>
+                Where conduct has an international dimension,
+                appropriate foreign or international authorities
+                may also be considered where the relevant
+                jurisdictional and procedural requirements are
+                satisfied.
+              </p>
+
+              <p>
+                The International Criminal Court should not be
+                treated as a general forum for lawyer misconduct
+                or private disputes. Any potential ICC matter must
+                independently satisfy the jurisdictional and
+                admissibility requirements of the Rome Statute.
+              </p>
+
+              <p>
+                Accordingly, this notice does not declare any
+                person guilty. It preserves the right to seek
+                investigation, disciplinary review, regulatory
+                review, judicial determination or other lawful
+                remedies where supported by the evidence and
+                applicable law.
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+      </div>
+
       <div class="blog-navigation">
 
         <button
@@ -2018,7 +2440,7 @@ I’d make the replacement broader and legally safer: it can expressly cover law
           id="blog-prev"
           aria-label="Previous article"
         >
-          ← Previous
+          &larr; Previous
         </button>
 
         <div
@@ -2033,7 +2455,7 @@ I’d make the replacement broader and legally safer: it can expressly cover law
           id="blog-next"
           aria-label="Next article"
         >
-          Next →
+          Next &rarr;
         </button>
 
       </div>
@@ -2057,7 +2479,31 @@ I’d make the replacement broader and legally safer: it can expressly cover law
   </div>
 </section>
 
-</main> <!-- ======================================================= CONTACT ======================================================== --> <section id="contact"> <div class="contact-card">
+<!-- CTA -->
+<section class="section">
+  <div class="cta">
+
+    <h2>
+      Have Something You Need Help With?
+    </h2>
+
+    <p>
+      Whether it is software, electrical work, electronics,
+      hardware, construction, clinical-related project work,
+      documentation, research or a specific task, send me the
+      details.
+    </p>
+
+    <a href="#contact" class="button button-primary">
+      Tell Me What You Need
+    </a>
+
+  </div>
+</section>
+
+</main> <!-- ======================================================= CONTACT ======================================================== --> <section id="contact">
+<div class="contact-card">
+
   <div class="contact-header">
 
     <div class="label">
@@ -2069,8 +2515,8 @@ I’d make the replacement broader and legally safer: it can expressly cover law
     </h2>
 
     <p>
-      Give me a few details about the work. You do not need to know
-      exactly what service category it belongs to.
+      Give me a few details about the work. You do not need to
+      know exactly what service category it belongs to.
     </p>
 
   </div>
@@ -2078,11 +2524,12 @@ I’d make the replacement broader and legally safer: it can expressly cover law
   <div class="contact-note">
 
     <strong>Privacy:</strong>
-    The information you submit will be used to respond to your enquiry
-    and discuss the work you are requesting. This page uses a
-    Third-Party Service Provider to process form submissions.
-    Please do not include passwords, financial information, medical
-    records or other sensitive information unless genuinely necessary.
+    The information you submit will be used to respond to your
+    enquiry and discuss the work you are requesting. This page
+    uses a third-party service provider to process form
+    submissions. Please do not include passwords, financial
+    information, medical records or other sensitive information
+    unless genuinely necessary.
 
   </div>
 
@@ -2193,7 +2640,6 @@ I’d make the replacement broader and legally safer: it can expressly cover law
       required
     ></textarea>
 
-    <!-- LOCATION -->
     <input
       type="hidden"
       id="location-permission"
@@ -2229,7 +2675,6 @@ I’d make the replacement broader and legally safer: it can expressly cover law
       value=""
     >
 
-    <!-- HONEYPOT -->
     <input
       type="text"
       name="website"
@@ -2329,8 +2774,8 @@ I’d make the replacement broader and legally safer: it can expressly cover law
     </h3>
 
     <p>
-      Information submitted through this form is used to respond to your
-      enquiry and discuss the requested work.
+      Information submitted through this form is used to respond
+      to your enquiry and discuss the requested work.
     </p>
 
     <p>
@@ -2348,12 +2793,13 @@ I’d make the replacement broader and legally safer: it can expressly cover law
 
     <p>
       Location access is optional. Your browser will only request
-      location permission when you explicitly choose Allow Location.
+      location permission when you explicitly choose Allow
+      Location.
     </p>
 
     <p>
-      If permitted, latitude, longitude and accuracy may be included
-      with your enquiry.
+      If permitted, latitude, longitude and accuracy may be
+      included with your enquiry.
     </p>
 
     <p>
@@ -2369,9 +2815,9 @@ I’d make the replacement broader and legally safer: it can expressly cover law
     </h3>
 
     <p>
-      Please do not submit passwords, financial information, medical
-      records or other sensitive information unless it is genuinely
-      necessary for the enquiry.
+      Please do not submit passwords, financial information,
+      medical records or other sensitive information unless it is
+      genuinely necessary for the enquiry.
     </p>
 
   </div>
@@ -2384,10 +2830,10 @@ I’d make the replacement broader and legally safer: it can expressly cover law
 
     <p>
       Technical, electrical, electronics, hardware, construction,
-      clinical, medical and mental health-related project support is
-      subject to the actual scope of work, applicable requirements,
-      qualifications, permissions and professional responsibilities
-      that may apply.
+      clinical, medical and mental health-related project support
+      is subject to the actual scope of work, applicable
+      requirements, qualifications, permissions and professional
+      responsibilities that may apply.
     </p>
 
     <p>
@@ -2433,6 +2879,7 @@ I’d make the replacement broader and legally safer: it can expressly cover law
 /* =========================================================
    HELPERS
 ========================================================= */
+
 function getElement(id) {
   return document.getElementById(id);
 }
@@ -2464,6 +2911,7 @@ function safeStorageRemove(key) {
 /* =========================================================
    PUBLIC NOTICE
 ========================================================= */
+
 (function initPublicNotice() {
 
   const notice = getElement("public-notice");
@@ -2503,21 +2951,15 @@ function safeStorageRemove(key) {
     updateExpanded(true);
   }
 
-  closeButton.addEventListener(
-    "click",
-    closeNotice
-  );
-
-  openButton.addEventListener(
-    "click",
-    openNotice
-  );
+  closeButton.addEventListener("click", closeNotice);
+  openButton.addEventListener("click", openNotice);
 
 })();
 
 /* =========================================================
    DOM ELEMENTS
 ========================================================= */
+
 const form = getElement("contact-form");
 const submitButton = getElement("submit-button");
 const formStatus = getElement("form-status");
@@ -2532,10 +2974,7 @@ const honeypot = form
   ? form.querySelector('input[name="website"]')
   : null;
 
-const locationPermission = getElement(
-  "location-permission"
-);
-
+const locationPermission = getElement("location-permission");
 const latitudeInput = getElement("latitude");
 const longitudeInput = getElement("longitude");
 const accuracyInput = getElement("location-accuracy");
@@ -2543,14 +2982,13 @@ const accuracyInput = getElement("location-accuracy");
 /* =========================================================
    PRIVACY MODAL
 ========================================================= */
+
 const privacyModal = getElement("privacy-modal");
 const openPrivacy = getElement("open-privacy");
 const privacyClose = getElement("privacy-close");
 const allowLocation = getElement("allow-location");
 const denyLocation = getElement("deny-location");
-const privacyUnderstood = getElement(
-  "privacy-understood"
-);
+const privacyUnderstood = getElement("privacy-understood");
 
 let privacyReturnFocus = null;
 
@@ -2573,28 +3011,19 @@ function closePrivacyModal() {
   }
 }
 
-openPrivacy.addEventListener(
-  "click",
-  openPrivacyModal
-);
+openPrivacy.addEventListener("click", openPrivacyModal);
+privacyClose.addEventListener("click", closePrivacyModal);
 
-privacyClose.addEventListener(
-  "click",
-  closePrivacyModal
-);
-
-privacyModal.addEventListener(
-  "click",
-  function(event) {
-    if (event.target === privacyModal) {
-      closePrivacyModal();
-    }
+privacyModal.addEventListener("click", function(event) {
+  if (event.target === privacyModal) {
+    closePrivacyModal();
   }
-);
+});
 
 /* =========================================================
    LOCATION
 ========================================================= */
+
 function clearLocation() {
   latitudeInput.value = "";
   longitudeInput.value = "";
@@ -2602,146 +3031,100 @@ function clearLocation() {
 }
 
 function saveLocationConsent(value) {
-  safeStorageSet(
-    "kea_location_consent",
-    value
-  );
+  safeStorageSet("kea_location_consent", value);
 }
 
 function getLocationConsent() {
-  return safeStorageGet(
-    "kea_location_consent"
-  );
+  return safeStorageGet("kea_location_consent");
 }
 
 function denyLocationAccess() {
   clearLocation();
-
   locationPermission.value = "denied";
-
   saveLocationConsent("denied");
-
   closePrivacyModal();
 }
 
-denyLocation.addEventListener(
-  "click",
-  denyLocationAccess
-);
+denyLocation.addEventListener("click", denyLocationAccess);
+privacyUnderstood.addEventListener("click", denyLocationAccess);
 
-privacyUnderstood.addEventListener(
-  "click",
-  denyLocationAccess
-);
+allowLocation.addEventListener("click", function() {
 
-allowLocation.addEventListener(
-  "click",
-  function() {
+  if (!navigator.geolocation) {
 
-    if (!navigator.geolocation) {
+    locationPermission.value = "unavailable";
+    saveLocationConsent("unavailable");
+    closePrivacyModal();
 
-      locationPermission.value =
-        "unavailable";
+    return;
+  }
 
-      saveLocationConsent(
-        "unavailable"
-      );
+  allowLocation.disabled = true;
+  allowLocation.textContent = "Requesting Location...";
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      const coords = position.coords;
+
+      latitudeInput.value =
+        Number(coords.latitude).toFixed(8);
+
+      longitudeInput.value =
+        Number(coords.longitude).toFixed(8);
+
+      accuracyInput.value =
+        Number(coords.accuracy).toFixed(2);
+
+      locationPermission.value = "granted";
+
+      saveLocationConsent("granted");
+
+      allowLocation.disabled = false;
+      allowLocation.textContent = "Allow Location";
 
       closePrivacyModal();
+    },
 
-      return;
+    function(error) {
+
+      console.warn("Location error:", error);
+
+      clearLocation();
+
+      locationPermission.value =
+        error.code === 1
+          ? "denied"
+          : "unavailable";
+
+      saveLocationConsent(locationPermission.value);
+
+      allowLocation.disabled = false;
+      allowLocation.textContent = "Allow Location";
+
+      closePrivacyModal();
+    },
+
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 15000
     }
+  );
 
-    allowLocation.disabled = true;
+});
 
-    allowLocation.textContent =
-      "Requesting Location...";
-
-    navigator.geolocation.getCurrentPosition(
-
-      function(position) {
-
-        const coords = position.coords;
-
-        latitudeInput.value =
-          Number(coords.latitude).toFixed(8);
-
-        longitudeInput.value =
-          Number(coords.longitude).toFixed(8);
-
-        accuracyInput.value =
-          Number(coords.accuracy).toFixed(2);
-
-        locationPermission.value =
-          "granted";
-
-        saveLocationConsent(
-          "granted"
-        );
-
-        allowLocation.disabled = false;
-
-        allowLocation.textContent =
-          "Allow Location";
-
-        closePrivacyModal();
-      },
-
-      function(error) {
-
-        console.warn(
-          "Location error:",
-          error
-        );
-
-        clearLocation();
-
-        locationPermission.value =
-          error.code === 1
-            ? "denied"
-            : "unavailable";
-
-        saveLocationConsent(
-          locationPermission.value
-        );
-
-        allowLocation.disabled = false;
-
-        allowLocation.textContent =
-          "Allow Location";
-
-        closePrivacyModal();
-      },
-
-      {
-        enableHighAccuracy: true,
-        maximumAge: 0,
-        timeout: 15000
-      }
-    );
-  }
-);
-
-/* Restore saved location preference. */
 (function restoreLocationPreference() {
 
-  const savedConsent =
-    getLocationConsent();
+  const savedConsent = getLocationConsent();
 
   if (savedConsent === "granted") {
-
-    locationPermission.value =
-      "previously_granted";
-
+    locationPermission.value = "previously_granted";
   } else if (savedConsent === "denied") {
-
-    locationPermission.value =
-      "previously_denied";
-
+    locationPermission.value = "previously_denied";
   } else if (savedConsent === "unavailable") {
-
-    locationPermission.value =
-      "unavailable";
+    locationPermission.value = "unavailable";
   }
 
 })();
@@ -2749,21 +3132,11 @@ allowLocation.addEventListener(
 /* =========================================================
    IMAGE ZOOM
 ========================================================= */
-const imageModal = getElement(
-  "image-zoom-modal"
-);
 
-const imageDisplay = getElement(
-  "image-zoom-display"
-);
-
-const imageClose = getElement(
-  "image-zoom-close"
-);
-
-const imageCaption = getElement(
-  "image-zoom-caption"
-);
+const imageModal = getElement("image-zoom-modal");
+const imageDisplay = getElement("image-zoom-display");
+const imageClose = getElement("image-zoom-close");
+const imageCaption = getElement("image-zoom-caption");
 
 let imageReturnFocus = null;
 
@@ -2774,14 +3147,11 @@ function openImageModal(image) {
   imageDisplay.src =
     image.currentSrc || image.src;
 
-  imageDisplay.alt =
-    image.alt || "";
+  imageDisplay.alt = image.alt || "";
 
   const title = image
     .closest(".gallery-item")
-    ?.querySelector(
-      ".gallery-caption h3"
-    );
+    ?.querySelector(".gallery-caption h3");
 
   imageCaption.textContent =
     title
@@ -2790,9 +3160,7 @@ function openImageModal(image) {
 
   imageModal.hidden = false;
 
-  document.body.classList.add(
-    "modal-open"
-  );
+  document.body.classList.add("modal-open");
 
   imageClose.focus();
 }
@@ -2801,9 +3169,7 @@ function closeImageModal() {
 
   imageModal.hidden = true;
 
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body.classList.remove("modal-open");
 
   imageDisplay.src = "";
   imageDisplay.alt = "";
@@ -2823,10 +3189,7 @@ document
 
     image.tabIndex = 0;
 
-    image.setAttribute(
-      "role",
-      "button"
-    );
+    image.setAttribute("role", "button");
 
     image.setAttribute(
       "aria-label",
@@ -2834,186 +3197,149 @@ document
       (image.alt || "gallery image")
     );
 
-    image.addEventListener(
-      "click",
-      function() {
+    image.addEventListener("click", function() {
+      openImageModal(image);
+    });
+
+    image.addEventListener("keydown", function(event) {
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
         openImageModal(image);
       }
-    );
 
-    image.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Enter" ||
-          event.key === " "
-        ) {
-
-          event.preventDefault();
-
-          openImageModal(image);
-        }
-      }
-    );
+    });
 
   });
 
-imageClose.addEventListener(
-  "click",
-  closeImageModal
-);
+imageClose.addEventListener("click", closeImageModal);
 
-imageModal.addEventListener(
-  "click",
-  function(event) {
+imageModal.addEventListener("click", function(event) {
 
-    if (
-      event.target === imageModal ||
-      event.target === imageDisplay
-    ) {
-      closeImageModal();
-    }
+  if (
+    event.target === imageModal ||
+    event.target === imageDisplay
+  ) {
+    closeImageModal();
   }
-);
+
+});
 
 /* =========================================================
    ESCAPE KEY
 ========================================================= */
-document.addEventListener(
-  "keydown",
-  function(event) {
 
-    if (event.key !== "Escape") {
-      return;
-    }
+document.addEventListener("keydown", function(event) {
 
-    if (!imageModal.hidden) {
-      closeImageModal();
-      return;
-    }
-
-    if (!privacyModal.hidden) {
-      closePrivacyModal();
-      return;
-    }
-
-    const notice =
-      getElement("public-notice");
-
-    if (
-      notice &&
-      !notice.classList.contains(
-        "is-hidden"
-      )
-    ) {
-
-      notice.classList.add(
-        "is-hidden"
-      );
-
-      const openButton =
-        getElement(
-          "open-public-notice"
-        );
-
-      if (openButton) {
-        openButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-      }
-
-      safeStorageSet(
-        "kea_notice_closed",
-        "1"
-      );
-    }
-
+  if (event.key !== "Escape") {
+    return;
   }
-);
+
+  if (!imageModal.hidden) {
+    closeImageModal();
+    return;
+  }
+
+  if (!privacyModal.hidden) {
+    closePrivacyModal();
+    return;
+  }
+
+  const notice = getElement("public-notice");
+
+  if (
+    notice &&
+    !notice.classList.contains("is-hidden")
+  ) {
+
+    notice.classList.add("is-hidden");
+
+    const openButton =
+      getElement("open-public-notice");
+
+    if (openButton) {
+      openButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
+
+    safeStorageSet(
+      "kea_notice_closed",
+      "1"
+    );
+  }
+
+});
 
 /* =========================================================
-   READ MORE / READ LESS
+   READ MORE
 ========================================================= */
+
 document
   .querySelectorAll(".read-more-button")
   .forEach(function(button) {
 
-    button.addEventListener(
-      "click",
-      function() {
+    button.addEventListener("click", function() {
 
-        const content =
-          document.getElementById(
-            button.getAttribute(
-              "aria-controls"
-            )
-          );
+      const content =
+        document.getElementById(
+          button.getAttribute("aria-controls")
+        );
 
-        if (!content) {
-          return;
-        }
-
-        const isOpen =
-          button.getAttribute(
-            "aria-expanded"
-          ) === "true";
-
-        if (isOpen) {
-
-          content.hidden = true;
-
-          button.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          button.textContent =
-            "Read More";
-
-        } else {
-
-          content.hidden = false;
-
-          button.setAttribute(
-            "aria-expanded",
-            "true"
-          );
-
-          button.textContent =
-            "Read Less";
-        }
-
+      if (!content) {
+        return;
       }
-    );
+
+      const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+
+        content.hidden = true;
+
+        button.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        button.textContent = "Read More";
+
+      } else {
+
+        content.hidden = false;
+
+        button.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        button.textContent = "Read Less";
+      }
+
+    });
 
   });
 
 /* =========================================================
    FORM
 ========================================================= */
+
 let submitting = false;
 let submissionTimer = null;
 
-userAgentInput.value =
-  navigator.userAgent || "";
+userAgentInput.value = navigator.userAgent || "";
 
-function showStatus(
-  message,
-  type = ""
-) {
+function showStatus(message, type = "") {
 
-  formStatus.textContent =
-    message;
-
-  formStatus.className =
-    "form-status";
+  formStatus.textContent = message;
+  formStatus.className = "form-status";
 
   if (type) {
-    formStatus.classList.add(
-      type
-    );
+    formStatus.classList.add(type);
   }
 }
 
@@ -3022,16 +3348,10 @@ function resetSubmission() {
   submitting = false;
 
   submitButton.disabled = false;
-
-  submitButton.textContent =
-    "Send Requirement";
+  submitButton.textContent = "Send Requirement";
 
   if (submissionTimer) {
-
-    clearTimeout(
-      submissionTimer
-    );
-
+    clearTimeout(submissionTimer);
     submissionTimer = null;
   }
 }
@@ -3049,265 +3369,208 @@ function restoreFormState() {
     getLocationConsent();
 
   if (consent === "granted") {
-
-    locationPermission.value =
-      "previously_granted";
-
+    locationPermission.value = "previously_granted";
   } else if (consent === "denied") {
-
-    locationPermission.value =
-      "previously_denied";
-
+    locationPermission.value = "previously_denied";
   } else if (consent === "unavailable") {
-
-    locationPermission.value =
-      "unavailable";
-
+    locationPermission.value = "unavailable";
   } else {
-
-    locationPermission.value =
-      "not_requested";
+    locationPermission.value = "not_requested";
   }
 }
 
-/* Google Apps Script response. */
-window.addEventListener(
-  "message",
-  function(event) {
+window.addEventListener("message", function(event) {
 
-    let data;
+  let data;
 
-    try {
+  try {
+    data =
+      typeof event.data === "string"
+        ? JSON.parse(event.data)
+        : event.data;
+  } catch (error) {
+    return;
+  }
 
-      data =
-        typeof event.data === "string"
-          ? JSON.parse(event.data)
-          : event.data;
+  if (
+    !data ||
+    typeof data !== "object" ||
+    data.type !== "KEA_FORM_RESPONSE" ||
+    !submitting
+  ) {
+    return;
+  }
 
-    } catch (error) {
-      return;
-    }
+  if (data.success === true) {
 
-    if (
-      !data ||
-      typeof data !== "object" ||
-      data.type !== "KEA_FORM_RESPONSE" ||
-      !submitting
-    ) {
-      return;
-    }
+    resetSubmission();
 
-    if (data.success === true) {
+    showStatus(
+      data.message ||
+      "Thank you. Your requirement has been received successfully.",
+      "success"
+    );
 
-      resetSubmission();
+    restoreFormState();
 
-      showStatus(
-        data.message ||
-        "Thank you. Your requirement has been received successfully.",
-        "success"
-      );
+    nameInput.focus();
 
-      restoreFormState();
+    return;
+  }
 
-      nameInput.focus();
+  resetSubmission();
 
+  showStatus(
+    data.message ||
+    "Your request could not be processed. Please try again.",
+    "error"
+  );
+
+});
+
+iframe.addEventListener("load", function() {
+
+  if (!submitting) {
+    return;
+  }
+
+  window.setTimeout(function() {
+
+    if (!submitting) {
       return;
     }
 
     resetSubmission();
 
     showStatus(
-      data.message ||
-      "Your request could not be processed. Please try again.",
-      "error"
+      "Thank you. Your requirement has been received successfully.",
+      "success"
     );
+
+    restoreFormState();
+
+    nameInput.focus();
+
+  }, 500);
+
+});
+
+form.addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  if (submitting) {
+    return;
   }
-);
 
-/* Iframe fallback. */
-iframe.addEventListener(
-  "load",
-  function() {
-
-    if (!submitting) {
-      return;
-    }
-
-    window.setTimeout(
-      function() {
-
-        if (!submitting) {
-          return;
-        }
-
-        resetSubmission();
-
-        showStatus(
-          "Thank you. Your requirement has been received successfully.",
-          "success"
-        );
-
-        restoreFormState();
-
-        nameInput.focus();
-
-      },
-      500
-    );
-  }
-);
-
-form.addEventListener(
-  "submit",
-  function(event) {
-
-    event.preventDefault();
-
-    if (submitting) {
-      return;
-    }
-
-    /* Honeypot. */
-    if (
-      honeypot &&
-      honeypot.value.trim() !== ""
-    ) {
-
-      showStatus(
-        "Unable to submit this request.",
-        "error"
-      );
-
-      return;
-    }
-
-    const name =
-      nameInput.value.trim();
-
-    const email =
-      emailInput.value.trim();
-
-    const message =
-      messageInput.value.trim();
-
-    if (!name) {
-
-      showStatus(
-        "Please enter your name or organisation.",
-        "error"
-      );
-
-      nameInput.focus();
-
-      return;
-    }
-
-    if (!email) {
-
-      showStatus(
-        "Please enter your email address.",
-        "error"
-      );
-
-      emailInput.focus();
-
-      return;
-    }
-
-    if (!emailInput.checkValidity()) {
-
-      showStatus(
-        "Please enter a valid email address.",
-        "error"
-      );
-
-      emailInput.focus();
-
-      return;
-    }
-
-    if (!message) {
-
-      showStatus(
-        "Please tell me about the work you need help with.",
-        "error"
-      );
-
-      messageInput.focus();
-
-      return;
-    }
-
-    userAgentInput.value =
-      navigator.userAgent || "";
-
-    submitting = true;
-
-    submitButton.disabled = true;
-
-    submitButton.textContent =
-      "Sending...";
+  if (
+    honeypot &&
+    honeypot.value.trim() !== ""
+  ) {
 
     showStatus(
-      "Sending your requirement..."
+      "Unable to submit this request.",
+      "error"
     );
 
-    HTMLFormElement.prototype.submit.call(
-      form
-    );
-
-    submissionTimer =
-      window.setTimeout(
-        function() {
-
-          if (!submitting) {
-            return;
-          }
-
-          resetSubmission();
-
-          showStatus(
-            "The server did not confirm the submission. Please try again.",
-            "error"
-          );
-
-        },
-        60000
-      );
+    return;
   }
-);
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name) {
+
+    showStatus(
+      "Please enter your name or organisation.",
+      "error"
+    );
+
+    nameInput.focus();
+
+    return;
+  }
+
+  if (!email) {
+
+    showStatus(
+      "Please enter your email address.",
+      "error"
+    );
+
+    emailInput.focus();
+
+    return;
+  }
+
+  if (!emailInput.checkValidity()) {
+
+    showStatus(
+      "Please enter a valid email address.",
+      "error"
+    );
+
+    emailInput.focus();
+
+    return;
+  }
+
+  if (!message) {
+
+    showStatus(
+      "Please tell me about the work you need help with.",
+      "error"
+    );
+
+    messageInput.focus();
+
+    return;
+  }
+
+  userAgentInput.value =
+    navigator.userAgent || "";
+
+  submitting = true;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+
+  showStatus("Sending your requirement...");
+
+  HTMLFormElement.prototype.submit.call(form);
+
+  submissionTimer =
+    window.setTimeout(function() {
+
+      if (!submitting) {
+        return;
+      }
+
+      resetSubmission();
+
+      showStatus(
+        "The server did not confirm the submission. Please try again.",
+        "error"
+      );
+
+    }, 60000);
+
+});
 
 /* =========================================================
    BLOG SLIDER
-   - Newest article first
-   - Previous / Next
-   - Dots
-   - Automatic rotation
-   - Pauses on hover/focus
-   - Respects reduced motion
 ========================================================= */
+
 (function initBlogSlider() {
 
-  const slider =
-    getElement("blog-slider");
-
-  const track =
-    getElement("blog-track");
-
-  const prevButton =
-    getElement("blog-prev");
-
-  const nextButton =
-    getElement("blog-next");
-
-  const dotsContainer =
-    getElement("blog-dots");
-
-  const counter =
-    getElement("blog-counter");
-
-  const autoStatus =
-    getElement("blog-auto-status");
+  const slider = getElement("blog-slider");
+  const track = getElement("blog-track");
+  const prevButton = getElement("blog-prev");
+  const nextButton = getElement("blog-next");
+  const dotsContainer = getElement("blog-dots");
+  const counter = getElement("blog-counter");
+  const autoStatus = getElement("blog-auto-status");
 
   if (
     !slider ||
@@ -3323,112 +3586,84 @@ form.addEventListener(
 
   let slides =
     Array.from(
-      track.querySelectorAll(
-        ".blog-slide"
-      )
+      track.querySelectorAll(".blog-slide")
     );
 
   if (!slides.length) {
     return;
   }
 
-  /* Sort newest to oldest. */
-  slides.sort(
-    function(a, b) {
+  slides.sort(function(a, b) {
 
-      const dateA =
-        Date.parse(
-          a.dataset.date || ""
-        );
+    const dateA =
+      Date.parse(a.dataset.date || "");
 
-      const dateB =
-        Date.parse(
-          b.dataset.date || ""
-        );
+    const dateB =
+      Date.parse(b.dataset.date || "");
 
-      return (
-        (Number.isNaN(dateB) ? 0 : dateB) -
-        (Number.isNaN(dateA) ? 0 : dateA)
-      );
-    }
-  );
+    return (
+      (Number.isNaN(dateB) ? 0 : dateB) -
+      (Number.isNaN(dateA) ? 0 : dateA)
+    );
 
-  /* Reinsert sorted slides. */
-  slides.forEach(
-    function(slide) {
-      track.appendChild(slide);
-    }
-  );
+  });
+
+  slides.forEach(function(slide) {
+    track.appendChild(slide);
+  });
 
   let currentIndex = 0;
   let autoSlideTimer = null;
 
   const AUTO_SLIDE_TIME = 10000;
 
-  /* Create dots. */
-  slides.forEach(
-    function(slide, index) {
+  slides.forEach(function(slide, index) {
 
-      const dot =
-        document.createElement(
-          "button"
-        );
+    const dot =
+      document.createElement("button");
 
-      dot.type = "button";
+    dot.type = "button";
+    dot.className = "blog-dot";
 
-      dot.className =
-        "blog-dot";
+    dot.setAttribute(
+      "aria-label",
+      "Show article " + (index + 1)
+    );
 
-      dot.setAttribute(
-        "aria-label",
-        "Show article " +
-        (index + 1)
-      );
+    dot.addEventListener("click", function() {
 
-      dot.addEventListener(
-        "click",
-        function() {
+      showSlide(index);
+      restartAutoSlide();
 
-          showSlide(index);
+    });
 
-          restartAutoSlide();
-        }
-      );
+    dotsContainer.appendChild(dot);
 
-      dotsContainer.appendChild(
-        dot
-      );
-    }
-  );
+  });
 
   const dots =
     Array.from(
-      dotsContainer.querySelectorAll(
-        ".blog-dot"
-      )
+      dotsContainer.querySelectorAll(".blog-dot")
     );
 
   function updateNavigation() {
 
-    dots.forEach(
-      function(dot, index) {
+    dots.forEach(function(dot, index) {
 
-        const active =
-          index === currentIndex;
+      const active =
+        index === currentIndex;
 
-        dot.classList.toggle(
-          "active",
-          active
-        );
+      dot.classList.toggle(
+        "active",
+        active
+      );
 
-        dot.setAttribute(
-          "aria-current",
-          active
-            ? "true"
-            : "false"
-        );
-      }
-    );
+      dot.setAttribute(
+        "aria-current",
+        active ? "true" : "false"
+      );
+
+    });
 
     counter.textContent =
       "Article " +
@@ -3450,8 +3685,7 @@ form.addEventListener(
     }
 
     if (index < 0) {
-      index =
-        slides.length - 1;
+      index = slides.length - 1;
     }
 
     if (index >= slides.length) {
@@ -3460,25 +3694,22 @@ form.addEventListener(
 
     currentIndex = index;
 
-    slides.forEach(
-      function(slide, slideIndex) {
+    slides.forEach(function(slide, slideIndex) {
 
-        const active =
-          slideIndex === currentIndex;
+      const active =
+        slideIndex === currentIndex;
 
-        slide.classList.toggle(
-          "active",
-          active
-        );
+      slide.classList.toggle(
+        "active",
+        active
+      );
 
-        slide.setAttribute(
-          "aria-hidden",
-          active
-            ? "false"
-            : "true"
-        );
-      }
-    );
+      slide.setAttribute(
+        "aria-hidden",
+        active ? "false" : "true"
+      );
+
+    });
 
     updateNavigation();
   }
@@ -3515,16 +3746,13 @@ form.addEventListener(
     }
 
     autoSlideTimer =
-      window.setInterval(
-        function() {
+      window.setInterval(function() {
 
-          showSlide(
-            currentIndex + 1
-          );
+        showSlide(
+          currentIndex + 1
+        );
 
-        },
-        AUTO_SLIDE_TIME
-      );
+      }, AUTO_SLIDE_TIME);
 
     autoStatus.textContent =
       "Auto-sliding";
@@ -3534,110 +3762,78 @@ form.addEventListener(
     startAutoSlide();
   }
 
-  prevButton.addEventListener(
-    "click",
-    function() {
+  prevButton.addEventListener("click", function() {
 
-      showSlide(
-        currentIndex - 1
-      );
+    showSlide(currentIndex - 1);
+    restartAutoSlide();
 
-      restartAutoSlide();
+  });
+
+  nextButton.addEventListener("click", function() {
+
+    showSlide(currentIndex + 1);
+    restartAutoSlide();
+
+  });
+
+  slider.addEventListener("mouseenter", function() {
+
+    stopAutoSlide();
+
+    if (slides.length > 1) {
+      autoStatus.textContent = "Paused";
     }
-  );
 
-  nextButton.addEventListener(
-    "click",
-    function() {
+  });
 
-      showSlide(
-        currentIndex + 1
-      );
+  slider.addEventListener("mouseleave", function() {
+    startAutoSlide();
+  });
 
-      restartAutoSlide();
+  slider.addEventListener("focusin", function() {
+
+    stopAutoSlide();
+
+    if (slides.length > 1) {
+      autoStatus.textContent = "Paused";
     }
-  );
 
-  slider.addEventListener(
-    "mouseenter",
-    function() {
+  });
 
-      stopAutoSlide();
+  slider.addEventListener("focusout", function(event) {
 
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
-    }
-  );
-
-  slider.addEventListener(
-    "mouseleave",
-    function() {
+    if (
+      !slider.contains(
+        event.relatedTarget
+      )
+    ) {
       startAutoSlide();
     }
-  );
 
-  slider.addEventListener(
-    "focusin",
-    function() {
+  });
 
-      stopAutoSlide();
+  slider.addEventListener("keydown", function(event) {
 
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
+    if (event.key === "ArrowLeft") {
+
+      event.preventDefault();
+
+      showSlide(currentIndex - 1);
+      restartAutoSlide();
+
     }
-  );
 
-  slider.addEventListener(
-    "focusout",
-    function(event) {
+    if (event.key === "ArrowRight") {
 
-      if (
-        !slider.contains(
-          event.relatedTarget
-        )
-      ) {
-        startAutoSlide();
-      }
+      event.preventDefault();
+
+      showSlide(currentIndex + 1);
+      restartAutoSlide();
+
     }
-  );
 
-  slider.addEventListener(
-    "keydown",
-    function(event) {
+  });
 
-      if (
-        event.key === "ArrowLeft"
-      ) {
-
-        event.preventDefault();
-
-        showSlide(
-          currentIndex - 1
-        );
-
-        restartAutoSlide();
-      }
-
-      if (
-        event.key === "ArrowRight"
-      ) {
-
-        event.preventDefault();
-
-        showSlide(
-          currentIndex + 1
-        );
-
-        restartAutoSlide();
-      }
-    }
-  );
-
-  /* Initial state. */
   showSlide(0);
   startAutoSlide();
 
@@ -3646,69 +3842,55 @@ form.addEventListener(
 /* =========================================================
    SMOOTH INTERNAL LINKS
 ========================================================= */
+
 document
-  .querySelectorAll(
-    'a[href^="#"]'
-  )
-  .forEach(
-    function(link) {
+  .querySelectorAll('a[href^="#"]')
+  .forEach(function(link) {
 
-      link.addEventListener(
-        "click",
-        function(event) {
+    link.addEventListener("click", function(event) {
 
-          const id =
-            link.getAttribute(
-              "href"
-            );
+      const id =
+        link.getAttribute("href");
 
-          if (
-            !id ||
-            id === "#"
-          ) {
-            return;
-          }
+      if (!id || id === "#") {
+        return;
+      }
 
-          const target =
-            document.querySelector(
-              id
-            );
+      const target =
+        document.querySelector(id);
 
-          if (!target) {
-            return;
-          }
+      if (!target) {
+        return;
+      }
 
-          event.preventDefault();
+      event.preventDefault();
 
-          const reducedMotion =
-            window.matchMedia(
-              "(prefers-reduced-motion: reduce)"
-            ).matches;
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-          target.scrollIntoView({
-            behavior:
-              reducedMotion
-                ? "auto"
-                : "smooth",
-            block: "start"
-          });
+      target.scrollIntoView({
+        behavior:
+          reducedMotion
+            ? "auto"
+            : "smooth",
+        block: "start"
+      });
 
-          if (id === "#contact") {
+      if (id === "#contact") {
 
-            window.setTimeout(
-              function() {
-                nameInput.focus();
-              },
-              reducedMotion
-                ? 0
-                : 500
-            );
-          }
+        window.setTimeout(
+          function() {
+            nameInput.focus();
+          },
+          reducedMotion ? 0 : 500
+        );
 
-        }
-      );
+      }
 
-    }
-  );
+    });
+
+  });
 
 </script> </body> </html>
