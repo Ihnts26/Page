@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#0B1F3A"> <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support." > <title>KEA | Practical Hands-On Support</title> <style> /* ========================================================= RESET & BASE ========================================================= */
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#0B1F3A"> <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support."> <meta name="color-scheme" content="light"> <title>KEA | Practical Hands-On Support</title> <style> /* ========================================================= RESET & BASE ========================================================= */
 *,
 *::before,
 *::after {
@@ -49,6 +49,7 @@ img {
 
 :root {
   --navy: #0B1F3A;
+  --navy-dark: #07182D;
   --blue: #2563EB;
   --blue-dark: #1D4ED8;
   --blue-soft: #EFF6FF;
@@ -58,13 +59,23 @@ img {
   --border: #E2E8F0;
   --white: #FFFFFF;
 
-  --shadow: 0 5px 22px rgba(15, 23, 42, 0.07);
+  --success: #15803D;
+  --error: #B91C1C;
+
+  --shadow:
+    0 5px 22px rgba(15, 23, 42, 0.07);
 
   --notice-bg: #EAF4FF;
   --notice-accent: #1E56C2;
   --notice-text: #072443;
   --notice-border: #D6E9FF;
-  --notice-shadow: 0 10px 30px rgba(2, 15, 42, 0.12);
+  --notice-shadow:
+    0 10px 30px rgba(2, 15, 42, 0.12);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -78,8 +89,8 @@ header {
   background:
     linear-gradient(
       135deg,
-      #07182D,
-      #0B1F3A 58%,
+      var(--navy-dark),
+      var(--navy) 58%,
       #163E6D
     );
 }
@@ -93,9 +104,9 @@ header {
   display: inline-block;
   padding: 6px 14px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255,255,255,.15);
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,.08);
   color: #BFDBFE;
   font-size: 12px;
   font-weight: 700;
@@ -144,8 +155,9 @@ header h1 {
   font-size: 14px;
   font-weight: 750;
   transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+    background .2s ease,
+    transform .2s ease,
+    border-color .2s ease;
 }
 
 .button-primary {
@@ -160,12 +172,12 @@ header h1 {
 
 .button-secondary {
   color: white;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 .button-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,.15);
 }
 
 /* =========================================================
@@ -176,9 +188,9 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(255,255,255,.97);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 9px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 2px 9px rgba(15,23,42,.05);
   backdrop-filter: blur(8px);
 }
 
@@ -260,7 +272,7 @@ nav a:focus-visible {
 .public-notice p {
   margin: 6px 0;
   color: var(--notice-text);
-  font-size: 0.86rem;
+  font-size: .86rem;
   line-height: 1.5;
 }
 
@@ -278,7 +290,7 @@ nav a:focus-visible {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0,0,0,.06);
   border-radius: 50%;
   background: white;
   color: var(--notice-accent);
@@ -291,11 +303,6 @@ nav a:focus-visible {
 .public-notice-close:hover {
   background: var(--notice-accent);
   color: white;
-}
-
-.public-notice-close:focus-visible {
-  outline: 3px solid rgba(30, 86, 194, 0.18);
-  outline-offset: 2px;
 }
 
 .public-notice.is-hidden {
@@ -331,7 +338,7 @@ nav a:focus-visible {
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.9px;
+  letter-spacing: .9px;
 }
 
 .section-title {
@@ -344,7 +351,7 @@ nav a:focus-visible {
 .section-intro {
   max-width: 780px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: .95rem;
 }
 
 /* =========================================================
@@ -353,13 +360,13 @@ nav a:focus-visible {
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.2fr .8fr;
   gap: 25px;
 }
 
 .intro-text p {
   color: #475569;
-  font-size: 0.95rem;
+  font-size: .95rem;
 }
 
 .intro-box {
@@ -378,7 +385,7 @@ nav a:focus-visible {
 .intro-box p {
   margin: 0;
   color: #475569;
-  font-size: 0.88rem;
+  font-size: .88rem;
 }
 
 .intro-box .spacer {
@@ -391,7 +398,7 @@ nav a:focus-visible {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 16px;
   margin-top: 27px;
 }
@@ -402,15 +409,15 @@ nav a:focus-visible {
   border: 1px solid var(--border);
   border-radius: 10px;
   transition:
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
 }
 
 .service:hover {
   border-color: #BFDBFE;
   transform: translateY(-3px);
-  box-shadow: 0 9px 25px rgba(37, 99, 235, 0.07);
+  box-shadow: 0 9px 25px rgba(37,99,235,.07);
 }
 
 .service-number {
@@ -428,7 +435,7 @@ nav a:focus-visible {
 
 .service p {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: .88rem;
 }
 
 .service ul {
@@ -444,7 +451,7 @@ nav a:focus-visible {
   position: relative;
   padding-left: 17px;
   color: #475569;
-  font-size: 0.84rem;
+  font-size: .84rem;
 }
 
 .service li::before {
@@ -463,7 +470,7 @@ nav a:focus-visible {
 .work-options,
 .process {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 14px;
   margin-top: 25px;
 }
@@ -481,14 +488,14 @@ nav a:focus-visible {
   display: block;
   margin-bottom: 4px;
   color: var(--navy);
-  font-size: 0.92rem;
+  font-size: .92rem;
 }
 
 .help-item span,
 .option p,
 .process-item p {
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: .84rem;
 }
 
 .option {
@@ -499,7 +506,7 @@ nav a:focus-visible {
 .process-item h3 {
   margin: 0 0 5px;
   color: var(--navy);
-  font-size: 0.98rem;
+  font-size: .98rem;
 }
 
 .option p,
@@ -548,7 +555,7 @@ nav a:focus-visible {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 18px;
   margin-top: 27px;
 }
@@ -560,7 +567,7 @@ nav a:focus-visible {
   background: white;
   border: 1px solid var(--border);
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 16px rgba(15,23,42,.05);
 }
 
 .gallery-image {
@@ -570,11 +577,6 @@ nav a:focus-visible {
   object-fit: cover;
   background: #F1F5F9;
   cursor: zoom-in;
-}
-
-.gallery-image:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.3);
-  outline-offset: -3px;
 }
 
 .gallery-image.image-error {
@@ -589,13 +591,13 @@ nav a:focus-visible {
 .gallery-caption h3 {
   margin: 0 0 5px;
   color: var(--navy);
-  font-size: 0.98rem;
+  font-size: .98rem;
 }
 
 .gallery-caption p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: .82rem;
 }
 
 /* =========================================================
@@ -620,7 +622,7 @@ nav a:focus-visible {
 
 .blog-slide.active {
   display: block;
-  animation: blogFade 0.3s ease;
+  animation: blogFade .3s ease;
 }
 
 .blog-post {
@@ -648,7 +650,7 @@ nav a:focus-visible {
 .blog-post-intro {
   margin: 0 0 16px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: .9rem;
 }
 
 .blog-content {
@@ -679,7 +681,7 @@ nav a:focus-visible {
 .blog-content p,
 .blog-content li {
   color: #475569;
-  font-size: 0.88rem;
+  font-size: .88rem;
   line-height: 1.65;
 }
 
@@ -702,8 +704,7 @@ nav a:focus-visible {
   cursor: pointer;
 }
 
-.read-more-button:hover,
-.read-more-button:focus-visible {
+.read-more-button:hover {
   background: var(--blue-dark);
 }
 
@@ -728,15 +729,14 @@ nav a:focus-visible {
   cursor: pointer;
 }
 
-.blog-nav-button:hover:not(:disabled),
-.blog-nav-button:focus-visible:not(:disabled) {
+.blog-nav-button:hover:not(:disabled) {
   border-color: var(--blue);
   background: var(--blue-soft);
   color: var(--blue);
 }
 
 .blog-nav-button:disabled {
-  opacity: 0.45;
+  opacity: .45;
   cursor: not-allowed;
 }
 
@@ -781,7 +781,6 @@ nav a:focus-visible {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -796,7 +795,7 @@ nav a:focus-visible {
   background:
     linear-gradient(
       135deg,
-      #0B1F3A,
+      var(--navy),
       #163E6D
     );
   border-radius: 14px;
@@ -807,7 +806,7 @@ nav a:focus-visible {
 
 .cta h2 {
   margin: 0 0 10px;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: clamp(1.6rem,4vw,2.2rem);
 }
 
 .cta p {
@@ -853,7 +852,7 @@ nav a:focus-visible {
 
 .contact-header p {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: .92rem;
 }
 
 .contact-note {
@@ -863,7 +862,7 @@ nav a:focus-visible {
   border-left: 3px solid var(--blue);
   border-radius: 6px;
   color: #475569;
-  font-size: 0.86rem;
+  font-size: .86rem;
 }
 
 .contact-note strong {
@@ -906,7 +905,7 @@ form input:focus,
 form textarea:focus,
 form select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.11);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.11);
 }
 
 form button[type="submit"] {
@@ -925,7 +924,7 @@ form button[type="submit"]:hover {
 }
 
 form button[type="submit"]:disabled {
-  opacity: 0.65;
+  opacity: .65;
   cursor: wait;
 }
 
@@ -938,11 +937,11 @@ form button[type="submit"]:disabled {
 }
 
 .form-status.success {
-  color: #15803D;
+  color: var(--success);
 }
 
 .form-status.error {
-  color: #B91C1C;
+  color: var(--error);
 }
 
 .form-hidden {
@@ -952,7 +951,7 @@ form button[type="submit"]:disabled {
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
+  clip: rect(0,0,0,0) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
@@ -970,7 +969,7 @@ form button[type="submit"]:disabled {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(7, 24, 45, 0.9);
+  background: rgba(7,24,45,.9);
   backdrop-filter: blur(5px);
 }
 
@@ -996,15 +995,10 @@ form button[type="submit"]:disabled {
   height: 42px;
   border: none;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,.15);
   color: white;
   font-size: 27px;
   cursor: pointer;
-}
-
-.image-zoom-close:hover,
-.image-zoom-close:focus-visible {
-  background: rgba(255, 255, 255, 0.25);
 }
 
 .image-zoom-caption {
@@ -1014,14 +1008,14 @@ form button[type="submit"]:disabled {
   transform: translateX(-50%);
   padding: 7px 15px;
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,.55);
   color: white;
   font-size: 13px;
 }
 
 .privacy-modal {
   z-index: 11000;
-  background: rgba(7, 24, 45, 0.72);
+  background: rgba(7,24,45,.72);
 }
 
 .privacy-panel {
@@ -1055,12 +1049,12 @@ form button[type="submit"]:disabled {
 
 .privacy-section h3 {
   color: var(--navy);
-  font-size: 0.98rem;
+  font-size: .98rem;
 }
 
 .privacy-section p {
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: .86rem;
 }
 
 .privacy-actions {
@@ -1139,8 +1133,7 @@ form button[type="submit"]:disabled {
 }
 
 @keyframes kea-border-blink {
-  0%,
-  100% {
+  0%,100% {
     border-color: #CBD5E1;
     box-shadow: none;
     transform: scale(1);
@@ -1148,7 +1141,8 @@ form button[type="submit"]:disabled {
 
   50% {
     border-color: var(--blue);
-    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.10);
+    box-shadow:
+      0 0 0 8px rgba(37,99,235,.10);
     transform: scale(1.02);
   }
 }
@@ -1174,7 +1168,7 @@ footer strong {
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width:850px) {
   .intro-grid {
     grid-template-columns: 1fr;
   }
@@ -1194,7 +1188,7 @@ footer strong {
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width:650px) {
   .services-grid,
   .help-grid,
   .work-options,
@@ -1269,11 +1263,11 @@ footer strong {
   }
 
   .public-notice h2 {
-    font-size: 0.92rem;
+    font-size: .92rem;
   }
 
   .public-notice p {
-    font-size: 0.73rem;
+    font-size: .73rem;
     line-height: 1.45;
   }
 
@@ -1308,7 +1302,7 @@ footer strong {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce) {
   html {
     scroll-behavior: auto;
   }
@@ -1514,7 +1508,6 @@ footer strong {
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -1540,12 +1533,10 @@ footer strong {
       <article class="service">
         <div class="service-number">01</div>
         <h3>Software</h3>
-
         <p>
           Hands-on support with software-related tasks and
           technical projects.
         </p>
-
         <ul>
           <li>Software development support</li>
           <li>Application work</li>
@@ -1559,12 +1550,10 @@ footer strong {
       <article class="service">
         <div class="service-number">02</div>
         <h3>Electrical, Electronics &amp; Hardware</h3>
-
         <p>
           Practical support for electrical, electronics and
           hardware project tasks.
         </p>
-
         <ul>
           <li>Electrical project support</li>
           <li>Electrical documentation</li>
@@ -1580,12 +1569,10 @@ footer strong {
       <article class="service">
         <div class="service-number">03</div>
         <h3>Construction &amp; Civil Project Support</h3>
-
         <p>
           Practical assistance with construction, civil technology
           and project-related tasks.
         </p>
-
         <ul>
           <li>Project documentation</li>
           <li>Technical records</li>
@@ -1599,12 +1586,10 @@ footer strong {
       <article class="service">
         <div class="service-number">04</div>
         <h3>Clinical &amp; Medical-Related Project Support</h3>
-
         <p>
           Non-diagnostic support for appropriate clinical and
           medical-related projects.
         </p>
-
         <ul>
           <li>Clinical documentation</li>
           <li>Research assistance</li>
@@ -1617,12 +1602,10 @@ footer strong {
       <article class="service">
         <div class="service-number">05</div>
         <h3>Documentation &amp; Project Support</h3>
-
         <p>
           Practical support with documentation, information and
           project tasks.
         </p>
-
         <ul>
           <li>Technical document preparation</li>
           <li>Project documentation</li>
@@ -1636,12 +1619,10 @@ footer strong {
       <article class="service">
         <div class="service-number">06</div>
         <h3>Mental Health-Related Project Support</h3>
-
         <p>
           Non-diagnostic support for appropriate research,
           documentation and coordination.
         </p>
-
         <ul>
           <li>Research assistance</li>
           <li>Documentation support</li>
@@ -1654,12 +1635,10 @@ footer strong {
       <article class="service">
         <div class="service-number">07</div>
         <h3>Research &amp; Technical Information</h3>
-
         <p>
           Assistance with finding, organising and documenting
           information.
         </p>
-
         <ul>
           <li>Technical research</li>
           <li>Reference gathering</li>
@@ -1673,12 +1652,10 @@ footer strong {
       <article class="service">
         <div class="service-number">08</div>
         <h3>Custom Project Support</h3>
-
         <p>
           Have a requirement that does not fit neatly into one
           category?
         </p>
-
         <ul>
           <li>Define the task</li>
           <li>Clarify the expected result</li>
@@ -1813,52 +1790,40 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      Different tasks require different arrangements. The work can
-      be discussed around scope, timeframe and expected result.
+      Different tasks require different arrangements. The work
+      can be discussed around scope, timeframe and expected result.
     </p>
 
     <div class="work-options">
 
       <div class="option">
         <h3>One-Time Task</h3>
-        <p>
-          A specific task that simply needs to be completed.
-        </p>
+        <p>A specific task that simply needs to be completed.</p>
       </div>
 
       <div class="option">
         <h3>Short-Term Help</h3>
-        <p>
-          Additional support during a busy period.
-        </p>
+        <p>Additional support during a busy period.</p>
       </div>
 
       <div class="option">
         <h3>Project-Based</h3>
-        <p>
-          Support for a defined project and timeframe.
-        </p>
+        <p>Support for a defined project and timeframe.</p>
       </div>
 
       <div class="option">
         <h3>Ongoing Support</h3>
-        <p>
-          Regular help with recurring technical or project tasks.
-        </p>
+        <p>Regular help with recurring technical or project tasks.</p>
       </div>
 
       <div class="option">
         <h3>Contract Work</h3>
-        <p>
-          Work based on agreed responsibilities and duration.
-        </p>
+        <p>Work based on agreed responsibilities and duration.</p>
       </div>
 
       <div class="option">
         <h3>Custom Arrangement</h3>
-        <p>
-          Tell me about the requirement and we can discuss it.
-        </p>
+        <p>Tell me about the requirement and we can discuss it.</p>
       </div>
 
     </div>
@@ -1916,9 +1881,9 @@ footer strong {
     </h2>
 
     <p class="section-intro">
-      Examples shown here are provided for general illustration of
-      work and are not intended to imply that every image represents
-      a completed project.
+      Examples shown here are provided for general illustration
+      of work and are not intended to imply that every image
+      represents a completed project.
     </p>
 
     <div class="gallery-grid">
@@ -1931,7 +1896,6 @@ footer strong {
           loading="lazy"
           decoding="async"
         >
-
         <div class="gallery-caption">
           <h3>Floor 1</h3>
           <p>Example image 1</p>
@@ -1946,7 +1910,6 @@ footer strong {
           loading="lazy"
           decoding="async"
         >
-
         <div class="gallery-caption">
           <h3>Floor 2</h3>
           <p>Example image 2</p>
@@ -1961,7 +1924,6 @@ footer strong {
           loading="lazy"
           decoding="async"
         >
-
         <div class="gallery-caption">
           <h3>Chair</h3>
           <p>Example image</p>
@@ -1992,9 +1954,7 @@ footer strong {
 
       <div class="process-item">
         <div class="process-number">1</div>
-
         <h3>Tell Me About the Work</h3>
-
         <p>
           Explain the task, problem, project, technical requirement
           or workload.
@@ -2003,9 +1963,7 @@ footer strong {
 
       <div class="process-item">
         <div class="process-number">2</div>
-
         <h3>Discuss the Requirement</h3>
-
         <p>
           Clarify scope, timeframe, expected output, resources and
           relevant details.
@@ -2014,9 +1972,7 @@ footer strong {
 
       <div class="process-item">
         <div class="process-number">3</div>
-
         <h3>Get Hands-On and Get It Done</h3>
-
         <p>
           Agree on responsibilities and work toward the required
           result.
@@ -2040,705 +1996,542 @@ footer strong {
       Updates &amp; Formal Notices
     </h2>
 
-   <p class="blog-post-intro">
-  This notice addresses matters involving legal professionals,
-  professional duties, relevant Philippine and potentially
-  applicable foreign laws, contested acts or circumstances,
-  direct or indirect involvement, lawful publication of legal
-  information, personal-data protection, preservation of
-  evidence, and the protection of all rights and remedies
-  available under law. Its purpose is to record the matters
-  being raised and formally inform persons who may be concerned,
-  without treating any allegation as an established legal
-  finding. Any final determination remains for the competent
-  authority with lawful jurisdiction.
-</p>
-
-<button
-  type="button"
-  class="read-more-button"
-  aria-expanded="false"
-  aria-controls="formal-notice-content"
->
-  View Full Notice
-</button>
-
-<div
-  class="blog-content"
-  id="formal-notice-content"
-  hidden
->
-
-  <h4>
-    Formal Notification and Preservation of Legal Rights
-  </h4>
-
-  <p>
-    This communication constitutes formal notification to all
-    individuals and entities who may be involved, including
-    attorneys, lawyers, counsel, legal professionals, law
-    practices, legal organisations, prosecutors, government
-    counsel, representatives, agents, advisers, intermediaries,
-    consultants, and any other person who may have acted
-    individually, professionally, directly, indirectly, jointly,
-    through another individual, or in another capacity in relation
-    to any matter involving me.
-  </p>
-
-  <p>
-    The matters described in this notice concern conduct taking
-    place within the Philippines and, where the applicable legal
-    framework permits, conduct occurring elsewhere or conduct
-    having a legally sufficient connection to another country or
-    jurisdiction.
-  </p>
-
-  <p>
-    I retain and expressly preserve every right relating to any
-    action, failure to act, communication, publication,
-    disclosure, assertion, handling of information, court filing,
-    professional service, instruction, assistance, facilitation,
-    approval, concealment, or other activity that I reasonably
-    consider potentially inconsistent with applicable law,
-    judicial rules, professional duties, privacy protections,
-    contractual duties, or other rights protected by law.
-  </p>
-
-  <p>
-    This notice does not constitute a declaration that any person
-    has committed an offence, professional breach, civil wrong,
-    administrative violation, or other unlawful act. Any issue
-    raised remains dependent upon the evidence, investigation,
-    applicable jurisdiction, procedural fairness, and a lawful
-    determination by the competent authority.
-  </p>
-
-  <h4>
-    Possible Direct or Indirect Involvement
-  </h4>
-
-  <p>
-    If circumstances provide reasonable grounds to believe that
-    a lawyer, attorney, counsel, legal professional,
-    representative, intermediary, or other individual may have
-    participated, whether directly or indirectly, in conduct
-    that could potentially constitute an offence or other
-    unlawful activity, I reserve the right to record the
-    circumstances involved and preserve any evidence that may
-    lawfully be available.
-  </p>
-
-  <p>
-    Indirect involvement may encompass circumstances where an
-    individual did not personally carry out the principal act
-    but may have knowingly, or in another manner recognised by
-    applicable law, assisted, enabled, instructed, approved,
-    encouraged, coordinated, concealed, supported, or otherwise
-    contributed to conduct undertaken by another individual,
-    where the applicable law treats such involvement as legally
-    significant.
-  </p>
-
-  <p>
-    The mere existence of an attorney-client relationship,
-    professional representation, communication, instruction, or
-    other association does not by itself establish criminal
-    responsibility, professional misconduct, or unlawful
-    participation.
-  </p>
-
-  <p>
-    Whether particular conduct amounts to direct or indirect
-    involvement, assistance, facilitation, conspiracy,
-    accessory liability, obstruction, concealment, professional
-    misconduct, or another legal violation must be assessed by
-    reference to the elements required by the applicable law,
-    the available evidence, the person's actual actions and
-    knowledge, relevant procedural rules, and the jurisdiction
-    of the competent authority.
-  </p>
-
-  <p>
-    If the available material provides a reasonable indication
-    that a person's actions may be connected to the disputed
-    circumstances, I reserve the right to record, preserve, and
-    identify that connection for objective examination,
-    assessment, or determination by the authority possessing
-    lawful jurisdiction.
-  </p>
-
-  <h4>
-    Legal Practitioners and Professional Duties
-  </h4>
-
-  <p>
-    Lawyers authorised to practise within the Philippines remain
-    subject to the laws, regulations, professional rules, and
-    standards governing legal practice, professional conduct,
-    responsibility, and accountability.
-  </p>
-
-  <p>
-    If a lawyer, attorney, counsel, legal practitioner,
-    prosecutor, or other member of the legal profession is
-    alleged to have engaged in unlawful, deceptive, dishonest,
-    misleading, abusive, unauthorised, or otherwise improper
-    behaviour, I reserve the right to retain and present
-    relevant information and evidence for impartial review by
-    the competent authority.
-  </p>
-
-  <p>
-    This reservation extends to circumstances where the
-    available material may indicate indirect participation
-    through directions, assistance, facilitation, approval,
-    coordination, concealment, or other conduct having possible
-    legal relevance.
-  </p>
-
-  <p>
-    I also reserve the right to ask the appropriate authority to
-    objectively examine whether the conduct in question was
-    consistent with applicable professional duties, legislation,
-    court procedures, ethical standards, and other governing
-    requirements.
-  </p>
-
-  <h4>
-    Potential Issues Under Philippine Law
-  </h4>
-
-  <p>
-    Holding professional status, acting as legal counsel,
-    working for a law office, receiving a government appointment,
-    or claiming legal authority does by itself create an
-    exemption from laws that otherwise apply.
-  </p>
-
-  <p>
-    Where available evidence suggests that conduct may be
-    inconsistent with Philippine law, I reserve the right to
-    identify the circumstances concerned and retain or submit
-    supporting material for impartial examination and lawful
-    determination by the appropriate authority.
-  </p>
-
-  <p>
-    Depending upon the facts and governing jurisdiction, relevant
-    conduct may include acts personally undertaken or conduct
-    allegedly enabled, approved, directed, assisted, coordinated,
-    concealed, or otherwise supported by another individual,
-    provided that all legal requirements necessary for liability
-    are established.
-  </p>
-
-  <p>
-    Subject to the actual circumstances and applicable law, the
-    issues may potentially concern unauthorised disclosure or
-    processing of personal information, inaccurate or deceptive
-    representations, unauthorised actions, inappropriate
-    communications, professional misconduct, interference with
-    legal proceedings, obstruction, concealment, or other
-    conduct that could potentially result in civil, criminal,
-    administrative, regulatory, disciplinary, or other lawful
-    proceedings.
-  </p>
-
-  <p>
-    I do not contend that every disputed circumstance necessarily
-    amounts to a criminal offence, professional breach, or other
-    legal violation. The proper legal classification of any
-    conduct remains for the competent authority to determine in
-    accordance with the evidence, applicable legislation,
-    jurisdiction, and elements required by law.
-  </p>
-
-  <h4>
-    Oral Statements, Media Reports, and Publicly Available Evidence
-  </h4>
-
-  <p>
-    For purposes of maintaining an accurate record, potentially
-    significant information may exist in numerous forms and may
-    come from various sources. These sources can include
-    firsthand accounts, statements from knowledgeable persons,
-    interviews, public addresses, press briefings, published
-    articles, broadcasts, journalism, media publications,
-    publicly accessible records, official announcements,
-    government documents, judicial records, photographs,
-    recordings, electronic correspondence, websites,
-    social-media material, and other information obtained through
-    lawful means.
-  </p>
-
-  <p>
-    If information concerning contested conduct has been
-    communicated verbally or disseminated through media
-    organisations, I reserve the right, where legally permitted,
-    to record its existence, substance, date, source, surrounding
-    context, and circumstances.
-  </p>
-
-  <p>
-    Public circulation of information, repetition through media,
-    or discussion or observation by individuals in different
-    parts of the world does not by itselfly establish the
-    truth of an allegation or establish legal responsibility.
-  </p>
-
-  <p>
-    Where circumstances have entered the public domain or have
-    been documented through extensive public reporting, the
-    existence of those materials may be retained as part of the
-    factual and evidentiary history, subject to applicable rules
-    concerning evidence, privacy, confidentiality, copyright,
-    procedure, and jurisdiction.
-  </p>
-
-  <p>
-    Any reference in this notice to information originating from
-    the "whole world" refers to the potentially international
-    reach and publicly observable character of information
-    relevant to the matters described. It does not signify that
-    every public statement, media account, oral report, or
-    publication has been formally verified, authenticated,
-    admitted into evidence, or determined to be legally
-    sufficient.
-  </p>
-
-  <p>
-    Any court, regulator, investigator, disciplinary authority,
-    or other body reviewing such material may separately
-    evaluate its authenticity, reliability, relevance,
-    admissibility, evidentiary weight, origin, context, and
-    legal importance under the applicable law and procedural
-    framework.
-  </p>
-
-  <h4>
-    Lawful Publication of Legal Information and Records
-  </h4>
-
-  <p>
-    I retain the right, subject to applicable legal restrictions,
-    to publish, reproduce, cite, or otherwise make available
-    lawful legal information and records relevant to the issues
-    described in this notice.
-  </p>
-
-  <p>
-    Such information may include applicable criminal statutes,
-    civil legislation, administrative provisions, constitutional
-    provisions, procedural rules, judicial rules, professional
-    responsibility standards, court decisions, regulatory
-    issuances, government publications, official notices, and
-    other legal materials that are lawfully accessible.
-  </p>
-
-  <p>
-    Any such publication may be undertaken for purposes including
-    legal education, public information, clarification,
-    transparency, record preservation, documentation, and
-    identification of legal provisions that may potentially
-    apply to the circumstances under discussion.
-  </p>
-
-  <p>
-    Publishing a statute, legal rule, judicial decision,
-    regulation, or other legal authority does not, standing
-    alone, constitute an allegation that a particular individual
-    has violated that authority or committed an offence.
-  </p>
-
-  <p>
-    When discussing a particular legal rule in relation to
-    disputed circumstances, I may identify relevant facts,
-    events, communications, records, documents, or other material
-    that may bear upon its possible applicability, while leaving
-    the ultimate legal conclusion to the competent authority.
-  </p>
-
-  <p>
-    Where permitted by law, I may also make available factual
-    information or supporting records reasonably necessary to
-    explain the circumstances of a dispute, subject to privacy,
-    confidentiality, copyright, evidentiary, judicial, and other
-    applicable restrictions.
-  </p>
-
-  <p>
-    Publication of legal information should not be understood as
-    a judicial, prosecutorial, disciplinary, or regulatory
-    determination. References to criminal, civil,
-    administrative, professional, or other provisions are made
-    to identify potentially relevant legal frameworks and
-    preserve the issues raised for the record.
-  </p>
-
-  <p>
-    Individuals who consult or rely upon published legal
-    information should directly review the applicable law,
-    official sources, competent authorities, or qualified legal
-    advice where appropriate.
-  </p>
-
-  <h4>
-    Personal Data and Privacy Protection
-  </h4>
-
-  <p>
-    I expressly object to the unauthorised publication,
-    disclosure, distribution, reproduction, transmission,
-    processing, or other handling of personal information
-    relating to me where such activity is not authorised or
-    otherwise permitted by applicable law.
-  </p>
-
-  <p>
-    Where applicable, I preserve all rights and remedies
-    available under
-    <strong>
-      Republic Act No. 10173, otherwise known as the Data Privacy
-      Act of 2012
-    </strong>,
-    its implementing rules and regulations, and relevant
-    issuances of the National Privacy Commission.
-  </p>
-
-  <p>
-    I reserve the right to request an objective examination by
-    the competent authority as to whether an individual or
-    organisation handling information about me had an appropriate
-    lawful basis, satisfied applicable statutory requirements,
-    used the information for a legitimate and lawful purpose,
-    and maintained safeguards required under applicable law.
-  </p>
-
-  <p>
-    If personal information is alleged to have been disclosed,
-    transferred, processed, published, or otherwise handled
-    through another individual or organisation, I reserve the
-    right to preserve information relating to its source,
-    recipient, purpose, method, timing, authorisation, and
-    surrounding circumstances, and to provide such material
-    where legally appropriate.
-  </p>
-
-  <h4>
-    Disputed or Inaccurate Statements
-  </h4>
-
-  <p>
-    All persons concerned are placed on notice regarding
-    representations that may be disputed as false, misleading,
-    inaccurate, distorted, or materially incomplete in relation
-    to me.
-  </p>
-
-  <p>
-    This may include statements that incorrectly attribute words,
-    behaviour, intentions, beliefs, actions, omissions, or other
-    circumstances to me, as well as statements presented without
-    significant context in circumstances that could reasonably
-    create an inaccurate impression.
-  </p>
-
-  <p>
-    When a statement or representation is contested, I reserve
-    the right to retain the original material, identify its
-    source or responsible individual or entity, record the
-    circumstances in which it was communicated, and provide the
-    underlying material for objective examination by the
-    appropriate authority.
-  </p>
-
-  <p>
-    If a disputed statement was transmitted through a
-    representative, intermediary, legal professional,
-    organisation, or other person, I reserve the right to
-    document the respective involvement of those persons and
-    request impartial consideration of any conduct having
-    legal relevance.
-  </p>
-
-  <h4>
-    Retention and Protection of Evidence
-  </h4>
-
-  <p>
-    I retain the right to preserve potentially relevant material
-    concerning alleged unlawful or improper activity. Such
-    material may include letters, emails, messages, documents,
-    pleadings, legal submissions, publications, statements,
-    recordings, screenshots, electronic records, metadata,
-    photographs, notices, media coverage, publicly accessible
-    information, and other material, insofar as it has been
-    lawfully obtained, retained, and used.
-  </p>
-
-  <p>
-    Preserved material may assist in establishing the identities
-    of persons involved, chronology of events, communications
-    between individuals, instructions or requests, actions or
-    omissions, representations made, transfers or disclosures of
-    information, public reporting, oral statements, and other
-    circumstances relevant to determining what occurred and
-    whether any individual's involvement has legal significance.
-  </p>
-
-  <p>
-    Where legally appropriate, preserved evidence may be
-    submitted to a court, tribunal, disciplinary organisation,
-    regulatory authority, privacy regulator, prosecutor,
-    law-enforcement body, or another institution possessing
-    lawful jurisdiction.
-  </p>
-
-  <p>
-    Retaining or submitting evidence does not itself establish
-    that misconduct or wrongdoing occurred. The purpose is to
-    preserve potentially relevant material so that the competent
-    authority may impartially examine the facts and reach its
-    own determination in accordance with law.
-  </p>
-
-  <h4>
-    Philippine Authorities — External Review
-  </h4>
-
-  <p>
-    Where legally appropriate and available, I reserve the right
-    to provide relevant records and supporting material to the
-    authority possessing jurisdiction over the particular issue,
-    including, where applicable:
-  </p>
-
-  <ul>
-    <li>
-      The Supreme Court of the Philippines;
-    </li>
-    <li>
-      Relevant disciplinary authorities of the Integrated Bar
-      of the Philippines;
-    </li>
-    <li>
-      The National Privacy Commission;
-    </li>
-    <li>
-      Competent Philippine courts and tribunals;
-    </li>
-    <li>
-      Prosecutors and law-enforcement agencies;
-    </li>
-    <li>
-      Relevant governmental regulatory or investigative bodies;
-    </li>
-    <li>
-      Any other institution possessing lawful jurisdiction.
-    </li>
-  </ul>
-
-  <p>
-    This notice does not presume that any listed authority has
-    jurisdiction or has undertaken any action. Any authority
-    receiving or reviewing the material remains responsible for
-    determining its jurisdiction, applicable procedures,
-    evidentiary standards, and legal powers.
-  </p>
-
-  <p>
-    I do not claim that any authority has accepted, confirmed,
-    investigated, endorsed, or formally determined the matters
-    described herein unless an verifiable official record
-    demonstrates that such action occurred.
-  </p>
-
-  <h4>
-    Foreign and Cross-Border Issues
-  </h4>
-
-  <p>
-    If a lawyer, attorney, counsel, representative, law practice,
-    organisation, or other person connected with a matter is
-    subject to the laws or jurisdiction of another country, I
-    reserve the right to identify and retain evidence relating to
-    conduct that may properly fall within the authority of a
-    competent foreign institution.
-  </p>
-
-  <p>
-    Depending upon the circumstances, this may include a foreign
-    court, professional licensing or disciplinary body,
-    privacy or data-protection regulator, prosecutor,
-    law-enforcement agency, international tribunal, or another
-    institution exercising lawful jurisdiction.
-  </p>
-
-  <p>
-    Any material provided to a foreign or international
-    institution remains subject to that institution's
-    jurisdiction, procedural framework, evidentiary standards,
-    admissibility rules, and governing law.
-  </p>
-
-  <h4>
-    International Criminal Court
-  </h4>
-
-  <p>
-    Where the applicable legal framework permits, I reserve the
-    right to examine whether particular circumstances potentially
-    satisfy the jurisdictional requirements of an international
-    institution, including the
-    <strong>
-      International Criminal Court
-    </strong>.
-  </p>
-
-  <p>
-    The International Criminal Court operates under a defined
-    mandate established by the Rome Statute. It is not a general
-    venue for ordinary private disagreements, routine legal
-    disciplinary matters, privacy disputes, professional
-    conflicts, or every alleged breach of domestic legislation.
-  </p>
-
-  <p>
-    Consequently, mentioning an international institution in this
-    notice does not constitute a claim that any particular event
-    or conduct falls within that institution's jurisdiction.
-  </p>
-
-  <p>
-    Any possible consideration by an international institution
-    would depend upon the actual facts, jurisdictional basis,
-    admissibility requirements, and legal mandate applicable to
-    that institution.
-  </p>
-
-  <h4>
-    No Presumption of Liability or Misconduct
-  </h4>
-
-  <p>
-    Nothing stated in this notice should be construed as a
-    declaration that any identified or unidentified lawyer,
-    attorney, counsel, legal practitioner, organisation,
-    government official, representative, intermediary, or other
-    person has committed a criminal offence, professional breach,
-    civil wrong, administrative violation, or other form of
-    wrongdoing.
-  </p>
-
-  <p>
-    The purpose of this communication is to record disputed
-    circumstances, preserve objections and legal rights, retain
-    potentially relevant evidence, document relationships or
-    possible participation, and formally notify concerned persons
-    that the material may be objectively examined or reviewed
-    by an authority possessing lawful jurisdiction.
-  </p>
-
-  <h4>
-    Preservation of All Rights
-  </h4>
-
-  <p>
-    Nothing contained in this notice shall operate as a waiver,
-    surrender, abandonment, admission, or restriction of any
-    right, claim, defence, objection, privilege, or remedy that
-    may be available to me under applicable law.
-  </p>
-
-  <p>
-    I expressly retain the right to rely upon facts and evidence
-    that may later demonstrate direct or indirect involvement by
-    any individual, insofar as such involvement is legally
-    relevant and supported by admissible or otherwise lawfully
-    obtained evidence.
-  </p>
-
-  <h4>
-    Continued Reservation of Remedies
-  </h4>
-
-  <p>
-    I preserve all civil, criminal, administrative, disciplinary,
-    regulatory, privacy, professional, constitutional, and other
-    remedies that may lawfully be available.
-  </p>
-
-  <p>
-    I further retain the right, where permitted by law, to
-    preserve, record, publish, and submit relevant material for
-    objective review, examination, investigation, adjudication,
-    or other lawful consideration by the authority possessing
-    jurisdiction.
-  </p>
-
-  <p>
-    I also reserve the right to update, supplement, or revise
-    this notice if additional evidence, conduct, publications,
-    communications, statements, media reports, or other relevant
-    circumstances subsequently become known or available.
-  </p>
-
-  <p>
-    <strong>
-      This notice formally informs concerned persons that
-      disputed circumstances, including circumstances involving
-      possible direct or indirect participation through another
-      individual, may be recorded and, where legally appropriate,
-      submitted to an authority possessing lawful jurisdiction
-      for impartial examination, review, or determination.
-    </strong>
-  </p>
-
-  <p>
-    <strong>
-      Potentially relevant material may consist of lawfully
-      obtained documents, correspondence, statements, recordings,
-      publicly accessible information, media coverage, official
-      publications, judicial records, and other evidence
-      originating within the Philippines or from foreign or
-      international sources. The presence of such material does
-      not by itself establish authenticity, admissibility,
-      accuracy, truth, or legal effect.
-    </strong>
-  </p>
-
-  <p>
-    <strong>
-      Where permitted under applicable law, I retain the right to
-      make relevant statutes, legal provisions, judicial
-      decisions, official issuances, and factual records publicly
-      available for purposes of legal information, clarification,
-      transparency, education, documentation, and preservation of
-      the public record.
-    </strong>
-  </p>
-
-  <p>
-    <strong>
-      Nothing contained in this notice constitutes a finding of
-      criminal responsibility, professional misconduct, civil
-      liability, administrative responsibility, or other
-      wrongdoing. Any such conclusion remains exclusively subject
-      to the lawful determination of the appropriate court,
-      tribunal, regulatory body, disciplinary authority, or other
-      competent institution.
-    </strong>
-  </p>
-
-  <p>
-    <strong>
-      September 20, 2026
-    </strong>
-  </p>
-
-</div>
-
-</div> </section>
+    <div
+      class="blog-slider"
+      id="blog-slider"
+      tabindex="0"
+      aria-label="Blog articles"
+    >
+
+      <div class="blog-track" id="blog-track">
+
+        <!-- ARTICLE 1 -->
+
+        <article
+          class="blog-slide active"
+          data-date="2026-09-20"
+          aria-hidden="false"
+        >
+          <div class="blog-post">
+
+            <div class="blog-date">
+              September 20, 2026
+            </div>
+
+            <h3>
+              Formal Notification and Preservation of Legal Rights
+            </h3>
+
+            <p class="blog-post-intro">
+              This notice addresses matters involving legal
+              professionals, professional duties, relevant
+              Philippine and potentially applicable foreign laws,
+              contested acts or circumstances, direct or indirect
+              involvement, lawful publication of legal information,
+              personal-data protection, preservation of evidence,
+              and the protection of all rights and remedies
+              available under law. Its purpose is to record the
+              matters being raised and formally inform persons who
+              may be concerned, without treating any allegation as
+              an established legal finding. Any final determination
+              remains for the competent authority with lawful
+              jurisdiction.
+            </p>
+
+            <button
+              type="button"
+              class="read-more-button"
+              aria-expanded="false"
+              aria-controls="formal-notice-content"
+            >
+              View Full Notice
+            </button>
+
+            <div
+              class="blog-content"
+              id="formal-notice-content"
+              hidden
+            >
+
+              <h4>
+                Formal Notification and Preservation of Legal Rights
+              </h4>
+
+              <p>
+                This communication constitutes formal notification
+                to all individuals and entities who may be involved,
+                including attorneys, lawyers, counsel, legal
+                professionals, law practices, legal organisations,
+                prosecutors, government counsel, representatives,
+                agents, advisers, intermediaries, consultants, and
+                any other person who may have acted individually,
+                professionally, directly, indirectly, jointly,
+                through another individual, or in another capacity
+                in relation to any matter involving me.
+              </p>
+
+              <p>
+                The matters described in this notice concern conduct
+                taking place within the Philippines and, where the
+                applicable legal framework permits, conduct occurring
+                elsewhere or conduct having a legally sufficient
+                connection to another country or jurisdiction.
+              </p>
+
+              <p>
+                I retain and expressly preserve every right relating
+                to any action, failure to act, communication,
+                publication, disclosure, assertion, handling of
+                information, court filing, professional service,
+                instruction, assistance, facilitation, approval,
+                concealment, or other activity that I reasonably
+                consider potentially inconsistent with applicable
+                law, judicial rules, professional duties, privacy
+                protections, contractual duties, or other rights
+                protected by law.
+              </p>
+
+              <p>
+                This notice does not constitute a declaration that
+                any person has committed an offence, professional
+                breach, civil wrong, administrative violation, or
+                other unlawful act. Any issue raised remains
+                dependent upon the evidence, investigation,
+                applicable jurisdiction, procedural fairness, and
+                a lawful determination by the competent authority.
+              </p>
+
+              <h4>Possible Direct or Indirect Involvement</h4>
+
+              <p>
+                If circumstances provide reasonable grounds to
+                believe that a lawyer, attorney, counsel, legal
+                professional, representative, intermediary, or
+                other individual may have participated, whether
+                directly or indirectly, in conduct that could
+                potentially constitute an offence or other unlawful
+                activity, I reserve the right to record the
+                circumstances involved and preserve any evidence
+                that may lawfully be available.
+              </p>
+
+              <p>
+                Indirect involvement may encompass circumstances
+                where an individual did not personally carry out
+                the principal act but may have knowingly, or in
+                another manner recognised by applicable law,
+                assisted, enabled, instructed, approved, encouraged,
+                coordinated, concealed, supported, or otherwise
+                contributed to conduct undertaken by another
+                individual, where the applicable law treats such
+                involvement as legally significant.
+              </p>
+
+              <p>
+                The mere existence of an attorney-client relationship,
+                professional representation, communication,
+                instruction, or other association does not by itself
+                establish criminal responsibility, professional
+                misconduct, or unlawful participation.
+              </p>
+
+              <p>
+                Whether particular conduct amounts to direct or
+                indirect involvement, assistance, facilitation,
+                conspiracy, accessory liability, obstruction,
+                concealment, professional misconduct, or another
+                legal violation must be assessed by reference to
+                the elements required by the applicable law, the
+                available evidence, the person's actual actions and
+                knowledge, relevant procedural rules, and the
+                jurisdiction of the competent authority.
+              </p>
+
+              <h4>Legal Practitioners and Professional Duties</h4>
+
+              <p>
+                Lawyers authorised to practise within the
+                Philippines remain subject to the laws, regulations,
+                professional rules, and standards governing legal
+                practice, professional conduct, responsibility,
+                and accountability.
+              </p>
+
+              <p>
+                If a lawyer, attorney, counsel, legal practitioner,
+                prosecutor, or other member of the legal profession
+                is alleged to have engaged in unlawful, deceptive,
+                dishonest, misleading, abusive, unauthorised, or
+                otherwise improper behaviour, I reserve the right
+                to retain and present relevant information and
+                evidence for impartial review by the competent
+                authority.
+              </p>
+
+              <h4>Potential Issues Under Philippine Law</h4>
+
+              <p>
+                Holding professional status, acting as legal
+                counsel, working for a law office, receiving a
+                government appointment, or claiming legal authority
+                does not by itself create an exemption from laws
+                that otherwise apply.
+              </p>
+
+              <p>
+                Where available evidence suggests that conduct may
+                be inconsistent with Philippine law, I reserve the
+                right to identify the circumstances concerned and
+                retain or submit supporting material for impartial
+                examination and lawful determination by the
+                appropriate authority.
+              </p>
+
+              <p>
+                I do not contend that every disputed circumstance
+                necessarily amounts to a criminal offence,
+                professional breach, or other legal violation.
+                The proper legal classification of any conduct
+                remains for the competent authority to determine in
+                accordance with the evidence, applicable legislation,
+                jurisdiction, and elements required by law.
+              </p>
+
+              <h4>
+                Oral Statements, Media Reports, and Publicly
+                Available Evidence
+              </h4>
+
+              <p>
+                Potentially significant information may exist in
+                numerous forms and may come from various sources.
+                These sources can include firsthand accounts,
+                statements from knowledgeable persons, interviews,
+                public addresses, press briefings, published
+                articles, broadcasts, journalism, media publications,
+                publicly accessible records, official announcements,
+                government documents, judicial records, photographs,
+                recordings, electronic correspondence, websites,
+                social-media material, and other information obtained
+                through lawful means.
+              </p>
+
+              <p>
+                Public circulation of information, repetition
+                through media, or discussion or observation by
+                individuals in different parts of the world does
+                not by itself establish the truth of an allegation
+                or establish legal responsibility.
+              </p>
+
+              <p>
+                Any court, regulator, investigator, disciplinary
+                authority, or other body reviewing such material may
+                separately evaluate its authenticity, reliability,
+                relevance, admissibility, evidentiary weight, origin,
+                context, and legal importance under the applicable
+                law and procedural framework.
+              </p>
+
+              <h4>
+                Lawful Publication of Legal Information and Records
+              </h4>
+
+              <p>
+                I retain the right, subject to applicable legal
+                restrictions, to publish, reproduce, cite, or
+                otherwise make available lawful legal information
+                and records relevant to the issues described in
+                this notice.
+              </p>
+
+              <p>
+                Such information may include applicable criminal
+                statutes, civil legislation, administrative
+                provisions, constitutional provisions, procedural
+                rules, judicial rules, professional responsibility
+                standards, court decisions, regulatory issuances,
+                government publications, official notices, and
+                other legal materials that are lawfully accessible.
+              </p>
+
+              <p>
+                Publishing a statute, legal rule, judicial decision,
+                regulation, or other legal authority does not,
+                standing alone, constitute an allegation that a
+                particular individual has violated that authority
+                or committed an offence.
+              </p>
+
+              <h4>
+                Personal Data and Privacy Protection
+              </h4>
+
+              <p>
+                I expressly object to the unauthorised publication,
+                disclosure, distribution, reproduction, transmission,
+                processing, or other handling of personal information
+                relating to me where such activity is not authorised
+                or otherwise permitted by applicable law.
+              </p>
+
+              <p>
+                Where applicable, I preserve all rights and remedies
+                available under
+                <strong>
+                  Republic Act No. 10173, otherwise known as the
+                  Data Privacy Act of 2012
+                </strong>,
+                its implementing rules and regulations, and relevant
+                issuances of the National Privacy Commission.
+              </p>
+
+              <h4>Disputed or Inaccurate Statements</h4>
+
+              <p>
+                All persons concerned are placed on notice regarding
+                representations that may be disputed as false,
+                misleading, inaccurate, distorted, or materially
+                incomplete in relation to me.
+              </p>
+
+              <p>
+                When a statement or representation is contested,
+                I reserve the right to retain the original material,
+                identify its source or responsible individual or
+                entity, record the circumstances in which it was
+                communicated, and provide the underlying material
+                for objective examination by the appropriate
+                authority.
+              </p>
+
+              <h4>Retention and Protection of Evidence</h4>
+
+              <p>
+                I retain the right to preserve potentially relevant
+                material concerning alleged unlawful or improper
+                activity. Such material may include letters, emails,
+                messages, documents, pleadings, legal submissions,
+                publications, statements, recordings, screenshots,
+                electronic records, metadata, photographs, notices,
+                media coverage, publicly accessible information,
+                and other material, insofar as it has been lawfully
+                obtained, retained, and used.
+              </p>
+
+              <p>
+                Where legally appropriate, preserved evidence may
+                be submitted to a court, tribunal, disciplinary
+                organisation, regulatory authority, privacy
+                regulator, prosecutor, law-enforcement body, or
+                another institution possessing lawful jurisdiction.
+              </p>
+
+              <h4>Philippine Authorities — External Review</h4>
+
+              <p>
+                Where legally appropriate and available, I reserve
+                the right to provide relevant records and supporting
+                material to the authority possessing jurisdiction
+                over the particular issue, including, where
+                applicable:
+              </p>
+
+              <ul>
+                <li>The Supreme Court of the Philippines;</li>
+                <li>
+                  Relevant disciplinary authorities of the
+                  Integrated Bar of the Philippines;
+                </li>
+                <li>The National Privacy Commission;</li>
+                <li>Competent Philippine courts and tribunals;</li>
+                <li>
+                  Prosecutors and law-enforcement agencies;
+                </li>
+                <li>
+                  Relevant governmental regulatory or investigative
+                  bodies;
+                </li>
+                <li>
+                  Any other institution possessing lawful
+                  jurisdiction.
+                </li>
+              </ul>
+
+              <p>
+                This notice does not presume that any listed
+                authority has jurisdiction or has undertaken any
+                action. Any authority receiving or reviewing the
+                material remains responsible for determining its
+                jurisdiction, applicable procedures, evidentiary
+                standards, and legal powers.
+              </p>
+
+              <p>
+                I do not claim that any authority has accepted,
+                confirmed, investigated, endorsed, or formally
+                determined the matters described herein unless a
+                verifiable official record demonstrates that such
+                action occurred.
+              </p>
+
+              <h4>Foreign and Cross-Border Issues</h4>
+
+              <p>
+                If a lawyer, attorney, counsel, representative,
+                law practice, organisation, or other person
+                connected with a matter is subject to the laws or
+                jurisdiction of another country, I reserve the
+                right to identify and retain evidence relating to
+                conduct that may properly fall within the authority
+                of a competent foreign institution.
+              </p>
+
+              <h4>International Criminal Court</h4>
+
+              <p>
+                Where the applicable legal framework permits, I
+                reserve the right to examine whether particular
+                circumstances potentially satisfy the jurisdictional
+                requirements of an international institution,
+                including the
+                <strong>International Criminal Court</strong>.
+              </p>
+
+              <p>
+                The International Criminal Court operates under a
+                defined mandate established by the Rome Statute.
+                It is not a general venue for ordinary private
+                disagreements, routine legal disciplinary matters,
+                privacy disputes, professional conflicts, or every
+                alleged breach of domestic legislation.
+              </p>
+
+              <p>
+                Mentioning an international institution in this
+                notice does not constitute a claim that any
+                particular event or conduct falls within that
+                institution's jurisdiction.
+              </p>
+
+              <h4>No Presumption of Liability or Misconduct</h4>
+
+              <p>
+                Nothing stated in this notice should be construed
+                as a declaration that any identified or unidentified
+                lawyer, attorney, counsel, legal practitioner,
+                organisation, government official, representative,
+                intermediary, or other person has committed a
+                criminal offence, professional breach, civil wrong,
+                administrative violation, or other form of
+                wrongdoing.
+              </p>
+
+              <p>
+                The purpose of this communication is to record
+                disputed circumstances, preserve objections and
+                legal rights, retain potentially relevant evidence,
+                document relationships or possible participation,
+                and formally notify concerned persons that the
+                material may be objectively examined or reviewed
+                by an authority possessing lawful jurisdiction.
+              </p>
+
+              <h4>Preservation of All Rights</h4>
+
+              <p>
+                Nothing contained in this notice shall operate as
+                a waiver, surrender, abandonment, admission, or
+                restriction of any right, claim, defence, objection,
+                privilege, or remedy that may be available to me
+                under applicable law.
+              </p>
+
+              <h4>Continued Reservation of Remedies</h4>
+
+              <p>
+                I preserve all civil, criminal, administrative,
+                disciplinary, regulatory, privacy, professional,
+                constitutional, and other remedies that may lawfully
+                be available.
+              </p>
+
+              <p>
+                I further retain the right, where permitted by law,
+                to preserve, record, publish, and submit relevant
+                material for objective review, examination,
+                investigation, adjudication, or other lawful
+                consideration by the authority possessing
+                jurisdiction.
+              </p>
+
+              <p>
+                I also reserve the right to update, supplement, or
+                revise this notice if additional evidence, conduct,
+                publications, communications, statements, media
+                reports, or other relevant circumstances subsequently
+                become known or available.
+              </p>
+
+              <p>
+                <strong>
+                  This notice formally informs concerned persons
+                  that disputed circumstances, including circumstances
+                  involving possible direct or indirect participation
+                  through another individual, may be recorded and,
+                  where legally appropriate, submitted to an authority
+                  possessing lawful jurisdiction for impartial
+                  examination, review, or determination.
+                </strong>
+              </p>
+
+              <p>
+                <strong>
+                  Potentially relevant material may consist of
+                  lawfully obtained documents, correspondence,
+                  statements, recordings, publicly accessible
+                  information, media coverage, official publications,
+                  judicial records, and other evidence originating
+                  within the Philippines or from foreign or
+                  international sources. The presence of such
+                  material does not by itself establish authenticity,
+                  admissibility, accuracy, truth, or legal effect.
+                </strong>
+              </p>
+
+              <p>
+                <strong>
+                  Where permitted under applicable law, I retain the
+                  right to make relevant statutes, legal provisions,
+                  judicial decisions, official issuances, and
+                  factual records publicly available for purposes
+                  of legal information, clarification, transparency,
+                  education, documentation, and preservation of the
+                  public record.
+                </strong>
+              </p>
+
+              <p>
+                <strong>
+                  Nothing contained in this notice constitutes a
+                  finding of criminal responsibility, professional
+                  misconduct, civil liability, administrative
+                  responsibility, or other wrongdoing. Any such
+                  conclusion remains exclusively subject to the
+                  lawful determination of the appropriate court,
+                  tribunal, regulatory body, disciplinary authority,
+                  or other competent institution.
+                </strong>
+              </p>
+
+              <p>
+                <strong>September 20, 2026</strong>
+              </p>
+
+            </div>
+          </div>
+        </article>
+
         <!-- ARTICLE 2 -->
 
         <article
@@ -2760,7 +2553,20 @@ footer strong {
               New articles and insights will be published here.
             </p>
 
-            <div class="blog-content">
+            <button
+              type="button"
+              class="read-more-button"
+              aria-expanded="false"
+              aria-controls="article-two-content"
+            >
+              View Article
+            </button>
+
+            <div
+              class="blog-content"
+              id="article-two-content"
+              hidden
+            >
               <p>
                 New articles and insights will be published here.
               </p>
@@ -2774,8 +2580,6 @@ footer strong {
         </article>
 
       </div>
-
-      <!-- BLOG NAVIGATION -->
 
       <div class="blog-navigation">
 
@@ -2826,7 +2630,6 @@ footer strong {
 
 <section class="section cta-section">
   <div class="cta">
-
 
     <h2>
       Have Something You Need Help With?
@@ -2917,47 +2720,34 @@ footer strong {
     </label>
 
     <select id="service" name="service">
-
-      <option value="">
-        Choose one if applicable
-      </option>
-
+      <option value="">Choose one if applicable</option>
       <option value="Software Engineering">
         Software Engineering
       </option>
-
       <option value="Electrical / Electronics / Hardware">
         Electrical / Electronics / Hardware
       </option>
-
       <option value="Construction / Civil Project">
         Construction / Civil Project
       </option>
-
       <option value="Clinical / Medical-Related Project Support">
         Clinical / Medical-Related Project Support
       </option>
-
       <option value="Mental Health-Related Project Support">
         Mental Health-Related Project Support
       </option>
-
       <option value="Documentation / Project Support">
         Documentation / Project Support
       </option>
-
       <option value="Research / Information">
         Research / Information
       </option>
-
       <option value="Project / Task Support">
         Project / Task Support
       </option>
-
       <option value="Something Else">
         Something Else
       </option>
-
     </select>
 
     <label for="timeframe">
@@ -3114,10 +2904,7 @@ footer strong {
   </h2>
 
   <div class="privacy-section">
-
-    <h3>
-      Contact Form
-    </h3>
+    <h3>Contact Form</h3>
 
     <p>
       Information submitted through this form is used to respond
@@ -3128,14 +2915,10 @@ footer strong {
       Submissions are stored in the connected third-party service
       provider used by this page.
     </p>
-
   </div>
 
   <div class="privacy-section">
-
-    <h3>
-      Location Information
-    </h3>
+    <h3>Location Information</h3>
 
     <p>
       Location access is optional. Your browser will only request
@@ -3151,28 +2934,20 @@ footer strong {
     <p>
       Location is not continuously tracked.
     </p>
-
   </div>
 
   <div class="privacy-section">
-
-    <h3>
-      Sensitive Information
-    </h3>
+    <h3>Sensitive Information</h3>
 
     <p>
       Please do not submit passwords, financial information,
       medical records or other sensitive information unless it is
       genuinely necessary for the enquiry.
     </p>
-
   </div>
 
   <div class="privacy-section">
-
-    <h3>
-      Professional Scope
-    </h3>
+    <h3>Professional Scope</h3>
 
     <p>
       Technical, electrical, electronics, hardware, construction,
@@ -3188,7 +2963,6 @@ footer strong {
       diagnosis, psychotherapy, medical treatment or regulated
       professional services.
     </p>
-
   </div>
 
   <div class="privacy-actions">
@@ -3226,12 +3000,12 @@ footer strong {
    HELPERS
 ========================================================= */
 
-const getElement = (id) => document.getElementById(id);
+const $ = (id) => document.getElementById(id);
 
 function safeStorageGet(key) {
   try {
     return localStorage.getItem(key);
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -3239,7 +3013,7 @@ function safeStorageGet(key) {
 function safeStorageSet(key, value) {
   try {
     localStorage.setItem(key, value);
-  } catch (error) {
+  } catch {
     /* Storage unavailable. */
   }
 }
@@ -3247,12 +3021,12 @@ function safeStorageSet(key, value) {
 function safeStorageRemove(key) {
   try {
     localStorage.removeItem(key);
-  } catch (error) {
+  } catch {
     /* Storage unavailable. */
   }
 }
 
-function isReducedMotion() {
+function reducedMotion() {
   return window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
@@ -3263,9 +3037,9 @@ function isReducedMotion() {
 ========================================================== */
 
 (() => {
-  const notice = getElement("public-notice");
-  const closeButton = getElement("public-notice-close");
-  const openButton = getElement("open-public-notice");
+  const notice = $("public-notice");
+  const closeButton = $("public-notice-close");
+  const openButton = $("open-public-notice");
 
   if (!notice || !closeButton || !openButton) {
     return;
@@ -3273,118 +3047,98 @@ function isReducedMotion() {
 
   const STORAGE_KEY = "kea_notice_closed";
 
-  function updateExpanded(value) {
+  function setExpanded(value) {
     openButton.setAttribute(
       "aria-expanded",
       String(value)
     );
   }
 
-  function closeNotice() {
+  function closeNotice(save = true) {
     notice.classList.add("is-hidden");
-    updateExpanded(false);
-    safeStorageSet(STORAGE_KEY, "1");
+    setExpanded(false);
+
+    if (save) {
+      safeStorageSet(STORAGE_KEY, "1");
+    }
   }
 
   function openNotice() {
     notice.classList.remove("is-hidden");
-    updateExpanded(true);
+    setExpanded(true);
     safeStorageRemove(STORAGE_KEY);
     closeButton.focus();
   }
 
   if (safeStorageGet(STORAGE_KEY) === "1") {
-    notice.classList.add("is-hidden");
-    updateExpanded(false);
+    closeNotice(false);
   } else {
-    updateExpanded(true);
+    setExpanded(true);
   }
 
-  closeButton.addEventListener("click", closeNotice);
-  openButton.addEventListener("click", openNotice);
+  closeButton.addEventListener(
+    "click",
+    () => closeNotice(true)
+  );
+
+  openButton.addEventListener(
+    "click",
+    openNotice
+  );
 })();
 
 /* =========================================================
    FORM ELEMENTS
 ========================================================== */
 
-const form = getElement("contact-form");
-const submitButton = getElement("submit-button");
-const formStatus = getElement("form-status");
-const iframe = getElement("form-response-frame");
+const form = $("contact-form");
+const submitButton = $("submit-button");
+const formStatus = $("form-status");
+const iframe = $("form-response-frame");
 
-const nameInput = getElement("name");
-const emailInput = getElement("email");
-const messageInput = getElement("message");
-const userAgentInput = getElement("user-agent");
+const nameInput = $("name");
+const emailInput = $("email");
+const messageInput = $("message");
+const userAgentInput = $("user-agent");
 
 const honeypot = form
   ? form.querySelector('input[name="website"]')
   : null;
 
-const locationPermission =
-  getElement("location-permission");
-
-const latitudeInput =
-  getElement("latitude");
-
-const longitudeInput =
-  getElement("longitude");
-
-const accuracyInput =
-  getElement("location-accuracy");
+const locationPermission = $("location-permission");
+const latitudeInput = $("latitude");
+const longitudeInput = $("longitude");
+const accuracyInput = $("location-accuracy");
 
 /* =========================================================
    PRIVACY MODAL
 ========================================================== */
 
-const privacyModal =
-  getElement("privacy-modal");
-
-const openPrivacy =
-  getElement("open-privacy");
-
-const privacyClose =
-  getElement("privacy-close");
-
-const allowLocation =
-  getElement("allow-location");
-
-const denyLocation =
-  getElement("deny-location");
-
-const privacyUnderstood =
-  getElement("privacy-understood");
+const privacyModal = $("privacy-modal");
+const openPrivacy = $("open-privacy");
+const privacyClose = $("privacy-close");
+const allowLocation = $("allow-location");
+const denyLocation = $("deny-location");
+const privacyUnderstood = $("privacy-understood");
 
 let privacyReturnFocus = null;
 
 function openPrivacyModal() {
-  if (!privacyModal) {
-    return;
-  }
+  if (!privacyModal) return;
 
-  privacyReturnFocus =
-    document.activeElement;
+  privacyReturnFocus = document.activeElement;
 
   privacyModal.hidden = false;
+  document.body.classList.add("modal-open");
 
-  document.body.classList.add(
-    "modal-open"
-  );
-
-  privacyClose.focus();
+  privacyClose?.focus();
 }
 
 function closePrivacyModal() {
-  if (!privacyModal) {
-    return;
-  }
+  if (!privacyModal) return;
 
   privacyModal.hidden = true;
-
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body.classList.remove("modal-open");
 
   if (
     privacyReturnFocus &&
@@ -3394,17 +3148,17 @@ function closePrivacyModal() {
   }
 }
 
-openPrivacy.addEventListener(
+openPrivacy?.addEventListener(
   "click",
   openPrivacyModal
 );
 
-privacyClose.addEventListener(
+privacyClose?.addEventListener(
   "click",
   closePrivacyModal
 );
 
-privacyModal.addEventListener(
+privacyModal?.addEventListener(
   "click",
   (event) => {
     if (event.target === privacyModal) {
@@ -3439,25 +3193,24 @@ function getLocationConsent() {
 function denyLocationAccess() {
   clearLocation();
 
-  locationPermission.value =
-    "denied";
+  locationPermission.value = "denied";
 
   saveLocationConsent("denied");
 
   closePrivacyModal();
 }
 
-denyLocation.addEventListener(
+denyLocation?.addEventListener(
   "click",
   denyLocationAccess
 );
 
-privacyUnderstood.addEventListener(
+privacyUnderstood?.addEventListener(
   "click",
   denyLocationAccess
 );
 
-allowLocation.addEventListener(
+allowLocation?.addEventListener(
   "click",
   () => {
 
@@ -3474,42 +3227,29 @@ allowLocation.addEventListener(
     }
 
     allowLocation.disabled = true;
-
     allowLocation.textContent =
       "Requesting Location...";
 
     navigator.geolocation.getCurrentPosition(
-
       (position) => {
 
-        const coords =
-          position.coords;
+        const coords = position.coords;
 
         latitudeInput.value =
-          Number(
-            coords.latitude
-          ).toFixed(8);
+          Number(coords.latitude).toFixed(8);
 
         longitudeInput.value =
-          Number(
-            coords.longitude
-          ).toFixed(8);
+          Number(coords.longitude).toFixed(8);
 
         accuracyInput.value =
-          Number(
-            coords.accuracy
-          ).toFixed(2);
+          Number(coords.accuracy).toFixed(2);
 
         locationPermission.value =
           "granted";
 
-        saveLocationConsent(
-          "granted"
-        );
+        saveLocationConsent("granted");
 
-        allowLocation.disabled =
-          false;
-
+        allowLocation.disabled = false;
         allowLocation.textContent =
           "Allow Location";
 
@@ -3534,9 +3274,7 @@ allowLocation.addEventListener(
           locationPermission.value
         );
 
-        allowLocation.disabled =
-          false;
-
+        allowLocation.disabled = false;
         allowLocation.textContent =
           "Allow Location";
 
@@ -3553,18 +3291,16 @@ allowLocation.addEventListener(
 );
 
 (() => {
-  const savedConsent =
+  const consent =
     getLocationConsent();
 
-  if (savedConsent === "granted") {
+  if (consent === "granted") {
     locationPermission.value =
       "previously_granted";
-  } else if (savedConsent === "denied") {
+  } else if (consent === "denied") {
     locationPermission.value =
       "previously_denied";
-  } else if (
-    savedConsent === "unavailable"
-  ) {
+  } else if (consent === "unavailable") {
     locationPermission.value =
       "unavailable";
   }
@@ -3574,17 +3310,10 @@ allowLocation.addEventListener(
    IMAGE ZOOM
 ========================================================== */
 
-const imageModal =
-  getElement("image-zoom-modal");
-
-const imageDisplay =
-  getElement("image-zoom-display");
-
-const imageClose =
-  getElement("image-zoom-close");
-
-const imageCaption =
-  getElement("image-zoom-caption");
+const imageModal = $("image-zoom-modal");
+const imageDisplay = $("image-zoom-display");
+const imageClose = $("image-zoom-close");
+const imageCaption = $("image-zoom-caption");
 
 let imageReturnFocus = null;
 
@@ -3646,26 +3375,17 @@ document
   .forEach((image) => {
 
     image.tabIndex = 0;
-
-    image.setAttribute(
-      "role",
-      "button"
-    );
+    image.setAttribute("role", "button");
 
     image.setAttribute(
       "aria-label",
       "Enlarge image: " +
-      (
-        image.alt ||
-        "gallery image"
-      )
+      (image.alt || "gallery image")
     );
 
     image.addEventListener(
       "click",
-      () => {
-        openImageModal(image);
-      }
+      () => openImageModal(image)
     );
 
     image.addEventListener(
@@ -3685,19 +3405,17 @@ document
     image.addEventListener(
       "error",
       () => {
-        image.classList.add(
-          "image-error"
-        );
+        image.classList.add("image-error");
       }
     );
   });
 
-imageClose.addEventListener(
+imageClose?.addEventListener(
   "click",
   closeImageModal
 );
 
-imageModal.addEventListener(
+imageModal?.addEventListener(
   "click",
   (event) => {
 
@@ -3739,9 +3457,7 @@ document.addEventListener(
     }
 
     const notice =
-      getElement(
-        "public-notice"
-      );
+      $("public-notice");
 
     if (
       notice &&
@@ -3753,17 +3469,11 @@ document.addEventListener(
         "is-hidden"
       );
 
-      const button =
-        getElement(
-          "open-public-notice"
-        );
-
-      if (button) {
-        button.setAttribute(
+      $("open-public-notice")
+        ?.setAttribute(
           "aria-expanded",
           "false"
         );
-      }
 
       safeStorageSet(
         "kea_notice_closed",
@@ -3774,7 +3484,7 @@ document.addEventListener(
 );
 
 /* =========================================================
-   READ MORE
+   READ MORE / LESS
 ========================================================== */
 
 document
@@ -3788,63 +3498,51 @@ document
       () => {
 
         const content =
-          getElement(
-            button.getAttribute(
-              "aria-controls"
-            )
-          );
+          $(button.getAttribute(
+            "aria-controls"
+          ));
 
         if (!content) {
           return;
         }
 
-        const isOpen =
+        const open =
           button.getAttribute(
             "aria-expanded"
           ) === "true";
 
-        if (isOpen) {
+        content.hidden = open;
 
-          content.hidden = true;
+        button.setAttribute(
+          "aria-expanded",
+          String(!open)
+        );
 
-          button.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          button.textContent =
-            "Read More";
-
-        } else {
-
-          content.hidden = false;
-
-          button.setAttribute(
-            "aria-expanded",
-            "true"
-          );
-
-          button.textContent =
-            "Read Less";
-        }
+        button.textContent =
+          open
+            ? "View Full Notice"
+            : "Read Less";
       }
     );
   });
 
 /* =========================================================
-   FORM
+   CONTACT FORM
 ========================================================== */
 
 let submitting = false;
 let submissionTimer = null;
 
-userAgentInput.value =
-  navigator.userAgent || "";
+if (userAgentInput) {
+  userAgentInput.value =
+    navigator.userAgent || "";
+}
 
 function showStatus(
   message,
   type = ""
 ) {
+  if (!formStatus) return;
 
   formStatus.textContent =
     message;
@@ -3853,9 +3551,7 @@ function showStatus(
     "form-status";
 
   if (type) {
-    formStatus.classList.add(
-      type
-    );
+    formStatus.classList.add(type);
   }
 }
 
@@ -3863,17 +3559,12 @@ function resetSubmission() {
 
   submitting = false;
 
-  submitButton.disabled =
-    false;
-
+  submitButton.disabled = false;
   submitButton.textContent =
     "Send Requirement";
 
   if (submissionTimer) {
-    clearTimeout(
-      submissionTimer
-    );
-
+    clearTimeout(submissionTimer);
     submissionTimer = null;
   }
 }
@@ -3893,14 +3584,10 @@ function restoreFormState() {
   if (consent === "granted") {
     locationPermission.value =
       "previously_granted";
-  } else if (
-    consent === "denied"
-  ) {
+  } else if (consent === "denied") {
     locationPermission.value =
       "previously_denied";
-  } else if (
-    consent === "unavailable"
-  ) {
+  } else if (consent === "unavailable") {
     locationPermission.value =
       "unavailable";
   } else {
@@ -3908,12 +3595,6 @@ function restoreFormState() {
       "not_requested";
   }
 }
-
-/*
-  The form uses an iframe because the endpoint is external.
-  The message handler checks both the iframe source and
-  expected message structure before accepting a response.
-*/
 
 let formResponseOrigin = null;
 
@@ -3923,9 +3604,22 @@ try {
       form.action,
       window.location.href
     ).origin;
-} catch (error) {
+} catch {
   formResponseOrigin = null;
 }
+
+/*
+  The Google Apps Script endpoint must send a postMessage
+  containing:
+  {
+    type: "KEA_FORM_RESPONSE",
+    success: true|false,
+    message: "..."
+  }
+
+  If it does not, the form cannot know whether the server
+  actually accepted the submission.
+*/
 
 window.addEventListener(
   "message",
@@ -3958,7 +3652,7 @@ window.addEventListener(
         typeof event.data === "string"
           ? JSON.parse(event.data)
           : event.data;
-    } catch (error) {
+    } catch {
       return;
     }
 
@@ -3998,7 +3692,7 @@ window.addEventListener(
   }
 );
 
-form.addEventListener(
+form?.addEventListener(
   "submit",
   (event) => {
 
@@ -4016,7 +3710,6 @@ form.addEventListener(
         "Unable to submit this request.",
         "error"
       );
-
       return;
     }
 
@@ -4030,52 +3723,38 @@ form.addEventListener(
       messageInput.value.trim();
 
     if (!name) {
-
       showStatus(
         "Please enter your name or organisation.",
         "error"
       );
-
       nameInput.focus();
-
       return;
     }
 
     if (!email) {
-
       showStatus(
         "Please enter your email address.",
         "error"
       );
-
       emailInput.focus();
-
       return;
     }
 
-    if (
-      !emailInput.checkValidity()
-    ) {
-
+    if (!emailInput.checkValidity()) {
       showStatus(
         "Please enter a valid email address.",
         "error"
       );
-
       emailInput.focus();
-
       return;
     }
 
     if (!message) {
-
       showStatus(
         "Please tell me about the work you need help with.",
         "error"
       );
-
       messageInput.focus();
-
       return;
     }
 
@@ -4084,9 +3763,7 @@ form.addEventListener(
 
     submitting = true;
 
-    submitButton.disabled =
-      true;
-
+    submitButton.disabled = true;
     submitButton.textContent =
       "Sending...";
 
@@ -4095,17 +3772,13 @@ form.addEventListener(
     );
 
     /*
-      Native submit avoids triggering this submit handler again.
+      Native form submission prevents this submit listener
+      from firing recursively.
     */
+
     HTMLFormElement.prototype.submit.call(
       form
     );
-
-    /*
-      Do not automatically claim success.
-      If the endpoint does not return the expected postMessage,
-      the user receives a clear timeout message instead.
-    */
 
     submissionTimer =
       window.setTimeout(
@@ -4121,6 +3794,7 @@ form.addEventListener(
             "The server did not confirm the submission. Please check your connection and try again.",
             "error"
           );
+
         },
         60000
       );
@@ -4133,34 +3807,19 @@ form.addEventListener(
 
 (() => {
 
-  const slider =
-    getElement("blog-slider");
-
-  const track =
-    getElement("blog-track");
-
-  const prevButton =
-    getElement("blog-prev");
-
-  const nextButton =
-    getElement("blog-next");
-
-  const dotsContainer =
-    getElement("blog-dots");
-
-  const counter =
-    getElement("blog-counter");
-
-  const autoStatus =
-    getElement(
-      "blog-auto-status"
-    );
+  const slider = $("blog-slider");
+  const track = $("blog-track");
+  const prev = $("blog-prev");
+  const next = $("blog-next");
+  const dotsContainer = $("blog-dots");
+  const counter = $("blog-counter");
+  const autoStatus = $("blog-auto-status");
 
   if (
     !slider ||
     !track ||
-    !prevButton ||
-    !nextButton ||
+    !prev ||
+    !next ||
     !dotsContainer ||
     !counter ||
     !autoStatus
@@ -4180,47 +3839,40 @@ form.addEventListener(
   }
 
   /*
-    Sort newest article first.
+    Sort newest first.
   */
 
   slides.sort(
-    (a, b) => {
+    (a,b) => {
 
-      const dateA =
+      const aDate =
         Date.parse(
           a.dataset.date || ""
         );
 
-      const dateB =
+      const bDate =
         Date.parse(
           b.dataset.date || ""
         );
 
       return (
-        (Number.isNaN(dateB)
-          ? 0
-          : dateB) -
-        (Number.isNaN(dateA)
-          ? 0
-          : dateA)
+        (Number.isNaN(bDate) ? 0 : bDate) -
+        (Number.isNaN(aDate) ? 0 : aDate)
       );
     }
   );
 
   slides.forEach(
-    (slide) => {
-      track.appendChild(slide);
-    }
+    (slide) => track.appendChild(slide)
   );
 
   let currentIndex = 0;
-  let autoSlideTimer = null;
+  let timer = null;
 
-  const AUTO_SLIDE_TIME =
-    10000;
+  const AUTO_TIME = 10000;
 
   slides.forEach(
-    (slide, index) => {
+    (_, index) => {
 
       const dot =
         document.createElement(
@@ -4228,8 +3880,7 @@ form.addEventListener(
         );
 
       dot.type = "button";
-      dot.className =
-        "blog-dot";
+      dot.className = "blog-dot";
 
       dot.setAttribute(
         "aria-label",
@@ -4245,9 +3896,7 @@ form.addEventListener(
         }
       );
 
-      dotsContainer.appendChild(
-        dot
-      );
+      dotsContainer.appendChild(dot);
     }
   );
 
@@ -4261,7 +3910,7 @@ form.addEventListener(
   function updateNavigation() {
 
     dots.forEach(
-      (dot, index) => {
+      (dot,index) => {
 
         const active =
           index === currentIndex;
@@ -4271,12 +3920,16 @@ form.addEventListener(
           active
         );
 
-        dot.setAttribute(
-          "aria-current",
-          active
-            ? "true"
-            : "false"
-        );
+        if (active) {
+          dot.setAttribute(
+            "aria-current",
+            "true"
+          );
+        } else {
+          dot.removeAttribute(
+            "aria-current"
+          );
+        }
       }
     );
 
@@ -4286,10 +3939,10 @@ form.addEventListener(
       " of " +
       slides.length;
 
-    prevButton.disabled =
+    prev.disabled =
       slides.length <= 1;
 
-    nextButton.disabled =
+    next.disabled =
       slides.length <= 1;
   }
 
@@ -4300,20 +3953,17 @@ form.addEventListener(
     }
 
     if (index < 0) {
-      index =
-        slides.length - 1;
+      index = slides.length - 1;
     }
 
-    if (
-      index >= slides.length
-    ) {
+    if (index >= slides.length) {
       index = 0;
     }
 
     currentIndex = index;
 
     slides.forEach(
-      (slide, slideIndex) => {
+      (slide,slideIndex) => {
 
         const active =
           slideIndex ===
@@ -4338,15 +3988,9 @@ form.addEventListener(
 
   function stopAutoSlide() {
 
-    if (
-      autoSlideTimer !== null
-    ) {
-
-      window.clearInterval(
-        autoSlideTimer
-      );
-
-      autoSlideTimer = null;
+    if (timer !== null) {
+      clearInterval(timer);
+      timer = null;
     }
   }
 
@@ -4356,27 +4000,23 @@ form.addEventListener(
 
     if (
       slides.length <= 1 ||
-      isReducedMotion()
+      reducedMotion()
     ) {
-
       autoStatus.textContent =
         slides.length <= 1
           ? "Latest article"
           : "Manual navigation";
-
       return;
     }
 
-    autoSlideTimer =
-      window.setInterval(
+    timer =
+      setInterval(
         () => {
-
           showSlide(
             currentIndex + 1
           );
-
         },
-        AUTO_SLIDE_TIME
+        AUTO_TIME
       );
 
     autoStatus.textContent =
@@ -4387,26 +4027,22 @@ form.addEventListener(
     startAutoSlide();
   }
 
-  prevButton.addEventListener(
+  prev.addEventListener(
     "click",
     () => {
-
       showSlide(
         currentIndex - 1
       );
-
       restartAutoSlide();
     }
   );
 
-  nextButton.addEventListener(
+  next.addEventListener(
     "click",
     () => {
-
       showSlide(
         currentIndex + 1
       );
-
       restartAutoSlide();
     }
   );
@@ -4414,7 +4050,6 @@ form.addEventListener(
   slider.addEventListener(
     "mouseenter",
     () => {
-
       stopAutoSlide();
 
       if (slides.length > 1) {
@@ -4426,15 +4061,12 @@ form.addEventListener(
 
   slider.addEventListener(
     "mouseleave",
-    () => {
-      startAutoSlide();
-    }
+    startAutoSlide
   );
 
   slider.addEventListener(
     "focusin",
     () => {
-
       stopAutoSlide();
 
       if (slides.length > 1) {
@@ -4463,10 +4095,8 @@ form.addEventListener(
     (event) => {
 
       if (
-        event.key ===
-        "ArrowLeft"
+        event.key === "ArrowLeft"
       ) {
-
         event.preventDefault();
 
         showSlide(
@@ -4477,10 +4107,8 @@ form.addEventListener(
       }
 
       if (
-        event.key ===
-        "ArrowRight"
+        event.key === "ArrowRight"
       ) {
-
         event.preventDefault();
 
         showSlide(
@@ -4498,7 +4126,7 @@ form.addEventListener(
 })();
 
 /* =========================================================
-   SMOOTH INTERNAL LINKS
+   INTERNAL LINKS
 ========================================================== */
 
 document
@@ -4521,9 +4149,7 @@ document
         }
 
         const target =
-          document.querySelector(
-            id
-          );
+          document.querySelector(id);
 
         if (!target) {
           return;
@@ -4533,21 +4159,18 @@ document
 
         target.scrollIntoView({
           behavior:
-            isReducedMotion()
+            reducedMotion()
               ? "auto"
               : "smooth",
           block: "start"
         });
 
-        if (
-          id === "#contact"
-        ) {
-
+        if (id === "#contact") {
           window.setTimeout(
             () => {
-              nameInput.focus();
+              nameInput?.focus();
             },
-            isReducedMotion()
+            reducedMotion()
               ? 0
               : 500
           );
