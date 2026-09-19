@@ -1,7 +1,13 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#0B1F3A"> <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support." > <title>KEA | Practical Hands-On Support</title> <style> /* ========================================================= RESET ========================================================= */ *, *::before, *::after { box-sizing: border-box; }
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#0B1F3A"> <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support." > <title>KEA | Practical Hands-On Support</title> <style> /* ========================================================= RESET & BASE ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 65px;
+  scroll-padding-top: 70px;
 }
 
 body {
@@ -37,15 +43,21 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+img {
+  max-width: 100%;
+}
+
 :root {
   --navy: #0B1F3A;
   --blue: #2563EB;
   --blue-dark: #1D4ED8;
   --blue-soft: #EFF6FF;
+
   --text: #1F2937;
   --muted: #64748B;
   --border: #E2E8F0;
   --white: #FFFFFF;
+
   --shadow: 0 5px 22px rgba(15, 23, 42, 0.07);
 
   --notice-bg: #EAF4FF;
@@ -58,6 +70,7 @@ button {
 /* =========================================================
    HERO
 ========================================================= */
+
 header {
   padding: 75px 20px 65px;
   color: white;
@@ -73,16 +86,16 @@ header {
 
 .hero {
   max-width: 850px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .availability {
   display: inline-block;
   padding: 6px 14px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 30px;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
   color: #BFDBFE;
   font-size: 12px;
   font-weight: 700;
@@ -103,7 +116,7 @@ header h1 {
 
 .hero-description {
   max-width: 720px;
-  margin: auto;
+  margin: 0 auto;
   color: #CBDCF3;
   line-height: 1.75;
 }
@@ -119,6 +132,7 @@ header h1 {
 /* =========================================================
    BUTTONS
 ========================================================= */
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -130,8 +144,8 @@ header h1 {
   font-size: 14px;
   font-weight: 750;
   transition:
-    background .2s ease,
-    transform .2s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .button-primary {
@@ -146,24 +160,26 @@ header h1 {
 
 .button-secondary {
   color: white;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .button-secondary:hover {
-  background: rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
+
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255,255,255,.97);
+  background: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 9px rgba(15,23,42,.05);
+  box-shadow: 0 2px 9px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(8px);
 }
 
 nav ul {
@@ -171,13 +187,14 @@ nav ul {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0 24px;
   margin: 0;
-  padding: 0;
+  padding: 0 15px;
   list-style: none;
 }
 
 nav li {
-  margin: 0 12px;
+  margin: 0;
 }
 
 nav a {
@@ -187,15 +204,18 @@ nav a {
   text-decoration: none;
   font-size: 13px;
   font-weight: 650;
+  white-space: nowrap;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   color: var(--blue);
 }
 
 /* =========================================================
    PUBLIC NOTICE
 ========================================================= */
+
 .public-notice {
   position: fixed;
   left: 16px;
@@ -240,7 +260,7 @@ nav a:hover {
 .public-notice p {
   margin: 6px 0;
   color: var(--notice-text);
-  font-size: .86rem;
+  font-size: 0.86rem;
   line-height: 1.5;
 }
 
@@ -258,7 +278,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid rgba(0,0,0,.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 50%;
   background: white;
   color: var(--notice-accent);
@@ -274,7 +294,7 @@ nav a:hover {
 }
 
 .public-notice-close:focus-visible {
-  outline: 3px solid rgba(30,86,194,.18);
+  outline: 3px solid rgba(30, 86, 194, 0.18);
   outline-offset: 2px;
 }
 
@@ -285,6 +305,7 @@ nav a:hover {
 /* =========================================================
    LAYOUT
 ========================================================= */
+
 .container {
   max-width: 1100px;
   margin: 40px auto;
@@ -293,6 +314,7 @@ nav a:hover {
 
 .section {
   margin-bottom: 25px;
+  scroll-margin-top: 80px;
 }
 
 .card {
@@ -309,7 +331,7 @@ nav a:hover {
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .9px;
+  letter-spacing: 0.9px;
 }
 
 .section-title {
@@ -322,21 +344,22 @@ nav a:hover {
 .section-intro {
   max-width: 780px;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 /* =========================================================
    INTRO
 ========================================================= */
+
 .intro-grid {
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 25px;
 }
 
 .intro-text p {
   color: #475569;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 .intro-box {
@@ -355,12 +378,17 @@ nav a:hover {
 .intro-box p {
   margin: 0;
   color: #475569;
-  font-size: .88rem;
+  font-size: 0.88rem;
+}
+
+.intro-box .spacer {
+  height: 20px;
 }
 
 /* =========================================================
    SERVICES
 ========================================================= */
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -374,15 +402,15 @@ nav a:hover {
   border: 1px solid var(--border);
   border-radius: 10px;
   transition:
-    border-color .2s ease,
-    transform .2s ease,
-    box-shadow .2s ease;
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .service:hover {
   border-color: #BFDBFE;
   transform: translateY(-3px);
-  box-shadow: 0 9px 25px rgba(37,99,235,.07);
+  box-shadow: 0 9px 25px rgba(37, 99, 235, 0.07);
 }
 
 .service-number {
@@ -400,7 +428,7 @@ nav a:hover {
 
 .service p {
   color: var(--muted);
-  font-size: .88rem;
+  font-size: 0.88rem;
 }
 
 .service ul {
@@ -416,7 +444,7 @@ nav a:hover {
   position: relative;
   padding-left: 17px;
   color: #475569;
-  font-size: .84rem;
+  font-size: 0.84rem;
 }
 
 .service li::before {
@@ -430,6 +458,7 @@ nav a:hover {
 /* =========================================================
    HELP / OPTIONS / PROCESS
 ========================================================= */
+
 .help-grid,
 .work-options,
 .process {
@@ -452,14 +481,14 @@ nav a:hover {
   display: block;
   margin-bottom: 4px;
   color: var(--navy);
-  font-size: .92rem;
+  font-size: 0.92rem;
 }
 
 .help-item span,
 .option p,
 .process-item p {
   color: var(--muted);
-  font-size: .84rem;
+  font-size: 0.84rem;
 }
 
 .option {
@@ -470,7 +499,7 @@ nav a:hover {
 .process-item h3 {
   margin: 0 0 5px;
   color: var(--navy);
-  font-size: .98rem;
+  font-size: 0.98rem;
 }
 
 .option p,
@@ -495,6 +524,7 @@ nav a:hover {
 /* =========================================================
    AREAS
 ========================================================= */
+
 .areas {
   display: flex;
   flex-wrap: wrap;
@@ -515,6 +545,7 @@ nav a:hover {
 /* =========================================================
    GALLERY
 ========================================================= */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -529,7 +560,7 @@ nav a:hover {
   background: white;
   border: 1px solid var(--border);
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(15,23,42,.05);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
 }
 
 .gallery-image {
@@ -542,8 +573,13 @@ nav a:hover {
 }
 
 .gallery-image:focus-visible {
-  outline: 3px solid rgba(37,99,235,.3);
+  outline: 3px solid rgba(37, 99, 235, 0.3);
   outline-offset: -3px;
+}
+
+.gallery-image.image-error {
+  object-fit: contain;
+  padding: 25px;
 }
 
 .gallery-caption {
@@ -553,18 +589,19 @@ nav a:hover {
 .gallery-caption h3 {
   margin: 0 0 5px;
   color: var(--navy);
-  font-size: .98rem;
+  font-size: 0.98rem;
 }
 
 .gallery-caption p {
   margin: 0;
   color: var(--muted);
-  font-size: .82rem;
+  font-size: 0.82rem;
 }
 
 /* =========================================================
    BLOG
 ========================================================= */
+
 .blog-slider {
   position: relative;
   width: 100%;
@@ -583,7 +620,7 @@ nav a:hover {
 
 .blog-slide.active {
   display: block;
-  animation: blogFade .3s ease;
+  animation: blogFade 0.3s ease;
 }
 
 .blog-post {
@@ -611,7 +648,7 @@ nav a:hover {
 .blog-post-intro {
   margin: 0 0 16px;
   color: var(--muted);
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .blog-content {
@@ -642,7 +679,7 @@ nav a:hover {
 .blog-content p,
 .blog-content li {
   color: #475569;
-  font-size: .88rem;
+  font-size: 0.88rem;
   line-height: 1.65;
 }
 
@@ -665,7 +702,8 @@ nav a:hover {
   cursor: pointer;
 }
 
-.read-more-button:hover {
+.read-more-button:hover,
+.read-more-button:focus-visible {
   background: var(--blue-dark);
 }
 
@@ -690,14 +728,15 @@ nav a:hover {
   cursor: pointer;
 }
 
-.blog-nav-button:hover:not(:disabled) {
+.blog-nav-button:hover:not(:disabled),
+.blog-nav-button:focus-visible:not(:disabled) {
   border-color: var(--blue);
   background: var(--blue-soft);
   color: var(--blue);
 }
 
 .blog-nav-button:disabled {
-  opacity: .45;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
@@ -739,16 +778,27 @@ nav a:hover {
 }
 
 @keyframes blogFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* =========================================================
    CTA
 ========================================================= */
+
 .cta {
   padding: 45px 25px;
-  background: linear-gradient(135deg, #0B1F3A, #163E6D);
+  background:
+    linear-gradient(
+      135deg,
+      #0B1F3A,
+      #163E6D
+    );
   border-radius: 14px;
   color: white;
   text-align: center;
@@ -769,6 +819,7 @@ nav a:hover {
 /* =========================================================
    CONTACT
 ========================================================= */
+
 #contact {
   position: relative;
   clear: both;
@@ -802,7 +853,7 @@ nav a:hover {
 
 .contact-header p {
   color: var(--muted);
-  font-size: .92rem;
+  font-size: 0.92rem;
 }
 
 .contact-note {
@@ -812,7 +863,7 @@ nav a:hover {
   border-left: 3px solid var(--blue);
   border-radius: 6px;
   color: #475569;
-  font-size: .86rem;
+  font-size: 0.86rem;
 }
 
 .contact-note strong {
@@ -824,7 +875,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 form label {
@@ -855,7 +906,7 @@ form input:focus,
 form textarea:focus,
 form select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(37,99,235,.11);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.11);
 }
 
 form button[type="submit"] {
@@ -874,7 +925,7 @@ form button[type="submit"]:hover {
 }
 
 form button[type="submit"]:disabled {
-  opacity: .65;
+  opacity: 0.65;
   cursor: wait;
 }
 
@@ -895,12 +946,21 @@ form button[type="submit"]:disabled {
 }
 
 .form-hidden {
-  display: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* =========================================================
    MODALS
 ========================================================= */
+
 .image-zoom-modal,
 .privacy-modal {
   position: fixed;
@@ -910,7 +970,7 @@ form button[type="submit"]:disabled {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgba(7,24,45,.9);
+  background: rgba(7, 24, 45, 0.9);
   backdrop-filter: blur(5px);
 }
 
@@ -936,10 +996,15 @@ form button[type="submit"]:disabled {
   height: 42px;
   border: none;
   border-radius: 50%;
-  background: rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, 0.15);
   color: white;
   font-size: 27px;
   cursor: pointer;
+}
+
+.image-zoom-close:hover,
+.image-zoom-close:focus-visible {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .image-zoom-caption {
@@ -949,14 +1014,14 @@ form button[type="submit"]:disabled {
   transform: translateX(-50%);
   padding: 7px 15px;
   border-radius: 20px;
-  background: rgba(0,0,0,.55);
+  background: rgba(0, 0, 0, 0.55);
   color: white;
   font-size: 13px;
 }
 
 .privacy-modal {
   z-index: 11000;
-  background: rgba(7,24,45,.72);
+  background: rgba(7, 24, 45, 0.72);
 }
 
 .privacy-panel {
@@ -990,12 +1055,12 @@ form button[type="submit"]:disabled {
 
 .privacy-section h3 {
   color: var(--navy);
-  font-size: .98rem;
+  font-size: 0.98rem;
 }
 
 .privacy-section p {
   color: var(--muted);
-  font-size: .86rem;
+  font-size: 0.86rem;
 }
 
 .privacy-actions {
@@ -1038,6 +1103,7 @@ form button[type="submit"]:disabled {
 /* =========================================================
    FLOATING BUTTONS
 ========================================================= */
+
 .privacy-floating {
   position: fixed;
   right: 15px;
@@ -1073,7 +1139,8 @@ form button[type="submit"]:disabled {
 }
 
 @keyframes kea-border-blink {
-  0%, 100% {
+  0%,
+  100% {
     border-color: #CBD5E1;
     box-shadow: none;
     transform: scale(1);
@@ -1081,7 +1148,7 @@ form button[type="submit"]:disabled {
 
   50% {
     border-color: var(--blue);
-    box-shadow: 0 0 0 8px rgba(37,99,235,.10);
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.10);
     transform: scale(1.02);
   }
 }
@@ -1089,6 +1156,7 @@ form button[type="submit"]:disabled {
 /* =========================================================
    FOOTER
 ========================================================= */
+
 footer {
   margin-top: 45px;
   padding: 30px 20px;
@@ -1105,6 +1173,7 @@ footer strong {
 /* =========================================================
    RESPONSIVE
 ========================================================= */
+
 @media (max-width: 850px) {
   .intro-grid {
     grid-template-columns: 1fr;
@@ -1118,6 +1187,10 @@ footer strong {
 
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  nav ul {
+    gap: 0 14px;
   }
 }
 
@@ -1142,8 +1215,10 @@ footer strong {
     width: 100%;
   }
 
-  nav li {
-    margin: 0 5px;
+  nav ul {
+    justify-content: center;
+    gap: 0 9px;
+    padding: 0 8px;
   }
 
   nav a {
@@ -1194,11 +1269,11 @@ footer strong {
   }
 
   .public-notice h2 {
-    font-size: .92rem;
+    font-size: 0.92rem;
   }
 
   .public-notice p {
-    font-size: .73rem;
+    font-size: 0.73rem;
     line-height: 1.45;
   }
 
@@ -1226,6 +1301,11 @@ footer strong {
   .blog-nav-button {
     min-width: 90px;
   }
+
+  .blog-meta {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1241,7 +1321,7 @@ footer strong {
   }
 }
 
-</style> </head> <body> <!-- ======================================================= HERO ======================================================== --> <header id="home"> <div class="hero">
+</style> </head> <body> <!-- ========================================================= HERO ========================================================== --> <header id="home"> <div class="hero">
   <div class="availability">
     Available for Freelance &amp; Project Work (any sector)
   </div>
@@ -1271,7 +1351,7 @@ footer strong {
 
 </div>
 
-</header> <!-- ======================================================= NAVIGATION ======================================================== --> <nav aria-label="Main navigation"> <ul> <li><a href="#home">Home</a></li> <li><a href="#services">Services</a></li> <li><a href="#help">What I Can Help With</a></li> <li><a href="#gallery">Examples</a></li> <li><a href="#process">How It Works</a></li> <li><a href="#blog">Blog</a></li> <li><a href="#contact">Enquire</a></li> </ul> </nav> <!-- ======================================================= PUBLIC NOTICE ======================================================== --> <section class="public-notice" id="public-notice" role="region" aria-live="polite" aria-labelledby="public-notice-title" > <div class="public-notice-inner">
+</header> <!-- ========================================================= NAVIGATION ========================================================== --> <nav aria-label="Main navigation"> <ul> <li><a href="#home">Home</a></li> <li><a href="#services">Services</a></li> <li><a href="#help">What I Can Help With</a></li> <li><a href="#gallery">Examples</a></li> <li><a href="#process">How It Works</a></li> <li><a href="#blog">Blog</a></li> <li><a href="#contact">Enquire</a></li> </ul> </nav> <!-- ========================================================= PUBLIC NOTICE ========================================================== --> <section class="public-notice" id="public-notice" role="region" aria-live="polite" aria-labelledby="public-notice-title" > <div class="public-notice-inner">
   <button
     type="button"
     class="public-notice-close"
@@ -1360,8 +1440,9 @@ footer strong {
 
 </div>
 
-</section> <!-- ======================================================= MAIN ======================================================== --> <main class="container">
+</section> <!-- ========================================================= MAIN CONTENT ========================================================== --> <main class="container">
 <!-- INTRO -->
+
 <section class="section">
   <div class="card">
 
@@ -1419,7 +1500,7 @@ footer strong {
           arrangement.
         </p>
 
-        <br>
+        <div class="spacer"></div>
 
         <strong>
           A hands-on approach means getting involved.
@@ -1438,6 +1519,7 @@ footer strong {
 </section>
 
 <!-- SERVICES -->
+
 <section class="section" id="services">
   <div class="card">
 
@@ -1455,13 +1537,15 @@ footer strong {
 
     <div class="services-grid">
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">01</div>
         <h3>Software</h3>
+
         <p>
           Hands-on support with software-related tasks and
           technical projects.
         </p>
+
         <ul>
           <li>Software development support</li>
           <li>Application work</li>
@@ -1470,15 +1554,17 @@ footer strong {
           <li>Data and system organisation</li>
           <li>Technology project assistance</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">02</div>
         <h3>Electrical, Electronics &amp; Hardware</h3>
+
         <p>
           Practical support for electrical, electronics and
           hardware project tasks.
         </p>
+
         <ul>
           <li>Electrical project support</li>
           <li>Electrical documentation</li>
@@ -1489,15 +1575,17 @@ footer strong {
           <li>Technical records</li>
           <li>Technical research</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">03</div>
         <h3>Construction &amp; Civil Project Support</h3>
+
         <p>
           Practical assistance with construction, civil technology
           and project-related tasks.
         </p>
+
         <ul>
           <li>Project documentation</li>
           <li>Technical records</li>
@@ -1506,15 +1594,17 @@ footer strong {
           <li>Material and document tracking</li>
           <li>Site-related documentation</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">04</div>
         <h3>Clinical &amp; Medical-Related Project Support</h3>
+
         <p>
           Non-diagnostic support for appropriate clinical and
           medical-related projects.
         </p>
+
         <ul>
           <li>Clinical documentation</li>
           <li>Research assistance</li>
@@ -1522,15 +1612,17 @@ footer strong {
           <li>Clinical project coordination</li>
           <li>Medical-related project support</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">05</div>
         <h3>Documentation &amp; Project Support</h3>
+
         <p>
           Practical support with documentation, information and
           project tasks.
         </p>
+
         <ul>
           <li>Technical document preparation</li>
           <li>Project documentation</li>
@@ -1539,15 +1631,17 @@ footer strong {
           <li>Technical records</li>
           <li>Specific project tasks</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">06</div>
         <h3>Mental Health-Related Project Support</h3>
+
         <p>
           Non-diagnostic support for appropriate research,
           documentation and coordination.
         </p>
+
         <ul>
           <li>Research assistance</li>
           <li>Documentation support</li>
@@ -1555,15 +1649,17 @@ footer strong {
           <li>Project coordination</li>
           <li>Non-clinical support tasks</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">07</div>
         <h3>Research &amp; Technical Information</h3>
+
         <p>
           Assistance with finding, organising and documenting
           information.
         </p>
+
         <ul>
           <li>Technical research</li>
           <li>Reference gathering</li>
@@ -1572,15 +1668,17 @@ footer strong {
           <li>Research summaries</li>
           <li>Technical information organisation</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service">
         <div class="service-number">08</div>
         <h3>Custom Project Support</h3>
+
         <p>
           Have a requirement that does not fit neatly into one
           category?
         </p>
+
         <ul>
           <li>Define the task</li>
           <li>Clarify the expected result</li>
@@ -1589,13 +1687,14 @@ footer strong {
           <li>Agree on scope</li>
           <li>Work toward the required result</li>
         </ul>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- HELP -->
+
 <section class="section" id="help">
   <div class="card">
 
@@ -1703,6 +1802,7 @@ footer strong {
 </section>
 
 <!-- WORK OPTIONS -->
+
 <section class="section">
   <div class="card">
 
@@ -1766,6 +1866,7 @@ footer strong {
 </section>
 
 <!-- AREAS -->
+
 <section class="section">
   <div class="card">
 
@@ -1804,6 +1905,7 @@ footer strong {
 </section>
 
 <!-- GALLERY -->
+
 <section class="section" id="gallery">
   <div class="card">
 
@@ -1827,6 +1929,7 @@ footer strong {
           alt="Illustrative floor project example"
           class="gallery-image"
           loading="lazy"
+          decoding="async"
         >
 
         <div class="gallery-caption">
@@ -1841,6 +1944,7 @@ footer strong {
           alt="Illustrative floor project example"
           class="gallery-image"
           loading="lazy"
+          decoding="async"
         >
 
         <div class="gallery-caption">
@@ -1855,6 +1959,7 @@ footer strong {
           alt="Illustrative chair project example"
           class="gallery-image"
           loading="lazy"
+          decoding="async"
         >
 
         <div class="gallery-caption">
@@ -1868,6 +1973,7 @@ footer strong {
 </section>
 
 <!-- PROCESS -->
+
 <section class="section" id="process">
   <div class="card">
 
@@ -1921,9 +2027,10 @@ footer strong {
   </div>
 </section>
 
-<!-- =====================================================
+<!-- =======================================================
      BLOG
-====================================================== -->
+======================================================== -->
+
 <section class="section" id="blog">
   <div class="card">
 
@@ -1939,13 +2046,19 @@ footer strong {
       evidence preservation, and record purposes.
     </p>
 
-    <div class="blog-slider" id="blog-slider">
+    <div
+      class="blog-slider"
+      id="blog-slider"
+      tabindex="0"
+      aria-label="Blog articles"
+    >
+
+      <!-- FIXED: BOTH ARTICLES ARE NOW INSIDE THE SAME TRACK -->
 
       <div class="blog-track" id="blog-track">
 
-        <!-- =================================================
-             ARTICLE 1
-        ================================================== -->
+        <!-- ARTICLE 1 -->
+
         <article
           class="blog-slide active"
           data-date="2026-09-20"
@@ -1984,10 +2097,6 @@ footer strong {
               id="formal-notice-content"
               hidden
             >
-
-              <!-- =================================================
-                   INTRODUCTION
-              ================================================== -->
 
               <h4>
                 Formal Notice and Reservation of Rights
@@ -2031,11 +2140,6 @@ footer strong {
                 investigation, jurisdiction, due process, and
                 determination by the competent authority.
               </p>
-
-
-              <!-- =================================================
-                   DIRECT / INDIRECT PARTICIPATION
-              ================================================== -->
 
               <h4>
                 Direct or Indirect Participation in Disputed Conduct
@@ -2093,11 +2197,6 @@ footer strong {
                 jurisdiction.
               </p>
 
-
-              <!-- =================================================
-                   LAWYERS / PROFESSIONAL RESPONSIBILITY
-              ================================================== -->
-
               <h4>
                 Lawyers and Professional Responsibility
               </h4>
@@ -2131,11 +2230,6 @@ footer strong {
                 applicable professional obligations, laws, court rules,
                 ethical requirements, and other applicable standards.
               </p>
-
-
-              <!-- =================================================
-                   PHILIPPINE LAW
-              ================================================== -->
 
               <h4>
                 Alleged Violations of Philippine Law
@@ -2185,11 +2279,6 @@ footer strong {
                 elements.
               </p>
 
-
-              <!-- =================================================
-                   PUBLICATION OF LEGAL MATERIALS
-              ================================================== -->
-
               <h4>
                 Publication of Legal Materials and Informational Records
               </h4>
@@ -2207,7 +2296,8 @@ footer strong {
                 constitutional law, procedural rules, court rules,
                 professional responsibility rules, judicial decisions,
                 regulatory issuances, government publications, official
-                notices, and other publicly or privately available legal materials.
+                notices, and other publicly or privately available legal
+                materials.
               </p>
 
               <p>
@@ -2260,11 +2350,6 @@ footer strong {
                 legal professional where appropriate.
               </p>
 
-
-              <!-- =================================================
-                   DATA PROTECTION
-              ================================================== -->
-
               <h4>
                 Personal Information and Data Protection
               </h4>
@@ -2307,11 +2392,6 @@ footer strong {
                 appropriate.
               </p>
 
-
-              <!-- =================================================
-                   FALSE / MISLEADING REPRESENTATIONS
-              ================================================== -->
-
               <h4>
                 False, Misleading, or Inaccurate Representations
               </h4>
@@ -2346,11 +2426,6 @@ footer strong {
                 request an independent determination of any legally
                 relevant conduct.
               </p>
-
-
-              <!-- =================================================
-                   EVIDENCE PRESERVATION
-              ================================================== -->
 
               <h4>
                 Evidence Preservation
@@ -2392,11 +2467,6 @@ footer strong {
                 and circumstances.
               </p>
 
-
-              <!-- =================================================
-                   PHILIPPINE AUTHORITIES
-              ================================================== -->
-
               <h4>
                 Philippine Authorities
               </h4>
@@ -2410,36 +2480,13 @@ footer strong {
               </p>
 
               <ul>
-                <li>
-                  The Supreme Court of the Philippines;
-                </li>
-
-                <li>
-                  Appropriate disciplinary authorities of the
-                  Integrated Bar of the Philippines;
-                </li>
-
-                <li>
-                  The National Privacy Commission;
-                </li>
-
-                <li>
-                  Appropriate Philippine courts and tribunals;
-                </li>
-
-                <li>
-                  Prosecutorial and law-enforcement authorities;
-                </li>
-
-                <li>
-                  Appropriate government regulatory or investigative
-                  agencies; and
-                </li>
-
-                <li>
-                  Any other competent Philippine authority having lawful
-                  jurisdiction.
-                </li>
+                <li>The Supreme Court of the Philippines;</li>
+                <li>Appropriate disciplinary authorities of the Integrated Bar of the Philippines;</li>
+                <li>The National Privacy Commission;</li>
+                <li>Appropriate Philippine courts and tribunals;</li>
+                <li>Prosecutorial and law-enforcement authorities;</li>
+                <li>Appropriate government regulatory or investigative agencies;</li>
+                <li>Any other competent Philippine authority having lawful jurisdiction.</li>
               </ul>
 
               <p>
@@ -2448,11 +2495,6 @@ footer strong {
                 requirements, evidentiary standards, procedural rules,
                 confidentiality requirements, and other applicable law.
               </p>
-
-
-              <!-- =================================================
-                   INTERNATIONAL / CROSS-BORDER
-              ================================================== -->
 
               <h4>
                 International and Cross-Border Matters
@@ -2481,11 +2523,6 @@ footer strong {
                 admissibility requirements, procedural rules, evidentiary
                 requirements, and applicable law.
               </p>
-
-
-              <!-- =================================================
-                   INTERNATIONAL CRIMINAL COURT
-              ================================================== -->
 
               <h4>
                 International Criminal Court
@@ -2522,11 +2559,6 @@ footer strong {
                 institution.
               </p>
 
-
-              <!-- =================================================
-                   NO AUTOMATIC FINDING
-              ================================================== -->
-
               <h4>
                 No Automatic Finding of Wrongdoing
               </h4>
@@ -2549,11 +2581,6 @@ footer strong {
                 from the appropriate authority.
               </p>
 
-
-              <!-- =================================================
-                   NO WAIVER
-              ================================================== -->
-
               <h4>
                 No Waiver or Limitation of Rights
               </h4>
@@ -2572,11 +2599,6 @@ footer strong {
                 involvement is legally relevant and supported by
                 admissible or otherwise lawfully obtained evidence.
               </p>
-
-
-              <!-- =================================================
-                   RESERVATION OF RIGHTS
-              ================================================== -->
 
               <h4>
                 Reservation of Rights and Remedies
@@ -2603,11 +2625,6 @@ footer strong {
                 communications, representations, or other relevant facts
                 subsequently become available.
               </p>
-
-
-              <!-- =================================================
-                   FINAL NOTICE
-              ================================================== -->
 
               <p>
                 <strong>
@@ -2652,16 +2669,12 @@ footer strong {
           </div>
         </article>
 
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- ARTICLE 2 -->
 
-
-         <!-- ARTICLE 2 -->
         <article
           class="blog-slide"
           data-date="2026-09-03"
+          aria-hidden="true"
         >
           <div class="blog-post">
 
@@ -2678,7 +2691,6 @@ footer strong {
             </p>
 
             <div class="blog-content">
-
               <p>
                 New articles and insights will be published here.
               </p>
@@ -2686,13 +2698,14 @@ footer strong {
               <p>
                 Please read the Public Notice first.
               </p>
-
             </div>
+
           </div>
         </article>
 
       </div>
 
+      <!-- BLOG NAVIGATION -->
 
       <div class="blog-navigation">
 
@@ -2723,7 +2736,6 @@ footer strong {
       </div>
 
       <div class="blog-meta">
-
         <span id="blog-counter">
           Article 1 of 2
         </span>
@@ -2734,7 +2746,6 @@ footer strong {
         >
           Auto-sliding
         </span>
-
       </div>
 
     </div>
@@ -2742,6 +2753,7 @@ footer strong {
 </section>
 
 <!-- CTA -->
+
 <section class="section">
   <div class="cta">
 
@@ -2763,7 +2775,7 @@ footer strong {
   </div>
 </section>
 
-</main> <!-- ======================================================= CONTACT ======================================================== --> <section id="contact">
+</main> <!-- ========================================================= CONTACT ========================================================== --> <section id="contact">
 <div class="contact-card">
 
   <div class="contact-header">
@@ -2784,7 +2796,6 @@ footer strong {
   </div>
 
   <div class="contact-note">
-
     <strong>Privacy:</strong>
     The information you submit will be used to respond to your
     enquiry and discuss the work you are requesting. This page
@@ -2792,7 +2803,6 @@ footer strong {
     submissions. Please do not include passwords, financial
     information, medical records or other sensitive information
     unless genuinely necessary.
-
   </div>
 
   <form
@@ -2836,6 +2846,7 @@ footer strong {
     </label>
 
     <select id="service" name="service">
+
       <option value="">
         Choose one if applicable
       </option>
@@ -2875,6 +2886,7 @@ footer strong {
       <option value="Something Else">
         Something Else
       </option>
+
     </select>
 
     <label for="timeframe">
@@ -2937,6 +2949,7 @@ footer strong {
       value=""
     >
 
+    <!-- Honeypot -->
     <input
       type="text"
       name="website"
@@ -2965,7 +2978,7 @@ footer strong {
   <iframe
     name="form-response-frame"
     id="form-response-frame"
-    title="Form response"
+    title="Form submission response"
     aria-hidden="true"
     tabindex="-1"
     class="form-hidden"
@@ -2973,7 +2986,7 @@ footer strong {
 
 </div>
 
-</section> <!-- ======================================================= FOOTER ======================================================== --> <footer>
+</section> <!-- ========================================================= FOOTER ========================================================== --> <footer>
 <p>
   Freelance • Contract • Project Support
 </p>
@@ -2987,7 +3000,7 @@ footer strong {
   &copy; 2026 KEA. All rights reserved.
 </p>
 
-</footer> <!-- ======================================================= IMAGE ZOOM MODAL ======================================================== --> <div id="image-zoom-modal" class="image-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="image-zoom-caption" hidden >
+</footer> <!-- ========================================================= IMAGE ZOOM MODAL ========================================================== --> <div id="image-zoom-modal" class="image-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="image-zoom-caption" hidden >
 <button
   type="button"
   class="image-zoom-close"
@@ -3009,7 +3022,7 @@ footer strong {
   class="image-zoom-caption"
 ></div>
 
-</div> <!-- ======================================================= PRIVACY MODAL ======================================================== --> <div id="privacy-modal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden >
+</div> <!-- ========================================================= PRIVACY MODAL ========================================================== --> <div id="privacy-modal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden >
 <div class="privacy-panel">
 
   <button
@@ -3137,14 +3150,12 @@ footer strong {
 
 </div>
 
-</div> <!-- ======================================================= FLOATING BUTTONS ======================================================== --> <div class="privacy-floating"> <button type="button" id="open-privacy" > Privacy &amp; Terms </button> </div> <div class="public-notice-floating"> <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="true" > Public Notice </button> </div> <!-- ======================================================= JAVASCRIPT ======================================================== --> <script> "use strict";
+</div> <!-- ========================================================= FLOATING BUTTONS ========================================================== --> <div class="privacy-floating"> <button type="button" id="open-privacy" aria-haspopup="dialog" > Privacy &amp; Terms </button> </div> <div class="public-notice-floating"> <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="true" > Public Notice </button> </div> <!-- ========================================================= JAVASCRIPT ========================================================== --> <script> "use strict";
 /* =========================================================
    HELPERS
 ========================================================= */
 
-function getElement(id) {
-  return document.getElementById(id);
-}
+const getElement = (id) => document.getElementById(id);
 
 function safeStorageGet(key) {
   try {
@@ -3170,12 +3181,17 @@ function safeStorageRemove(key) {
   }
 }
 
+function isReducedMotion() {
+  return window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+}
+
 /* =========================================================
    PUBLIC NOTICE
-========================================================= */
+========================================================== */
 
-(function initPublicNotice() {
-
+(() => {
   const notice = getElement("public-notice");
   const closeButton = getElement("public-notice-close");
   const openButton = getElement("open-public-notice");
@@ -3215,12 +3231,11 @@ function safeStorageRemove(key) {
 
   closeButton.addEventListener("click", closeNotice);
   openButton.addEventListener("click", openNotice);
-
 })();
 
 /* =========================================================
-   DOM ELEMENTS
-========================================================= */
+   FORM ELEMENTS
+========================================================== */
 
 const form = getElement("contact-form");
 const submitButton = getElement("submit-button");
@@ -3236,34 +3251,69 @@ const honeypot = form
   ? form.querySelector('input[name="website"]')
   : null;
 
-const locationPermission = getElement("location-permission");
-const latitudeInput = getElement("latitude");
-const longitudeInput = getElement("longitude");
-const accuracyInput = getElement("location-accuracy");
+const locationPermission =
+  getElement("location-permission");
+
+const latitudeInput =
+  getElement("latitude");
+
+const longitudeInput =
+  getElement("longitude");
+
+const accuracyInput =
+  getElement("location-accuracy");
 
 /* =========================================================
    PRIVACY MODAL
-========================================================= */
+========================================================== */
 
-const privacyModal = getElement("privacy-modal");
-const openPrivacy = getElement("open-privacy");
-const privacyClose = getElement("privacy-close");
-const allowLocation = getElement("allow-location");
-const denyLocation = getElement("deny-location");
-const privacyUnderstood = getElement("privacy-understood");
+const privacyModal =
+  getElement("privacy-modal");
+
+const openPrivacy =
+  getElement("open-privacy");
+
+const privacyClose =
+  getElement("privacy-close");
+
+const allowLocation =
+  getElement("allow-location");
+
+const denyLocation =
+  getElement("deny-location");
+
+const privacyUnderstood =
+  getElement("privacy-understood");
 
 let privacyReturnFocus = null;
 
 function openPrivacyModal() {
-  privacyReturnFocus = document.activeElement;
+  if (!privacyModal) {
+    return;
+  }
+
+  privacyReturnFocus =
+    document.activeElement;
+
   privacyModal.hidden = false;
-  document.body.classList.add("modal-open");
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
   privacyClose.focus();
 }
 
 function closePrivacyModal() {
+  if (!privacyModal) {
+    return;
+  }
+
   privacyModal.hidden = true;
-  document.body.classList.remove("modal-open");
+
+  document.body.classList.remove(
+    "modal-open"
+  );
 
   if (
     privacyReturnFocus &&
@@ -3273,18 +3323,28 @@ function closePrivacyModal() {
   }
 }
 
-openPrivacy.addEventListener("click", openPrivacyModal);
-privacyClose.addEventListener("click", closePrivacyModal);
+openPrivacy.addEventListener(
+  "click",
+  openPrivacyModal
+);
 
-privacyModal.addEventListener("click", function(event) {
-  if (event.target === privacyModal) {
-    closePrivacyModal();
+privacyClose.addEventListener(
+  "click",
+  closePrivacyModal
+);
+
+privacyModal.addEventListener(
+  "click",
+  (event) => {
+    if (event.target === privacyModal) {
+      closePrivacyModal();
+    }
   }
-});
+);
 
 /* =========================================================
    LOCATION
-========================================================= */
+========================================================== */
 
 function clearLocation() {
   latitudeInput.value = "";
@@ -3293,127 +3353,188 @@ function clearLocation() {
 }
 
 function saveLocationConsent(value) {
-  safeStorageSet("kea_location_consent", value);
+  safeStorageSet(
+    "kea_location_consent",
+    value
+  );
 }
 
 function getLocationConsent() {
-  return safeStorageGet("kea_location_consent");
+  return safeStorageGet(
+    "kea_location_consent"
+  );
 }
 
 function denyLocationAccess() {
   clearLocation();
-  locationPermission.value = "denied";
+
+  locationPermission.value =
+    "denied";
+
   saveLocationConsent("denied");
+
   closePrivacyModal();
 }
 
-denyLocation.addEventListener("click", denyLocationAccess);
-privacyUnderstood.addEventListener("click", denyLocationAccess);
+denyLocation.addEventListener(
+  "click",
+  denyLocationAccess
+);
 
-allowLocation.addEventListener("click", function() {
+privacyUnderstood.addEventListener(
+  "click",
+  denyLocationAccess
+);
 
-  if (!navigator.geolocation) {
+allowLocation.addEventListener(
+  "click",
+  () => {
 
-    locationPermission.value = "unavailable";
-    saveLocationConsent("unavailable");
-    closePrivacyModal();
-
-    return;
-  }
-
-  allowLocation.disabled = true;
-  allowLocation.textContent = "Requesting Location...";
-
-  navigator.geolocation.getCurrentPosition(
-
-    function(position) {
-
-      const coords = position.coords;
-
-      latitudeInput.value =
-        Number(coords.latitude).toFixed(8);
-
-      longitudeInput.value =
-        Number(coords.longitude).toFixed(8);
-
-      accuracyInput.value =
-        Number(coords.accuracy).toFixed(2);
-
-      locationPermission.value = "granted";
-
-      saveLocationConsent("granted");
-
-      allowLocation.disabled = false;
-      allowLocation.textContent = "Allow Location";
-
-      closePrivacyModal();
-    },
-
-    function(error) {
-
-      console.warn("Location error:", error);
-
-      clearLocation();
-
+    if (!navigator.geolocation) {
       locationPermission.value =
-        error.code === 1
-          ? "denied"
-          : "unavailable";
+        "unavailable";
 
-      saveLocationConsent(locationPermission.value);
-
-      allowLocation.disabled = false;
-      allowLocation.textContent = "Allow Location";
+      saveLocationConsent(
+        "unavailable"
+      );
 
       closePrivacyModal();
-    },
-
-    {
-      enableHighAccuracy: true,
-      maximumAge: 0,
-      timeout: 15000
+      return;
     }
-  );
 
-});
+    allowLocation.disabled = true;
 
-(function restoreLocationPreference() {
+    allowLocation.textContent =
+      "Requesting Location...";
 
-  const savedConsent = getLocationConsent();
+    navigator.geolocation.getCurrentPosition(
+
+      (position) => {
+
+        const coords =
+          position.coords;
+
+        latitudeInput.value =
+          Number(
+            coords.latitude
+          ).toFixed(8);
+
+        longitudeInput.value =
+          Number(
+            coords.longitude
+          ).toFixed(8);
+
+        accuracyInput.value =
+          Number(
+            coords.accuracy
+          ).toFixed(2);
+
+        locationPermission.value =
+          "granted";
+
+        saveLocationConsent(
+          "granted"
+        );
+
+        allowLocation.disabled =
+          false;
+
+        allowLocation.textContent =
+          "Allow Location";
+
+        closePrivacyModal();
+      },
+
+      (error) => {
+
+        console.warn(
+          "Location error:",
+          error
+        );
+
+        clearLocation();
+
+        locationPermission.value =
+          error.code === 1
+            ? "denied"
+            : "unavailable";
+
+        saveLocationConsent(
+          locationPermission.value
+        );
+
+        allowLocation.disabled =
+          false;
+
+        allowLocation.textContent =
+          "Allow Location";
+
+        closePrivacyModal();
+      },
+
+      {
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: 15000
+      }
+    );
+  }
+);
+
+(() => {
+  const savedConsent =
+    getLocationConsent();
 
   if (savedConsent === "granted") {
-    locationPermission.value = "previously_granted";
+    locationPermission.value =
+      "previously_granted";
   } else if (savedConsent === "denied") {
-    locationPermission.value = "previously_denied";
-  } else if (savedConsent === "unavailable") {
-    locationPermission.value = "unavailable";
+    locationPermission.value =
+      "previously_denied";
+  } else if (
+    savedConsent === "unavailable"
+  ) {
+    locationPermission.value =
+      "unavailable";
   }
-
 })();
 
 /* =========================================================
    IMAGE ZOOM
-========================================================= */
+========================================================== */
 
-const imageModal = getElement("image-zoom-modal");
-const imageDisplay = getElement("image-zoom-display");
-const imageClose = getElement("image-zoom-close");
-const imageCaption = getElement("image-zoom-caption");
+const imageModal =
+  getElement("image-zoom-modal");
+
+const imageDisplay =
+  getElement("image-zoom-display");
+
+const imageClose =
+  getElement("image-zoom-close");
+
+const imageCaption =
+  getElement("image-zoom-caption");
 
 let imageReturnFocus = null;
 
 function openImageModal(image) {
 
-  imageReturnFocus = document.activeElement;
+  imageReturnFocus =
+    document.activeElement;
 
   imageDisplay.src =
-    image.currentSrc || image.src;
+    image.currentSrc ||
+    image.src;
 
-  imageDisplay.alt = image.alt || "";
+  imageDisplay.alt =
+    image.alt || "";
 
-  const title = image
-    .closest(".gallery-item")
-    ?.querySelector(".gallery-caption h3");
+  const title =
+    image
+      .closest(".gallery-item")
+      ?.querySelector(
+        ".gallery-caption h3"
+      );
 
   imageCaption.textContent =
     title
@@ -3422,7 +3543,9 @@ function openImageModal(image) {
 
   imageModal.hidden = false;
 
-  document.body.classList.add("modal-open");
+  document.body.classList.add(
+    "modal-open"
+  );
 
   imageClose.focus();
 }
@@ -3431,7 +3554,9 @@ function closeImageModal() {
 
   imageModal.hidden = true;
 
-  document.body.classList.remove("modal-open");
+  document.body.classList.remove(
+    "modal-open"
+  );
 
   imageDisplay.src = "";
   imageDisplay.alt = "";
@@ -3447,161 +3572,219 @@ function closeImageModal() {
 
 document
   .querySelectorAll(".gallery-image")
-  .forEach(function(image) {
+  .forEach((image) => {
 
     image.tabIndex = 0;
 
-    image.setAttribute("role", "button");
+    image.setAttribute(
+      "role",
+      "button"
+    );
 
     image.setAttribute(
       "aria-label",
       "Enlarge image: " +
-      (image.alt || "gallery image")
+      (
+        image.alt ||
+        "gallery image"
+      )
     );
 
-    image.addEventListener("click", function() {
-      openImageModal(image);
-    });
-
-    image.addEventListener("keydown", function(event) {
-
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
-        event.preventDefault();
+    image.addEventListener(
+      "click",
+      () => {
         openImageModal(image);
       }
+    );
 
-    });
+    image.addEventListener(
+      "keydown",
+      (event) => {
 
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+          event.preventDefault();
+          openImageModal(image);
+        }
+      }
+    );
+
+    image.addEventListener(
+      "error",
+      () => {
+        image.classList.add(
+          "image-error"
+        );
+      }
+    );
   });
 
-imageClose.addEventListener("click", closeImageModal);
+imageClose.addEventListener(
+  "click",
+  closeImageModal
+);
 
-imageModal.addEventListener("click", function(event) {
+imageModal.addEventListener(
+  "click",
+  (event) => {
 
-  if (
-    event.target === imageModal ||
-    event.target === imageDisplay
-  ) {
-    closeImageModal();
+    if (
+      event.target === imageModal ||
+      event.target === imageDisplay
+    ) {
+      closeImageModal();
+    }
   }
-
-});
+);
 
 /* =========================================================
    ESCAPE KEY
-========================================================= */
+========================================================== */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+  "keydown",
+  (event) => {
 
-  if (event.key !== "Escape") {
-    return;
-  }
-
-  if (!imageModal.hidden) {
-    closeImageModal();
-    return;
-  }
-
-  if (!privacyModal.hidden) {
-    closePrivacyModal();
-    return;
-  }
-
-  const notice = getElement("public-notice");
-
-  if (
-    notice &&
-    !notice.classList.contains("is-hidden")
-  ) {
-
-    notice.classList.add("is-hidden");
-
-    const openButton =
-      getElement("open-public-notice");
-
-    if (openButton) {
-      openButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+    if (event.key !== "Escape") {
+      return;
     }
 
-    safeStorageSet(
-      "kea_notice_closed",
-      "1"
-    );
-  }
+    if (
+      imageModal &&
+      !imageModal.hidden
+    ) {
+      closeImageModal();
+      return;
+    }
 
-});
+    if (
+      privacyModal &&
+      !privacyModal.hidden
+    ) {
+      closePrivacyModal();
+      return;
+    }
 
-/* =========================================================
-   READ MORE
-========================================================= */
+    const notice =
+      getElement(
+        "public-notice"
+      );
 
-document
-  .querySelectorAll(".read-more-button")
-  .forEach(function(button) {
+    if (
+      notice &&
+      !notice.classList.contains(
+        "is-hidden"
+      )
+    ) {
+      notice.classList.add(
+        "is-hidden"
+      );
 
-    button.addEventListener("click", function() {
-
-      const content =
-        document.getElementById(
-          button.getAttribute("aria-controls")
+      const button =
+        getElement(
+          "open-public-notice"
         );
 
-      if (!content) {
-        return;
-      }
-
-      const isOpen =
-        button.getAttribute("aria-expanded") === "true";
-
-      if (isOpen) {
-
-        content.hidden = true;
-
+      if (button) {
         button.setAttribute(
           "aria-expanded",
           "false"
         );
-
-        button.textContent = "Read More";
-
-      } else {
-
-        content.hidden = false;
-
-        button.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-
-        button.textContent = "Read Less";
       }
 
-    });
+      safeStorageSet(
+        "kea_notice_closed",
+        "1"
+      );
+    }
+  }
+);
 
+/* =========================================================
+   READ MORE
+========================================================== */
+
+document
+  .querySelectorAll(
+    ".read-more-button"
+  )
+  .forEach((button) => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const content =
+          getElement(
+            button.getAttribute(
+              "aria-controls"
+            )
+          );
+
+        if (!content) {
+          return;
+        }
+
+        const isOpen =
+          button.getAttribute(
+            "aria-expanded"
+          ) === "true";
+
+        if (isOpen) {
+
+          content.hidden = true;
+
+          button.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          button.textContent =
+            "Read More";
+
+        } else {
+
+          content.hidden = false;
+
+          button.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+          button.textContent =
+            "Read Less";
+        }
+      }
+    );
   });
 
 /* =========================================================
    FORM
-========================================================= */
+========================================================== */
 
 let submitting = false;
 let submissionTimer = null;
 
-userAgentInput.value = navigator.userAgent || "";
+userAgentInput.value =
+  navigator.userAgent || "";
 
-function showStatus(message, type = "") {
+function showStatus(
+  message,
+  type = ""
+) {
 
-  formStatus.textContent = message;
-  formStatus.className = "form-status";
+  formStatus.textContent =
+    message;
+
+  formStatus.className =
+    "form-status";
 
   if (type) {
-    formStatus.classList.add(type);
+    formStatus.classList.add(
+      type
+    );
   }
 }
 
@@ -3609,11 +3792,17 @@ function resetSubmission() {
 
   submitting = false;
 
-  submitButton.disabled = false;
-  submitButton.textContent = "Send Requirement";
+  submitButton.disabled =
+    false;
+
+  submitButton.textContent =
+    "Send Requirement";
 
   if (submissionTimer) {
-    clearTimeout(submissionTimer);
+    clearTimeout(
+      submissionTimer
+    );
+
     submissionTimer = null;
   }
 }
@@ -3631,208 +3820,270 @@ function restoreFormState() {
     getLocationConsent();
 
   if (consent === "granted") {
-    locationPermission.value = "previously_granted";
-  } else if (consent === "denied") {
-    locationPermission.value = "previously_denied";
-  } else if (consent === "unavailable") {
-    locationPermission.value = "unavailable";
+    locationPermission.value =
+      "previously_granted";
+  } else if (
+    consent === "denied"
+  ) {
+    locationPermission.value =
+      "previously_denied";
+  } else if (
+    consent === "unavailable"
+  ) {
+    locationPermission.value =
+      "unavailable";
   } else {
-    locationPermission.value = "not_requested";
+    locationPermission.value =
+      "not_requested";
   }
 }
 
-window.addEventListener("message", function(event) {
+/*
+  The form uses an iframe because the endpoint is external.
+  The message handler checks both the iframe source and
+  expected message structure before accepting a response.
+*/
 
-  let data;
+let formResponseOrigin = null;
 
-  try {
-    data =
-      typeof event.data === "string"
-        ? JSON.parse(event.data)
-        : event.data;
-  } catch (error) {
-    return;
-  }
+try {
+  formResponseOrigin =
+    new URL(
+      form.action,
+      window.location.href
+    ).origin;
+} catch (error) {
+  formResponseOrigin = null;
+}
 
-  if (
-    !data ||
-    typeof data !== "object" ||
-    data.type !== "KEA_FORM_RESPONSE" ||
-    !submitting
-  ) {
-    return;
-  }
-
-  if (data.success === true) {
-
-    resetSubmission();
-
-    showStatus(
-      data.message ||
-      "Thank you. Your requirement has been received successfully.",
-      "success"
-    );
-
-    restoreFormState();
-
-    nameInput.focus();
-
-    return;
-  }
-
-  resetSubmission();
-
-  showStatus(
-    data.message ||
-    "Your request could not be processed. Please try again.",
-    "error"
-  );
-
-});
-
-iframe.addEventListener("load", function() {
-
-  if (!submitting) {
-    return;
-  }
-
-  window.setTimeout(function() {
+window.addEventListener(
+  "message",
+  (event) => {
 
     if (!submitting) {
+      return;
+    }
+
+    if (
+      formResponseOrigin &&
+      event.origin !==
+        formResponseOrigin
+    ) {
+      return;
+    }
+
+    if (
+      iframe &&
+      event.source !==
+        iframe.contentWindow
+    ) {
+      return;
+    }
+
+    let data;
+
+    try {
+      data =
+        typeof event.data === "string"
+          ? JSON.parse(event.data)
+          : event.data;
+    } catch (error) {
+      return;
+    }
+
+    if (
+      !data ||
+      typeof data !== "object" ||
+      data.type !==
+        "KEA_FORM_RESPONSE"
+    ) {
+      return;
+    }
+
+    if (data.success === true) {
+
+      resetSubmission();
+
+      showStatus(
+        data.message ||
+        "Thank you. Your requirement has been received successfully.",
+        "success"
+      );
+
+      restoreFormState();
+
+      nameInput.focus();
+
       return;
     }
 
     resetSubmission();
 
     showStatus(
-      "Thank you. Your requirement has been received successfully.",
-      "success"
-    );
-
-    restoreFormState();
-
-    nameInput.focus();
-
-  }, 500);
-
-});
-
-form.addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  if (submitting) {
-    return;
-  }
-
-  if (
-    honeypot &&
-    honeypot.value.trim() !== ""
-  ) {
-
-    showStatus(
-      "Unable to submit this request.",
+      data.message ||
+      "Your request could not be processed. Please try again.",
       "error"
     );
-
-    return;
   }
+);
 
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const message = messageInput.value.trim();
+form.addEventListener(
+  "submit",
+  (event) => {
 
-  if (!name) {
+    event.preventDefault();
 
-    showStatus(
-      "Please enter your name or organisation.",
-      "error"
-    );
+    if (submitting) {
+      return;
+    }
 
-    nameInput.focus();
-
-    return;
-  }
-
-  if (!email) {
-
-    showStatus(
-      "Please enter your email address.",
-      "error"
-    );
-
-    emailInput.focus();
-
-    return;
-  }
-
-  if (!emailInput.checkValidity()) {
-
-    showStatus(
-      "Please enter a valid email address.",
-      "error"
-    );
-
-    emailInput.focus();
-
-    return;
-  }
-
-  if (!message) {
-
-    showStatus(
-      "Please tell me about the work you need help with.",
-      "error"
-    );
-
-    messageInput.focus();
-
-    return;
-  }
-
-  userAgentInput.value =
-    navigator.userAgent || "";
-
-  submitting = true;
-
-  submitButton.disabled = true;
-  submitButton.textContent = "Sending...";
-
-  showStatus("Sending your requirement...");
-
-  HTMLFormElement.prototype.submit.call(form);
-
-  submissionTimer =
-    window.setTimeout(function() {
-
-      if (!submitting) {
-        return;
-      }
-
-      resetSubmission();
-
+    if (
+      honeypot &&
+      honeypot.value.trim() !== ""
+    ) {
       showStatus(
-        "The server did not confirm the submission. Please try again.",
+        "Unable to submit this request.",
         "error"
       );
 
-    }, 60000);
+      return;
+    }
 
-});
+    const name =
+      nameInput.value.trim();
+
+    const email =
+      emailInput.value.trim();
+
+    const message =
+      messageInput.value.trim();
+
+    if (!name) {
+
+      showStatus(
+        "Please enter your name or organisation.",
+        "error"
+      );
+
+      nameInput.focus();
+
+      return;
+    }
+
+    if (!email) {
+
+      showStatus(
+        "Please enter your email address.",
+        "error"
+      );
+
+      emailInput.focus();
+
+      return;
+    }
+
+    if (
+      !emailInput.checkValidity()
+    ) {
+
+      showStatus(
+        "Please enter a valid email address.",
+        "error"
+      );
+
+      emailInput.focus();
+
+      return;
+    }
+
+    if (!message) {
+
+      showStatus(
+        "Please tell me about the work you need help with.",
+        "error"
+      );
+
+      messageInput.focus();
+
+      return;
+    }
+
+    userAgentInput.value =
+      navigator.userAgent || "";
+
+    submitting = true;
+
+    submitButton.disabled =
+      true;
+
+    submitButton.textContent =
+      "Sending...";
+
+    showStatus(
+      "Sending your requirement..."
+    );
+
+    /*
+      Native submit avoids triggering this submit handler again.
+    */
+    HTMLFormElement.prototype.submit.call(
+      form
+    );
+
+    /*
+      Do not automatically claim success.
+      If the endpoint does not return the expected postMessage,
+      the user receives a clear timeout message instead.
+    */
+
+    submissionTimer =
+      window.setTimeout(
+        () => {
+
+          if (!submitting) {
+            return;
+          }
+
+          resetSubmission();
+
+          showStatus(
+            "The server did not confirm the submission. Please check your connection and try again.",
+            "error"
+          );
+        },
+        60000
+      );
+  }
+);
 
 /* =========================================================
    BLOG SLIDER
-========================================================= */
+========================================================== */
 
-(function initBlogSlider() {
+(() => {
 
-  const slider = getElement("blog-slider");
-  const track = getElement("blog-track");
-  const prevButton = getElement("blog-prev");
-  const nextButton = getElement("blog-next");
-  const dotsContainer = getElement("blog-dots");
-  const counter = getElement("blog-counter");
-  const autoStatus = getElement("blog-auto-status");
+  const slider =
+    getElement("blog-slider");
+
+  const track =
+    getElement("blog-track");
+
+  const prevButton =
+    getElement("blog-prev");
+
+  const nextButton =
+    getElement("blog-next");
+
+  const dotsContainer =
+    getElement("blog-dots");
+
+  const counter =
+    getElement("blog-counter");
+
+  const autoStatus =
+    getElement(
+      "blog-auto-status"
+    );
 
   if (
     !slider ||
@@ -3848,84 +4099,115 @@ form.addEventListener("submit", function(event) {
 
   let slides =
     Array.from(
-      track.querySelectorAll(".blog-slide")
+      track.querySelectorAll(
+        ".blog-slide"
+      )
     );
 
   if (!slides.length) {
     return;
   }
 
-  slides.sort(function(a, b) {
+  /*
+    Sort newest article first.
+  */
 
-    const dateA =
-      Date.parse(a.dataset.date || "");
+  slides.sort(
+    (a, b) => {
 
-    const dateB =
-      Date.parse(b.dataset.date || "");
+      const dateA =
+        Date.parse(
+          a.dataset.date || ""
+        );
 
-    return (
-      (Number.isNaN(dateB) ? 0 : dateB) -
-      (Number.isNaN(dateA) ? 0 : dateA)
-    );
+      const dateB =
+        Date.parse(
+          b.dataset.date || ""
+        );
 
-  });
+      return (
+        (Number.isNaN(dateB)
+          ? 0
+          : dateB) -
+        (Number.isNaN(dateA)
+          ? 0
+          : dateA)
+      );
+    }
+  );
 
-  slides.forEach(function(slide) {
-    track.appendChild(slide);
-  });
+  slides.forEach(
+    (slide) => {
+      track.appendChild(slide);
+    }
+  );
 
   let currentIndex = 0;
   let autoSlideTimer = null;
 
-  const AUTO_SLIDE_TIME = 10000;
+  const AUTO_SLIDE_TIME =
+    10000;
 
-  slides.forEach(function(slide, index) {
+  slides.forEach(
+    (slide, index) => {
 
-    const dot =
-      document.createElement("button");
+      const dot =
+        document.createElement(
+          "button"
+        );
 
-    dot.type = "button";
-    dot.className = "blog-dot";
+      dot.type = "button";
+      dot.className =
+        "blog-dot";
 
-    dot.setAttribute(
-      "aria-label",
-      "Show article " + (index + 1)
-    );
+      dot.setAttribute(
+        "aria-label",
+        "Show article " +
+        (index + 1)
+      );
 
-    dot.addEventListener("click", function() {
+      dot.addEventListener(
+        "click",
+        () => {
+          showSlide(index);
+          restartAutoSlide();
+        }
+      );
 
-      showSlide(index);
-      restartAutoSlide();
-
-    });
-
-    dotsContainer.appendChild(dot);
-
-  });
+      dotsContainer.appendChild(
+        dot
+      );
+    }
+  );
 
   const dots =
     Array.from(
-      dotsContainer.querySelectorAll(".blog-dot")
+      dotsContainer.querySelectorAll(
+        ".blog-dot"
+      )
     );
 
   function updateNavigation() {
 
-    dots.forEach(function(dot, index) {
+    dots.forEach(
+      (dot, index) => {
 
-      const active =
-        index === currentIndex;
+        const active =
+          index === currentIndex;
 
-      dot.classList.toggle(
-        "active",
-        active
-      );
+        dot.classList.toggle(
+          "active",
+          active
+        );
 
-      dot.setAttribute(
-        "aria-current",
-        active ? "true" : "false"
-      );
-
-    });
+        dot.setAttribute(
+          "aria-current",
+          active
+            ? "true"
+            : "false"
+        );
+      }
+    );
 
     counter.textContent =
       "Article " +
@@ -3947,38 +4229,47 @@ form.addEventListener("submit", function(event) {
     }
 
     if (index < 0) {
-      index = slides.length - 1;
+      index =
+        slides.length - 1;
     }
 
-    if (index >= slides.length) {
+    if (
+      index >= slides.length
+    ) {
       index = 0;
     }
 
     currentIndex = index;
 
-    slides.forEach(function(slide, slideIndex) {
+    slides.forEach(
+      (slide, slideIndex) => {
 
-      const active =
-        slideIndex === currentIndex;
+        const active =
+          slideIndex ===
+          currentIndex;
 
-      slide.classList.toggle(
-        "active",
-        active
-      );
+        slide.classList.toggle(
+          "active",
+          active
+        );
 
-      slide.setAttribute(
-        "aria-hidden",
-        active ? "false" : "true"
-      );
-
-    });
+        slide.setAttribute(
+          "aria-hidden",
+          active
+            ? "false"
+            : "true"
+        );
+      }
+    );
 
     updateNavigation();
   }
 
   function stopAutoSlide() {
 
-    if (autoSlideTimer !== null) {
+    if (
+      autoSlideTimer !== null
+    ) {
 
       window.clearInterval(
         autoSlideTimer
@@ -3994,9 +4285,7 @@ form.addEventListener("submit", function(event) {
 
     if (
       slides.length <= 1 ||
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
+      isReducedMotion()
     ) {
 
       autoStatus.textContent =
@@ -4008,13 +4297,16 @@ form.addEventListener("submit", function(event) {
     }
 
     autoSlideTimer =
-      window.setInterval(function() {
+      window.setInterval(
+        () => {
 
-        showSlide(
-          currentIndex + 1
-        );
+          showSlide(
+            currentIndex + 1
+          );
 
-      }, AUTO_SLIDE_TIME);
+        },
+        AUTO_SLIDE_TIME
+      );
 
     autoStatus.textContent =
       "Auto-sliding";
@@ -4024,77 +4316,110 @@ form.addEventListener("submit", function(event) {
     startAutoSlide();
   }
 
-  prevButton.addEventListener("click", function() {
+  prevButton.addEventListener(
+    "click",
+    () => {
 
-    showSlide(currentIndex - 1);
-    restartAutoSlide();
+      showSlide(
+        currentIndex - 1
+      );
 
-  });
-
-  nextButton.addEventListener("click", function() {
-
-    showSlide(currentIndex + 1);
-    restartAutoSlide();
-
-  });
-
-  slider.addEventListener("mouseenter", function() {
-
-    stopAutoSlide();
-
-    if (slides.length > 1) {
-      autoStatus.textContent = "Paused";
+      restartAutoSlide();
     }
+  );
 
-  });
+  nextButton.addEventListener(
+    "click",
+    () => {
 
-  slider.addEventListener("mouseleave", function() {
-    startAutoSlide();
-  });
+      showSlide(
+        currentIndex + 1
+      );
 
-  slider.addEventListener("focusin", function() {
-
-    stopAutoSlide();
-
-    if (slides.length > 1) {
-      autoStatus.textContent = "Paused";
+      restartAutoSlide();
     }
+  );
 
-  });
+  slider.addEventListener(
+    "mouseenter",
+    () => {
 
-  slider.addEventListener("focusout", function(event) {
+      stopAutoSlide();
 
-    if (
-      !slider.contains(
-        event.relatedTarget
-      )
-    ) {
+      if (slides.length > 1) {
+        autoStatus.textContent =
+          "Paused";
+      }
+    }
+  );
+
+  slider.addEventListener(
+    "mouseleave",
+    () => {
       startAutoSlide();
     }
+  );
 
-  });
+  slider.addEventListener(
+    "focusin",
+    () => {
 
-  slider.addEventListener("keydown", function(event) {
+      stopAutoSlide();
 
-    if (event.key === "ArrowLeft") {
-
-      event.preventDefault();
-
-      showSlide(currentIndex - 1);
-      restartAutoSlide();
-
+      if (slides.length > 1) {
+        autoStatus.textContent =
+          "Paused";
+      }
     }
+  );
 
-    if (event.key === "ArrowRight") {
+  slider.addEventListener(
+    "focusout",
+    (event) => {
 
-      event.preventDefault();
-
-      showSlide(currentIndex + 1);
-      restartAutoSlide();
-
+      if (
+        !slider.contains(
+          event.relatedTarget
+        )
+      ) {
+        startAutoSlide();
+      }
     }
+  );
 
-  });
+  slider.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+
+        event.preventDefault();
+
+        showSlide(
+          currentIndex - 1
+        );
+
+        restartAutoSlide();
+      }
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+
+        event.preventDefault();
+
+        showSlide(
+          currentIndex + 1
+        );
+
+        restartAutoSlide();
+      }
+    }
+  );
 
   showSlide(0);
   startAutoSlide();
@@ -4103,56 +4428,61 @@ form.addEventListener("submit", function(event) {
 
 /* =========================================================
    SMOOTH INTERNAL LINKS
-========================================================= */
+========================================================== */
 
 document
-  .querySelectorAll('a[href^="#"]')
-  .forEach(function(link) {
+  .querySelectorAll(
+    'a[href^="#"]'
+  )
+  .forEach((link) => {
 
-    link.addEventListener("click", function(event) {
+    link.addEventListener(
+      "click",
+      (event) => {
 
-      const id =
-        link.getAttribute("href");
+        const id =
+          link.getAttribute(
+            "href"
+          );
 
-      if (!id || id === "#") {
-        return;
+        if (!id || id === "#") {
+          return;
+        }
+
+        const target =
+          document.querySelector(
+            id
+          );
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior:
+            isReducedMotion()
+              ? "auto"
+              : "smooth",
+          block: "start"
+        });
+
+        if (
+          id === "#contact"
+        ) {
+
+          window.setTimeout(
+            () => {
+              nameInput.focus();
+            },
+            isReducedMotion()
+              ? 0
+              : 500
+          );
+        }
       }
-
-      const target =
-        document.querySelector(id);
-
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-
-      const reducedMotion =
-        window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-      target.scrollIntoView({
-        behavior:
-          reducedMotion
-            ? "auto"
-            : "smooth",
-        block: "start"
-      });
-
-      if (id === "#contact") {
-
-        window.setTimeout(
-          function() {
-            nameInput.focus();
-          },
-          reducedMotion ? 0 : 500
-        );
-
-      }
-
-    });
-
+    );
   });
 
 </script> </body> </html>
