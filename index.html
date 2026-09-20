@@ -2876,27 +2876,36 @@ footer strong {
   &copy; 2026 KEA. All rights reserved.
 </p>
 
-</footer> <!-- ========================================================= IMAGE ZOOM MODAL ========================================================== --> <div id="image-zoom-modal" class="image-zoom-modal" role="dialog" aria-modal="true" aria-labelledby="image-zoom-caption" hidden >
-<button
-  type="button"
-  class="image-zoom-close"
-  id="image-zoom-close"
-  aria-label="Close enlarged image"
+</footer> <!-- ========================================================= IMAGE ZOOM MODAL ========================================================== -->
+  <div
+  id="image-zoom-modal"
+  class="image-zoom-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="image-zoom-caption"
+  hidden
 >
-  &times;
-</button>
+  <button
+    type="button"
+    class="image-zoom-close"
+    id="image-zoom-close"
+    aria-label="Close enlarged image"
+  >
+    &times;
+  </button>
 
-<img
-  id="image-zoom-display"
-  class="image-zoom-display"
-  src=""
-  alt=""
->
+  <img
+    id="image-zoom-display"
+    class="image-zoom-display"
+    src=""
+    alt=""
+  >
 
-<div
-  id="image-zoom-caption"
-  class="image-zoom-caption"
-></div>
+  <div
+    id="image-zoom-caption"
+    class="image-zoom-caption"
+  ></div>
+</div>
 
 <!-- =========================================================
      PRIVACY MODAL
@@ -3018,31 +3027,127 @@ footer strong {
   </div>
 </div>
 
-<!-- =========================================================
-     FLOATING BUTTONS
-========================================================== -->
+/* =========================================================
+   FLOATING BUTTONS
+   Public Notice = RIGHT
+   Privacy & Terms = LEFT
+========================================================= */
 
-<div class="privacy-floating">
-  <button
-    type="button"
-    id="open-privacy"
-    aria-haspopup="dialog"
-    aria-controls="privacy-modal"
-  >
-    Privacy &amp; Terms
-  </button>
-</div>
+.privacy-floating {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  z-index: 900;
+}
 
-<div class="public-notice-floating">
-  <button
-    type="button"
-    id="open-public-notice"
-    aria-controls="public-notice"
-    aria-expanded="true"
-  >
-    Public Notice
-  </button>
-</div>
+.public-notice-floating {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 900;
+}
+
+/* Shared button style */
+.privacy-floating button,
+.public-notice-floating button {
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: white;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+/* =========================================================
+   PRIVACY & TERMS — LEFT
+   White hover, NO glow
+========================================================= */
+
+.privacy-floating button {
+  border: 1px solid #CBD5E1;
+}
+
+.privacy-floating button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: white;
+  box-shadow: none;
+}
+
+/* =========================================================
+   PUBLIC NOTICE — RIGHT
+   White hover + BLUE GLOW
+========================================================= */
+
+.public-notice-floating button {
+  border: 2px solid #CBD5E1;
+  animation: kea-border-blink 1.6s ease-in-out infinite;
+}
+
+.public-notice-floating button:hover {
+  animation: none;
+  border-color: var(--blue);
+  color: var(--blue);
+  background: white;
+
+  box-shadow:
+    0 0 6px rgba(37, 99, 235, .45),
+    0 0 16px rgba(37, 99, 235, .30),
+    0 0 28px rgba(37, 99, 235, .18);
+
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   PUBLIC NOTICE ANIMATION
+========================================================= */
+
+@keyframes kea-border-blink {
+  0%, 100% {
+    border-color: #CBD5E1;
+    box-shadow: none;
+    transform: scale(1);
+  }
+
+  50% {
+    border-color: var(--blue);
+
+    box-shadow:
+      0 0 6px rgba(37, 99, 235, .35),
+      0 0 14px rgba(37, 99, 235, .20);
+
+    transform: scale(1.02);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .privacy-floating {
+    left: 8px;
+    bottom: 8px;
+  }
+
+  .public-notice-floating {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .privacy-floating button,
+  .public-notice-floating button {
+    padding: 7px 11px;
+    font-size: 10px;
+  }
+}
 
   
 <!-- =========================================================
@@ -4235,8 +4340,7 @@ form?.addEventListener(
           resetSubmission();
 
           showStatus(
-            "The submission may have been received, but the server did not return a confirmation. Please avoid submitting the same request repeatedly and check again."
-",
+            "The submission may have been received, but the server did not return a confirmation. Please avoid submitting the same request repeatedly and check again.",
             "error"
           );
 
