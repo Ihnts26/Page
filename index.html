@@ -2923,10 +2923,17 @@ footer strong {
 
 </div>
 
-</div> <!-- ========================================================= FLOATING BUTTONS ========================================================== --> <div class="privacy-floating"> <button type="button" id="open-privacy" aria-haspopup="dialog" > Privacy &amp; Terms </button> </div> <div class="public-notice-floating"> <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="true" > Public Notice </button> </div> <!-- ========================================================= JAVASCRIPT ========================================================== --> <script> "use strict";
+</div> <!-- ========================================================= FLOATING BUTTONS ========================================================== --> <div class="privacy-floating"> <button type="button" id="open-privacy" aria-haspopup="dialog" > Privacy &amp; Terms </button> </div> <div class="public-notice-floating"> <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="true" > Public Notice </button> </div> 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+"use strict";
+
 /* =========================================================
    HELPERS
-========================================================= */
+========================================================== */
 
 const $ = (id) => document.getElementById(id);
 
@@ -2959,6 +2966,7 @@ function reducedMotion() {
     "(prefers-reduced-motion: reduce)"
   ).matches;
 }
+
 
 /* =========================================================
    PUBLIC NOTICE
@@ -2994,7 +3002,9 @@ function reducedMotion() {
   function openNotice() {
     notice.classList.remove("is-hidden");
     setExpanded(true);
+
     safeStorageRemove(STORAGE_KEY);
+
     closeButton.focus();
   }
 
@@ -3014,6 +3024,7 @@ function reducedMotion() {
     openNotice
   );
 })();
+
 
 /* =========================================================
    FORM ELEMENTS
@@ -3038,6 +3049,7 @@ const latitudeInput = $("latitude");
 const longitudeInput = $("longitude");
 const accuracyInput = $("location-accuracy");
 
+
 /* =========================================================
    PRIVACY MODAL
 ========================================================== */
@@ -3052,21 +3064,31 @@ const privacyUnderstood = $("privacy-understood");
 let privacyReturnFocus = null;
 
 function openPrivacyModal() {
-  if (!privacyModal) return;
+  if (!privacyModal) {
+    return;
+  }
 
   privacyReturnFocus = document.activeElement;
 
   privacyModal.hidden = false;
-  document.body.classList.add("modal-open");
+
+  document.body.classList.add(
+    "modal-open"
+  );
 
   privacyClose?.focus();
 }
 
 function closePrivacyModal() {
-  if (!privacyModal) return;
+  if (!privacyModal) {
+    return;
+  }
 
   privacyModal.hidden = true;
-  document.body.classList.remove("modal-open");
+
+  document.body.classList.remove(
+    "modal-open"
+  );
 
   if (
     privacyReturnFocus &&
@@ -3095,14 +3117,23 @@ privacyModal?.addEventListener(
   }
 );
 
+
 /* =========================================================
    LOCATION
 ========================================================== */
 
 function clearLocation() {
-  latitudeInput.value = "";
-  longitudeInput.value = "";
-  accuracyInput.value = "";
+  if (latitudeInput) {
+    latitudeInput.value = "";
+  }
+
+  if (longitudeInput) {
+    longitudeInput.value = "";
+  }
+
+  if (accuracyInput) {
+    accuracyInput.value = "";
+  }
 }
 
 function saveLocationConsent(value) {
@@ -3121,7 +3152,9 @@ function getLocationConsent() {
 function denyLocationAccess() {
   clearLocation();
 
-  locationPermission.value = "denied";
+  if (locationPermission) {
+    locationPermission.value = "denied";
+  }
 
   saveLocationConsent("denied");
 
@@ -3143,41 +3176,65 @@ allowLocation?.addEventListener(
   () => {
 
     if (!navigator.geolocation) {
-      locationPermission.value =
-        "unavailable";
+
+      if (locationPermission) {
+        locationPermission.value =
+          "unavailable";
+      }
 
       saveLocationConsent(
         "unavailable"
       );
 
       closePrivacyModal();
+
       return;
     }
 
     allowLocation.disabled = true;
+
     allowLocation.textContent =
       "Requesting Location...";
 
     navigator.geolocation.getCurrentPosition(
+
       (position) => {
 
-        const coords = position.coords;
+        const coords =
+          position.coords;
 
-        latitudeInput.value =
-          Number(coords.latitude).toFixed(8);
+        if (latitudeInput) {
+          latitudeInput.value =
+            Number(
+              coords.latitude
+            ).toFixed(8);
+        }
 
-        longitudeInput.value =
-          Number(coords.longitude).toFixed(8);
+        if (longitudeInput) {
+          longitudeInput.value =
+            Number(
+              coords.longitude
+            ).toFixed(8);
+        }
 
-        accuracyInput.value =
-          Number(coords.accuracy).toFixed(2);
+        if (accuracyInput) {
+          accuracyInput.value =
+            Number(
+              coords.accuracy
+            ).toFixed(2);
+        }
 
-        locationPermission.value =
-          "granted";
+        if (locationPermission) {
+          locationPermission.value =
+            "granted";
+        }
 
-        saveLocationConsent("granted");
+        saveLocationConsent(
+          "granted"
+        );
 
         allowLocation.disabled = false;
+
         allowLocation.textContent =
           "Allow Location";
 
@@ -3193,16 +3250,20 @@ allowLocation?.addEventListener(
 
         clearLocation();
 
-        locationPermission.value =
+        const status =
           error.code === 1
             ? "denied"
             : "unavailable";
 
-        saveLocationConsent(
-          locationPermission.value
-        );
+        if (locationPermission) {
+          locationPermission.value =
+            status;
+        }
+
+        saveLocationConsent(status);
 
         allowLocation.disabled = false;
+
         allowLocation.textContent =
           "Allow Location";
 
@@ -3218,34 +3279,65 @@ allowLocation?.addEventListener(
   }
 );
 
+
+/* Restore remembered location preference */
+
 (() => {
+
   const consent =
     getLocationConsent();
 
+  if (!locationPermission) {
+    return;
+  }
+
   if (consent === "granted") {
+
     locationPermission.value =
       "previously_granted";
+
   } else if (consent === "denied") {
+
     locationPermission.value =
       "previously_denied";
+
   } else if (consent === "unavailable") {
+
     locationPermission.value =
       "unavailable";
+
+  } else {
+
+    locationPermission.value =
+      "not_requested";
   }
+
 })();
+
 
 /* =========================================================
    IMAGE ZOOM
 ========================================================== */
 
-const imageModal = $("image-zoom-modal");
-const imageDisplay = $("image-zoom-display");
-const imageClose = $("image-zoom-close");
-const imageCaption = $("image-zoom-caption");
+const imageModal =
+  $("image-zoom-modal");
+
+const imageDisplay =
+  $("image-zoom-display");
+
+const imageClose =
+  $("image-zoom-close");
+
+const imageCaption =
+  $("image-zoom-caption");
 
 let imageReturnFocus = null;
 
 function openImageModal(image) {
+
+  if (!imageModal || !imageDisplay) {
+    return;
+  }
 
   imageReturnFocus =
     document.activeElement;
@@ -3264,10 +3356,12 @@ function openImageModal(image) {
         ".gallery-caption h3"
       );
 
-  imageCaption.textContent =
-    title
-      ? title.textContent.trim()
-      : "";
+  if (imageCaption) {
+    imageCaption.textContent =
+      title
+        ? title.textContent.trim()
+        : "";
+  }
 
   imageModal.hidden = false;
 
@@ -3275,10 +3369,14 @@ function openImageModal(image) {
     "modal-open"
   );
 
-  imageClose.focus();
+  imageClose?.focus();
 }
 
 function closeImageModal() {
+
+  if (!imageModal) {
+    return;
+  }
 
   imageModal.hidden = true;
 
@@ -3286,9 +3384,14 @@ function closeImageModal() {
     "modal-open"
   );
 
-  imageDisplay.src = "";
-  imageDisplay.alt = "";
-  imageCaption.textContent = "";
+  if (imageDisplay) {
+    imageDisplay.src = "";
+    imageDisplay.alt = "";
+  }
+
+  if (imageCaption) {
+    imageCaption.textContent = "";
+  }
 
   if (
     imageReturnFocus &&
@@ -3303,12 +3406,19 @@ document
   .forEach((image) => {
 
     image.tabIndex = 0;
-    image.setAttribute("role", "button");
+
+    image.setAttribute(
+      "role",
+      "button"
+    );
 
     image.setAttribute(
       "aria-label",
       "Enlarge image: " +
-      (image.alt || "gallery image")
+      (
+        image.alt ||
+        "gallery image"
+      )
     );
 
     image.addEventListener(
@@ -3325,6 +3435,7 @@ document
           event.key === " "
         ) {
           event.preventDefault();
+
           openImageModal(image);
         }
       }
@@ -3333,9 +3444,12 @@ document
     image.addEventListener(
       "error",
       () => {
-        image.classList.add("image-error");
+        image.classList.add(
+          "image-error"
+        );
       }
     );
+
   });
 
 imageClose?.addEventListener(
@@ -3353,115 +3467,360 @@ imageModal?.addEventListener(
     ) {
       closeImageModal();
     }
+
   }
 );
 
-/* =========================================================
-   ESCAPE KEY
-========================================================== */
-
-document.addEventListener(
-  "keydown",
-  (event) => {
-
-    if (event.key !== "Escape") {
-      return;
-    }
-
-    if (
-      imageModal &&
-      !imageModal.hidden
-    ) {
-      closeImageModal();
-      return;
-    }
-
-    if (
-      privacyModal &&
-      !privacyModal.hidden
-    ) {
-      closePrivacyModal();
-      return;
-    }
-
-    const notice =
-      $("public-notice");
-
-    if (
-      notice &&
-      !notice.classList.contains(
-        "is-hidden"
-      )
-    ) {
-      notice.classList.add(
-        "is-hidden"
-      );
-
-      $("open-public-notice")
-        ?.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      safeStorageSet(
-        "kea_notice_closed",
-        "1"
-      );
-    }
-  }
-);
 
 /* =========================================================
    BLOG ARTICLE READ MORE / READ LESS
-========================================================= */
+========================================================== */
 
 document
   .querySelectorAll(".read-more-button")
   .forEach((button) => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+      "click",
+      () => {
 
-      const contentId =
-        button.getAttribute("aria-controls");
+        const contentId =
+          button.getAttribute(
+            "aria-controls"
+          );
 
-      const content =
-        document.getElementById(contentId);
+        const content =
+          document.getElementById(
+            contentId
+          );
 
-      if (!content) {
-        return;
+        if (!content) {
+          return;
+        }
+
+        const isOpen =
+          button.getAttribute(
+            "aria-expanded"
+          ) === "true";
+
+        if (isOpen) {
+
+          content.hidden = true;
+
+          button.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          button.textContent =
+            "Read More";
+
+        } else {
+
+          content.hidden = false;
+
+          button.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+          button.textContent =
+            "Read Less";
+        }
+
       }
-
-      const isOpen =
-        button.getAttribute("aria-expanded") === "true";
-
-      if (isOpen) {
-
-        content.hidden = true;
-
-        button.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        button.textContent =
-          "Read More";
-
-      } else {
-
-        content.hidden = false;
-
-        button.setAttribute(
-          "aria-expanded",
-          "true"
-        );
-
-        button.textContent =
-          "Read Less";
-      }
-
-    });
+    );
 
   });
+
+
+/* =========================================================
+   BLOG SLIDER
+   MANUAL NAVIGATION ONLY
+========================================================== */
+
+(() => {
+
+  const slider =
+    $("blog-slider");
+
+  const track =
+    $("blog-track");
+
+  const prev =
+    $("blog-prev");
+
+  const next =
+    $("blog-next");
+
+  const dotsContainer =
+    $("blog-dots");
+
+  const counter =
+    $("blog-counter");
+
+  if (
+    !slider ||
+    !track ||
+    !prev ||
+    !next ||
+    !dotsContainer ||
+    !counter
+  ) {
+    return;
+  }
+
+  let slides =
+    Array.from(
+      track.querySelectorAll(
+        ".blog-slide"
+      )
+    );
+
+  if (!slides.length) {
+    return;
+  }
+
+  /* Sort newest article first */
+
+  slides.sort(
+    (a, b) => {
+
+      const aDate =
+        Date.parse(
+          a.dataset.date || ""
+        );
+
+      const bDate =
+        Date.parse(
+          b.dataset.date || ""
+        );
+
+      const safeA =
+        Number.isNaN(aDate)
+          ? 0
+          : aDate;
+
+      const safeB =
+        Number.isNaN(bDate)
+          ? 0
+          : bDate;
+
+      return safeB - safeA;
+    }
+  );
+
+  /* Rebuild track in sorted order */
+
+  slides.forEach(
+    (slide) => {
+      track.appendChild(slide);
+    }
+  );
+
+  let currentIndex = 0;
+
+
+  /* Create dots */
+
+  slides.forEach(
+    (_, index) => {
+
+      const dot =
+        document.createElement(
+          "button"
+        );
+
+      dot.type = "button";
+
+      dot.className =
+        "blog-dot";
+
+      dot.setAttribute(
+        "aria-label",
+        "Show article " +
+        (index + 1)
+      );
+
+      dot.addEventListener(
+        "click",
+        () => {
+          showSlide(index);
+        }
+      );
+
+      dotsContainer.appendChild(
+        dot
+      );
+    }
+  );
+
+  const dots =
+    Array.from(
+      dotsContainer.querySelectorAll(
+        ".blog-dot"
+      )
+    );
+
+
+  function updateNavigation() {
+
+    dots.forEach(
+      (dot, index) => {
+
+        const active =
+          index === currentIndex;
+
+        dot.classList.toggle(
+          "active",
+          active
+        );
+
+        if (active) {
+
+          dot.setAttribute(
+            "aria-current",
+            "true"
+          );
+
+        } else {
+
+          dot.removeAttribute(
+            "aria-current"
+          );
+        }
+
+      }
+    );
+
+    counter.textContent =
+      "Article " +
+      (currentIndex + 1) +
+      " of " +
+      slides.length;
+
+    /*
+      Keep the navigation buttons enabled
+      for circular navigation.
+    */
+
+    prev.disabled =
+      slides.length <= 1;
+
+    next.disabled =
+      slides.length <= 1;
+  }
+
+
+  function showSlide(index) {
+
+    if (!slides.length) {
+      return;
+    }
+
+    if (index < 0) {
+      index =
+        slides.length - 1;
+    }
+
+    if (index >= slides.length) {
+      index = 0;
+    }
+
+    currentIndex = index;
+
+    slides.forEach(
+      (slide, slideIndex) => {
+
+        const active =
+          slideIndex ===
+          currentIndex;
+
+        slide.classList.toggle(
+          "active",
+          active
+        );
+
+        slide.setAttribute(
+          "aria-hidden",
+          active
+            ? "false"
+            : "true"
+        );
+
+      }
+    );
+
+    updateNavigation();
+  }
+
+
+  /* Previous */
+
+  prev.addEventListener(
+    "click",
+    () => {
+      showSlide(
+        currentIndex - 1
+      );
+    }
+  );
+
+
+  /* Next */
+
+  next.addEventListener(
+    "click",
+    () => {
+      showSlide(
+        currentIndex + 1
+      );
+    }
+  );
+
+
+  /* Keyboard */
+
+  slider.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+
+        event.preventDefault();
+
+        showSlide(
+          currentIndex - 1
+        );
+
+      }
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+
+        event.preventDefault();
+
+        showSlide(
+          currentIndex + 1
+        );
+
+      }
+
+    }
+  );
+
+
+  /* Start with newest */
+
+  showSlide(0);
+
+})();
+
 
 /* =========================================================
    CONTACT FORM
@@ -3479,7 +3838,10 @@ function showStatus(
   message,
   type = ""
 ) {
-  if (!formStatus) return;
+
+  if (!formStatus) {
+    return;
+  }
 
   formStatus.textContent =
     message;
@@ -3488,7 +3850,9 @@ function showStatus(
     "form-status";
 
   if (type) {
-    formStatus.classList.add(type);
+    formStatus.classList.add(
+      type
+    );
   }
 }
 
@@ -3496,67 +3860,96 @@ function resetSubmission() {
 
   submitting = false;
 
-  submitButton.disabled = false;
-  submitButton.textContent =
-    "Send Requirement";
+  if (submitButton) {
+
+    submitButton.disabled =
+      false;
+
+    submitButton.textContent =
+      "Send Requirement";
+  }
 
   if (submissionTimer) {
-    clearTimeout(submissionTimer);
+
+    clearTimeout(
+      submissionTimer
+    );
+
     submissionTimer = null;
   }
 }
 
 function restoreFormState() {
 
+  if (!form) {
+    return;
+  }
+
   form.reset();
 
-  userAgentInput.value =
-    navigator.userAgent || "";
+  if (userAgentInput) {
+
+    userAgentInput.value =
+      navigator.userAgent || "";
+  }
 
   clearLocation();
 
   const consent =
     getLocationConsent();
 
+  if (!locationPermission) {
+    return;
+  }
+
   if (consent === "granted") {
+
     locationPermission.value =
       "previously_granted";
+
   } else if (consent === "denied") {
+
     locationPermission.value =
       "previously_denied";
+
   } else if (consent === "unavailable") {
+
     locationPermission.value =
       "unavailable";
+
   } else {
+
     locationPermission.value =
       "not_requested";
   }
 }
 
+
+/* Determine expected response origin */
+
 let formResponseOrigin = null;
 
-try {
-  formResponseOrigin =
-    new URL(
-      form.action,
-      window.location.href
-    ).origin;
-} catch {
-  formResponseOrigin = null;
-}
+if (form) {
 
-/*
-  The Google Apps Script endpoint must send a postMessage
-  containing:
-  {
-    type: "KEA_FORM_RESPONSE",
-    success: true|false,
-    message: "..."
+  try {
+
+    formResponseOrigin =
+      new URL(
+        form.action,
+        window.location.href
+      ).origin;
+
+  } catch {
+
+    formResponseOrigin = null;
   }
 
-  If it does not, the form cannot know whether the server
-  actually accepted the submission.
-*/
+}
+
+
+/* =========================================================
+   FORM RESPONSE
+========================================================== */
 
 window.addEventListener(
   "message",
@@ -3566,6 +3959,11 @@ window.addEventListener(
       return;
     }
 
+    /*
+      Only accept messages from the
+      Apps Script origin.
+    */
+
     if (
       formResponseOrigin &&
       event.origin !==
@@ -3573,6 +3971,11 @@ window.addEventListener(
     ) {
       return;
     }
+
+    /*
+      Only accept messages from
+      the form iframe.
+    */
 
     if (
       iframe &&
@@ -3585,11 +3988,14 @@ window.addEventListener(
     let data;
 
     try {
+
       data =
         typeof event.data === "string"
           ? JSON.parse(event.data)
           : event.data;
+
     } catch {
+
       return;
     }
 
@@ -3601,6 +4007,9 @@ window.addEventListener(
     ) {
       return;
     }
+
+
+    /* Successful submission */
 
     if (data.success === true) {
 
@@ -3614,10 +4023,13 @@ window.addEventListener(
 
       restoreFormState();
 
-      nameInput.focus();
+      nameInput?.focus();
 
       return;
     }
+
+
+    /* Server reported an error */
 
     resetSubmission();
 
@@ -3626,8 +4038,14 @@ window.addEventListener(
       "Your request could not be processed. Please try again.",
       "error"
     );
+
   }
 );
+
+
+/* =========================================================
+   FORM SUBMIT
+========================================================== */
 
 form?.addEventListener(
   "submit",
@@ -3639,83 +4057,143 @@ form?.addEventListener(
       return;
     }
 
+
+    /* Honeypot */
+
     if (
       honeypot &&
       honeypot.value.trim() !== ""
     ) {
+
       showStatus(
         "Unable to submit this request.",
         "error"
       );
+
       return;
     }
 
+
+    /* Name */
+
     const name =
-      nameInput.value.trim();
-
-    const email =
-      emailInput.value.trim();
-
-    const message =
-      messageInput.value.trim();
+      nameInput
+        ?.value
+        .trim() || "";
 
     if (!name) {
+
       showStatus(
         "Please enter your name or organisation.",
         "error"
       );
-      nameInput.focus();
+
+      nameInput?.focus();
+
       return;
     }
 
+
+    /* Email */
+
+    const email =
+      emailInput
+        ?.value
+        .trim() || "";
+
     if (!email) {
+
       showStatus(
         "Please enter your email address.",
         "error"
       );
-      emailInput.focus();
+
+      emailInput?.focus();
+
       return;
     }
 
-    if (!emailInput.checkValidity()) {
+    if (
+      emailInput &&
+      !emailInput.checkValidity()
+    ) {
+
       showStatus(
         "Please enter a valid email address.",
         "error"
       );
+
       emailInput.focus();
+
       return;
     }
 
+
+    /* Message */
+
+    const message =
+      messageInput
+        ?.value
+        .trim() || "";
+
     if (!message) {
+
       showStatus(
         "Please tell me about the work you need help with.",
         "error"
       );
-      messageInput.focus();
+
+      messageInput?.focus();
+
       return;
     }
 
-    userAgentInput.value =
-      navigator.userAgent || "";
+
+    /* User agent */
+
+    if (userAgentInput) {
+
+      userAgentInput.value =
+        navigator.userAgent || "";
+    }
+
+
+    /* Begin submission */
 
     submitting = true;
 
-    submitButton.disabled = true;
-    submitButton.textContent =
-      "Sending...";
+    if (submitButton) {
+
+      submitButton.disabled =
+        true;
+
+      submitButton.textContent =
+        "Sending...";
+    }
 
     showStatus(
       "Sending your requirement..."
     );
 
+
     /*
-      Native form submission prevents this submit listener
-      from firing recursively.
+      Submit natively to the iframe.
+
+      This avoids recursively triggering
+      this submit listener.
     */
 
     HTMLFormElement.prototype.submit.call(
       form
     );
+
+
+    /*
+      Failsafe timeout.
+
+      The server must send the expected
+      postMessage for success/failure.
+    */
 
     submissionTimer =
       window.setTimeout(
@@ -3735,236 +4213,83 @@ form?.addEventListener(
         },
         60000
       );
+
   }
 );
 
-<script>
+
 /* =========================================================
-   BLOG SLIDER — MANUAL NAVIGATION ONLY
+   ESCAPE KEY
 ========================================================== */
 
-(() => {
+document.addEventListener(
+  "keydown",
+  (event) => {
 
-  const slider = $("blog-slider");
-  const track = $("blog-track");
-  const prev = $("blog-prev");
-  const next = $("blog-next");
-  const dotsContainer = $("blog-dots");
-  const counter = $("blog-counter");
-
-  if (
-    !slider ||
-    !track ||
-    !prev ||
-    !next ||
-    !dotsContainer ||
-    !counter
-  ) {
-    return;
-  }
-
-  let slides =
-    Array.from(
-      track.querySelectorAll(".blog-slide")
-    );
-
-  if (!slides.length) {
-    return;
-  }
-
-  /*
-    Sort newest first.
-  */
-
-  slides.sort(
-    (a, b) => {
-
-      const aDate =
-        Date.parse(a.dataset.date || "");
-
-      const bDate =
-        Date.parse(b.dataset.date || "");
-
-      return (
-        (Number.isNaN(bDate) ? 0 : bDate) -
-        (Number.isNaN(aDate) ? 0 : aDate)
-      );
-    }
-  );
-
-  slides.forEach(
-    (slide) => track.appendChild(slide)
-  );
-
-  let currentIndex = 0;
-
-  /*
-    Create navigation dots.
-  */
-
-  slides.forEach(
-    (_, index) => {
-
-      const dot =
-        document.createElement("button");
-
-      dot.type = "button";
-      dot.className = "blog-dot";
-
-      dot.setAttribute(
-        "aria-label",
-        "Show article " + (index + 1)
-      );
-
-      dot.addEventListener(
-        "click",
-        () => {
-          showSlide(index);
-        }
-      );
-
-      dotsContainer.appendChild(dot);
-    }
-  );
-
-  const dots =
-    Array.from(
-      dotsContainer.querySelectorAll(".blog-dot")
-    );
-
-  function updateNavigation() {
-
-    dots.forEach(
-      (dot, index) => {
-
-        const active =
-          index === currentIndex;
-
-        dot.classList.toggle(
-          "active",
-          active
-        );
-
-        if (active) {
-          dot.setAttribute(
-            "aria-current",
-            "true"
-          );
-        } else {
-          dot.removeAttribute(
-            "aria-current"
-          );
-        }
-      }
-    );
-
-    counter.textContent =
-      "Article " +
-      (currentIndex + 1) +
-      " of " +
-      slides.length;
-
-    /*
-      Buttons are for manual navigation only.
-    */
-
-    prev.disabled =
-      slides.length <= 1;
-
-    next.disabled =
-      slides.length <= 1;
-  }
-
-  function showSlide(index) {
-
-    if (!slides.length) {
+    if (
+      event.key !== "Escape"
+    ) {
       return;
     }
 
-    if (index < 0) {
-      index = slides.length - 1;
+
+    /* Image modal */
+
+    if (
+      imageModal &&
+      !imageModal.hidden
+    ) {
+
+      closeImageModal();
+
+      return;
     }
 
-    if (index >= slides.length) {
-      index = 0;
+
+    /* Privacy modal */
+
+    if (
+      privacyModal &&
+      !privacyModal.hidden
+    ) {
+
+      closePrivacyModal();
+
+      return;
     }
 
-    currentIndex = index;
 
-    slides.forEach(
-      (slide, slideIndex) => {
+    /* Public notice */
 
-        const active =
-          slideIndex === currentIndex;
+    const notice =
+      $("public-notice");
 
-        slide.classList.toggle(
-          "active",
-          active
+    if (
+      notice &&
+      !notice.classList.contains(
+        "is-hidden"
+      )
+    ) {
+
+      notice.classList.add(
+        "is-hidden"
+      );
+
+      $("open-public-notice")
+        ?.setAttribute(
+          "aria-expanded",
+          "false"
         );
 
-        slide.setAttribute(
-          "aria-hidden",
-          active
-            ? "false"
-            : "true"
-        );
-      }
-    );
+      safeStorageSet(
+        "kea_notice_closed",
+        "1"
+      );
+    }
 
-    updateNavigation();
   }
+);
 
-  /*
-    Previous article.
-  */
-
-  prev.addEventListener(
-    "click",
-    () => {
-      showSlide(currentIndex - 1);
-    }
-  );
-
-  /*
-    Next article.
-  */
-
-  next.addEventListener(
-    "click",
-    () => {
-      showSlide(currentIndex + 1);
-    }
-  );
-
-  /*
-    Keyboard navigation.
-  */
-
-  slider.addEventListener(
-    "keydown",
-    (event) => {
-
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        showSlide(currentIndex - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        showSlide(currentIndex + 1);
-      }
-    }
-  );
-
-  /*
-    Start with the newest article.
-    No automatic sliding.
-  */
-
-  showSlide(0);
-
-})();
-</script>
 
 /* =========================================================
    INTERNAL LINKS
@@ -3985,12 +4310,17 @@ document
             "href"
           );
 
-        if (!id || id === "#") {
+        if (
+          !id ||
+          id === "#"
+        ) {
           return;
         }
 
         const target =
-          document.querySelector(id);
+          document.querySelector(
+            id
+          );
 
         if (!target) {
           return;
@@ -4003,21 +4333,31 @@ document
             reducedMotion()
               ? "auto"
               : "smooth",
+
           block: "start"
         });
 
-        if (id === "#contact") {
+
+        if (
+          id === "#contact"
+        ) {
+
           window.setTimeout(
             () => {
+
               nameInput?.focus();
+
             },
+
             reducedMotion()
               ? 0
               : 500
           );
         }
+
       }
     );
+
   });
 
 </script> </body> </html>
