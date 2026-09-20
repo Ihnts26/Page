@@ -2406,12 +2406,12 @@ footer strong {
           Article 1 of 2
         </span>
 
-        <span
-          class="blog-auto-status"
-          id="blog-auto-status"
-        >
-          Auto-sliding
-        </span>
+<span
+  class="blog-auto-status"
+  id="blog-auto-status"
+>
+  Manual navigation
+</span>
 
       </div>
 
@@ -3640,13 +3640,12 @@ form.addEventListener(
 );
 
 /* =========================================================
-   BLOG SLIDER
+   BLOG SLIDER — MANUAL ONLY
    - Newest article first
    - Previous / Next
    - Dots
-   - Automatic rotation
-   - Pauses on hover/focus
-   - Respects reduced motion
+   - Keyboard ArrowLeft / ArrowRight
+   - No automatic rotation
 ========================================================= */
 (function initBlogSlider() {
 
@@ -3685,9 +3684,7 @@ form.addEventListener(
 
   let slides =
     Array.from(
-      track.querySelectorAll(
-        ".blog-slide"
-      )
+      track.querySelectorAll(".blog-slide")
     );
 
   if (!slides.length) {
@@ -3695,73 +3692,50 @@ form.addEventListener(
   }
 
   /* Sort newest to oldest. */
-  slides.sort(
-    function(a, b) {
+  slides.sort(function(a, b) {
 
-      const dateA =
-        Date.parse(
-          a.dataset.date || ""
-        );
+    const dateA =
+      Date.parse(a.dataset.date || "");
 
-      const dateB =
-        Date.parse(
-          b.dataset.date || ""
-        );
+    const dateB =
+      Date.parse(b.dataset.date || "");
 
-      return (
-        (Number.isNaN(dateB) ? 0 : dateB) -
-        (Number.isNaN(dateA) ? 0 : dateA)
-      );
-    }
-  );
+    return (
+      (Number.isNaN(dateB) ? 0 : dateB) -
+      (Number.isNaN(dateA) ? 0 : dateA)
+    );
+  });
 
   /* Reinsert sorted slides. */
-  slides.forEach(
-    function(slide) {
-      track.appendChild(slide);
-    }
-  );
+  slides.forEach(function(slide) {
+    track.appendChild(slide);
+  });
 
   let currentIndex = 0;
-  let autoSlideTimer = null;
 
-  const AUTO_SLIDE_TIME = 10000;
+  /* Create navigation dots. */
+  slides.forEach(function(slide, index) {
 
-  /* Create dots. */
-  slides.forEach(
-    function(slide, index) {
+    const dot =
+      document.createElement("button");
 
-      const dot =
-        document.createElement(
-          "button"
-        );
+    dot.type = "button";
+    dot.className = "blog-dot";
 
-      dot.type = "button";
+    dot.setAttribute(
+      "aria-label",
+      "Show article " + (index + 1)
+    );
 
-      dot.className =
-        "blog-dot";
+    dot.addEventListener(
+      "click",
+      function() {
+        showSlide(index);
+      }
+    );
 
-      dot.setAttribute(
-        "aria-label",
-        "Show article " +
-        (index + 1)
-      );
-
-      dot.addEventListener(
-        "click",
-        function() {
-
-          showSlide(index);
-
-          restartAutoSlide();
-        }
-      );
-
-      dotsContainer.appendChild(
-        dot
-      );
-    }
-  );
+    dotsContainer.appendChild(dot);
+  });
 
   const dots =
     Array.from(
@@ -3772,25 +3746,21 @@ form.addEventListener(
 
   function updateNavigation() {
 
-    dots.forEach(
-      function(dot, index) {
+    dots.forEach(function(dot, index) {
 
-        const active =
-          index === currentIndex;
+      const active =
+        index === currentIndex;
 
-        dot.classList.toggle(
-          "active",
-          active
-        );
+      dot.classList.toggle(
+        "active",
+        active
+      );
 
-        dot.setAttribute(
-          "aria-current",
-          active
-            ? "true"
-            : "false"
-        );
-      }
-    );
+      dot.setAttribute(
+        "aria-current",
+        active ? "true" : "false"
+      );
+    });
 
     counter.textContent =
       "Article " +
@@ -3803,6 +3773,10 @@ form.addEventListener(
 
     nextButton.disabled =
       slides.length <= 1;
+
+    /* Manual navigation status. */
+    autoStatus.textContent =
+      "Manual navigation";
   }
 
   function showSlide(index) {
@@ -3812,8 +3786,7 @@ form.addEventListener(
     }
 
     if (index < 0) {
-      index =
-        slides.length - 1;
+      index = slides.length - 1;
     }
 
     if (index >= slides.length) {
@@ -3845,57 +3818,7 @@ form.addEventListener(
     updateNavigation();
   }
 
-  function stopAutoSlide() {
-
-    if (autoSlideTimer !== null) {
-
-      window.clearInterval(
-        autoSlideTimer
-      );
-
-      autoSlideTimer = null;
-    }
-  }
-
-  function startAutoSlide() {
-
-    stopAutoSlide();
-
-    if (
-      slides.length <= 1 ||
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
-    ) {
-
-      autoStatus.textContent =
-        slides.length <= 1
-          ? "Latest article"
-          : "Manual navigation";
-
-      return;
-    }
-
-    autoSlideTimer =
-      window.setInterval(
-        function() {
-
-          showSlide(
-            currentIndex + 1
-          );
-
-        },
-        AUTO_SLIDE_TIME
-      );
-
-    autoStatus.textContent =
-      "Auto-sliding";
-  }
-
-  function restartAutoSlide() {
-    startAutoSlide();
-  }
-
+  /* Previous button. */
   prevButton.addEventListener(
     "click",
     function() {
@@ -3904,10 +3827,10 @@ form.addEventListener(
         currentIndex - 1
       );
 
-      restartAutoSlide();
     }
   );
 
+  /* Next button. */
   nextButton.addEventListener(
     "click",
     function() {
@@ -3916,57 +3839,10 @@ form.addEventListener(
         currentIndex + 1
       );
 
-      restartAutoSlide();
     }
   );
 
-  slider.addEventListener(
-    "mouseenter",
-    function() {
-
-      stopAutoSlide();
-
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
-    }
-  );
-
-  slider.addEventListener(
-    "mouseleave",
-    function() {
-      startAutoSlide();
-    }
-  );
-
-  slider.addEventListener(
-    "focusin",
-    function() {
-
-      stopAutoSlide();
-
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
-    }
-  );
-
-  slider.addEventListener(
-    "focusout",
-    function(event) {
-
-      if (
-        !slider.contains(
-          event.relatedTarget
-        )
-      ) {
-        startAutoSlide();
-      }
-    }
-  );
-
+  /* Keyboard navigation. */
   slider.addEventListener(
     "keydown",
     function(event) {
@@ -3981,7 +3857,6 @@ form.addEventListener(
           currentIndex - 1
         );
 
-        restartAutoSlide();
       }
 
       if (
@@ -3994,14 +3869,13 @@ form.addEventListener(
           currentIndex + 1
         );
 
-        restartAutoSlide();
       }
+
     }
   );
 
   /* Initial state. */
   showSlide(0);
-  startAutoSlide();
 
 })();
 
