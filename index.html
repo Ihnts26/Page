@@ -772,11 +772,6 @@ nav a:focus-visible {
   font-size: 11px;
 }
 
-.blog-auto-status {
-  color: var(--blue);
-  font-weight: 700;
-}
-
 @keyframes blogFade {
   from {
     opacity: 0;
@@ -2545,20 +2540,14 @@ footer strong {
       </div>
 
 
-      <div class="blog-meta">
+     <div class="blog-meta">
 
-        <span id="blog-counter">
-          Article 1 of 2
-        </span>
+  <span id="blog-counter">
+    Article 1 of 2
+  </span>
 
-        <span
-          class="blog-auto-status"
-          id="blog-auto-status"
-        >
-          Auto-sliding
-        </span>
+</div>
 
-      </div>
 
     </div>
 
@@ -3749,6 +3738,7 @@ form?.addEventListener(
   }
 );
 
+<script>
 /* =========================================================
    BLOG SLIDER — MANUAL NAVIGATION ONLY
 ========================================================== */
@@ -3761,7 +3751,6 @@ form?.addEventListener(
   const next = $("blog-next");
   const dotsContainer = $("blog-dots");
   const counter = $("blog-counter");
-  const autoStatus = $("blog-auto-status");
 
   if (
     !slider ||
@@ -3769,8 +3758,7 @@ form?.addEventListener(
     !prev ||
     !next ||
     !dotsContainer ||
-    !counter ||
-    !autoStatus
+    !counter
   ) {
     return;
   }
@@ -3877,7 +3865,7 @@ form?.addEventListener(
       slides.length;
 
     /*
-      Keep buttons available for manual navigation.
+      Buttons are for manual navigation only.
     */
 
     prev.disabled =
@@ -3885,11 +3873,7 @@ form?.addEventListener(
 
     next.disabled =
       slides.length <= 1;
-
-    /*
-      No automatic sliding.
-    */
-
+  }
 
   function showSlide(index) {
 
@@ -3974,12 +3958,13 @@ form?.addEventListener(
 
   /*
     Start with the newest article.
-    Nothing automatically changes after this.
+    No automatic sliding.
   */
 
   showSlide(0);
 
 })();
+</script>
 
 /* =========================================================
    INTERNAL LINKS
