@@ -2694,8 +2694,10 @@ footer strong {
   id="contact-form"
   action="https://script.google.com/macros/s/AKfycbxTOZUpq_K-sx5dHh2HMsrtaM34oSsOUBvpNNoCUoj6FmKz8ECNCzWSTL_reHQx2DxE/exec"
   method="POST"
+  target="form-response-frame"
   novalidate
 >
+
 
   <label for="name">
     Name / Organisation
@@ -4007,29 +4009,6 @@ function restoreFormState() {
   }
 }
 
-
-/* Determine expected response origin */
-
-let formResponseOrigin = null;
-
-if (form) {
-
-  try {
-
-    formResponseOrigin =
-      new URL(
-        form.action,
-        window.location.href
-      ).origin;
-
-  } catch {
-
-    formResponseOrigin = null;
-  }
-
-}
-
-
 /* =========================================================
    FORM RESPONSE
 ========================================================== */
@@ -4042,31 +4021,17 @@ window.addEventListener(
       return;
     }
 
-    /*
-      Only accept messages from the
-      Apps Script origin.
-    */
+/*
+ * Only accept messages coming from the
+ * hidden response iframe.
+ */
+if (
+  iframe &&
+  event.source !== iframe.contentWindow
+) {
+  return;
+}
 
-    if (
-      formResponseOrigin &&
-      event.origin !==
-        formResponseOrigin
-    ) {
-      return;
-    }
-
-    /*
-      Only accept messages from
-      the form iframe.
-    */
-
-    if (
-      iframe &&
-      event.source !==
-        iframe.contentWindow
-    ) {
-      return;
-    }
 
     let data;
 
