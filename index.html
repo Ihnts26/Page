@@ -3381,9 +3381,11 @@ allowLocation?.addEventListener(
 
   switch (consent) {
 
-    case "granted":
-      locationPermission.value = "previously_granted";
-      break;
+case "granted":
+  locationPermission.value = "previously_granted";
+  clearLocation();
+  break;
+
 
     case "denied":
       locationPermission.value = "previously_denied";
