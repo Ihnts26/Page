@@ -2811,22 +2811,41 @@ footer strong {
   class="image-zoom-caption"
 ></div>
 
-</div> <!-- ========================================================= PRIVACY MODAL ========================================================== --> <div id="privacy-modal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden >
-<div class="privacy-panel">
+</div> 
+  <!-- ========================================================= PRIVACY MODAL ========================================================== --> 
+  <div
+  id="privacy-modal"
+  class="privacy-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="privacy-title"
+  hidden
+>
+  <div class="privacy-panel">
 
+    <button
+      type="button"
+      class="privacy-close"
+      id="privacy-close"
+      aria-label="Close privacy panel"
+    >
+      &times;
+    </button>
+
+    <!-- privacy content -->
+
+  </div>
+</div>
+
+<div class="privacy-floating">
   <button
     type="button"
-    class="privacy-close"
-    id="privacy-close"
-    aria-label="Close privacy panel"
+    id="open-privacy"
+    aria-haspopup="dialog"
   >
-    &times;
-  </button>
-
-  <div class="label">
     Privacy &amp; Terms
-  </div>
-
+  </button>
+</div>
   <h2 id="privacy-title">
     Your Privacy Matters
   </h2>
@@ -3064,31 +3083,21 @@ const privacyUnderstood = $("privacy-understood");
 let privacyReturnFocus = null;
 
 function openPrivacyModal() {
-  if (!privacyModal) {
-    return;
-  }
+  if (!privacyModal) return;
 
   privacyReturnFocus = document.activeElement;
 
   privacyModal.hidden = false;
-
-  document.body.classList.add(
-    "modal-open"
-  );
+  document.body.classList.add("modal-open");
 
   privacyClose?.focus();
 }
 
 function closePrivacyModal() {
-  if (!privacyModal) {
-    return;
-  }
+  if (!privacyModal) return;
 
   privacyModal.hidden = true;
-
-  document.body.classList.remove(
-    "modal-open"
-  );
+  document.body.classList.remove("modal-open");
 
   if (
     privacyReturnFocus &&
@@ -3098,24 +3107,37 @@ function closePrivacyModal() {
   }
 }
 
-openPrivacy?.addEventListener(
-  "click",
-  openPrivacyModal
-);
+/* Open Privacy & Terms */
+openPrivacy?.addEventListener("click", (event) => {
+  event.preventDefault();
+  openPrivacyModal();
+});
 
-privacyClose?.addEventListener(
-  "click",
-  closePrivacyModal
-);
+/* Close X button */
+privacyClose?.addEventListener("click", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
 
-privacyModal?.addEventListener(
-  "click",
-  (event) => {
-    if (event.target === privacyModal) {
-      closePrivacyModal();
-    }
+  closePrivacyModal();
+});
+
+/* Click outside the privacy panel */
+privacyModal?.addEventListener("click", (event) => {
+  if (event.target === privacyModal) {
+    closePrivacyModal();
   }
-);
+});
+
+/* Don't Allow */
+denyLocation?.addEventListener("click", () => {
+  denyLocationAccess();
+});
+
+/* Continue Without Location */
+privacyUnderstood?.addEventListener("click", () => {
+  denyLocationAccess();
+});
+
 
 
 /* =========================================================
