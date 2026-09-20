@@ -1,4 +1,14 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="theme-color" content="#0B1F3A"> <meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support."> <meta name="color-scheme" content="light"> <title>KEA | Practical Hands-On Support</title> <style> /* ========================================================= RESET & BASE ========================================================= */
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="theme-color" content="#0B1F3A">
+<meta name="description" content="KEA | Kaye Eloisa Arnejo — practical hands-on freelance, contract and project support.">
+<meta name="color-scheme" content="light"> <title>KEA | Practical Hands-On Support</title>
+<meta name="robots" content="index, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<style> /* ========================================================= RESET & BASE ========================================================= */
 *,
 *::before,
 *::after {
@@ -1210,6 +1220,79 @@ form button[type="submit"]:disabled {
   cursor: pointer;
 }
 
+/* =========================================================
+   PRIVACY MODAL FIXES
+========================================================= */
+
+.privacy-modal {
+  isolation: isolate;
+}
+
+.privacy-panel {
+  position: relative;
+  width: min(100%, 650px);
+  max-height: min(90vh, 850px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 32px;
+  background: var(--white);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 15px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.3);
+}
+
+.privacy-panel h2 {
+  margin: 0 45px 8px 0;
+  color: var(--navy);
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.privacy-panel .privacy-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #CBD5E1;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #334155;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.privacy-panel .privacy-close:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+.privacy-section:first-of-type {
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 650px) {
+  .privacy-modal {
+    padding: 12px;
+  }
+
+  .privacy-panel {
+    max-height: 94vh;
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .privacy-panel h2 {
+    font-size: 1.3rem;
+  }
+}
+  
 /* =========================================================
    FLOATING BUTTONS
 ========================================================= */
@@ -2813,9 +2896,11 @@ footer strong {
   class="image-zoom-caption"
 ></div>
 
-</div> 
-  <!-- ========================================================= PRIVACY MODAL ========================================================== --> 
-  <div
+<!-- =========================================================
+     PRIVACY MODAL
+========================================================== -->
+
+<div
   id="privacy-modal"
   class="privacy-modal"
   role="dialog"
@@ -2834,117 +2919,130 @@ footer strong {
       &times;
     </button>
 
-    <!-- privacy content -->
+    <h2 id="privacy-title">
+      Your Privacy Matters
+    </h2>
+
+    <div class="privacy-section">
+      <h3>Contact Form</h3>
+
+      <p>
+        Information submitted through this form is used to respond
+        to your enquiry and discuss the requested work.
+      </p>
+
+      <p>
+        Submissions are stored in the connected third-party service
+        provider used by this page.
+      </p>
+    </div>
+
+    <div class="privacy-section">
+      <h3>Location Information</h3>
+
+      <p>
+        Location access is optional. Your browser will only request
+        location permission when you explicitly choose Allow
+        Location.
+      </p>
+
+      <p>
+        If permitted, latitude, longitude and accuracy may be
+        included with your enquiry.
+      </p>
+
+      <p>
+        Location is not continuously tracked.
+      </p>
+    </div>
+
+    <div class="privacy-section">
+      <h3>Sensitive Information</h3>
+
+      <p>
+        Please do not submit passwords, financial information,
+        medical records or other sensitive information unless it is
+        genuinely necessary for the enquiry.
+      </p>
+    </div>
+
+    <div class="privacy-section">
+      <h3>Professional Scope</h3>
+
+      <p>
+        Technical, electrical, electronics, hardware, construction,
+        clinical, medical and mental health-related project support
+        is subject to the actual scope of work, applicable
+        requirements, qualifications, permissions and professional
+        responsibilities that may apply.
+      </p>
+
+      <p>
+        Mental health-related support is non-diagnostic project and
+        support work and is not a substitute for emergency care,
+        diagnosis, psychotherapy, medical treatment or regulated
+        professional services.
+      </p>
+    </div>
+
+    <div class="privacy-actions">
+
+      <button
+        type="button"
+        class="privacy-button privacy-primary"
+        id="allow-location"
+      >
+        Allow Location
+      </button>
+
+      <button
+        type="button"
+        class="privacy-button privacy-secondary"
+        id="deny-location"
+      >
+        Don't Allow
+      </button>
+
+    </div>
+
+    <button
+      type="button"
+      class="privacy-text-button"
+      id="privacy-understood"
+    >
+      Continue Without Location
+    </button>
 
   </div>
 </div>
+
+<!-- =========================================================
+     FLOATING BUTTONS
+========================================================== -->
 
 <div class="privacy-floating">
   <button
     type="button"
     id="open-privacy"
     aria-haspopup="dialog"
+    aria-controls="privacy-modal"
   >
     Privacy &amp; Terms
   </button>
 </div>
-  <h2 id="privacy-title">
-    Your Privacy Matters
-  </h2>
 
-  <div class="privacy-section">
-    <h3>Contact Form</h3>
-
-    <p>
-      Information submitted through this form is used to respond
-      to your enquiry and discuss the requested work.
-    </p>
-
-    <p>
-      Submissions are stored in the connected third-party service
-      provider used by this page.
-    </p>
-  </div>
-
-  <div class="privacy-section">
-    <h3>Location Information</h3>
-
-    <p>
-      Location access is optional. Your browser will only request
-      location permission when you explicitly choose Allow
-      Location.
-    </p>
-
-    <p>
-      If permitted, latitude, longitude and accuracy may be
-      included with your enquiry.
-    </p>
-
-    <p>
-      Location is not continuously tracked.
-    </p>
-  </div>
-
-  <div class="privacy-section">
-    <h3>Sensitive Information</h3>
-
-    <p>
-      Please do not submit passwords, financial information,
-      medical records or other sensitive information unless it is
-      genuinely necessary for the enquiry.
-    </p>
-  </div>
-
-  <div class="privacy-section">
-    <h3>Professional Scope</h3>
-
-    <p>
-      Technical, electrical, electronics, hardware, construction,
-      clinical, medical and mental health-related project support
-      is subject to the actual scope of work, applicable
-      requirements, qualifications, permissions and professional
-      responsibilities that may apply.
-    </p>
-
-    <p>
-      Mental health-related support is non-diagnostic project and
-      support work and is not a substitute for emergency care,
-      diagnosis, psychotherapy, medical treatment or regulated
-      professional services.
-    </p>
-  </div>
-
-  <div class="privacy-actions">
-
-    <button
-      type="button"
-      class="privacy-button privacy-primary"
-      id="allow-location"
-    >
-      Allow Location
-    </button>
-
-    <button
-      type="button"
-      class="privacy-button privacy-secondary"
-      id="deny-location"
-    >
-      Don't Allow
-    </button>
-
-  </div>
-
+<div class="public-notice-floating">
   <button
     type="button"
-    class="privacy-text-button"
-    id="privacy-understood"
+    id="open-public-notice"
+    aria-controls="public-notice"
+    aria-expanded="true"
   >
-    Continue Without Location
+    Public Notice
   </button>
-
 </div>
 
-</div> <!-- ========================================================= FLOATING BUTTONS ========================================================== --> <div class="privacy-floating"> <button type="button" id="open-privacy" aria-haspopup="dialog" > Privacy &amp; Terms </button> </div> <div class="public-notice-floating"> <button type="button" id="open-public-notice" aria-controls="public-notice" aria-expanded="true" > Public Notice </button> </div> 
+  
 <!-- =========================================================
      JAVASCRIPT
 ========================================================== -->
@@ -3085,7 +3183,9 @@ const privacyUnderstood = $("privacy-understood");
 let privacyReturnFocus = null;
 
 function openPrivacyModal() {
-  if (!privacyModal) return;
+  if (!privacyModal) {
+    return;
+  }
 
   privacyReturnFocus = document.activeElement;
 
@@ -3096,7 +3196,9 @@ function openPrivacyModal() {
 }
 
 function closePrivacyModal() {
-  if (!privacyModal) return;
+  if (!privacyModal) {
+    return;
+  }
 
   privacyModal.hidden = true;
   document.body.classList.remove("modal-open");
@@ -3107,6 +3209,8 @@ function closePrivacyModal() {
   ) {
     privacyReturnFocus.focus();
   }
+
+  privacyReturnFocus = null;
 }
 
 /* Open Privacy & Terms */
@@ -3115,32 +3219,18 @@ openPrivacy?.addEventListener("click", (event) => {
   openPrivacyModal();
 });
 
-/* Close X button */
+/* Close button */
 privacyClose?.addEventListener("click", (event) => {
   event.preventDefault();
-  event.stopPropagation();
-
   closePrivacyModal();
 });
 
-/* Click outside the privacy panel */
+/* Click outside panel */
 privacyModal?.addEventListener("click", (event) => {
   if (event.target === privacyModal) {
     closePrivacyModal();
   }
 });
-
-/* Don't Allow */
-denyLocation?.addEventListener("click", () => {
-  denyLocationAccess();
-});
-
-/* Continue Without Location */
-privacyUnderstood?.addEventListener("click", () => {
-  denyLocationAccess();
-});
-
-
 
 /* =========================================================
    LOCATION
@@ -3161,16 +3251,11 @@ function clearLocation() {
 }
 
 function saveLocationConsent(value) {
-  safeStorageSet(
-    "kea_location_consent",
-    value
-  );
+  safeStorageSet("kea_location_consent", value);
 }
 
 function getLocationConsent() {
-  return safeStorageGet(
-    "kea_location_consent"
-  );
+  return safeStorageGet("kea_location_consent");
 }
 
 function denyLocationAccess() {
@@ -3185,16 +3270,19 @@ function denyLocationAccess() {
   closePrivacyModal();
 }
 
+/* Don't allow location */
 denyLocation?.addEventListener(
   "click",
   denyLocationAccess
 );
 
+/* Continue without location */
 privacyUnderstood?.addEventListener(
   "click",
   denyLocationAccess
 );
 
+/* Allow location */
 allowLocation?.addEventListener(
   "click",
   () => {
@@ -3202,13 +3290,10 @@ allowLocation?.addEventListener(
     if (!navigator.geolocation) {
 
       if (locationPermission) {
-        locationPermission.value =
-          "unavailable";
+        locationPermission.value = "unavailable";
       }
 
-      saveLocationConsent(
-        "unavailable"
-      );
+      saveLocationConsent("unavailable");
 
       closePrivacyModal();
 
@@ -3216,61 +3301,44 @@ allowLocation?.addEventListener(
     }
 
     allowLocation.disabled = true;
-
-    allowLocation.textContent =
-      "Requesting Location...";
+    allowLocation.textContent = "Requesting Location...";
 
     navigator.geolocation.getCurrentPosition(
 
       (position) => {
 
-        const coords =
-          position.coords;
+        const coords = position.coords;
 
         if (latitudeInput) {
           latitudeInput.value =
-            Number(
-              coords.latitude
-            ).toFixed(8);
+            Number(coords.latitude).toFixed(8);
         }
 
         if (longitudeInput) {
           longitudeInput.value =
-            Number(
-              coords.longitude
-            ).toFixed(8);
+            Number(coords.longitude).toFixed(8);
         }
 
         if (accuracyInput) {
           accuracyInput.value =
-            Number(
-              coords.accuracy
-            ).toFixed(2);
+            Number(coords.accuracy).toFixed(2);
         }
 
         if (locationPermission) {
-          locationPermission.value =
-            "granted";
+          locationPermission.value = "granted";
         }
 
-        saveLocationConsent(
-          "granted"
-        );
+        saveLocationConsent("granted");
 
         allowLocation.disabled = false;
-
-        allowLocation.textContent =
-          "Allow Location";
+        allowLocation.textContent = "Allow Location";
 
         closePrivacyModal();
       },
 
       (error) => {
 
-        console.warn(
-          "Location error:",
-          error
-        );
+        console.warn("Location error:", error);
 
         clearLocation();
 
@@ -3280,16 +3348,13 @@ allowLocation?.addEventListener(
             : "unavailable";
 
         if (locationPermission) {
-          locationPermission.value =
-            status;
+          locationPermission.value = status;
         }
 
         saveLocationConsent(status);
 
         allowLocation.disabled = false;
-
-        allowLocation.textContent =
-          "Allow Location";
+        allowLocation.textContent = "Allow Location";
 
         closePrivacyModal();
       },
@@ -3303,42 +3368,36 @@ allowLocation?.addEventListener(
   }
 );
 
-
-/* Restore remembered location preference */
-
+/* Restore remembered preference */
 (() => {
 
-  const consent =
-    getLocationConsent();
+  const consent = getLocationConsent();
 
   if (!locationPermission) {
     return;
   }
 
-  if (consent === "granted") {
+  switch (consent) {
 
-    locationPermission.value =
-      "previously_granted";
+    case "granted":
+      locationPermission.value = "previously_granted";
+      break;
 
-  } else if (consent === "denied") {
+    case "denied":
+      locationPermission.value = "previously_denied";
+      break;
 
-    locationPermission.value =
-      "previously_denied";
+    case "unavailable":
+      locationPermission.value = "unavailable";
+      break;
 
-  } else if (consent === "unavailable") {
-
-    locationPermission.value =
-      "unavailable";
-
-  } else {
-
-    locationPermission.value =
-      "not_requested";
+    default:
+      locationPermission.value = "not_requested";
   }
 
 })();
 
-
+  
 /* =========================================================
    IMAGE ZOOM
 ========================================================== */
@@ -4272,16 +4331,13 @@ document.addEventListener(
 
     /* Privacy modal */
 
-    if (
-      privacyModal &&
-      !privacyModal.hidden
-    ) {
-
-      closePrivacyModal();
-
-      return;
-    }
-
+if (
+  privacyModal &&
+  !privacyModal.hidden
+) {
+  closePrivacyModal();
+  return;
+}
 
     /* Public notice */
 
