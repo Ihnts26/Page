@@ -3750,7 +3750,7 @@ form?.addEventListener(
 );
 
 /* =========================================================
-   BLOG SLIDER
+   BLOG SLIDER — MANUAL NAVIGATION ONLY
 ========================================================== */
 
 (() => {
@@ -3777,9 +3777,7 @@ form?.addEventListener(
 
   let slides =
     Array.from(
-      track.querySelectorAll(
-        ".blog-slide"
-      )
+      track.querySelectorAll(".blog-slide")
     );
 
   if (!slides.length) {
@@ -3791,17 +3789,13 @@ form?.addEventListener(
   */
 
   slides.sort(
-    (a,b) => {
+    (a, b) => {
 
       const aDate =
-        Date.parse(
-          a.dataset.date || ""
-        );
+        Date.parse(a.dataset.date || "");
 
       const bDate =
-        Date.parse(
-          b.dataset.date || ""
-        );
+        Date.parse(b.dataset.date || "");
 
       return (
         (Number.isNaN(bDate) ? 0 : bDate) -
@@ -3815,32 +3809,29 @@ form?.addEventListener(
   );
 
   let currentIndex = 0;
-  let timer = null;
 
-  const AUTO_TIME = 10000;
+  /*
+    Create navigation dots.
+  */
 
   slides.forEach(
     (_, index) => {
 
       const dot =
-        document.createElement(
-          "button"
-        );
+        document.createElement("button");
 
       dot.type = "button";
       dot.className = "blog-dot";
 
       dot.setAttribute(
         "aria-label",
-        "Show article " +
-        (index + 1)
+        "Show article " + (index + 1)
       );
 
       dot.addEventListener(
         "click",
         () => {
           showSlide(index);
-          restartAutoSlide();
         }
       );
 
@@ -3850,15 +3841,13 @@ form?.addEventListener(
 
   const dots =
     Array.from(
-      dotsContainer.querySelectorAll(
-        ".blog-dot"
-      )
+      dotsContainer.querySelectorAll(".blog-dot")
     );
 
   function updateNavigation() {
 
     dots.forEach(
-      (dot,index) => {
+      (dot, index) => {
 
         const active =
           index === currentIndex;
@@ -3887,11 +3876,22 @@ form?.addEventListener(
       " of " +
       slides.length;
 
+    /*
+      Keep buttons available for manual navigation.
+    */
+
     prev.disabled =
       slides.length <= 1;
 
     next.disabled =
       slides.length <= 1;
+
+    /*
+      No automatic sliding.
+    */
+
+    autoStatus.textContent =
+      "Manual navigation";
   }
 
   function showSlide(index) {
@@ -3911,11 +3911,10 @@ form?.addEventListener(
     currentIndex = index;
 
     slides.forEach(
-      (slide,slideIndex) => {
+      (slide, slideIndex) => {
 
         const active =
-          slideIndex ===
-          currentIndex;
+          slideIndex === currentIndex;
 
         slide.classList.toggle(
           "active",
@@ -3934,142 +3933,54 @@ form?.addEventListener(
     updateNavigation();
   }
 
-  function stopAutoSlide() {
-
-    if (timer !== null) {
-      clearInterval(timer);
-      timer = null;
-    }
-  }
-
-  function startAutoSlide() {
-
-    stopAutoSlide();
-
-    if (
-      slides.length <= 1 ||
-      reducedMotion()
-    ) {
-      autoStatus.textContent =
-        slides.length <= 1
-          ? "Latest article"
-          : "Manual navigation";
-      return;
-    }
-
-    timer =
-      setInterval(
-        () => {
-          showSlide(
-            currentIndex + 1
-          );
-        },
-        AUTO_TIME
-      );
-
-    autoStatus.textContent =
-      "Auto-sliding";
-  }
-
-  function restartAutoSlide() {
-    startAutoSlide();
-  }
+  /*
+    Previous article.
+  */
 
   prev.addEventListener(
     "click",
     () => {
-      showSlide(
-        currentIndex - 1
-      );
-      restartAutoSlide();
+      showSlide(currentIndex - 1);
     }
   );
+
+  /*
+    Next article.
+  */
 
   next.addEventListener(
     "click",
     () => {
-      showSlide(
-        currentIndex + 1
-      );
-      restartAutoSlide();
+      showSlide(currentIndex + 1);
     }
   );
 
-  slider.addEventListener(
-    "mouseenter",
-    () => {
-      stopAutoSlide();
-
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
-    }
-  );
-
-  slider.addEventListener(
-    "mouseleave",
-    startAutoSlide
-  );
-
-  slider.addEventListener(
-    "focusin",
-    () => {
-      stopAutoSlide();
-
-      if (slides.length > 1) {
-        autoStatus.textContent =
-          "Paused";
-      }
-    }
-  );
-
-  slider.addEventListener(
-    "focusout",
-    (event) => {
-
-      if (
-        !slider.contains(
-          event.relatedTarget
-        )
-      ) {
-        startAutoSlide();
-      }
-    }
-  );
+  /*
+    Keyboard navigation.
+  */
 
   slider.addEventListener(
     "keydown",
     (event) => {
 
-      if (
-        event.key === "ArrowLeft"
-      ) {
+      if (event.key === "ArrowLeft") {
         event.preventDefault();
-
-        showSlide(
-          currentIndex - 1
-        );
-
-        restartAutoSlide();
+        showSlide(currentIndex - 1);
       }
 
-      if (
-        event.key === "ArrowRight"
-      ) {
+      if (event.key === "ArrowRight") {
         event.preventDefault();
-
-        showSlide(
-          currentIndex + 1
-        );
-
-        restartAutoSlide();
+        showSlide(currentIndex + 1);
       }
     }
   );
 
+  /*
+    Start with the newest article.
+    Nothing automatically changes after this.
+  */
+
   showSlide(0);
-  startAutoSlide();
 
 })();
 
