@@ -3027,129 +3027,6 @@ footer strong {
   </div>
 </div>
 
-/* =========================================================
-   FLOATING BUTTONS
-   Public Notice = RIGHT
-   Privacy & Terms = LEFT
-========================================================= */
-
-.privacy-floating {
-  position: fixed;
-  left: 15px;
-  bottom: 15px;
-  z-index: 900;
-}
-
-.public-notice-floating {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  z-index: 900;
-}
-
-/* Shared button style */
-.privacy-floating button,
-.public-notice-floating button {
-  padding: 8px 13px;
-  border-radius: 20px;
-  background: white;
-  color: #475569;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition:
-    color .2s ease,
-    border-color .2s ease,
-    background .2s ease,
-    box-shadow .2s ease,
-    transform .2s ease;
-}
-
-/* =========================================================
-   PRIVACY & TERMS — LEFT
-   White hover, NO glow
-========================================================= */
-
-.privacy-floating button {
-  border: 1px solid #CBD5E1;
-}
-
-.privacy-floating button:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  background: white;
-  box-shadow: none;
-}
-
-/* =========================================================
-   PUBLIC NOTICE — RIGHT
-   White hover + BLUE GLOW
-========================================================= */
-
-.public-notice-floating button {
-  border: 2px solid #CBD5E1;
-  animation: kea-border-blink 1.6s ease-in-out infinite;
-}
-
-.public-notice-floating button:hover {
-  animation: none;
-  border-color: var(--blue);
-  color: var(--blue);
-  background: white;
-
-  box-shadow:
-    0 0 6px rgba(37, 99, 235, .45),
-    0 0 16px rgba(37, 99, 235, .30),
-    0 0 28px rgba(37, 99, 235, .18);
-
-  transform: scale(1.02);
-}
-
-/* =========================================================
-   PUBLIC NOTICE ANIMATION
-========================================================= */
-
-@keyframes kea-border-blink {
-  0%, 100% {
-    border-color: #CBD5E1;
-    box-shadow: none;
-    transform: scale(1);
-  }
-
-  50% {
-    border-color: var(--blue);
-
-    box-shadow:
-      0 0 6px rgba(37, 99, 235, .35),
-      0 0 14px rgba(37, 99, 235, .20);
-
-    transform: scale(1.02);
-  }
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-  .privacy-floating {
-    left: 8px;
-    bottom: 8px;
-  }
-
-  .public-notice-floating {
-    right: 8px;
-    bottom: 8px;
-  }
-
-  .privacy-floating button,
-  .public-notice-floating button {
-    padding: 7px 11px;
-    font-size: 10px;
-  }
-}
-
-  
 <!-- =========================================================
      JAVASCRIPT
 ========================================================== -->
@@ -3252,6 +3129,7 @@ function reducedMotion() {
 })();
 
 
+
 /* =========================================================
    FORM ELEMENTS
 ========================================================== */
@@ -3338,6 +3216,37 @@ privacyModal?.addEventListener("click", (event) => {
     closePrivacyModal();
   }
 });
+
+<!-- =========================================================
+     FLOATING PRIVACY BUTTON
+========================================================== -->
+
+<div class="privacy-floating">
+  <button
+    type="button"
+    id="open-privacy"
+    aria-haspopup="dialog"
+    aria-controls="privacy-modal"
+  >
+    Privacy &amp; Terms
+  </button>
+</div>
+
+
+<!-- =========================================================
+     FLOATING PUBLIC NOTICE BUTTON
+========================================================== -->
+
+<div class="public-notice-floating">
+  <button
+    type="button"
+    id="open-public-notice"
+    aria-expanded="true"
+    aria-controls="public-notice"
+  >
+    Public Notice
+  </button>
+</div>
 
 /* =========================================================
    LOCATION
@@ -3475,22 +3384,28 @@ allowLocation?.addEventListener(
   }
 );
 
-/* Restore remembered preference */
-(() => {
+/* =========================================================
+   RESTORE REMEMBERED LOCATION PREFERENCE
+========================================================== */
 
+(() => {
   const consent = getLocationConsent();
 
   if (!locationPermission) {
     return;
   }
 
-  switch (consent) {
-
-case "granted":
-  locationPermission.value = "previously_granted";
   clearLocation();
-  break;
 
+  switch (consent) {
+    case "granted":
+      /*
+       * Do not silently reacquire location.
+       * A new browser location request requires
+       * another explicit user action.
+       */
+      locationPermission.value = "previously_granted";
+      break;
 
     case "denied":
       locationPermission.value = "previously_denied";
@@ -3503,9 +3418,7 @@ case "granted":
     default:
       locationPermission.value = "not_requested";
   }
-
 })();
-
   
 /* =========================================================
    IMAGE ZOOM
