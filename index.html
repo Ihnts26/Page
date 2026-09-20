@@ -786,6 +786,127 @@ nav a:focus-visible {
   }
 }
 
+  /* =========================================================
+   ARTICLE READ MORE / READ LESS
+========================================================= */
+
+.article-preview {
+  margin-bottom: 0;
+}
+
+.article-preview p:last-child {
+  margin-bottom: 0;
+}
+
+.read-more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin-top: 18px;
+  padding: 9px 18px;
+
+  border: 1px solid var(--blue);
+  border-radius: 7px;
+
+  background: var(--blue);
+  color: white;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.read-more-button:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.read-more-button:active {
+  transform: translateY(0);
+}
+
+.article-content {
+  margin-top: 18px;
+  padding: 20px;
+
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  animation: articleReveal .25s ease;
+}
+
+.article-content[hidden] {
+  display: none;
+}
+
+.article-content h4 {
+  margin: 22px 0 8px;
+
+  color: var(--navy);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.article-content h4:first-child {
+  margin-top: 0;
+}
+
+.article-content p,
+.article-content li {
+  color: #475569;
+  font-size: .88rem;
+  line-height: 1.65;
+}
+
+.article-content ul {
+  padding-left: 20px;
+}
+
+.article-date {
+  margin-top: 25px;
+  font-weight: 700;
+  color: var(--blue) !important;
+}
+
+@keyframes articleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 650px) {
+
+  .article-content {
+    padding: 16px;
+  }
+
+  .read-more-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .article-content {
+    animation: none;
+  }
+}
+
 /* =========================================================
    CTA
 ========================================================= */
@@ -3207,46 +3328,55 @@ document.addEventListener(
 );
 
 /* =========================================================
-   READ MORE / LESS
-========================================================== */
+   BLOG ARTICLE READ MORE / READ LESS
+========================================================= */
 
 document
-  .querySelectorAll(
-    ".read-more-button"
-  )
+  .querySelectorAll(".read-more-button")
   .forEach((button) => {
 
-    button.addEventListener(
-      "click",
-      () => {
+    button.addEventListener("click", () => {
 
-        const content =
-          $(button.getAttribute(
-            "aria-controls"
-          ));
+      const contentId =
+        button.getAttribute("aria-controls");
 
-        if (!content) {
-          return;
-        }
+      const content =
+        document.getElementById(contentId);
 
-        const open =
-          button.getAttribute(
-            "aria-expanded"
-          ) === "true";
+      if (!content) {
+        return;
+      }
 
-        content.hidden = open;
+      const isOpen =
+        button.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+
+        content.hidden = true;
 
         button.setAttribute(
           "aria-expanded",
-          String(!open)
+          "false"
         );
 
         button.textContent =
-          open
-            ? "View Full Notice"
-            : "Read Less";
+          "Read More";
+
+      } else {
+
+        content.hidden = false;
+
+        button.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        button.textContent =
+          "Read Less";
       }
-    );
+
+    });
+
   });
 
 /* =========================================================
