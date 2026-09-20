@@ -4015,82 +4015,61 @@ function restoreFormState() {
    FORM RESPONSE
 ========================================================== */
 
-window.addEventListener(
-  "message",
-  (event) => {
+window.addEventListener("message", (event) => {
 
-    if (!submitting) {
-      return;
-    }
+  if (!submitting) {
+    return;
+  }
 
-/*
- * Only accept messages coming from the
- * hidden response iframe.
- */
-if (
-  iframe &&
-  event.source === iframe.contentWindow
-) {
-  return;
-}
+  let data;
 
+  try {
+    data =
+      typeof event.data === "string"
+        ? JSON.parse(event.data)
+        : event.data;
+  } catch {
+    return;
+  }
 
-    let data;
+  if (
+    !data ||
+    typeof data !== "object" ||
+    data.type !== "KEA_FORM_RESPONSE"
+  ) {
+    return;
+  }
 
-    try {
+  /* Successful submission */
 
-      data =
-        typeof event.data === "string"
-          ? JSON.parse(event.data)
-          : event.data;
-
-    } catch {
-
-      return;
-    }
-
-    if (
-      !data ||
-      typeof data !== "object" ||
-      data.type !==
-        "KEA_FORM_RESPONSE"
-    ) {
-      return;
-    }
-
-
-    /* Successful submission */
-
-    if (data.success === true) {
-
-      resetSubmission();
-
-      showStatus(
-        data.message ||
-        "Thank you. Your requirement has been received successfully.",
-        "success"
-      );
-
-      restoreFormState();
-
-      nameInput?.focus();
-
-      return;
-    }
-
-
-    /* Server reported an error */
+  if (data.success === true) {
 
     resetSubmission();
 
     showStatus(
       data.message ||
-      "Your request could not be processed. Please try again.",
-      "error"
+      "Thank you. Your requirement has been received successfully.",
+      "success"
     );
 
+    restoreFormState();
+
+    nameInput?.focus();
+
+    return;
   }
-);
+
+  /* Server reported an error */
+
+  resetSubmission();
+
+  showStatus(
+    data.message ||
+    "Your request could not be processed. Please try again.",
+    "error"
+  );
+
+});
 
 
 /* =========================================================
@@ -4256,7 +4235,8 @@ form?.addEventListener(
           resetSubmission();
 
           showStatus(
-            "The server did not confirm the submission. Please check your connection and try again.",
+            "The submission may have been received, but the server did not return a confirmation. Please avoid submitting the same request repeatedly and check again."
+",
             "error"
           );
 
